@@ -11,6 +11,11 @@ use \WsdlToPhp\PackageBase\AbstractSoapClientBase;
  */
 class CdiscountGet extends AbstractSoapClientBase
 {
+    public function __construct(array $wsdlOptions = [])
+    {
+        parent::__construct($wsdlOptions);
+    }
+
     /**
      * Method to call the operation originally named GetProductList
      * @uses AbstractSoapClientBase::getSoapClient()

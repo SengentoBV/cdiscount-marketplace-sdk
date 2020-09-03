@@ -25,6 +25,7 @@ $options = array(
  * Samples for Get ServiceType
  */
 $get = new \SengentoBV\CdiscountMarketplaceSdk\Services\CdiscountGet($options);
+$get->getSoapClient()->__setLocation('https://wsvc.cdiscount.com/MarketplaceAPIService.svc');
 /**
  * Sample call for GetProductList operation/method
  */
@@ -33,6 +34,7 @@ if ($get->GetProductList(new \SengentoBV\CdiscountMarketplaceSdk\Structs\Cdiscou
 } else {
     print_r($get->getLastError());
 }
+die();
 /**
  * Sample call for GetProductPackageSubmissionResult operation/method
  */
