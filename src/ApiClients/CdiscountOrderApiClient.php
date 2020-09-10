@@ -6,6 +6,7 @@ use SengentoBV\CdiscountMarketplaceSdk\CdiscountMarketplaceApiClient;
 use SengentoBV\CdiscountMarketplaceSdk\Exceptions\CdiscountException;
 use SengentoBV\CdiscountMarketplaceSdk\Exceptions\CdiscountSoapFaultException;
 use SengentoBV\CdiscountMarketplaceSdk\ServiceClients\CdiscountGetServiceClient;
+use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetGlobalConfigurationResponse;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOrderListResponse;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter;
 
@@ -32,6 +33,16 @@ class CdiscountOrderApiClient extends AbstractCdiscountApiClient
     public function getOrderList(CdiscountOrderFilter $filter) : CdiscountGetOrderListResponse
     {
         return $this->getGetServiceClient()->getOrderList($filter);
+    }
+
+    /**
+     * @return CdiscountGetGlobalConfigurationResponse
+     * @throws CdiscountSoapFaultException
+     * @throws CdiscountException
+     */
+    public function getGlobalConfiguration() : CdiscountGetGlobalConfigurationResponse
+    {
+        return $this->getGetServiceClient()->getGlobalConfiguration();
     }
 
     private function getGetServiceClient() : CdiscountGetServiceClient {

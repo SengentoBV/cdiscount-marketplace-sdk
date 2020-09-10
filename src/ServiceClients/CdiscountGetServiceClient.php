@@ -8,10 +8,13 @@ use SengentoBV\CdiscountMarketplaceSdk\Exceptions\CdiscountException;
 use SengentoBV\CdiscountMarketplaceSdk\Exceptions\CdiscountSoapFaultException;
 use SengentoBV\CdiscountMarketplaceSdk\Services\CdiscountGet;
 use SengentoBV\CdiscountMarketplaceSdk\Services\CdiscountServiceMap;
+use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetGlobalConfiguration;
+use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetGlobalConfigurationResponse;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOfferList;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOfferListResponse;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOrderList;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOrderListResponse;
+use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGlobalConfigurationMessage;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter;
 use SoapFault;
@@ -49,10 +52,10 @@ class CdiscountGetServiceClient extends AbstractCdiscountServiceClient
     }
 
     /**
-     * @param CdiscountOfferFilter $filter
-     * @return CdiscountGetOfferListResponse
-     * @throws CdiscountSoapFaultException
+     * @param CdiscountOrderFilter $filter
+     * @return CdiscountGetOrderListResponse
      * @throws CdiscountException
+     * @throws CdiscountSoapFaultException
      */
     public function getOrderList(CdiscountOrderFilter $filter) : CdiscountGetOrderListResponse
     {
@@ -62,37 +65,20 @@ class CdiscountGetServiceClient extends AbstractCdiscountServiceClient
         );
 
         return $this->executeGetServiceRequest($request, 'GetOrderList', [$filter], __FUNCTION__);
+    }
 
-        /*
-        $wsdlServiceClient = $this->getWsdlServiceClient();
-
-        $request = new CdiscountGetOrderList(
-            $this->getApiClient()->getSoapServiceHeader(),
-            $filter
+    /**
+     * @return CdiscountGetGlobalConfigurationResponse
+     * @throws CdiscountException
+     * @throws CdiscountSoapFaultException
+     */
+    public function getGlobalConfiguration() : CdiscountGetGlobalConfigurationResponse
+    {
+        $request = new CdiscountGetGlobalConfiguration(
+            $this->getApiClient()->getSoapServiceHeader()
         );
 
-        $result = $wsdlServiceClient->GetOrderList($request);
-
-        if ($result === false) {
-            $fault = $wsdlServiceClient->getLastErrorForMethod(get_class($wsdlServiceClient) . '::GetOrderList');
-
-            try {
-                if ($this->getApiClient()->getFaultHandler()->tryRecover($this, __FUNCTION__ , $fault)) {
-
-                    return $this->getOrderList($filter);
-                }
-            }
-            catch (CdiscountException $cdiscountException) {
-                throw $cdiscountException;
-            }
-            catch (Exception $exception) {
-                throw new CdiscountException($exception);
-            }
-
-            throw new CdiscountSoapFaultException($fault);
-        }
-
-        return $result;*/
+        return $this->executeGetServiceRequest($request, 'GetGlobalConfiguration', [], __FUNCTION__);
     }
 
     /**

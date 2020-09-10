@@ -13,5 +13,8 @@
         "psr-4": {
             "SengentoBV\\CdiscountMarketplaceSdk\\": "./src/"
         }
+    },
+    "require-dev": {
+        "vlucas/phpdotenv": "^5.1"
     }
 }
