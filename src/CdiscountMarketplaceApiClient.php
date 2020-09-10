@@ -21,10 +21,7 @@ class CdiscountMarketplaceApiClient
      */
     const CLIENT_SERVICE_URL = 'client_service_url';
 
-    /**
-     * @var array|null
-     */
-    private $wsdlOptions;
+    private array $wsdlOptions;
 
     private CdiscountFaultHandler $faultHandler;
 
