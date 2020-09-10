@@ -113,7 +113,7 @@ if ($get->GetOfferPackageSubmissionResult(new \SengentoBV\CdiscountMarketplaceSd
 if ($get->GetOfferList(new \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOfferList()) !== false) {
     print_r($get->getResult());
 } else {
-    print_r($get->getLastError());
+    print_r($get->s());
 }
 /**
  * Sample call for GetOfferListPaginated operation/method
