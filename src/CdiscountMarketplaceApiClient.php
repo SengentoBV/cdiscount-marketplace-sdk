@@ -5,6 +5,7 @@ namespace SengentoBV\CdiscountMarketplaceSdk;
 
 use SengentoBV\CdiscountMarketplaceSdk\ApiClients\CdiscountOfferApiClient;
 use SengentoBV\CdiscountMarketplaceSdk\ApiClients\CdiscountOrderApiClient;
+use SengentoBV\CdiscountMarketplaceSdk\ApiClients\CdiscountProductApiClient;
 use SengentoBV\CdiscountMarketplaceSdk\Services\CdiscountServiceMap;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountContextMessage;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage;
@@ -39,7 +40,8 @@ class CdiscountMarketplaceApiClient
      * @param ?string $token
      * @param array|null $wsdlOptions
      */
-    public function __construct(?string $token = null, array $wsdlOptions = null) {
+    public function __construct(?string $token = null, array $wsdlOptions = null)
+    {
 
         $this->faultHandler = new CdiscountFaultHandler();
 
@@ -54,7 +56,7 @@ class CdiscountMarketplaceApiClient
      * @param string $token
      * @return CdiscountMarketplaceApiClient
      */
-    public function setToken(string $token) : CdiscountMarketplaceApiClient
+    public function setToken(string $token): CdiscountMarketplaceApiClient
     {
 
         $this->token = $token;
@@ -63,7 +65,7 @@ class CdiscountMarketplaceApiClient
         return $this;
     }
 
-    public function getWsdlOptions() : array
+    public function getWsdlOptions(): array
     {
         $wsdlOptions = array(
             AbstractSoapClientBase::WSDL_URL => 'https://wsvc.cdiscount.com/MarketplaceAPIService.svc?singleWsdl',
@@ -82,14 +84,16 @@ class CdiscountMarketplaceApiClient
         return $wsdlOptions;
     }
 
-    public function getWsdlClientServiceUrl() : string {
+    public function getWsdlClientServiceUrl(): string
+    {
 
         $wsdlOptions = $this->getWsdlOptions();
 
         return $wsdlOptions[CdiscountMarketplaceApiClient::CLIENT_SERVICE_URL];
     }
 
-    private function initSoapServiceHeader(?string $token) {
+    private function initSoapServiceHeader(?string $token)
+    {
 
         $headerContext = new CdiscountContextMessage();
 
@@ -121,7 +125,8 @@ class CdiscountMarketplaceApiClient
         );
     }
 
-    public function getSoapServiceClient(string $service) : AbstractSoapClientBase {
+    public function getSoapServiceClient(string $service): AbstractSoapClientBase
+    {
 
         $service = strtolower($service);
 
@@ -148,17 +153,22 @@ class CdiscountMarketplaceApiClient
         return $serviceInstance;
     }
 
-    public function getSoapServiceHeader() : CdiscountHeaderMessage
+    public function getSoapServiceHeader(): CdiscountHeaderMessage
     {
         return $this->header;
     }
 
-    public function offer() : CdiscountOfferApiClient
+    public function offer(): CdiscountOfferApiClient
     {
         return new CdiscountOfferApiClient($this);
     }
 
-    public function order() : CdiscountOrderApiClient
+    public function product(): CdiscountProductApiClient
+    {
+        return new CdiscountProductApiClient($this);
+    }
+
+    public function order(): CdiscountOrderApiClient
     {
         return new CdiscountOrderApiClient($this);
     }

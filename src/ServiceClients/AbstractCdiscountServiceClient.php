@@ -19,10 +19,10 @@ abstract class AbstractCdiscountServiceClient
         $this->apiClient = $apiClient;
     }
 
-    public function getApiClient() : CdiscountMarketplaceApiClient
+    public function getApiClient(): CdiscountMarketplaceApiClient
     {
         return $this->apiClient;
     }
 
-    public abstract function getWsdlServiceClient() : AbstractSoapClientBase;
+    public abstract function getWsdlServiceClient(): AbstractSoapClientBase;
 }

@@ -3,7 +3,7 @@
     "description": "Unofficial Cdiscount Marketplace PHP SDK",
     "license": "MIT",
     "require": {
-        "php": ">=7.4",
+        "php": "^7.4|^8.0",
         "ext-soap": "*",
         "ext-mbstring": "*",
         "wsdltophp/packagebase": "~2.0",

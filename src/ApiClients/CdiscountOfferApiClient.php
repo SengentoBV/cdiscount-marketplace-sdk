@@ -29,12 +29,13 @@ class CdiscountOfferApiClient extends AbstractCdiscountApiClient
      * @return CdiscountGetOfferListResponse
      * @throws CdiscountSoapFaultException
      */
-    public function getOfferList(CdiscountOfferFilter $filter) : CdiscountGetOfferListResponse
+    public function getOfferList(CdiscountOfferFilter $filter): CdiscountGetOfferListResponse
     {
         return $this->getGetServiceClient()->getOfferList($filter);
     }
 
-    private function getGetServiceClient() : CdiscountGetServiceClient {
+    private function getGetServiceClient(): CdiscountGetServiceClient
+    {
 
         if (!isset($this->serviceClients[CdiscountGetServiceClient::class])) {
             $this->serviceClients[CdiscountGetServiceClient::class] = new CdiscountGetServiceClient($this->apiClient);

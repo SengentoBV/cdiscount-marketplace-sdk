@@ -30,7 +30,7 @@ class CdiscountOrderApiClient extends AbstractCdiscountApiClient
      * @throws CdiscountSoapFaultException
      * @throws CdiscountException
      */
-    public function getOrderList(CdiscountOrderFilter $filter) : CdiscountGetOrderListResponse
+    public function getOrderList(CdiscountOrderFilter $filter): CdiscountGetOrderListResponse
     {
         return $this->getGetServiceClient()->getOrderList($filter);
     }
@@ -40,12 +40,13 @@ class CdiscountOrderApiClient extends AbstractCdiscountApiClient
      * @throws CdiscountSoapFaultException
      * @throws CdiscountException
      */
-    public function getGlobalConfiguration() : CdiscountGetGlobalConfigurationResponse
+    public function getGlobalConfiguration(): CdiscountGetGlobalConfigurationResponse
     {
         return $this->getGetServiceClient()->getGlobalConfiguration();
     }
 
-    private function getGetServiceClient() : CdiscountGetServiceClient {
+    private function getGetServiceClient(): CdiscountGetServiceClient
+    {
 
         if (!isset($this->serviceClients[CdiscountGetServiceClient::class])) {
             $this->serviceClients[CdiscountGetServiceClient::class] = new CdiscountGetServiceClient($this->apiClient);
