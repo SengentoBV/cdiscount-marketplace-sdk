@@ -14,16 +14,21 @@ use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOfferList;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOfferListResponse;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOrderList;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOrderListResponse;
+use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetProductListByIdentifier;
+use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetProductListByIdentifierResponse;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGlobalConfigurationMessage;
+use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountIdentifierRequest;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter;
 use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter;
+use SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductByIdentifier;
 use SoapFault;
 use WsdlToPhp\PackageBase\AbstractSoapClientBase;
 use WsdlToPhp\PackageBase\AbstractStructBase;
 
 class CdiscountGetServiceClient extends AbstractCdiscountServiceClient
 {
-    public function __construct(CdiscountMarketplaceApiClient $apiClient) {
+    public function __construct(CdiscountMarketplaceApiClient $apiClient)
+    {
 
         parent::__construct($apiClient);
     }
@@ -33,7 +38,7 @@ class CdiscountGetServiceClient extends AbstractCdiscountServiceClient
      * @return CdiscountGetOfferListResponse
      * @throws CdiscountSoapFaultException
      */
-    public function getOfferList(CdiscountOfferFilter $filter) : CdiscountGetOfferListResponse
+    public function getOfferList(CdiscountOfferFilter $filter): CdiscountGetOfferListResponse
     {
         $wsdlServiceClient = $this->getWsdlServiceClient();
 
@@ -57,7 +62,7 @@ class CdiscountGetServiceClient extends AbstractCdiscountServiceClient
      * @throws CdiscountException
      * @throws CdiscountSoapFaultException
      */
-    public function getOrderList(CdiscountOrderFilter $filter) : CdiscountGetOrderListResponse
+    public function getOrderList(CdiscountOrderFilter $filter): CdiscountGetOrderListResponse
     {
         $request = new CdiscountGetOrderList(
             $this->getApiClient()->getSoapServiceHeader(),
@@ -68,11 +73,27 @@ class CdiscountGetServiceClient extends AbstractCdiscountServiceClient
     }
 
     /**
+     * @param CdiscountIdentifierRequest $input
+     * @return CdiscountGetProductListByIdentifierResponse
+     * @throws CdiscountException
+     * @throws CdiscountSoapFaultException
+     */
+    public function getProductListByIdentifier(CdiscountIdentifierRequest $input): CdiscountGetProductListByIdentifierResponse
+    {
+        $request = new CdiscountGetProductListByIdentifier(
+            $this->getApiClient()->getSoapServiceHeader(),
+            $input
+        );
+
+        return $this->executeGetServiceRequest($request, 'GetProductListByIdentifier', [$input], __FUNCTION__);
+    }
+
+    /**
      * @return CdiscountGetGlobalConfigurationResponse
      * @throws CdiscountException
      * @throws CdiscountSoapFaultException
      */
-    public function getGlobalConfiguration() : CdiscountGetGlobalConfigurationResponse
+    public function getGlobalConfiguration(): CdiscountGetGlobalConfigurationResponse
     {
         $request = new CdiscountGetGlobalConfiguration(
             $this->getApiClient()->getSoapServiceHeader()
@@ -121,15 +142,13 @@ class CdiscountGetServiceClient extends AbstractCdiscountServiceClient
             $fault = $fault ?? $wsdlServiceClient->getLastErrorForMethod(get_class($wsdlServiceClient) . '::' . $requestFunction);
 
             try {
-                if ($this->getApiClient()->getFaultHandler()->tryRecover($this, $functionName , $fault)) {
+                if ($this->getApiClient()->getFaultHandler()->tryRecover($this, $functionName, $fault)) {
 
                     return $this->$functionName(...$arguments);
                 }
-            }
-            catch (CdiscountException $cdiscountException) {
+            } catch (CdiscountException $cdiscountException) {
                 throw $cdiscountException;
-            }
-            catch (Exception $exception) {
+            } catch (Exception $exception) {
                 throw new CdiscountException($exception);
             }
 
