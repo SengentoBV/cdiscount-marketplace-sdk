@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetProductList Structs
@@ -16,17 +19,17 @@ class CdiscountGetProductList extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public $headerMessage;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null;
     /**
      * The productFilter
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductFilter
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductFilter|null
      */
-    public $productFilter;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductFilter $productFilter = null;
     /**
      * Constructor method for GetProductList
      * @uses CdiscountGetProductList::setHeaderMessage()
@@ -34,7 +37,7 @@ class CdiscountGetProductList extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductFilter $productFilter
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductFilter $productFilter = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductFilter $productFilter = null)
     {
         $this
             ->setHeaderMessage($headerMessage)
@@ -47,7 +50,7 @@ class CdiscountGetProductList extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public function getHeaderMessage()
+    public function getHeaderMessage(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
     {
         return isset($this->headerMessage) ? $this->headerMessage : null;
     }
@@ -58,13 +61,14 @@ class CdiscountGetProductList extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetProductList
      */
-    public function setHeaderMessage(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null)
+    public function setHeaderMessage(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null): self
     {
         if (is_null($headerMessage) || (is_array($headerMessage) && empty($headerMessage))) {
             unset($this->headerMessage);
         } else {
             $this->headerMessage = $headerMessage;
         }
+        
         return $this;
     }
     /**
@@ -74,7 +78,7 @@ class CdiscountGetProductList extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductFilter|null
      */
-    public function getProductFilter()
+    public function getProductFilter(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductFilter
     {
         return isset($this->productFilter) ? $this->productFilter : null;
     }
@@ -85,13 +89,14 @@ class CdiscountGetProductList extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductFilter $productFilter
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetProductList
      */
-    public function setProductFilter(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductFilter $productFilter = null)
+    public function setProductFilter(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductFilter $productFilter = null): self
     {
         if (is_null($productFilter) || (is_array($productFilter) && empty($productFilter))) {
             unset($this->productFilter);
         } else {
             $this->productFilter = $productFilter;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for DiscussionMailStatusEnum Enums
@@ -42,13 +44,13 @@ class CdiscountDiscussionMailStatusEnum extends AbstractStructEnumBase
      * @uses self::VALUE_DISCUSSION_CLOSED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_DISCUSSION_NOT_FOUND,
             self::VALUE_UNKNOWN_ERROR,
             self::VALUE_SUCCESS,
             self::VALUE_DISCUSSION_CLOSED,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfOfferProduct Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfOfferProduct extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct[]
      */
-    public $OfferProduct;
+    protected ?array $OfferProduct = null;
     /**
      * Constructor method for ArrayOfOfferProduct
      * @uses CdiscountArrayOfOfferProduct::setOfferProduct()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct[] $offerProduct
      */
-    public function __construct(array $offerProduct = array())
+    public function __construct(?array $offerProduct = null)
     {
         $this
             ->setOfferProduct($offerProduct);
@@ -38,9 +41,9 @@ class CdiscountArrayOfOfferProduct extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct[]
      */
-    public function getOfferProduct()
+    public function getOfferProduct(): ?array
     {
         return isset($this->OfferProduct) ? $this->OfferProduct : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfOfferProduct extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateOfferProductForArrayConstraintsFromSetOfferProduct(array $values = array())
+    public static function validateOfferProductForArrayConstraintsFromSetOfferProduct(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfOfferProductOfferProductItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfOfferProduct extends AbstractStructArrayBase
             $message = sprintf('The OfferProduct property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set OfferProduct value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct[] $offerProduct
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferProduct
      */
-    public function setOfferProduct(array $offerProduct = array())
+    public function setOfferProduct(?array $offerProduct = null): self
     {
         // validation for constraint: array
         if ('' !== ($offerProductArrayErrorMessage = self::validateOfferProductForArrayConstraintsFromSetOfferProduct($offerProduct))) {
-            throw new \InvalidArgumentException($offerProductArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($offerProductArrayErrorMessage, __LINE__);
         }
         if (is_null($offerProduct) || (is_array($offerProduct) && empty($offerProduct))) {
             unset($this->OfferProduct);
         } else {
             $this->OfferProduct = $offerProduct;
         }
-        return $this;
-    }
-    /**
-     * Add item to OfferProduct value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferProduct
-     */
-    public function addToOfferProduct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct) {
-            throw new \InvalidArgumentException(sprintf('The OfferProduct property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->OfferProduct[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfOfferProduct extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfOfferProduct extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfOfferProduct extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfOfferProduct extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct
     {
         return parent::last();
     }
@@ -145,16 +138,31 @@ class CdiscountArrayOfOfferProduct extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferProduct
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct) {
+            throw new InvalidArgumentException(sprintf('The OfferProduct property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProduct, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string OfferProduct
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'OfferProduct';
     }

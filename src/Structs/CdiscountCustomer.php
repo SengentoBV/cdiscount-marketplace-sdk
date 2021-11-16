@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Customer Structs
@@ -19,81 +22,81 @@ class CdiscountCustomer extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Civility;
+    protected ?string $Civility = null;
     /**
      * The CustomerId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CustomerId;
+    protected ?string $CustomerId = null;
     /**
      * The Email
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Email;
+    protected ?string $Email = null;
     /**
      * The EncryptedEmail
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $EncryptedEmail;
+    protected ?string $EncryptedEmail = null;
     /**
      * The FirstName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $FirstName;
+    protected ?string $FirstName = null;
     /**
      * The LastName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $LastName;
+    protected ?string $LastName = null;
     /**
      * The MobilePhone
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $MobilePhone;
+    protected ?string $MobilePhone = null;
     /**
      * The Phone
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Phone;
+    protected ?string $Phone = null;
     /**
      * The ShippingFirstName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ShippingFirstName;
+    protected ?string $ShippingFirstName = null;
     /**
      * The ShippingLastName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ShippingLastName;
+    protected ?string $ShippingLastName = null;
     /**
      * Constructor method for Customer
      * @uses CdiscountCustomer::setCivility()
@@ -117,7 +120,7 @@ class CdiscountCustomer extends AbstractStructBase
      * @param string $shippingFirstName
      * @param string $shippingLastName
      */
-    public function __construct($civility = null, $customerId = null, $email = null, $encryptedEmail = null, $firstName = null, $lastName = null, $mobilePhone = null, $phone = null, $shippingFirstName = null, $shippingLastName = null)
+    public function __construct(?string $civility = null, ?string $customerId = null, ?string $email = null, ?string $encryptedEmail = null, ?string $firstName = null, ?string $lastName = null, ?string $mobilePhone = null, ?string $phone = null, ?string $shippingFirstName = null, ?string $shippingLastName = null)
     {
         $this
             ->setCivility($civility)
@@ -138,7 +141,7 @@ class CdiscountCustomer extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCivility()
+    public function getCivility(): ?string
     {
         return isset($this->Civility) ? $this->Civility : null;
     }
@@ -148,21 +151,22 @@ class CdiscountCustomer extends AbstractStructBase
      * if the value assigned to this property is null, it is removed from this object
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCivility::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCivility::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $civility
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCustomer
      */
-    public function setCivility($civility = null)
+    public function setCivility(?string $civility = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCivility::valueIsValid($civility)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCivility', is_array($civility) ? implode(', ', $civility) : var_export($civility, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCivility::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCivility', is_array($civility) ? implode(', ', $civility) : var_export($civility, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCivility::getValidValues())), __LINE__);
         }
         if (is_null($civility) || (is_array($civility) && empty($civility))) {
             unset($this->Civility);
         } else {
             $this->Civility = $civility;
         }
+        
         return $this;
     }
     /**
@@ -172,7 +176,7 @@ class CdiscountCustomer extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCustomerId()
+    public function getCustomerId(): ?string
     {
         return isset($this->CustomerId) ? $this->CustomerId : null;
     }
@@ -183,17 +187,18 @@ class CdiscountCustomer extends AbstractStructBase
      * @param string $customerId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCustomer
      */
-    public function setCustomerId($customerId = null)
+    public function setCustomerId(?string $customerId = null): self
     {
         // validation for constraint: string
         if (!is_null($customerId) && !is_string($customerId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customerId, true), gettype($customerId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customerId, true), gettype($customerId)), __LINE__);
         }
         if (is_null($customerId) || (is_array($customerId) && empty($customerId))) {
             unset($this->CustomerId);
         } else {
             $this->CustomerId = $customerId;
         }
+        
         return $this;
     }
     /**
@@ -203,7 +208,7 @@ class CdiscountCustomer extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return isset($this->Email) ? $this->Email : null;
     }
@@ -214,17 +219,18 @@ class CdiscountCustomer extends AbstractStructBase
      * @param string $email
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCustomer
      */
-    public function setEmail($email = null)
+    public function setEmail(?string $email = null): self
     {
         // validation for constraint: string
         if (!is_null($email) && !is_string($email)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($email, true), gettype($email)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($email, true), gettype($email)), __LINE__);
         }
         if (is_null($email) || (is_array($email) && empty($email))) {
             unset($this->Email);
         } else {
             $this->Email = $email;
         }
+        
         return $this;
     }
     /**
@@ -234,7 +240,7 @@ class CdiscountCustomer extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getEncryptedEmail()
+    public function getEncryptedEmail(): ?string
     {
         return isset($this->EncryptedEmail) ? $this->EncryptedEmail : null;
     }
@@ -245,17 +251,18 @@ class CdiscountCustomer extends AbstractStructBase
      * @param string $encryptedEmail
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCustomer
      */
-    public function setEncryptedEmail($encryptedEmail = null)
+    public function setEncryptedEmail(?string $encryptedEmail = null): self
     {
         // validation for constraint: string
         if (!is_null($encryptedEmail) && !is_string($encryptedEmail)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($encryptedEmail, true), gettype($encryptedEmail)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($encryptedEmail, true), gettype($encryptedEmail)), __LINE__);
         }
         if (is_null($encryptedEmail) || (is_array($encryptedEmail) && empty($encryptedEmail))) {
             unset($this->EncryptedEmail);
         } else {
             $this->EncryptedEmail = $encryptedEmail;
         }
+        
         return $this;
     }
     /**
@@ -265,7 +272,7 @@ class CdiscountCustomer extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getFirstName()
+    public function getFirstName(): ?string
     {
         return isset($this->FirstName) ? $this->FirstName : null;
     }
@@ -276,17 +283,18 @@ class CdiscountCustomer extends AbstractStructBase
      * @param string $firstName
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCustomer
      */
-    public function setFirstName($firstName = null)
+    public function setFirstName(?string $firstName = null): self
     {
         // validation for constraint: string
         if (!is_null($firstName) && !is_string($firstName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($firstName, true), gettype($firstName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($firstName, true), gettype($firstName)), __LINE__);
         }
         if (is_null($firstName) || (is_array($firstName) && empty($firstName))) {
             unset($this->FirstName);
         } else {
             $this->FirstName = $firstName;
         }
+        
         return $this;
     }
     /**
@@ -296,7 +304,7 @@ class CdiscountCustomer extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getLastName()
+    public function getLastName(): ?string
     {
         return isset($this->LastName) ? $this->LastName : null;
     }
@@ -307,17 +315,18 @@ class CdiscountCustomer extends AbstractStructBase
      * @param string $lastName
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCustomer
      */
-    public function setLastName($lastName = null)
+    public function setLastName(?string $lastName = null): self
     {
         // validation for constraint: string
         if (!is_null($lastName) && !is_string($lastName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastName, true), gettype($lastName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastName, true), gettype($lastName)), __LINE__);
         }
         if (is_null($lastName) || (is_array($lastName) && empty($lastName))) {
             unset($this->LastName);
         } else {
             $this->LastName = $lastName;
         }
+        
         return $this;
     }
     /**
@@ -327,7 +336,7 @@ class CdiscountCustomer extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getMobilePhone()
+    public function getMobilePhone(): ?string
     {
         return isset($this->MobilePhone) ? $this->MobilePhone : null;
     }
@@ -338,17 +347,18 @@ class CdiscountCustomer extends AbstractStructBase
      * @param string $mobilePhone
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCustomer
      */
-    public function setMobilePhone($mobilePhone = null)
+    public function setMobilePhone(?string $mobilePhone = null): self
     {
         // validation for constraint: string
         if (!is_null($mobilePhone) && !is_string($mobilePhone)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mobilePhone, true), gettype($mobilePhone)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mobilePhone, true), gettype($mobilePhone)), __LINE__);
         }
         if (is_null($mobilePhone) || (is_array($mobilePhone) && empty($mobilePhone))) {
             unset($this->MobilePhone);
         } else {
             $this->MobilePhone = $mobilePhone;
         }
+        
         return $this;
     }
     /**
@@ -358,7 +368,7 @@ class CdiscountCustomer extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getPhone()
+    public function getPhone(): ?string
     {
         return isset($this->Phone) ? $this->Phone : null;
     }
@@ -369,17 +379,18 @@ class CdiscountCustomer extends AbstractStructBase
      * @param string $phone
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCustomer
      */
-    public function setPhone($phone = null)
+    public function setPhone(?string $phone = null): self
     {
         // validation for constraint: string
         if (!is_null($phone) && !is_string($phone)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phone, true), gettype($phone)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phone, true), gettype($phone)), __LINE__);
         }
         if (is_null($phone) || (is_array($phone) && empty($phone))) {
             unset($this->Phone);
         } else {
             $this->Phone = $phone;
         }
+        
         return $this;
     }
     /**
@@ -389,7 +400,7 @@ class CdiscountCustomer extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getShippingFirstName()
+    public function getShippingFirstName(): ?string
     {
         return isset($this->ShippingFirstName) ? $this->ShippingFirstName : null;
     }
@@ -400,17 +411,18 @@ class CdiscountCustomer extends AbstractStructBase
      * @param string $shippingFirstName
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCustomer
      */
-    public function setShippingFirstName($shippingFirstName = null)
+    public function setShippingFirstName(?string $shippingFirstName = null): self
     {
         // validation for constraint: string
         if (!is_null($shippingFirstName) && !is_string($shippingFirstName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($shippingFirstName, true), gettype($shippingFirstName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($shippingFirstName, true), gettype($shippingFirstName)), __LINE__);
         }
         if (is_null($shippingFirstName) || (is_array($shippingFirstName) && empty($shippingFirstName))) {
             unset($this->ShippingFirstName);
         } else {
             $this->ShippingFirstName = $shippingFirstName;
         }
+        
         return $this;
     }
     /**
@@ -420,7 +432,7 @@ class CdiscountCustomer extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getShippingLastName()
+    public function getShippingLastName(): ?string
     {
         return isset($this->ShippingLastName) ? $this->ShippingLastName : null;
     }
@@ -431,17 +443,18 @@ class CdiscountCustomer extends AbstractStructBase
      * @param string $shippingLastName
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCustomer
      */
-    public function setShippingLastName($shippingLastName = null)
+    public function setShippingLastName(?string $shippingLastName = null): self
     {
         // validation for constraint: string
         if (!is_null($shippingLastName) && !is_string($shippingLastName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($shippingLastName, true), gettype($shippingLastName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($shippingLastName, true), gettype($shippingLastName)), __LINE__);
         }
         if (is_null($shippingLastName) || (is_array($shippingLastName) && empty($shippingLastName))) {
             unset($this->ShippingLastName);
         } else {
             $this->ShippingLastName = $shippingLastName;
         }
+        
         return $this;
     }
 }

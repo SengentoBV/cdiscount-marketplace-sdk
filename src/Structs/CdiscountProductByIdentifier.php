@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ProductByIdentifier Structs
@@ -19,88 +22,88 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $BrandName;
+    protected ?string $BrandName = null;
     /**
      * The CategoryCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CategoryCode;
+    protected ?string $CategoryCode = null;
     /**
      * The Color
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Color;
+    protected ?string $Color = null;
     /**
      * The Ean
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Ean;
+    protected ?string $Ean = null;
     /**
      * The ErrorMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ErrorMessage;
+    protected ?string $ErrorMessage = null;
     /**
      * The FatherProductId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $FatherProductId;
+    protected ?string $FatherProductId = null;
     /**
      * The HasError
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HasError;
+    protected ?bool $HasError = null;
     /**
      * The ImageUrl
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ImageUrl;
+    protected ?string $ImageUrl = null;
     /**
      * The Name
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * The ProductType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ProductType;
+    protected ?string $ProductType = null;
     /**
      * The Size
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Size;
+    protected ?string $Size = null;
     /**
      * Constructor method for ProductByIdentifier
      * @uses CdiscountProductByIdentifier::setBrandName()
@@ -126,7 +129,7 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * @param string $productType
      * @param string $size
      */
-    public function __construct($brandName = null, $categoryCode = null, $color = null, $ean = null, $errorMessage = null, $fatherProductId = null, $hasError = null, $imageUrl = null, $name = null, $productType = null, $size = null)
+    public function __construct(?string $brandName = null, ?string $categoryCode = null, ?string $color = null, ?string $ean = null, ?string $errorMessage = null, ?string $fatherProductId = null, ?bool $hasError = null, ?string $imageUrl = null, ?string $name = null, ?string $productType = null, ?string $size = null)
     {
         $this
             ->setBrandName($brandName)
@@ -148,7 +151,7 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getBrandName()
+    public function getBrandName(): ?string
     {
         return isset($this->BrandName) ? $this->BrandName : null;
     }
@@ -159,17 +162,18 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * @param string $brandName
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductByIdentifier
      */
-    public function setBrandName($brandName = null)
+    public function setBrandName(?string $brandName = null): self
     {
         // validation for constraint: string
         if (!is_null($brandName) && !is_string($brandName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($brandName, true), gettype($brandName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($brandName, true), gettype($brandName)), __LINE__);
         }
         if (is_null($brandName) || (is_array($brandName) && empty($brandName))) {
             unset($this->BrandName);
         } else {
             $this->BrandName = $brandName;
         }
+        
         return $this;
     }
     /**
@@ -179,7 +183,7 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCategoryCode()
+    public function getCategoryCode(): ?string
     {
         return isset($this->CategoryCode) ? $this->CategoryCode : null;
     }
@@ -190,17 +194,18 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * @param string $categoryCode
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductByIdentifier
      */
-    public function setCategoryCode($categoryCode = null)
+    public function setCategoryCode(?string $categoryCode = null): self
     {
         // validation for constraint: string
         if (!is_null($categoryCode) && !is_string($categoryCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($categoryCode, true), gettype($categoryCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($categoryCode, true), gettype($categoryCode)), __LINE__);
         }
         if (is_null($categoryCode) || (is_array($categoryCode) && empty($categoryCode))) {
             unset($this->CategoryCode);
         } else {
             $this->CategoryCode = $categoryCode;
         }
+        
         return $this;
     }
     /**
@@ -210,7 +215,7 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getColor()
+    public function getColor(): ?string
     {
         return isset($this->Color) ? $this->Color : null;
     }
@@ -221,17 +226,18 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * @param string $color
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductByIdentifier
      */
-    public function setColor($color = null)
+    public function setColor(?string $color = null): self
     {
         // validation for constraint: string
         if (!is_null($color) && !is_string($color)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($color, true), gettype($color)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($color, true), gettype($color)), __LINE__);
         }
         if (is_null($color) || (is_array($color) && empty($color))) {
             unset($this->Color);
         } else {
             $this->Color = $color;
         }
+        
         return $this;
     }
     /**
@@ -241,7 +247,7 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getEan()
+    public function getEan(): ?string
     {
         return isset($this->Ean) ? $this->Ean : null;
     }
@@ -252,17 +258,18 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * @param string $ean
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductByIdentifier
      */
-    public function setEan($ean = null)
+    public function setEan(?string $ean = null): self
     {
         // validation for constraint: string
         if (!is_null($ean) && !is_string($ean)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($ean, true), gettype($ean)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($ean, true), gettype($ean)), __LINE__);
         }
         if (is_null($ean) || (is_array($ean) && empty($ean))) {
             unset($this->Ean);
         } else {
             $this->Ean = $ean;
         }
+        
         return $this;
     }
     /**
@@ -272,7 +279,7 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getErrorMessage()
+    public function getErrorMessage(): ?string
     {
         return isset($this->ErrorMessage) ? $this->ErrorMessage : null;
     }
@@ -283,17 +290,18 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * @param string $errorMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductByIdentifier
      */
-    public function setErrorMessage($errorMessage = null)
+    public function setErrorMessage(?string $errorMessage = null): self
     {
         // validation for constraint: string
         if (!is_null($errorMessage) && !is_string($errorMessage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorMessage, true), gettype($errorMessage)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorMessage, true), gettype($errorMessage)), __LINE__);
         }
         if (is_null($errorMessage) || (is_array($errorMessage) && empty($errorMessage))) {
             unset($this->ErrorMessage);
         } else {
             $this->ErrorMessage = $errorMessage;
         }
+        
         return $this;
     }
     /**
@@ -303,7 +311,7 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getFatherProductId()
+    public function getFatherProductId(): ?string
     {
         return isset($this->FatherProductId) ? $this->FatherProductId : null;
     }
@@ -314,24 +322,25 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * @param string $fatherProductId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductByIdentifier
      */
-    public function setFatherProductId($fatherProductId = null)
+    public function setFatherProductId(?string $fatherProductId = null): self
     {
         // validation for constraint: string
         if (!is_null($fatherProductId) && !is_string($fatherProductId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fatherProductId, true), gettype($fatherProductId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fatherProductId, true), gettype($fatherProductId)), __LINE__);
         }
         if (is_null($fatherProductId) || (is_array($fatherProductId) && empty($fatherProductId))) {
             unset($this->FatherProductId);
         } else {
             $this->FatherProductId = $fatherProductId;
         }
+        
         return $this;
     }
     /**
      * Get HasError value
      * @return bool|null
      */
-    public function getHasError()
+    public function getHasError(): ?bool
     {
         return $this->HasError;
     }
@@ -340,13 +349,14 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * @param bool $hasError
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductByIdentifier
      */
-    public function setHasError($hasError = null)
+    public function setHasError(?bool $hasError = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hasError) && !is_bool($hasError)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasError, true), gettype($hasError)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasError, true), gettype($hasError)), __LINE__);
         }
         $this->HasError = $hasError;
+        
         return $this;
     }
     /**
@@ -356,7 +366,7 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getImageUrl()
+    public function getImageUrl(): ?string
     {
         return isset($this->ImageUrl) ? $this->ImageUrl : null;
     }
@@ -367,17 +377,18 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * @param string $imageUrl
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductByIdentifier
      */
-    public function setImageUrl($imageUrl = null)
+    public function setImageUrl(?string $imageUrl = null): self
     {
         // validation for constraint: string
         if (!is_null($imageUrl) && !is_string($imageUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($imageUrl, true), gettype($imageUrl)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($imageUrl, true), gettype($imageUrl)), __LINE__);
         }
         if (is_null($imageUrl) || (is_array($imageUrl) && empty($imageUrl))) {
             unset($this->ImageUrl);
         } else {
             $this->ImageUrl = $imageUrl;
         }
+        
         return $this;
     }
     /**
@@ -387,7 +398,7 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return isset($this->Name) ? $this->Name : null;
     }
@@ -398,17 +409,18 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * @param string $name
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductByIdentifier
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         if (is_null($name) || (is_array($name) && empty($name))) {
             unset($this->Name);
         } else {
             $this->Name = $name;
         }
+        
         return $this;
     }
     /**
@@ -418,7 +430,7 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getProductType()
+    public function getProductType(): ?string
     {
         return isset($this->ProductType) ? $this->ProductType : null;
     }
@@ -428,21 +440,22 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * if the value assigned to this property is null, it is removed from this object
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountProductTypeEnum::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountProductTypeEnum::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $productType
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductByIdentifier
      */
-    public function setProductType($productType = null)
+    public function setProductType(?string $productType = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountProductTypeEnum::valueIsValid($productType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountProductTypeEnum', is_array($productType) ? implode(', ', $productType) : var_export($productType, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountProductTypeEnum::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountProductTypeEnum', is_array($productType) ? implode(', ', $productType) : var_export($productType, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountProductTypeEnum::getValidValues())), __LINE__);
         }
         if (is_null($productType) || (is_array($productType) && empty($productType))) {
             unset($this->ProductType);
         } else {
             $this->ProductType = $productType;
         }
+        
         return $this;
     }
     /**
@@ -452,7 +465,7 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSize()
+    public function getSize(): ?string
     {
         return isset($this->Size) ? $this->Size : null;
     }
@@ -463,17 +476,18 @@ class CdiscountProductByIdentifier extends AbstractStructBase
      * @param string $size
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductByIdentifier
      */
-    public function setSize($size = null)
+    public function setSize(?string $size = null): self
     {
         // validation for constraint: string
         if (!is_null($size) && !is_string($size)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($size, true), gettype($size)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($size, true), gettype($size)), __LINE__);
         }
         if (is_null($size) || (is_array($size) && empty($size))) {
             unset($this->Size);
         } else {
             $this->Size = $size;
         }
+        
         return $this;
     }
 }

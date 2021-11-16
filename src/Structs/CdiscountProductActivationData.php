@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ProductActivationData Structs
@@ -16,44 +19,44 @@ class CdiscountProductActivationData extends AbstractStructBase
 {
     /**
      * The Action
-     * @var string
+     * @var string|null
      */
-    public $Action;
+    protected ?string $Action = null;
     /**
      * The Height
-     * @var float
+     * @var float|null
      */
-    public $Height;
+    protected ?float $Height = null;
     /**
      * The Length
-     * @var float
+     * @var float|null
      */
-    public $Length;
+    protected ?float $Length = null;
     /**
      * The ProductEan
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ProductEan;
+    protected ?string $ProductEan = null;
     /**
      * The SellerProductReference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SellerProductReference;
+    protected ?string $SellerProductReference = null;
     /**
      * The Weight
-     * @var float
+     * @var float|null
      */
-    public $Weight;
+    protected ?float $Weight = null;
     /**
      * The Width
-     * @var float
+     * @var float|null
      */
-    public $Width;
+    protected ?float $Width = null;
     /**
      * Constructor method for ProductActivationData
      * @uses CdiscountProductActivationData::setAction()
@@ -71,7 +74,7 @@ class CdiscountProductActivationData extends AbstractStructBase
      * @param float $weight
      * @param float $width
      */
-    public function __construct($action = null, $height = null, $length = null, $productEan = null, $sellerProductReference = null, $weight = null, $width = null)
+    public function __construct(?string $action = null, ?float $height = null, ?float $length = null, ?string $productEan = null, ?string $sellerProductReference = null, ?float $weight = null, ?float $width = null)
     {
         $this
             ->setAction($action)
@@ -86,7 +89,7 @@ class CdiscountProductActivationData extends AbstractStructBase
      * Get Action value
      * @return string|null
      */
-    public function getAction()
+    public function getAction(): ?string
     {
         return $this->Action;
     }
@@ -94,24 +97,25 @@ class CdiscountProductActivationData extends AbstractStructBase
      * Set Action value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountFulfilmentProductActionType::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountFulfilmentProductActionType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $action
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductActivationData
      */
-    public function setAction($action = null)
+    public function setAction(?string $action = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountFulfilmentProductActionType::valueIsValid($action)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountFulfilmentProductActionType', is_array($action) ? implode(', ', $action) : var_export($action, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountFulfilmentProductActionType::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountFulfilmentProductActionType', is_array($action) ? implode(', ', $action) : var_export($action, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountFulfilmentProductActionType::getValidValues())), __LINE__);
         }
         $this->Action = $action;
+        
         return $this;
     }
     /**
      * Get Height value
      * @return float|null
      */
-    public function getHeight()
+    public function getHeight(): ?float
     {
         return $this->Height;
     }
@@ -120,20 +124,21 @@ class CdiscountProductActivationData extends AbstractStructBase
      * @param float $height
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductActivationData
      */
-    public function setHeight($height = null)
+    public function setHeight(?float $height = null): self
     {
         // validation for constraint: float
         if (!is_null($height) && !(is_float($height) || is_numeric($height))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($height, true), gettype($height)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($height, true), gettype($height)), __LINE__);
         }
         $this->Height = $height;
+        
         return $this;
     }
     /**
      * Get Length value
      * @return float|null
      */
-    public function getLength()
+    public function getLength(): ?float
     {
         return $this->Length;
     }
@@ -142,20 +147,21 @@ class CdiscountProductActivationData extends AbstractStructBase
      * @param float $length
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductActivationData
      */
-    public function setLength($length = null)
+    public function setLength(?float $length = null): self
     {
         // validation for constraint: float
         if (!is_null($length) && !(is_float($length) || is_numeric($length))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($length, true), gettype($length)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($length, true), gettype($length)), __LINE__);
         }
         $this->Length = $length;
+        
         return $this;
     }
     /**
      * Get ProductEan value
      * @return string|null
      */
-    public function getProductEan()
+    public function getProductEan(): ?string
     {
         return $this->ProductEan;
     }
@@ -164,13 +170,14 @@ class CdiscountProductActivationData extends AbstractStructBase
      * @param string $productEan
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductActivationData
      */
-    public function setProductEan($productEan = null)
+    public function setProductEan(?string $productEan = null): self
     {
         // validation for constraint: string
         if (!is_null($productEan) && !is_string($productEan)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productEan, true), gettype($productEan)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productEan, true), gettype($productEan)), __LINE__);
         }
         $this->ProductEan = $productEan;
+        
         return $this;
     }
     /**
@@ -180,7 +187,7 @@ class CdiscountProductActivationData extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSellerProductReference()
+    public function getSellerProductReference(): ?string
     {
         return isset($this->SellerProductReference) ? $this->SellerProductReference : null;
     }
@@ -191,24 +198,25 @@ class CdiscountProductActivationData extends AbstractStructBase
      * @param string $sellerProductReference
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductActivationData
      */
-    public function setSellerProductReference($sellerProductReference = null)
+    public function setSellerProductReference(?string $sellerProductReference = null): self
     {
         // validation for constraint: string
         if (!is_null($sellerProductReference) && !is_string($sellerProductReference)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerProductReference, true), gettype($sellerProductReference)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerProductReference, true), gettype($sellerProductReference)), __LINE__);
         }
         if (is_null($sellerProductReference) || (is_array($sellerProductReference) && empty($sellerProductReference))) {
             unset($this->SellerProductReference);
         } else {
             $this->SellerProductReference = $sellerProductReference;
         }
+        
         return $this;
     }
     /**
      * Get Weight value
      * @return float|null
      */
-    public function getWeight()
+    public function getWeight(): ?float
     {
         return $this->Weight;
     }
@@ -217,20 +225,21 @@ class CdiscountProductActivationData extends AbstractStructBase
      * @param float $weight
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductActivationData
      */
-    public function setWeight($weight = null)
+    public function setWeight(?float $weight = null): self
     {
         // validation for constraint: float
         if (!is_null($weight) && !(is_float($weight) || is_numeric($weight))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($weight, true), gettype($weight)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($weight, true), gettype($weight)), __LINE__);
         }
         $this->Weight = $weight;
+        
         return $this;
     }
     /**
      * Get Width value
      * @return float|null
      */
-    public function getWidth()
+    public function getWidth(): ?float
     {
         return $this->Width;
     }
@@ -239,13 +248,14 @@ class CdiscountProductActivationData extends AbstractStructBase
      * @param float $width
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductActivationData
      */
-    public function setWidth($width = null)
+    public function setWidth(?float $width = null): self
     {
         // validation for constraint: float
         if (!is_null($width) && !(is_float($width) || is_numeric($width))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($width, true), gettype($width)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($width, true), gettype($width)), __LINE__);
         }
         $this->Width = $width;
+        
         return $this;
     }
 }

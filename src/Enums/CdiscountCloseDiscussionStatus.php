@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for CloseDiscussionStatus Enums
@@ -48,14 +50,14 @@ class CdiscountCloseDiscussionStatus extends AbstractStructEnumBase
      * @uses self::VALUE_ALREADY_CLOSED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_DISCUSSION_CLOSED,
             self::VALUE_DISCUSSION_NOT_FOUND,
             self::VALUE_UNAUTHORIZED_CANCEL_PENDING,
             self::VALUE_UNAUTHORIZED_LAST_ANSWER,
             self::VALUE_ALREADY_CLOSED,
-        );
+        ];
     }
 }

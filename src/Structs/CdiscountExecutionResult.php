@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ExecutionResult Structs
@@ -19,16 +22,16 @@ class CdiscountExecutionResult extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ErrorMessage;
+    protected ?string $ErrorMessage = null;
     /**
      * The Success
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $Success;
+    protected ?bool $Success = null;
     /**
      * Constructor method for ExecutionResult
      * @uses CdiscountExecutionResult::setErrorMessage()
@@ -36,7 +39,7 @@ class CdiscountExecutionResult extends AbstractStructBase
      * @param string $errorMessage
      * @param bool $success
      */
-    public function __construct($errorMessage = null, $success = null)
+    public function __construct(?string $errorMessage = null, ?bool $success = null)
     {
         $this
             ->setErrorMessage($errorMessage)
@@ -49,7 +52,7 @@ class CdiscountExecutionResult extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getErrorMessage()
+    public function getErrorMessage(): ?string
     {
         return isset($this->ErrorMessage) ? $this->ErrorMessage : null;
     }
@@ -59,28 +62,29 @@ class CdiscountExecutionResult extends AbstractStructBase
      * if the value assigned to this property is null, it is removed from this object
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCompetingOfferErrorMessage::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCompetingOfferErrorMessage::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $errorMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExecutionResult
      */
-    public function setErrorMessage($errorMessage = null)
+    public function setErrorMessage(?string $errorMessage = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCompetingOfferErrorMessage::valueIsValid($errorMessage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCompetingOfferErrorMessage', is_array($errorMessage) ? implode(', ', $errorMessage) : var_export($errorMessage, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCompetingOfferErrorMessage::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCompetingOfferErrorMessage', is_array($errorMessage) ? implode(', ', $errorMessage) : var_export($errorMessage, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCompetingOfferErrorMessage::getValidValues())), __LINE__);
         }
         if (is_null($errorMessage) || (is_array($errorMessage) && empty($errorMessage))) {
             unset($this->ErrorMessage);
         } else {
             $this->ErrorMessage = $errorMessage;
         }
+        
         return $this;
     }
     /**
      * Get Success value
      * @return bool|null
      */
-    public function getSuccess()
+    public function getSuccess(): ?bool
     {
         return $this->Success;
     }
@@ -89,13 +93,14 @@ class CdiscountExecutionResult extends AbstractStructBase
      * @param bool $success
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExecutionResult
      */
-    public function setSuccess($success = null)
+    public function setSuccess(?bool $success = null): self
     {
         // validation for constraint: boolean
         if (!is_null($success) && !is_bool($success)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($success, true), gettype($success)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($success, true), gettype($success)), __LINE__);
         }
         $this->Success = $success;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SecurityContext Structs
@@ -18,45 +21,45 @@ class CdiscountSecurityContext extends AbstractStructBase
      * The DomainRightsList
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDomainRights
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDomainRights|null
      */
-    public $DomainRightsList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDomainRights $DomainRightsList = null;
     /**
      * The IssuerID
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $IssuerID;
+    protected ?string $IssuerID = null;
     /**
      * The SessionID
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SessionID;
+    protected ?string $SessionID = null;
     /**
      * The SubjectLocality
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubjectLocality
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubjectLocality|null
      */
-    public $SubjectLocality;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubjectLocality $SubjectLocality = null;
     /**
      * The TokenId
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $TokenId;
+    protected ?string $TokenId = null;
     /**
      * The UserName
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $UserName;
+    protected ?string $UserName = null;
     /**
      * Constructor method for SecurityContext
      * @uses CdiscountSecurityContext::setDomainRightsList()
@@ -72,7 +75,7 @@ class CdiscountSecurityContext extends AbstractStructBase
      * @param string $tokenId
      * @param string $userName
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDomainRights $domainRightsList = null, $issuerID = null, $sessionID = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubjectLocality $subjectLocality = null, $tokenId = null, $userName = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDomainRights $domainRightsList = null, ?string $issuerID = null, ?string $sessionID = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubjectLocality $subjectLocality = null, ?string $tokenId = null, ?string $userName = null)
     {
         $this
             ->setDomainRightsList($domainRightsList)
@@ -86,7 +89,7 @@ class CdiscountSecurityContext extends AbstractStructBase
      * Get DomainRightsList value
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDomainRights|null
      */
-    public function getDomainRightsList()
+    public function getDomainRightsList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDomainRights
     {
         return $this->DomainRightsList;
     }
@@ -95,16 +98,17 @@ class CdiscountSecurityContext extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDomainRights $domainRightsList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSecurityContext
      */
-    public function setDomainRightsList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDomainRights $domainRightsList = null)
+    public function setDomainRightsList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDomainRights $domainRightsList = null): self
     {
         $this->DomainRightsList = $domainRightsList;
+        
         return $this;
     }
     /**
      * Get IssuerID value
      * @return string|null
      */
-    public function getIssuerID()
+    public function getIssuerID(): ?string
     {
         return $this->IssuerID;
     }
@@ -113,20 +117,21 @@ class CdiscountSecurityContext extends AbstractStructBase
      * @param string $issuerID
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSecurityContext
      */
-    public function setIssuerID($issuerID = null)
+    public function setIssuerID(?string $issuerID = null): self
     {
         // validation for constraint: string
         if (!is_null($issuerID) && !is_string($issuerID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($issuerID, true), gettype($issuerID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($issuerID, true), gettype($issuerID)), __LINE__);
         }
         $this->IssuerID = $issuerID;
+        
         return $this;
     }
     /**
      * Get SessionID value
      * @return string|null
      */
-    public function getSessionID()
+    public function getSessionID(): ?string
     {
         return $this->SessionID;
     }
@@ -135,13 +140,14 @@ class CdiscountSecurityContext extends AbstractStructBase
      * @param string $sessionID
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSecurityContext
      */
-    public function setSessionID($sessionID = null)
+    public function setSessionID(?string $sessionID = null): self
     {
         // validation for constraint: string
         if (!is_null($sessionID) && !is_string($sessionID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sessionID, true), gettype($sessionID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sessionID, true), gettype($sessionID)), __LINE__);
         }
         $this->SessionID = $sessionID;
+        
         return $this;
     }
     /**
@@ -151,7 +157,7 @@ class CdiscountSecurityContext extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubjectLocality|null
      */
-    public function getSubjectLocality()
+    public function getSubjectLocality(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubjectLocality
     {
         return isset($this->SubjectLocality) ? $this->SubjectLocality : null;
     }
@@ -162,20 +168,21 @@ class CdiscountSecurityContext extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubjectLocality $subjectLocality
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSecurityContext
      */
-    public function setSubjectLocality(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubjectLocality $subjectLocality = null)
+    public function setSubjectLocality(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubjectLocality $subjectLocality = null): self
     {
         if (is_null($subjectLocality) || (is_array($subjectLocality) && empty($subjectLocality))) {
             unset($this->SubjectLocality);
         } else {
             $this->SubjectLocality = $subjectLocality;
         }
+        
         return $this;
     }
     /**
      * Get TokenId value
      * @return string|null
      */
-    public function getTokenId()
+    public function getTokenId(): ?string
     {
         return $this->TokenId;
     }
@@ -184,20 +191,21 @@ class CdiscountSecurityContext extends AbstractStructBase
      * @param string $tokenId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSecurityContext
      */
-    public function setTokenId($tokenId = null)
+    public function setTokenId(?string $tokenId = null): self
     {
         // validation for constraint: string
         if (!is_null($tokenId) && !is_string($tokenId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tokenId, true), gettype($tokenId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tokenId, true), gettype($tokenId)), __LINE__);
         }
         $this->TokenId = $tokenId;
+        
         return $this;
     }
     /**
      * Get UserName value
      * @return string|null
      */
-    public function getUserName()
+    public function getUserName(): ?string
     {
         return $this->UserName;
     }
@@ -206,13 +214,14 @@ class CdiscountSecurityContext extends AbstractStructBase
      * @param string $userName
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSecurityContext
      */
-    public function setUserName($userName = null)
+    public function setUserName(?string $userName = null): self
     {
         // validation for constraint: string
         if (!is_null($userName) && !is_string($userName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($userName, true), gettype($userName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($userName, true), gettype($userName)), __LINE__);
         }
         $this->UserName = $userName;
+        
         return $this;
     }
 }

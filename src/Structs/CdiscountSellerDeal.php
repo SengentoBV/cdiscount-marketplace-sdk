@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SellerDeal Structs
@@ -19,126 +22,126 @@ class CdiscountSellerDeal extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Category;
+    protected ?string $Category = null;
     /**
      * The CurrentPrice
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $CurrentPrice;
+    protected ?float $CurrentPrice = null;
     /**
      * The CurrentRate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $CurrentRate;
+    protected ?float $CurrentRate = null;
     /**
      * The DealId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $DealId;
+    protected ?int $DealId = null;
     /**
      * The Ean
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Ean;
+    protected ?string $Ean = null;
     /**
      * The EndDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset|null
      */
-    public $EndDate;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset $EndDate = null;
     /**
      * The Label
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Label;
+    protected ?string $Label = null;
     /**
      * The MaxPrice
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $MaxPrice;
+    protected ?float $MaxPrice = null;
     /**
      * The MinPrice
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $MinPrice;
+    protected ?float $MinPrice = null;
     /**
      * The OfferId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $OfferId;
+    protected ?int $OfferId = null;
     /**
      * The ProductId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ProductId;
+    protected ?string $ProductId = null;
     /**
      * The ProposedRate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $ProposedRate;
+    protected ?float $ProposedRate = null;
     /**
      * The SellerId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $SellerId;
+    protected ?int $SellerId = null;
     /**
      * The SellerProductId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SellerProductId;
+    protected ?string $SellerProductId = null;
     /**
      * The StartDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset|null
      */
-    public $StartDate;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset $StartDate = null;
     /**
      * The Status
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Status;
+    protected ?int $Status = null;
     /**
      * The StatusCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $StatusCode;
+    protected ?string $StatusCode = null;
     /**
      * Constructor method for SellerDeal
      * @uses CdiscountSellerDeal::setCategory()
@@ -176,7 +179,7 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param int $status
      * @param string $statusCode
      */
-    public function __construct($category = null, $currentPrice = null, $currentRate = null, $dealId = null, $ean = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset $endDate = null, $label = null, $maxPrice = null, $minPrice = null, $offerId = null, $productId = null, $proposedRate = null, $sellerId = null, $sellerProductId = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset $startDate = null, $status = null, $statusCode = null)
+    public function __construct(?string $category = null, ?float $currentPrice = null, ?float $currentRate = null, ?int $dealId = null, ?string $ean = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset $endDate = null, ?string $label = null, ?float $maxPrice = null, ?float $minPrice = null, ?int $offerId = null, ?string $productId = null, ?float $proposedRate = null, ?int $sellerId = null, ?string $sellerProductId = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset $startDate = null, ?int $status = null, ?string $statusCode = null)
     {
         $this
             ->setCategory($category)
@@ -204,7 +207,7 @@ class CdiscountSellerDeal extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCategory()
+    public function getCategory(): ?string
     {
         return isset($this->Category) ? $this->Category : null;
     }
@@ -215,24 +218,25 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param string $category
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setCategory($category = null)
+    public function setCategory(?string $category = null): self
     {
         // validation for constraint: string
         if (!is_null($category) && !is_string($category)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($category, true), gettype($category)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($category, true), gettype($category)), __LINE__);
         }
         if (is_null($category) || (is_array($category) && empty($category))) {
             unset($this->Category);
         } else {
             $this->Category = $category;
         }
+        
         return $this;
     }
     /**
      * Get CurrentPrice value
      * @return float|null
      */
-    public function getCurrentPrice()
+    public function getCurrentPrice(): ?float
     {
         return $this->CurrentPrice;
     }
@@ -241,20 +245,21 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param float $currentPrice
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setCurrentPrice($currentPrice = null)
+    public function setCurrentPrice(?float $currentPrice = null): self
     {
         // validation for constraint: float
         if (!is_null($currentPrice) && !(is_float($currentPrice) || is_numeric($currentPrice))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($currentPrice, true), gettype($currentPrice)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($currentPrice, true), gettype($currentPrice)), __LINE__);
         }
         $this->CurrentPrice = $currentPrice;
+        
         return $this;
     }
     /**
      * Get CurrentRate value
      * @return float|null
      */
-    public function getCurrentRate()
+    public function getCurrentRate(): ?float
     {
         return $this->CurrentRate;
     }
@@ -263,20 +268,21 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param float $currentRate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setCurrentRate($currentRate = null)
+    public function setCurrentRate(?float $currentRate = null): self
     {
         // validation for constraint: float
         if (!is_null($currentRate) && !(is_float($currentRate) || is_numeric($currentRate))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($currentRate, true), gettype($currentRate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($currentRate, true), gettype($currentRate)), __LINE__);
         }
         $this->CurrentRate = $currentRate;
+        
         return $this;
     }
     /**
      * Get DealId value
      * @return int|null
      */
-    public function getDealId()
+    public function getDealId(): ?int
     {
         return $this->DealId;
     }
@@ -285,13 +291,14 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param int $dealId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setDealId($dealId = null)
+    public function setDealId(?int $dealId = null): self
     {
         // validation for constraint: int
         if (!is_null($dealId) && !(is_int($dealId) || ctype_digit($dealId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($dealId, true), gettype($dealId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($dealId, true), gettype($dealId)), __LINE__);
         }
         $this->DealId = $dealId;
+        
         return $this;
     }
     /**
@@ -301,7 +308,7 @@ class CdiscountSellerDeal extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getEan()
+    public function getEan(): ?string
     {
         return isset($this->Ean) ? $this->Ean : null;
     }
@@ -312,24 +319,25 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param string $ean
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setEan($ean = null)
+    public function setEan(?string $ean = null): self
     {
         // validation for constraint: string
         if (!is_null($ean) && !is_string($ean)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($ean, true), gettype($ean)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($ean, true), gettype($ean)), __LINE__);
         }
         if (is_null($ean) || (is_array($ean) && empty($ean))) {
             unset($this->Ean);
         } else {
             $this->Ean = $ean;
         }
+        
         return $this;
     }
     /**
      * Get EndDate value
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset|null
      */
-    public function getEndDate()
+    public function getEndDate(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset
     {
         return $this->EndDate;
     }
@@ -338,9 +346,10 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset $endDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setEndDate(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset $endDate = null)
+    public function setEndDate(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset $endDate = null): self
     {
         $this->EndDate = $endDate;
+        
         return $this;
     }
     /**
@@ -350,7 +359,7 @@ class CdiscountSellerDeal extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getLabel()
+    public function getLabel(): ?string
     {
         return isset($this->Label) ? $this->Label : null;
     }
@@ -361,24 +370,25 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param string $label
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setLabel($label = null)
+    public function setLabel(?string $label = null): self
     {
         // validation for constraint: string
         if (!is_null($label) && !is_string($label)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($label, true), gettype($label)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($label, true), gettype($label)), __LINE__);
         }
         if (is_null($label) || (is_array($label) && empty($label))) {
             unset($this->Label);
         } else {
             $this->Label = $label;
         }
+        
         return $this;
     }
     /**
      * Get MaxPrice value
      * @return float|null
      */
-    public function getMaxPrice()
+    public function getMaxPrice(): ?float
     {
         return $this->MaxPrice;
     }
@@ -387,20 +397,21 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param float $maxPrice
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setMaxPrice($maxPrice = null)
+    public function setMaxPrice(?float $maxPrice = null): self
     {
         // validation for constraint: float
         if (!is_null($maxPrice) && !(is_float($maxPrice) || is_numeric($maxPrice))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($maxPrice, true), gettype($maxPrice)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($maxPrice, true), gettype($maxPrice)), __LINE__);
         }
         $this->MaxPrice = $maxPrice;
+        
         return $this;
     }
     /**
      * Get MinPrice value
      * @return float|null
      */
-    public function getMinPrice()
+    public function getMinPrice(): ?float
     {
         return $this->MinPrice;
     }
@@ -409,20 +420,21 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param float $minPrice
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setMinPrice($minPrice = null)
+    public function setMinPrice(?float $minPrice = null): self
     {
         // validation for constraint: float
         if (!is_null($minPrice) && !(is_float($minPrice) || is_numeric($minPrice))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($minPrice, true), gettype($minPrice)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($minPrice, true), gettype($minPrice)), __LINE__);
         }
         $this->MinPrice = $minPrice;
+        
         return $this;
     }
     /**
      * Get OfferId value
      * @return int|null
      */
-    public function getOfferId()
+    public function getOfferId(): ?int
     {
         return $this->OfferId;
     }
@@ -431,13 +443,14 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param int $offerId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setOfferId($offerId = null)
+    public function setOfferId(?int $offerId = null): self
     {
         // validation for constraint: int
         if (!is_null($offerId) && !(is_int($offerId) || ctype_digit($offerId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($offerId, true), gettype($offerId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($offerId, true), gettype($offerId)), __LINE__);
         }
         $this->OfferId = $offerId;
+        
         return $this;
     }
     /**
@@ -447,7 +460,7 @@ class CdiscountSellerDeal extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getProductId()
+    public function getProductId(): ?string
     {
         return isset($this->ProductId) ? $this->ProductId : null;
     }
@@ -458,24 +471,25 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param string $productId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setProductId($productId = null)
+    public function setProductId(?string $productId = null): self
     {
         // validation for constraint: string
         if (!is_null($productId) && !is_string($productId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productId, true), gettype($productId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productId, true), gettype($productId)), __LINE__);
         }
         if (is_null($productId) || (is_array($productId) && empty($productId))) {
             unset($this->ProductId);
         } else {
             $this->ProductId = $productId;
         }
+        
         return $this;
     }
     /**
      * Get ProposedRate value
      * @return float|null
      */
-    public function getProposedRate()
+    public function getProposedRate(): ?float
     {
         return $this->ProposedRate;
     }
@@ -484,20 +498,21 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param float $proposedRate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setProposedRate($proposedRate = null)
+    public function setProposedRate(?float $proposedRate = null): self
     {
         // validation for constraint: float
         if (!is_null($proposedRate) && !(is_float($proposedRate) || is_numeric($proposedRate))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($proposedRate, true), gettype($proposedRate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($proposedRate, true), gettype($proposedRate)), __LINE__);
         }
         $this->ProposedRate = $proposedRate;
+        
         return $this;
     }
     /**
      * Get SellerId value
      * @return int|null
      */
-    public function getSellerId()
+    public function getSellerId(): ?int
     {
         return $this->SellerId;
     }
@@ -506,13 +521,14 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param int $sellerId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setSellerId($sellerId = null)
+    public function setSellerId(?int $sellerId = null): self
     {
         // validation for constraint: int
         if (!is_null($sellerId) && !(is_int($sellerId) || ctype_digit($sellerId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($sellerId, true), gettype($sellerId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($sellerId, true), gettype($sellerId)), __LINE__);
         }
         $this->SellerId = $sellerId;
+        
         return $this;
     }
     /**
@@ -522,7 +538,7 @@ class CdiscountSellerDeal extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSellerProductId()
+    public function getSellerProductId(): ?string
     {
         return isset($this->SellerProductId) ? $this->SellerProductId : null;
     }
@@ -533,24 +549,25 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param string $sellerProductId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setSellerProductId($sellerProductId = null)
+    public function setSellerProductId(?string $sellerProductId = null): self
     {
         // validation for constraint: string
         if (!is_null($sellerProductId) && !is_string($sellerProductId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerProductId, true), gettype($sellerProductId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerProductId, true), gettype($sellerProductId)), __LINE__);
         }
         if (is_null($sellerProductId) || (is_array($sellerProductId) && empty($sellerProductId))) {
             unset($this->SellerProductId);
         } else {
             $this->SellerProductId = $sellerProductId;
         }
+        
         return $this;
     }
     /**
      * Get StartDate value
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset|null
      */
-    public function getStartDate()
+    public function getStartDate(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset
     {
         return $this->StartDate;
     }
@@ -559,16 +576,17 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset $startDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setStartDate(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset $startDate = null)
+    public function setStartDate(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDateTimeOffset $startDate = null): self
     {
         $this->StartDate = $startDate;
+        
         return $this;
     }
     /**
      * Get Status value
      * @return int|null
      */
-    public function getStatus()
+    public function getStatus(): ?int
     {
         return $this->Status;
     }
@@ -577,13 +595,14 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param int $status
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setStatus($status = null)
+    public function setStatus(?int $status = null): self
     {
         // validation for constraint: int
         if (!is_null($status) && !(is_int($status) || ctype_digit($status))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($status, true), gettype($status)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($status, true), gettype($status)), __LINE__);
         }
         $this->Status = $status;
+        
         return $this;
     }
     /**
@@ -593,7 +612,7 @@ class CdiscountSellerDeal extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getStatusCode()
+    public function getStatusCode(): ?string
     {
         return isset($this->StatusCode) ? $this->StatusCode : null;
     }
@@ -604,17 +623,18 @@ class CdiscountSellerDeal extends AbstractStructBase
      * @param string $statusCode
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDeal
      */
-    public function setStatusCode($statusCode = null)
+    public function setStatusCode(?string $statusCode = null): self
     {
         // validation for constraint: string
         if (!is_null($statusCode) && !is_string($statusCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($statusCode, true), gettype($statusCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($statusCode, true), gettype($statusCode)), __LINE__);
         }
         if (is_null($statusCode) || (is_array($statusCode) && empty($statusCode))) {
             unset($this->StatusCode);
         } else {
             $this->StatusCode = $statusCode;
         }
+        
         return $this;
     }
 }

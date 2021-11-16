@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OfferReportPropertyLog Structs
@@ -19,33 +22,33 @@ class CdiscountOfferReportPropertyLog extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $LogMessage;
+    protected ?string $LogMessage = null;
     /**
      * The Name
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * The PropertyCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $PropertyCode;
+    protected ?string $PropertyCode = null;
     /**
      * The PropertyError
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $PropertyError;
+    protected ?string $PropertyError = null;
     /**
      * Constructor method for OfferReportPropertyLog
      * @uses CdiscountOfferReportPropertyLog::setLogMessage()
@@ -57,7 +60,7 @@ class CdiscountOfferReportPropertyLog extends AbstractStructBase
      * @param string $propertyCode
      * @param string $propertyError
      */
-    public function __construct($logMessage = null, $name = null, $propertyCode = null, $propertyError = null)
+    public function __construct(?string $logMessage = null, ?string $name = null, ?string $propertyCode = null, ?string $propertyError = null)
     {
         $this
             ->setLogMessage($logMessage)
@@ -72,7 +75,7 @@ class CdiscountOfferReportPropertyLog extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getLogMessage()
+    public function getLogMessage(): ?string
     {
         return isset($this->LogMessage) ? $this->LogMessage : null;
     }
@@ -83,17 +86,18 @@ class CdiscountOfferReportPropertyLog extends AbstractStructBase
      * @param string $logMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog
      */
-    public function setLogMessage($logMessage = null)
+    public function setLogMessage(?string $logMessage = null): self
     {
         // validation for constraint: string
         if (!is_null($logMessage) && !is_string($logMessage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($logMessage, true), gettype($logMessage)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($logMessage, true), gettype($logMessage)), __LINE__);
         }
         if (is_null($logMessage) || (is_array($logMessage) && empty($logMessage))) {
             unset($this->LogMessage);
         } else {
             $this->LogMessage = $logMessage;
         }
+        
         return $this;
     }
     /**
@@ -103,7 +107,7 @@ class CdiscountOfferReportPropertyLog extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return isset($this->Name) ? $this->Name : null;
     }
@@ -114,17 +118,18 @@ class CdiscountOfferReportPropertyLog extends AbstractStructBase
      * @param string $name
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         if (is_null($name) || (is_array($name) && empty($name))) {
             unset($this->Name);
         } else {
             $this->Name = $name;
         }
+        
         return $this;
     }
     /**
@@ -134,7 +139,7 @@ class CdiscountOfferReportPropertyLog extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getPropertyCode()
+    public function getPropertyCode(): ?string
     {
         return isset($this->PropertyCode) ? $this->PropertyCode : null;
     }
@@ -145,17 +150,18 @@ class CdiscountOfferReportPropertyLog extends AbstractStructBase
      * @param string $propertyCode
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog
      */
-    public function setPropertyCode($propertyCode = null)
+    public function setPropertyCode(?string $propertyCode = null): self
     {
         // validation for constraint: string
         if (!is_null($propertyCode) && !is_string($propertyCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($propertyCode, true), gettype($propertyCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($propertyCode, true), gettype($propertyCode)), __LINE__);
         }
         if (is_null($propertyCode) || (is_array($propertyCode) && empty($propertyCode))) {
             unset($this->PropertyCode);
         } else {
             $this->PropertyCode = $propertyCode;
         }
+        
         return $this;
     }
     /**
@@ -165,7 +171,7 @@ class CdiscountOfferReportPropertyLog extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getPropertyError()
+    public function getPropertyError(): ?string
     {
         return isset($this->PropertyError) ? $this->PropertyError : null;
     }
@@ -176,17 +182,18 @@ class CdiscountOfferReportPropertyLog extends AbstractStructBase
      * @param string $propertyError
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog
      */
-    public function setPropertyError($propertyError = null)
+    public function setPropertyError(?string $propertyError = null): self
     {
         // validation for constraint: string
         if (!is_null($propertyError) && !is_string($propertyError)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($propertyError, true), gettype($propertyError)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($propertyError, true), gettype($propertyError)), __LINE__);
         }
         if (is_null($propertyError) || (is_array($propertyError) && empty($propertyError))) {
             unset($this->PropertyError);
         } else {
             $this->PropertyError = $propertyError;
         }
+        
         return $this;
     }
 }

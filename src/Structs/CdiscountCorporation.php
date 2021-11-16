@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Corporation Structs
@@ -18,37 +21,37 @@ class CdiscountCorporation extends AbstractStructBase
      * The BusinessUnitId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $BusinessUnitId;
+    protected ?int $BusinessUnitId = null;
     /**
      * The CorporationCode
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CorporationCode;
+    protected ?string $CorporationCode = null;
     /**
      * The CorporationId
-     * @var int
+     * @var int|null
      */
-    public $CorporationId;
+    protected ?int $CorporationId = null;
     /**
      * The CorporationName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CorporationName;
+    protected ?string $CorporationName = null;
     /**
      * The IsMarketPlaceActive
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var bool
+     * @var bool|null
      */
-    public $IsMarketPlaceActive;
+    protected ?bool $IsMarketPlaceActive = null;
     /**
      * Constructor method for Corporation
      * @uses CdiscountCorporation::setBusinessUnitId()
@@ -62,7 +65,7 @@ class CdiscountCorporation extends AbstractStructBase
      * @param string $corporationName
      * @param bool $isMarketPlaceActive
      */
-    public function __construct($businessUnitId = null, $corporationCode = null, $corporationId = null, $corporationName = null, $isMarketPlaceActive = null)
+    public function __construct(?int $businessUnitId = null, ?string $corporationCode = null, ?int $corporationId = null, ?string $corporationName = null, ?bool $isMarketPlaceActive = null)
     {
         $this
             ->setBusinessUnitId($businessUnitId)
@@ -75,7 +78,7 @@ class CdiscountCorporation extends AbstractStructBase
      * Get BusinessUnitId value
      * @return int|null
      */
-    public function getBusinessUnitId()
+    public function getBusinessUnitId(): ?int
     {
         return $this->BusinessUnitId;
     }
@@ -84,20 +87,21 @@ class CdiscountCorporation extends AbstractStructBase
      * @param int $businessUnitId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCorporation
      */
-    public function setBusinessUnitId($businessUnitId = null)
+    public function setBusinessUnitId(?int $businessUnitId = null): self
     {
         // validation for constraint: int
         if (!is_null($businessUnitId) && !(is_int($businessUnitId) || ctype_digit($businessUnitId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($businessUnitId, true), gettype($businessUnitId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($businessUnitId, true), gettype($businessUnitId)), __LINE__);
         }
         $this->BusinessUnitId = $businessUnitId;
+        
         return $this;
     }
     /**
      * Get CorporationCode value
      * @return string|null
      */
-    public function getCorporationCode()
+    public function getCorporationCode(): ?string
     {
         return $this->CorporationCode;
     }
@@ -106,20 +110,21 @@ class CdiscountCorporation extends AbstractStructBase
      * @param string $corporationCode
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCorporation
      */
-    public function setCorporationCode($corporationCode = null)
+    public function setCorporationCode(?string $corporationCode = null): self
     {
         // validation for constraint: string
         if (!is_null($corporationCode) && !is_string($corporationCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($corporationCode, true), gettype($corporationCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($corporationCode, true), gettype($corporationCode)), __LINE__);
         }
         $this->CorporationCode = $corporationCode;
+        
         return $this;
     }
     /**
      * Get CorporationId value
      * @return int|null
      */
-    public function getCorporationId()
+    public function getCorporationId(): ?int
     {
         return $this->CorporationId;
     }
@@ -128,13 +133,14 @@ class CdiscountCorporation extends AbstractStructBase
      * @param int $corporationId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCorporation
      */
-    public function setCorporationId($corporationId = null)
+    public function setCorporationId(?int $corporationId = null): self
     {
         // validation for constraint: int
         if (!is_null($corporationId) && !(is_int($corporationId) || ctype_digit($corporationId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($corporationId, true), gettype($corporationId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($corporationId, true), gettype($corporationId)), __LINE__);
         }
         $this->CorporationId = $corporationId;
+        
         return $this;
     }
     /**
@@ -144,7 +150,7 @@ class CdiscountCorporation extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCorporationName()
+    public function getCorporationName(): ?string
     {
         return isset($this->CorporationName) ? $this->CorporationName : null;
     }
@@ -155,17 +161,18 @@ class CdiscountCorporation extends AbstractStructBase
      * @param string $corporationName
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCorporation
      */
-    public function setCorporationName($corporationName = null)
+    public function setCorporationName(?string $corporationName = null): self
     {
         // validation for constraint: string
         if (!is_null($corporationName) && !is_string($corporationName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($corporationName, true), gettype($corporationName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($corporationName, true), gettype($corporationName)), __LINE__);
         }
         if (is_null($corporationName) || (is_array($corporationName) && empty($corporationName))) {
             unset($this->CorporationName);
         } else {
             $this->CorporationName = $corporationName;
         }
+        
         return $this;
     }
     /**
@@ -175,7 +182,7 @@ class CdiscountCorporation extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return bool|null
      */
-    public function getIsMarketPlaceActive()
+    public function getIsMarketPlaceActive(): ?bool
     {
         return isset($this->IsMarketPlaceActive) ? $this->IsMarketPlaceActive : null;
     }
@@ -186,17 +193,18 @@ class CdiscountCorporation extends AbstractStructBase
      * @param bool $isMarketPlaceActive
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCorporation
      */
-    public function setIsMarketPlaceActive($isMarketPlaceActive = null)
+    public function setIsMarketPlaceActive(?bool $isMarketPlaceActive = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isMarketPlaceActive) && !is_bool($isMarketPlaceActive)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMarketPlaceActive, true), gettype($isMarketPlaceActive)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMarketPlaceActive, true), gettype($isMarketPlaceActive)), __LINE__);
         }
         if (is_null($isMarketPlaceActive) || (is_array($isMarketPlaceActive) && empty($isMarketPlaceActive))) {
             unset($this->IsMarketPlaceActive);
         } else {
             $this->IsMarketPlaceActive = $isMarketPlaceActive;
         }
+        
         return $this;
     }
 }

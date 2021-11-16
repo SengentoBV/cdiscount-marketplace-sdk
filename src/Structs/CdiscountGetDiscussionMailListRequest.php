@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetDiscussionMailListRequest Structs
@@ -19,15 +22,15 @@ class CdiscountGetDiscussionMailListRequest extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOflong
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOflong|null
      */
-    public $DiscussionIds;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOflong $DiscussionIds = null;
     /**
      * Constructor method for GetDiscussionMailListRequest
      * @uses CdiscountGetDiscussionMailListRequest::setDiscussionIds()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOflong $discussionIds
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOflong $discussionIds = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOflong $discussionIds = null)
     {
         $this
             ->setDiscussionIds($discussionIds);
@@ -39,7 +42,7 @@ class CdiscountGetDiscussionMailListRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOflong|null
      */
-    public function getDiscussionIds()
+    public function getDiscussionIds(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOflong
     {
         return isset($this->DiscussionIds) ? $this->DiscussionIds : null;
     }
@@ -50,13 +53,14 @@ class CdiscountGetDiscussionMailListRequest extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOflong $discussionIds
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetDiscussionMailListRequest
      */
-    public function setDiscussionIds(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOflong $discussionIds = null)
+    public function setDiscussionIds(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOflong $discussionIds = null): self
     {
         if (is_null($discussionIds) || (is_array($discussionIds) && empty($discussionIds))) {
             unset($this->DiscussionIds);
         } else {
             $this->DiscussionIds = $discussionIds;
         }
+        
         return $this;
     }
 }

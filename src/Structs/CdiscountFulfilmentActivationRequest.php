@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FulfilmentActivationRequest Structs
@@ -19,15 +22,15 @@ class CdiscountFulfilmentActivationRequest extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductActivationData
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductActivationData|null
      */
-    public $ProductList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductActivationData $ProductList = null;
     /**
      * Constructor method for FulfilmentActivationRequest
      * @uses CdiscountFulfilmentActivationRequest::setProductList()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductActivationData $productList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductActivationData $productList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductActivationData $productList = null)
     {
         $this
             ->setProductList($productList);
@@ -39,7 +42,7 @@ class CdiscountFulfilmentActivationRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductActivationData|null
      */
-    public function getProductList()
+    public function getProductList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductActivationData
     {
         return isset($this->ProductList) ? $this->ProductList : null;
     }
@@ -50,13 +53,14 @@ class CdiscountFulfilmentActivationRequest extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductActivationData $productList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationRequest
      */
-    public function setProductList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductActivationData $productList = null)
+    public function setProductList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductActivationData $productList = null): self
     {
         if (is_null($productList) || (is_array($productList) && empty($productList))) {
             unset($this->ProductList);
         } else {
             $this->ProductList = $productList;
         }
+        
         return $this;
     }
 }

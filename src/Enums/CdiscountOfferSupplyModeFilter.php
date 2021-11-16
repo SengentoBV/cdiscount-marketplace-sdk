@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for OfferSupplyModeFilter Enums
@@ -36,12 +38,12 @@ class CdiscountOfferSupplyModeFilter extends AbstractStructEnumBase
      * @uses self::VALUE_FOD
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_MARKETPLACE,
             self::VALUE_CLOGISTIQUE,
             self::VALUE_FOD,
-        );
+        ];
     }
 }

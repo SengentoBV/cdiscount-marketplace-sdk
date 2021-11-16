@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DeliveryModeInformation Structs
@@ -19,17 +22,17 @@ class CdiscountDeliveryModeInformation extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Code;
+    protected ?string $Code = null;
     /**
      * The Name
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * Constructor method for DeliveryModeInformation
      * @uses CdiscountDeliveryModeInformation::setCode()
@@ -37,7 +40,7 @@ class CdiscountDeliveryModeInformation extends AbstractStructBase
      * @param string $code
      * @param string $name
      */
-    public function __construct($code = null, $name = null)
+    public function __construct(?string $code = null, ?string $name = null)
     {
         $this
             ->setCode($code)
@@ -50,7 +53,7 @@ class CdiscountDeliveryModeInformation extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCode()
+    public function getCode(): ?string
     {
         return isset($this->Code) ? $this->Code : null;
     }
@@ -61,17 +64,18 @@ class CdiscountDeliveryModeInformation extends AbstractStructBase
      * @param string $code
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDeliveryModeInformation
      */
-    public function setCode($code = null)
+    public function setCode(?string $code = null): self
     {
         // validation for constraint: string
         if (!is_null($code) && !is_string($code)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($code, true), gettype($code)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($code, true), gettype($code)), __LINE__);
         }
         if (is_null($code) || (is_array($code) && empty($code))) {
             unset($this->Code);
         } else {
             $this->Code = $code;
         }
+        
         return $this;
     }
     /**
@@ -81,7 +85,7 @@ class CdiscountDeliveryModeInformation extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return isset($this->Name) ? $this->Name : null;
     }
@@ -92,17 +96,18 @@ class CdiscountDeliveryModeInformation extends AbstractStructBase
      * @param string $name
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDeliveryModeInformation
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         if (is_null($name) || (is_array($name) && empty($name))) {
             unset($this->Name);
         } else {
             $this->Name = $name;
         }
+        
         return $this;
     }
 }

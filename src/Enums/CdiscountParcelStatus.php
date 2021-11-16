@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ParcelStatus Enums
@@ -66,9 +68,9 @@ class CdiscountParcelStatus extends AbstractStructEnumBase
      * @uses self::VALUE_PREPARED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_DELIVERED,
             self::VALUE_NOT_DELIVERED_BACK_TRANSPORTER,
             self::VALUE_NOT_DELIVERED_LOST_OR_BROKEN,
@@ -77,6 +79,6 @@ class CdiscountParcelStatus extends AbstractStructEnumBase
             self::VALUE_IN_POINT_RELAY,
             self::VALUE_OTHER,
             self::VALUE_PREPARED,
-        );
+        ];
     }
 }

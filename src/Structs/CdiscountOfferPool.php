@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OfferPool Structs
@@ -19,16 +22,16 @@ class CdiscountOfferPool extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Description;
+    protected ?string $Description = null;
     /**
      * The Id
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Id;
+    protected ?int $Id = null;
     /**
      * Constructor method for OfferPool
      * @uses CdiscountOfferPool::setDescription()
@@ -36,7 +39,7 @@ class CdiscountOfferPool extends AbstractStructBase
      * @param string $description
      * @param int $id
      */
-    public function __construct($description = null, $id = null)
+    public function __construct(?string $description = null, ?int $id = null)
     {
         $this
             ->setDescription($description)
@@ -49,7 +52,7 @@ class CdiscountOfferPool extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return isset($this->Description) ? $this->Description : null;
     }
@@ -60,24 +63,25 @@ class CdiscountOfferPool extends AbstractStructBase
      * @param string $description
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferPool
      */
-    public function setDescription($description = null)
+    public function setDescription(?string $description = null): self
     {
         // validation for constraint: string
         if (!is_null($description) && !is_string($description)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
         }
         if (is_null($description) || (is_array($description) && empty($description))) {
             unset($this->Description);
         } else {
             $this->Description = $description;
         }
+        
         return $this;
     }
     /**
      * Get Id value
      * @return int|null
      */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->Id;
     }
@@ -86,13 +90,14 @@ class CdiscountOfferPool extends AbstractStructBase
      * @param int $id
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferPool
      */
-    public function setId($id = null)
+    public function setId(?int $id = null): self
     {
         // validation for constraint: int
         if (!is_null($id) && !(is_int($id) || ctype_digit($id))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($id, true), gettype($id)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
+        
         return $this;
     }
 }

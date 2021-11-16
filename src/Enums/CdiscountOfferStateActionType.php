@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for OfferStateActionType Enums
@@ -30,11 +32,11 @@ class CdiscountOfferStateActionType extends AbstractStructEnumBase
      * @uses self::VALUE_UNPUBLISH
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_PUBLISH,
             self::VALUE_UNPUBLISH,
-        );
+        ];
     }
 }

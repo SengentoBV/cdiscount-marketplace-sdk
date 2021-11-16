@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ValidateOrder Structs
@@ -19,48 +22,48 @@ class CdiscountValidateOrder extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CarrierName;
+    protected ?string $CarrierName = null;
     /**
      * The OrderLineList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLine
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLine|null
      */
-    public $OrderLineList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLine $OrderLineList = null;
     /**
      * The OrderNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $OrderNumber;
+    protected ?string $OrderNumber = null;
     /**
      * The OrderState
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $OrderState;
+    protected ?string $OrderState = null;
     /**
      * The TrackingNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $TrackingNumber;
+    protected ?string $TrackingNumber = null;
     /**
      * The TrackingUrl
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $TrackingUrl;
+    protected ?string $TrackingUrl = null;
     /**
      * Constructor method for ValidateOrder
      * @uses CdiscountValidateOrder::setCarrierName()
@@ -76,7 +79,7 @@ class CdiscountValidateOrder extends AbstractStructBase
      * @param string $trackingNumber
      * @param string $trackingUrl
      */
-    public function __construct($carrierName = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLine $orderLineList = null, $orderNumber = null, $orderState = null, $trackingNumber = null, $trackingUrl = null)
+    public function __construct(?string $carrierName = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLine $orderLineList = null, ?string $orderNumber = null, ?string $orderState = null, ?string $trackingNumber = null, ?string $trackingUrl = null)
     {
         $this
             ->setCarrierName($carrierName)
@@ -93,7 +96,7 @@ class CdiscountValidateOrder extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCarrierName()
+    public function getCarrierName(): ?string
     {
         return isset($this->CarrierName) ? $this->CarrierName : null;
     }
@@ -104,17 +107,18 @@ class CdiscountValidateOrder extends AbstractStructBase
      * @param string $carrierName
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrder
      */
-    public function setCarrierName($carrierName = null)
+    public function setCarrierName(?string $carrierName = null): self
     {
         // validation for constraint: string
         if (!is_null($carrierName) && !is_string($carrierName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($carrierName, true), gettype($carrierName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($carrierName, true), gettype($carrierName)), __LINE__);
         }
         if (is_null($carrierName) || (is_array($carrierName) && empty($carrierName))) {
             unset($this->CarrierName);
         } else {
             $this->CarrierName = $carrierName;
         }
+        
         return $this;
     }
     /**
@@ -124,7 +128,7 @@ class CdiscountValidateOrder extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLine|null
      */
-    public function getOrderLineList()
+    public function getOrderLineList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLine
     {
         return isset($this->OrderLineList) ? $this->OrderLineList : null;
     }
@@ -135,13 +139,14 @@ class CdiscountValidateOrder extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLine $orderLineList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrder
      */
-    public function setOrderLineList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLine $orderLineList = null)
+    public function setOrderLineList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLine $orderLineList = null): self
     {
         if (is_null($orderLineList) || (is_array($orderLineList) && empty($orderLineList))) {
             unset($this->OrderLineList);
         } else {
             $this->OrderLineList = $orderLineList;
         }
+        
         return $this;
     }
     /**
@@ -151,7 +156,7 @@ class CdiscountValidateOrder extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getOrderNumber()
+    public function getOrderNumber(): ?string
     {
         return isset($this->OrderNumber) ? $this->OrderNumber : null;
     }
@@ -162,24 +167,25 @@ class CdiscountValidateOrder extends AbstractStructBase
      * @param string $orderNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrder
      */
-    public function setOrderNumber($orderNumber = null)
+    public function setOrderNumber(?string $orderNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($orderNumber) && !is_string($orderNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
         }
         if (is_null($orderNumber) || (is_array($orderNumber) && empty($orderNumber))) {
             unset($this->OrderNumber);
         } else {
             $this->OrderNumber = $orderNumber;
         }
+        
         return $this;
     }
     /**
      * Get OrderState value
      * @return string|null
      */
-    public function getOrderState()
+    public function getOrderState(): ?string
     {
         return $this->OrderState;
     }
@@ -187,17 +193,18 @@ class CdiscountValidateOrder extends AbstractStructBase
      * Set OrderState value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $orderState
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrder
      */
-    public function setOrderState($orderState = null)
+    public function setOrderState(?string $orderState = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::valueIsValid($orderState)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum', is_array($orderState) ? implode(', ', $orderState) : var_export($orderState, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum', is_array($orderState) ? implode(', ', $orderState) : var_export($orderState, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::getValidValues())), __LINE__);
         }
         $this->OrderState = $orderState;
+        
         return $this;
     }
     /**
@@ -207,7 +214,7 @@ class CdiscountValidateOrder extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getTrackingNumber()
+    public function getTrackingNumber(): ?string
     {
         return isset($this->TrackingNumber) ? $this->TrackingNumber : null;
     }
@@ -218,17 +225,18 @@ class CdiscountValidateOrder extends AbstractStructBase
      * @param string $trackingNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrder
      */
-    public function setTrackingNumber($trackingNumber = null)
+    public function setTrackingNumber(?string $trackingNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($trackingNumber) && !is_string($trackingNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($trackingNumber, true), gettype($trackingNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($trackingNumber, true), gettype($trackingNumber)), __LINE__);
         }
         if (is_null($trackingNumber) || (is_array($trackingNumber) && empty($trackingNumber))) {
             unset($this->TrackingNumber);
         } else {
             $this->TrackingNumber = $trackingNumber;
         }
+        
         return $this;
     }
     /**
@@ -238,7 +246,7 @@ class CdiscountValidateOrder extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getTrackingUrl()
+    public function getTrackingUrl(): ?string
     {
         return isset($this->TrackingUrl) ? $this->TrackingUrl : null;
     }
@@ -249,17 +257,18 @@ class CdiscountValidateOrder extends AbstractStructBase
      * @param string $trackingUrl
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrder
      */
-    public function setTrackingUrl($trackingUrl = null)
+    public function setTrackingUrl(?string $trackingUrl = null): self
     {
         // validation for constraint: string
         if (!is_null($trackingUrl) && !is_string($trackingUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($trackingUrl, true), gettype($trackingUrl)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($trackingUrl, true), gettype($trackingUrl)), __LINE__);
         }
         if (is_null($trackingUrl) || (is_array($trackingUrl) && empty($trackingUrl))) {
             unset($this->TrackingUrl);
         } else {
             $this->TrackingUrl = $trackingUrl;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Brand Structs
@@ -19,15 +22,15 @@ class CdiscountBrand extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $BrandName;
+    protected ?string $BrandName = null;
     /**
      * Constructor method for Brand
      * @uses CdiscountBrand::setBrandName()
      * @param string $brandName
      */
-    public function __construct($brandName = null)
+    public function __construct(?string $brandName = null)
     {
         $this
             ->setBrandName($brandName);
@@ -39,7 +42,7 @@ class CdiscountBrand extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getBrandName()
+    public function getBrandName(): ?string
     {
         return isset($this->BrandName) ? $this->BrandName : null;
     }
@@ -50,17 +53,18 @@ class CdiscountBrand extends AbstractStructBase
      * @param string $brandName
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand
      */
-    public function setBrandName($brandName = null)
+    public function setBrandName(?string $brandName = null): self
     {
         // validation for constraint: string
         if (!is_null($brandName) && !is_string($brandName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($brandName, true), gettype($brandName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($brandName, true), gettype($brandName)), __LINE__);
         }
         if (is_null($brandName) || (is_array($brandName) && empty($brandName))) {
             unset($this->BrandName);
         } else {
             $this->BrandName = $brandName;
         }
+        
         return $this;
     }
 }

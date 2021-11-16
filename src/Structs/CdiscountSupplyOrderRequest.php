@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SupplyOrderRequest Structs
@@ -19,41 +22,41 @@ class CdiscountSupplyOrderRequest extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $BeginModificationDate;
+    protected ?string $BeginModificationDate = null;
     /**
      * The EndModificationDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $EndModificationDate;
+    protected ?string $EndModificationDate = null;
     /**
      * The PageNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var int
+     * @var int|null
      */
-    public $PageNumber;
+    protected ?int $PageNumber = null;
     /**
      * The PageSize
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var int
+     * @var int|null
      */
-    public $PageSize;
+    protected ?int $PageSize = null;
     /**
      * The SupplyOrderNumberList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public $SupplyOrderNumberList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $SupplyOrderNumberList = null;
     /**
      * Constructor method for SupplyOrderRequest
      * @uses CdiscountSupplyOrderRequest::setBeginModificationDate()
@@ -67,7 +70,7 @@ class CdiscountSupplyOrderRequest extends AbstractStructBase
      * @param int $pageSize
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $supplyOrderNumberList
      */
-    public function __construct($beginModificationDate = null, $endModificationDate = null, $pageNumber = null, $pageSize = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $supplyOrderNumberList = null)
+    public function __construct(?string $beginModificationDate = null, ?string $endModificationDate = null, ?int $pageNumber = null, ?int $pageSize = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $supplyOrderNumberList = null)
     {
         $this
             ->setBeginModificationDate($beginModificationDate)
@@ -83,7 +86,7 @@ class CdiscountSupplyOrderRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getBeginModificationDate()
+    public function getBeginModificationDate(): ?string
     {
         return isset($this->BeginModificationDate) ? $this->BeginModificationDate : null;
     }
@@ -94,17 +97,18 @@ class CdiscountSupplyOrderRequest extends AbstractStructBase
      * @param string $beginModificationDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderRequest
      */
-    public function setBeginModificationDate($beginModificationDate = null)
+    public function setBeginModificationDate(?string $beginModificationDate = null): self
     {
         // validation for constraint: string
         if (!is_null($beginModificationDate) && !is_string($beginModificationDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginModificationDate, true), gettype($beginModificationDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginModificationDate, true), gettype($beginModificationDate)), __LINE__);
         }
         if (is_null($beginModificationDate) || (is_array($beginModificationDate) && empty($beginModificationDate))) {
             unset($this->BeginModificationDate);
         } else {
             $this->BeginModificationDate = $beginModificationDate;
         }
+        
         return $this;
     }
     /**
@@ -114,7 +118,7 @@ class CdiscountSupplyOrderRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getEndModificationDate()
+    public function getEndModificationDate(): ?string
     {
         return isset($this->EndModificationDate) ? $this->EndModificationDate : null;
     }
@@ -125,17 +129,18 @@ class CdiscountSupplyOrderRequest extends AbstractStructBase
      * @param string $endModificationDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderRequest
      */
-    public function setEndModificationDate($endModificationDate = null)
+    public function setEndModificationDate(?string $endModificationDate = null): self
     {
         // validation for constraint: string
         if (!is_null($endModificationDate) && !is_string($endModificationDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endModificationDate, true), gettype($endModificationDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endModificationDate, true), gettype($endModificationDate)), __LINE__);
         }
         if (is_null($endModificationDate) || (is_array($endModificationDate) && empty($endModificationDate))) {
             unset($this->EndModificationDate);
         } else {
             $this->EndModificationDate = $endModificationDate;
         }
+        
         return $this;
     }
     /**
@@ -145,7 +150,7 @@ class CdiscountSupplyOrderRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return int|null
      */
-    public function getPageNumber()
+    public function getPageNumber(): ?int
     {
         return isset($this->PageNumber) ? $this->PageNumber : null;
     }
@@ -156,17 +161,18 @@ class CdiscountSupplyOrderRequest extends AbstractStructBase
      * @param int $pageNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderRequest
      */
-    public function setPageNumber($pageNumber = null)
+    public function setPageNumber(?int $pageNumber = null): self
     {
         // validation for constraint: int
         if (!is_null($pageNumber) && !(is_int($pageNumber) || ctype_digit($pageNumber))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageNumber, true), gettype($pageNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageNumber, true), gettype($pageNumber)), __LINE__);
         }
         if (is_null($pageNumber) || (is_array($pageNumber) && empty($pageNumber))) {
             unset($this->PageNumber);
         } else {
             $this->PageNumber = $pageNumber;
         }
+        
         return $this;
     }
     /**
@@ -176,7 +182,7 @@ class CdiscountSupplyOrderRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return int|null
      */
-    public function getPageSize()
+    public function getPageSize(): ?int
     {
         return isset($this->PageSize) ? $this->PageSize : null;
     }
@@ -187,17 +193,18 @@ class CdiscountSupplyOrderRequest extends AbstractStructBase
      * @param int $pageSize
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderRequest
      */
-    public function setPageSize($pageSize = null)
+    public function setPageSize(?int $pageSize = null): self
     {
         // validation for constraint: int
         if (!is_null($pageSize) && !(is_int($pageSize) || ctype_digit($pageSize))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageSize, true), gettype($pageSize)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageSize, true), gettype($pageSize)), __LINE__);
         }
         if (is_null($pageSize) || (is_array($pageSize) && empty($pageSize))) {
             unset($this->PageSize);
         } else {
             $this->PageSize = $pageSize;
         }
+        
         return $this;
     }
     /**
@@ -207,7 +214,7 @@ class CdiscountSupplyOrderRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public function getSupplyOrderNumberList()
+    public function getSupplyOrderNumberList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
     {
         return isset($this->SupplyOrderNumberList) ? $this->SupplyOrderNumberList : null;
     }
@@ -218,13 +225,14 @@ class CdiscountSupplyOrderRequest extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $supplyOrderNumberList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderRequest
      */
-    public function setSupplyOrderNumberList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $supplyOrderNumberList = null)
+    public function setSupplyOrderNumberList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $supplyOrderNumberList = null): self
     {
         if (is_null($supplyOrderNumberList) || (is_array($supplyOrderNumberList) && empty($supplyOrderNumberList))) {
             unset($this->SupplyOrderNumberList);
         } else {
             $this->SupplyOrderNumberList = $supplyOrderNumberList;
         }
+        
         return $this;
     }
 }

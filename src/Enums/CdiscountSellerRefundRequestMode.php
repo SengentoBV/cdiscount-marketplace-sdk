@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for SellerRefundRequestMode Enums
@@ -30,11 +32,11 @@ class CdiscountSellerRefundRequestMode extends AbstractStructEnumBase
      * @uses self::VALUE_RETRACTION
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_CLAIM,
             self::VALUE_RETRACTION,
-        );
+        ];
     }
 }

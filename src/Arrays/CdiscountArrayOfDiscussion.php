@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfDiscussion Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfDiscussion extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion[]
      */
-    public $Discussion;
+    protected ?array $Discussion = null;
     /**
      * Constructor method for ArrayOfDiscussion
      * @uses CdiscountArrayOfDiscussion::setDiscussion()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion[] $discussion
      */
-    public function __construct(array $discussion = array())
+    public function __construct(?array $discussion = null)
     {
         $this
             ->setDiscussion($discussion);
@@ -38,9 +41,9 @@ class CdiscountArrayOfDiscussion extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion[]
      */
-    public function getDiscussion()
+    public function getDiscussion(): ?array
     {
         return isset($this->Discussion) ? $this->Discussion : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfDiscussion extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateDiscussionForArrayConstraintsFromSetDiscussion(array $values = array())
+    public static function validateDiscussionForArrayConstraintsFromSetDiscussion(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfDiscussionDiscussionItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfDiscussion extends AbstractStructArrayBase
             $message = sprintf('The Discussion property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Discussion value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion[] $discussion
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussion
      */
-    public function setDiscussion(array $discussion = array())
+    public function setDiscussion(?array $discussion = null): self
     {
         // validation for constraint: array
         if ('' !== ($discussionArrayErrorMessage = self::validateDiscussionForArrayConstraintsFromSetDiscussion($discussion))) {
-            throw new \InvalidArgumentException($discussionArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($discussionArrayErrorMessage, __LINE__);
         }
         if (is_null($discussion) || (is_array($discussion) && empty($discussion))) {
             unset($this->Discussion);
         } else {
             $this->Discussion = $discussion;
         }
-        return $this;
-    }
-    /**
-     * Add item to Discussion value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussion
-     */
-    public function addToDiscussion(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion) {
-            throw new \InvalidArgumentException(sprintf('The Discussion property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Discussion[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfDiscussion extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfDiscussion extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfDiscussion extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfDiscussion extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion
     {
         return parent::last();
     }
@@ -145,16 +138,31 @@ class CdiscountArrayOfDiscussion extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussion
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion) {
+            throw new InvalidArgumentException(sprintf('The Discussion property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Discussion
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Discussion';
     }

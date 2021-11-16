@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ParcelShopListMessage Structs
@@ -19,15 +22,15 @@ class CdiscountParcelShopListMessage extends CdiscountServiceBaseAPIMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelShop
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelShop|null
      */
-    public $ParcelShopList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelShop $ParcelShopList = null;
     /**
      * Constructor method for ParcelShopListMessage
      * @uses CdiscountParcelShopListMessage::setParcelShopList()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelShop $parcelShopList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelShop $parcelShopList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelShop $parcelShopList = null)
     {
         $this
             ->setParcelShopList($parcelShopList);
@@ -39,7 +42,7 @@ class CdiscountParcelShopListMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelShop|null
      */
-    public function getParcelShopList()
+    public function getParcelShopList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelShop
     {
         return isset($this->ParcelShopList) ? $this->ParcelShopList : null;
     }
@@ -50,13 +53,14 @@ class CdiscountParcelShopListMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelShop $parcelShopList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShopListMessage
      */
-    public function setParcelShopList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelShop $parcelShopList = null)
+    public function setParcelShopList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelShop $parcelShopList = null): self
     {
         if (is_null($parcelShopList) || (is_array($parcelShopList) && empty($parcelShopList))) {
             unset($this->ParcelShopList);
         } else {
             $this->ParcelShopList = $parcelShopList;
         }
+        
         return $this;
     }
 }

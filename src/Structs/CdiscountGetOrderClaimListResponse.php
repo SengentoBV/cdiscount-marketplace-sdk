@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetOrderClaimListResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetOrderClaimListResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderClaimListMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderClaimListMessage|null
      */
-    public $GetOrderClaimListResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderClaimListMessage $GetOrderClaimListResult = null;
     /**
      * Constructor method for GetOrderClaimListResponse
      * @uses CdiscountGetOrderClaimListResponse::setGetOrderClaimListResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderClaimListMessage $getOrderClaimListResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderClaimListMessage $getOrderClaimListResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderClaimListMessage $getOrderClaimListResult = null)
     {
         $this
             ->setGetOrderClaimListResult($getOrderClaimListResult);
@@ -36,7 +39,7 @@ class CdiscountGetOrderClaimListResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderClaimListMessage|null
      */
-    public function getGetOrderClaimListResult()
+    public function getGetOrderClaimListResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderClaimListMessage
     {
         return isset($this->GetOrderClaimListResult) ? $this->GetOrderClaimListResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetOrderClaimListResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderClaimListMessage $getOrderClaimListResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOrderClaimListResponse
      */
-    public function setGetOrderClaimListResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderClaimListMessage $getOrderClaimListResult = null)
+    public function setGetOrderClaimListResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderClaimListMessage $getOrderClaimListResult = null): self
     {
         if (is_null($getOrderClaimListResult) || (is_array($getOrderClaimListResult) && empty($getOrderClaimListResult))) {
             unset($this->GetOrderClaimListResult);
         } else {
             $this->GetOrderClaimListResult = $getOrderClaimListResult;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ProductMatchingFileMessage Structs
@@ -18,17 +21,17 @@ class CdiscountProductMatchingFileMessage extends CdiscountServiceBaseAPIMessage
      * The PackageId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $PackageId;
+    protected ?int $PackageId = null;
     /**
      * The ProductMatchingList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductMatching
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductMatching|null
      */
-    public $ProductMatchingList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductMatching $ProductMatchingList = null;
     /**
      * Constructor method for ProductMatchingFileMessage
      * @uses CdiscountProductMatchingFileMessage::setPackageId()
@@ -36,7 +39,7 @@ class CdiscountProductMatchingFileMessage extends CdiscountServiceBaseAPIMessage
      * @param int $packageId
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductMatching $productMatchingList
      */
-    public function __construct($packageId = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductMatching $productMatchingList = null)
+    public function __construct(?int $packageId = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductMatching $productMatchingList = null)
     {
         $this
             ->setPackageId($packageId)
@@ -46,7 +49,7 @@ class CdiscountProductMatchingFileMessage extends CdiscountServiceBaseAPIMessage
      * Get PackageId value
      * @return int|null
      */
-    public function getPackageId()
+    public function getPackageId(): ?int
     {
         return $this->PackageId;
     }
@@ -55,13 +58,14 @@ class CdiscountProductMatchingFileMessage extends CdiscountServiceBaseAPIMessage
      * @param int $packageId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductMatchingFileMessage
      */
-    public function setPackageId($packageId = null)
+    public function setPackageId(?int $packageId = null): self
     {
         // validation for constraint: int
         if (!is_null($packageId) && !(is_int($packageId) || ctype_digit($packageId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($packageId, true), gettype($packageId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($packageId, true), gettype($packageId)), __LINE__);
         }
         $this->PackageId = $packageId;
+        
         return $this;
     }
     /**
@@ -71,7 +75,7 @@ class CdiscountProductMatchingFileMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductMatching|null
      */
-    public function getProductMatchingList()
+    public function getProductMatchingList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductMatching
     {
         return isset($this->ProductMatchingList) ? $this->ProductMatchingList : null;
     }
@@ -82,13 +86,14 @@ class CdiscountProductMatchingFileMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductMatching $productMatchingList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductMatchingFileMessage
      */
-    public function setProductMatchingList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductMatching $productMatchingList = null)
+    public function setProductMatchingList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductMatching $productMatchingList = null): self
     {
         if (is_null($productMatchingList) || (is_array($productMatchingList) && empty($productMatchingList))) {
             unset($this->ProductMatchingList);
         } else {
             $this->ProductMatchingList = $productMatchingList;
         }
+        
         return $this;
     }
 }

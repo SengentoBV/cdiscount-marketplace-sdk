@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for OfferFilterCriterion Enums
@@ -30,11 +32,11 @@ class CdiscountOfferFilterCriterion extends AbstractStructEnumBase
      * @uses self::VALUE_USED_OFFERS_ONLY
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NEW_OFFERS_ONLY,
             self::VALUE_USED_OFFERS_ONLY,
-        );
+        ];
     }
 }

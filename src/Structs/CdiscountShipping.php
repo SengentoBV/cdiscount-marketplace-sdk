@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Shipping Structs
@@ -19,25 +22,25 @@ class CdiscountShipping extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var int
+     * @var int|null
      */
-    public $Delay;
+    protected ?int $Delay = null;
     /**
      * The ShippingMode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ShippingMode;
+    protected ?string $ShippingMode = null;
     /**
      * The ShippingPrice
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var float
+     * @var float|null
      */
-    public $ShippingPrice;
+    protected ?float $ShippingPrice = null;
     /**
      * Constructor method for Shipping
      * @uses CdiscountShipping::setDelay()
@@ -47,7 +50,7 @@ class CdiscountShipping extends AbstractStructBase
      * @param string $shippingMode
      * @param float $shippingPrice
      */
-    public function __construct($delay = null, $shippingMode = null, $shippingPrice = null)
+    public function __construct(?int $delay = null, ?string $shippingMode = null, ?float $shippingPrice = null)
     {
         $this
             ->setDelay($delay)
@@ -61,7 +64,7 @@ class CdiscountShipping extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return int|null
      */
-    public function getDelay()
+    public function getDelay(): ?int
     {
         return isset($this->Delay) ? $this->Delay : null;
     }
@@ -72,17 +75,18 @@ class CdiscountShipping extends AbstractStructBase
      * @param int $delay
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShipping
      */
-    public function setDelay($delay = null)
+    public function setDelay(?int $delay = null): self
     {
         // validation for constraint: int
         if (!is_null($delay) && !(is_int($delay) || ctype_digit($delay))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($delay, true), gettype($delay)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($delay, true), gettype($delay)), __LINE__);
         }
         if (is_null($delay) || (is_array($delay) && empty($delay))) {
             unset($this->Delay);
         } else {
             $this->Delay = $delay;
         }
+        
         return $this;
     }
     /**
@@ -92,7 +96,7 @@ class CdiscountShipping extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getShippingMode()
+    public function getShippingMode(): ?string
     {
         return isset($this->ShippingMode) ? $this->ShippingMode : null;
     }
@@ -103,17 +107,18 @@ class CdiscountShipping extends AbstractStructBase
      * @param string $shippingMode
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShipping
      */
-    public function setShippingMode($shippingMode = null)
+    public function setShippingMode(?string $shippingMode = null): self
     {
         // validation for constraint: string
         if (!is_null($shippingMode) && !is_string($shippingMode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($shippingMode, true), gettype($shippingMode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($shippingMode, true), gettype($shippingMode)), __LINE__);
         }
         if (is_null($shippingMode) || (is_array($shippingMode) && empty($shippingMode))) {
             unset($this->ShippingMode);
         } else {
             $this->ShippingMode = $shippingMode;
         }
+        
         return $this;
     }
     /**
@@ -123,7 +128,7 @@ class CdiscountShipping extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return float|null
      */
-    public function getShippingPrice()
+    public function getShippingPrice(): ?float
     {
         return isset($this->ShippingPrice) ? $this->ShippingPrice : null;
     }
@@ -134,17 +139,18 @@ class CdiscountShipping extends AbstractStructBase
      * @param float $shippingPrice
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShipping
      */
-    public function setShippingPrice($shippingPrice = null)
+    public function setShippingPrice(?float $shippingPrice = null): self
     {
         // validation for constraint: float
         if (!is_null($shippingPrice) && !(is_float($shippingPrice) || is_numeric($shippingPrice))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($shippingPrice, true), gettype($shippingPrice)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($shippingPrice, true), gettype($shippingPrice)), __LINE__);
         }
         if (is_null($shippingPrice) || (is_array($shippingPrice) && empty($shippingPrice))) {
             unset($this->ShippingPrice);
         } else {
             $this->ShippingPrice = $shippingPrice;
         }
+        
         return $this;
     }
 }

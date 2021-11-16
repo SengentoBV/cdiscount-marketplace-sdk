@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfParcelShop Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfParcelShop extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop[]
      */
-    public $ParcelShop;
+    protected ?array $ParcelShop = null;
     /**
      * Constructor method for ArrayOfParcelShop
      * @uses CdiscountArrayOfParcelShop::setParcelShop()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop[] $parcelShop
      */
-    public function __construct(array $parcelShop = array())
+    public function __construct(?array $parcelShop = null)
     {
         $this
             ->setParcelShop($parcelShop);
@@ -38,9 +41,9 @@ class CdiscountArrayOfParcelShop extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop[]
      */
-    public function getParcelShop()
+    public function getParcelShop(): ?array
     {
         return isset($this->ParcelShop) ? $this->ParcelShop : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfParcelShop extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateParcelShopForArrayConstraintsFromSetParcelShop(array $values = array())
+    public static function validateParcelShopForArrayConstraintsFromSetParcelShop(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfParcelShopParcelShopItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfParcelShop extends AbstractStructArrayBase
             $message = sprintf('The ParcelShop property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ParcelShop value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop[] $parcelShop
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelShop
      */
-    public function setParcelShop(array $parcelShop = array())
+    public function setParcelShop(?array $parcelShop = null): self
     {
         // validation for constraint: array
         if ('' !== ($parcelShopArrayErrorMessage = self::validateParcelShopForArrayConstraintsFromSetParcelShop($parcelShop))) {
-            throw new \InvalidArgumentException($parcelShopArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($parcelShopArrayErrorMessage, __LINE__);
         }
         if (is_null($parcelShop) || (is_array($parcelShop) && empty($parcelShop))) {
             unset($this->ParcelShop);
         } else {
             $this->ParcelShop = $parcelShop;
         }
-        return $this;
-    }
-    /**
-     * Add item to ParcelShop value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelShop
-     */
-    public function addToParcelShop(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop) {
-            throw new \InvalidArgumentException(sprintf('The ParcelShop property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ParcelShop[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfParcelShop extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfParcelShop extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfParcelShop extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfParcelShop extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
     {
         return parent::last();
     }
@@ -145,16 +138,31 @@ class CdiscountArrayOfParcelShop extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelShop
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop) {
+            throw new InvalidArgumentException(sprintf('The ParcelShop property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ParcelShop
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ParcelShop';
     }

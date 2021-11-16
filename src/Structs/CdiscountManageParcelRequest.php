@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ManageParcelRequest Structs
@@ -19,17 +22,17 @@ class CdiscountManageParcelRequest extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelInfos
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelInfos|null
      */
-    public $ParcelActionsList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelInfos $ParcelActionsList = null;
     /**
      * The ScopusId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ScopusId;
+    protected ?string $ScopusId = null;
     /**
      * Constructor method for ManageParcelRequest
      * @uses CdiscountManageParcelRequest::setParcelActionsList()
@@ -37,7 +40,7 @@ class CdiscountManageParcelRequest extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelInfos $parcelActionsList
      * @param string $scopusId
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelInfos $parcelActionsList = null, $scopusId = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelInfos $parcelActionsList = null, ?string $scopusId = null)
     {
         $this
             ->setParcelActionsList($parcelActionsList)
@@ -50,7 +53,7 @@ class CdiscountManageParcelRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelInfos|null
      */
-    public function getParcelActionsList()
+    public function getParcelActionsList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelInfos
     {
         return isset($this->ParcelActionsList) ? $this->ParcelActionsList : null;
     }
@@ -61,13 +64,14 @@ class CdiscountManageParcelRequest extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelInfos $parcelActionsList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelRequest
      */
-    public function setParcelActionsList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelInfos $parcelActionsList = null)
+    public function setParcelActionsList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelInfos $parcelActionsList = null): self
     {
         if (is_null($parcelActionsList) || (is_array($parcelActionsList) && empty($parcelActionsList))) {
             unset($this->ParcelActionsList);
         } else {
             $this->ParcelActionsList = $parcelActionsList;
         }
+        
         return $this;
     }
     /**
@@ -77,7 +81,7 @@ class CdiscountManageParcelRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getScopusId()
+    public function getScopusId(): ?string
     {
         return isset($this->ScopusId) ? $this->ScopusId : null;
     }
@@ -88,17 +92,18 @@ class CdiscountManageParcelRequest extends AbstractStructBase
      * @param string $scopusId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelRequest
      */
-    public function setScopusId($scopusId = null)
+    public function setScopusId(?string $scopusId = null): self
     {
         // validation for constraint: string
         if (!is_null($scopusId) && !is_string($scopusId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($scopusId, true), gettype($scopusId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($scopusId, true), gettype($scopusId)), __LINE__);
         }
         if (is_null($scopusId) || (is_array($scopusId) && empty($scopusId))) {
             unset($this->ScopusId);
         } else {
             $this->ScopusId = $scopusId;
         }
+        
         return $this;
     }
 }

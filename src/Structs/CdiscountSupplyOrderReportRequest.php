@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SupplyOrderReportRequest Structs
@@ -19,37 +22,37 @@ class CdiscountSupplyOrderReportRequest extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $BeginCreationDate;
+    protected ?string $BeginCreationDate = null;
     /**
      * The DepositIdList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint|null
      */
-    public $DepositIdList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint $DepositIdList = null;
     /**
      * The EndCreationDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $EndCreationDate;
+    protected ?string $EndCreationDate = null;
     /**
      * The PageNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $PageNumber;
+    protected ?int $PageNumber = null;
     /**
      * The PageSize
-     * @var int
+     * @var int|null
      */
-    public $PageSize;
+    protected ?int $PageSize = null;
     /**
      * Constructor method for SupplyOrderReportRequest
      * @uses CdiscountSupplyOrderReportRequest::setBeginCreationDate()
@@ -63,7 +66,7 @@ class CdiscountSupplyOrderReportRequest extends AbstractStructBase
      * @param int $pageNumber
      * @param int $pageSize
      */
-    public function __construct($beginCreationDate = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint $depositIdList = null, $endCreationDate = null, $pageNumber = null, $pageSize = null)
+    public function __construct(?string $beginCreationDate = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint $depositIdList = null, ?string $endCreationDate = null, ?int $pageNumber = null, ?int $pageSize = null)
     {
         $this
             ->setBeginCreationDate($beginCreationDate)
@@ -79,7 +82,7 @@ class CdiscountSupplyOrderReportRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getBeginCreationDate()
+    public function getBeginCreationDate(): ?string
     {
         return isset($this->BeginCreationDate) ? $this->BeginCreationDate : null;
     }
@@ -90,17 +93,18 @@ class CdiscountSupplyOrderReportRequest extends AbstractStructBase
      * @param string $beginCreationDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportRequest
      */
-    public function setBeginCreationDate($beginCreationDate = null)
+    public function setBeginCreationDate(?string $beginCreationDate = null): self
     {
         // validation for constraint: string
         if (!is_null($beginCreationDate) && !is_string($beginCreationDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginCreationDate, true), gettype($beginCreationDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginCreationDate, true), gettype($beginCreationDate)), __LINE__);
         }
         if (is_null($beginCreationDate) || (is_array($beginCreationDate) && empty($beginCreationDate))) {
             unset($this->BeginCreationDate);
         } else {
             $this->BeginCreationDate = $beginCreationDate;
         }
+        
         return $this;
     }
     /**
@@ -110,7 +114,7 @@ class CdiscountSupplyOrderReportRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint|null
      */
-    public function getDepositIdList()
+    public function getDepositIdList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint
     {
         return isset($this->DepositIdList) ? $this->DepositIdList : null;
     }
@@ -121,13 +125,14 @@ class CdiscountSupplyOrderReportRequest extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint $depositIdList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportRequest
      */
-    public function setDepositIdList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint $depositIdList = null)
+    public function setDepositIdList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint $depositIdList = null): self
     {
         if (is_null($depositIdList) || (is_array($depositIdList) && empty($depositIdList))) {
             unset($this->DepositIdList);
         } else {
             $this->DepositIdList = $depositIdList;
         }
+        
         return $this;
     }
     /**
@@ -137,7 +142,7 @@ class CdiscountSupplyOrderReportRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getEndCreationDate()
+    public function getEndCreationDate(): ?string
     {
         return isset($this->EndCreationDate) ? $this->EndCreationDate : null;
     }
@@ -148,24 +153,25 @@ class CdiscountSupplyOrderReportRequest extends AbstractStructBase
      * @param string $endCreationDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportRequest
      */
-    public function setEndCreationDate($endCreationDate = null)
+    public function setEndCreationDate(?string $endCreationDate = null): self
     {
         // validation for constraint: string
         if (!is_null($endCreationDate) && !is_string($endCreationDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endCreationDate, true), gettype($endCreationDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endCreationDate, true), gettype($endCreationDate)), __LINE__);
         }
         if (is_null($endCreationDate) || (is_array($endCreationDate) && empty($endCreationDate))) {
             unset($this->EndCreationDate);
         } else {
             $this->EndCreationDate = $endCreationDate;
         }
+        
         return $this;
     }
     /**
      * Get PageNumber value
      * @return int|null
      */
-    public function getPageNumber()
+    public function getPageNumber(): ?int
     {
         return $this->PageNumber;
     }
@@ -174,20 +180,21 @@ class CdiscountSupplyOrderReportRequest extends AbstractStructBase
      * @param int $pageNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportRequest
      */
-    public function setPageNumber($pageNumber = null)
+    public function setPageNumber(?int $pageNumber = null): self
     {
         // validation for constraint: int
         if (!is_null($pageNumber) && !(is_int($pageNumber) || ctype_digit($pageNumber))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageNumber, true), gettype($pageNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageNumber, true), gettype($pageNumber)), __LINE__);
         }
         $this->PageNumber = $pageNumber;
+        
         return $this;
     }
     /**
      * Get PageSize value
      * @return int|null
      */
-    public function getPageSize()
+    public function getPageSize(): ?int
     {
         return $this->PageSize;
     }
@@ -196,13 +203,14 @@ class CdiscountSupplyOrderReportRequest extends AbstractStructBase
      * @param int $pageSize
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportRequest
      */
-    public function setPageSize($pageSize = null)
+    public function setPageSize(?int $pageSize = null): self
     {
         // validation for constraint: int
         if (!is_null($pageSize) && !(is_int($pageSize) || ctype_digit($pageSize))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageSize, true), gettype($pageSize)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageSize, true), gettype($pageSize)), __LINE__);
         }
         $this->PageSize = $pageSize;
+        
         return $this;
     }
 }

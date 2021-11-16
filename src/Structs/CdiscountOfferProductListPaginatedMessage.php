@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OfferProductListPaginatedMessage Structs
@@ -18,31 +21,31 @@ class CdiscountOfferProductListPaginatedMessage extends CdiscountServiceBaseAPIM
      * The CurrentPageNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $CurrentPageNumber;
+    protected ?int $CurrentPageNumber = null;
     /**
      * The NumberOfPages
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $NumberOfPages;
+    protected ?int $NumberOfPages = null;
     /**
      * The OfferProductList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferProduct
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferProduct|null
      */
-    public $OfferProductList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferProduct $OfferProductList = null;
     /**
      * The OfferTotalCount
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $OfferTotalCount;
+    protected ?int $OfferTotalCount = null;
     /**
      * Constructor method for OfferProductListPaginatedMessage
      * @uses CdiscountOfferProductListPaginatedMessage::setCurrentPageNumber()
@@ -54,7 +57,7 @@ class CdiscountOfferProductListPaginatedMessage extends CdiscountServiceBaseAPIM
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferProduct $offerProductList
      * @param int $offerTotalCount
      */
-    public function __construct($currentPageNumber = null, $numberOfPages = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferProduct $offerProductList = null, $offerTotalCount = null)
+    public function __construct(?int $currentPageNumber = null, ?int $numberOfPages = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferProduct $offerProductList = null, ?int $offerTotalCount = null)
     {
         $this
             ->setCurrentPageNumber($currentPageNumber)
@@ -66,7 +69,7 @@ class CdiscountOfferProductListPaginatedMessage extends CdiscountServiceBaseAPIM
      * Get CurrentPageNumber value
      * @return int|null
      */
-    public function getCurrentPageNumber()
+    public function getCurrentPageNumber(): ?int
     {
         return $this->CurrentPageNumber;
     }
@@ -75,20 +78,21 @@ class CdiscountOfferProductListPaginatedMessage extends CdiscountServiceBaseAPIM
      * @param int $currentPageNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProductListPaginatedMessage
      */
-    public function setCurrentPageNumber($currentPageNumber = null)
+    public function setCurrentPageNumber(?int $currentPageNumber = null): self
     {
         // validation for constraint: int
         if (!is_null($currentPageNumber) && !(is_int($currentPageNumber) || ctype_digit($currentPageNumber))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($currentPageNumber, true), gettype($currentPageNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($currentPageNumber, true), gettype($currentPageNumber)), __LINE__);
         }
         $this->CurrentPageNumber = $currentPageNumber;
+        
         return $this;
     }
     /**
      * Get NumberOfPages value
      * @return int|null
      */
-    public function getNumberOfPages()
+    public function getNumberOfPages(): ?int
     {
         return $this->NumberOfPages;
     }
@@ -97,13 +101,14 @@ class CdiscountOfferProductListPaginatedMessage extends CdiscountServiceBaseAPIM
      * @param int $numberOfPages
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProductListPaginatedMessage
      */
-    public function setNumberOfPages($numberOfPages = null)
+    public function setNumberOfPages(?int $numberOfPages = null): self
     {
         // validation for constraint: int
         if (!is_null($numberOfPages) && !(is_int($numberOfPages) || ctype_digit($numberOfPages))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfPages, true), gettype($numberOfPages)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfPages, true), gettype($numberOfPages)), __LINE__);
         }
         $this->NumberOfPages = $numberOfPages;
+        
         return $this;
     }
     /**
@@ -113,7 +118,7 @@ class CdiscountOfferProductListPaginatedMessage extends CdiscountServiceBaseAPIM
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferProduct|null
      */
-    public function getOfferProductList()
+    public function getOfferProductList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferProduct
     {
         return isset($this->OfferProductList) ? $this->OfferProductList : null;
     }
@@ -124,20 +129,21 @@ class CdiscountOfferProductListPaginatedMessage extends CdiscountServiceBaseAPIM
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferProduct $offerProductList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProductListPaginatedMessage
      */
-    public function setOfferProductList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferProduct $offerProductList = null)
+    public function setOfferProductList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferProduct $offerProductList = null): self
     {
         if (is_null($offerProductList) || (is_array($offerProductList) && empty($offerProductList))) {
             unset($this->OfferProductList);
         } else {
             $this->OfferProductList = $offerProductList;
         }
+        
         return $this;
     }
     /**
      * Get OfferTotalCount value
      * @return int|null
      */
-    public function getOfferTotalCount()
+    public function getOfferTotalCount(): ?int
     {
         return $this->OfferTotalCount;
     }
@@ -146,13 +152,14 @@ class CdiscountOfferProductListPaginatedMessage extends CdiscountServiceBaseAPIM
      * @param int $offerTotalCount
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferProductListPaginatedMessage
      */
-    public function setOfferTotalCount($offerTotalCount = null)
+    public function setOfferTotalCount(?int $offerTotalCount = null): self
     {
         // validation for constraint: int
         if (!is_null($offerTotalCount) && !(is_int($offerTotalCount) || ctype_digit($offerTotalCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($offerTotalCount, true), gettype($offerTotalCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($offerTotalCount, true), gettype($offerTotalCount)), __LINE__);
         }
         $this->OfferTotalCount = $offerTotalCount;
+        
         return $this;
     }
 }

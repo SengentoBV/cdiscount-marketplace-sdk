@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetOrderQuestionListResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetOrderQuestionListResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestionListMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestionListMessage|null
      */
-    public $GetOrderQuestionListResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestionListMessage $GetOrderQuestionListResult = null;
     /**
      * Constructor method for GetOrderQuestionListResponse
      * @uses CdiscountGetOrderQuestionListResponse::setGetOrderQuestionListResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestionListMessage $getOrderQuestionListResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestionListMessage $getOrderQuestionListResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestionListMessage $getOrderQuestionListResult = null)
     {
         $this
             ->setGetOrderQuestionListResult($getOrderQuestionListResult);
@@ -36,7 +39,7 @@ class CdiscountGetOrderQuestionListResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestionListMessage|null
      */
-    public function getGetOrderQuestionListResult()
+    public function getGetOrderQuestionListResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestionListMessage
     {
         return isset($this->GetOrderQuestionListResult) ? $this->GetOrderQuestionListResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetOrderQuestionListResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestionListMessage $getOrderQuestionListResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOrderQuestionListResponse
      */
-    public function setGetOrderQuestionListResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestionListMessage $getOrderQuestionListResult = null)
+    public function setGetOrderQuestionListResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestionListMessage $getOrderQuestionListResult = null): self
     {
         if (is_null($getOrderQuestionListResult) || (is_array($getOrderQuestionListResult) && empty($getOrderQuestionListResult))) {
             unset($this->GetOrderQuestionListResult);
         } else {
             $this->GetOrderQuestionListResult = $getOrderQuestionListResult;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SubmitRelaysFile Structs
@@ -16,17 +19,17 @@ class CdiscountSubmitRelaysFile extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public $headerMessage;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null;
     /**
      * The relaysFileRequest
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileIntegrationRequest
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileIntegrationRequest|null
      */
-    public $relaysFileRequest;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileIntegrationRequest $relaysFileRequest = null;
     /**
      * Constructor method for SubmitRelaysFile
      * @uses CdiscountSubmitRelaysFile::setHeaderMessage()
@@ -34,7 +37,7 @@ class CdiscountSubmitRelaysFile extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileIntegrationRequest $relaysFileRequest
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileIntegrationRequest $relaysFileRequest = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileIntegrationRequest $relaysFileRequest = null)
     {
         $this
             ->setHeaderMessage($headerMessage)
@@ -47,7 +50,7 @@ class CdiscountSubmitRelaysFile extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public function getHeaderMessage()
+    public function getHeaderMessage(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
     {
         return isset($this->headerMessage) ? $this->headerMessage : null;
     }
@@ -58,13 +61,14 @@ class CdiscountSubmitRelaysFile extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubmitRelaysFile
      */
-    public function setHeaderMessage(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null)
+    public function setHeaderMessage(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null): self
     {
         if (is_null($headerMessage) || (is_array($headerMessage) && empty($headerMessage))) {
             unset($this->headerMessage);
         } else {
             $this->headerMessage = $headerMessage;
         }
+        
         return $this;
     }
     /**
@@ -74,7 +78,7 @@ class CdiscountSubmitRelaysFile extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileIntegrationRequest|null
      */
-    public function getRelaysFileRequest()
+    public function getRelaysFileRequest(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileIntegrationRequest
     {
         return isset($this->relaysFileRequest) ? $this->relaysFileRequest : null;
     }
@@ -85,13 +89,14 @@ class CdiscountSubmitRelaysFile extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileIntegrationRequest $relaysFileRequest
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubmitRelaysFile
      */
-    public function setRelaysFileRequest(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileIntegrationRequest $relaysFileRequest = null)
+    public function setRelaysFileRequest(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileIntegrationRequest $relaysFileRequest = null): self
     {
         if (is_null($relaysFileRequest) || (is_array($relaysFileRequest) && empty($relaysFileRequest))) {
             unset($this->relaysFileRequest);
         } else {
             $this->relaysFileRequest = $relaysFileRequest;
         }
+        
         return $this;
     }
 }

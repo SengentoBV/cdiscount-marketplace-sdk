@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfstring Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfstring extends AbstractStructArrayBase
      * - nillable: true
      * @var string[]
      */
-    public $string;
+    protected ?array $string = null;
     /**
      * Constructor method for ArrayOfstring
      * @uses CdiscountArrayOfstring::setString()
      * @param string[] $string
      */
-    public function __construct(array $string = array())
+    public function __construct(?array $string = null)
     {
         $this
             ->setString($string);
@@ -38,9 +41,9 @@ class CdiscountArrayOfstring extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return string[]|null
+     * @return string[]
      */
-    public function getString()
+    public function getString(): ?array
     {
         return isset($this->string) ? $this->string : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfstring extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateStringForArrayConstraintsFromSetString(array $values = array())
+    public static function validateStringForArrayConstraintsFromSetString(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfstringStringItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfstring extends AbstractStructArrayBase
             $message = sprintf('The string property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set string value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $string
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
      */
-    public function setString(array $string = array())
+    public function setString(?array $string = null): self
     {
         // validation for constraint: array
         if ('' !== ($stringArrayErrorMessage = self::validateStringForArrayConstraintsFromSetString($string))) {
-            throw new \InvalidArgumentException($stringArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($stringArrayErrorMessage, __LINE__);
         }
         if (is_null($string) || (is_array($string) && empty($string))) {
             unset($this->string);
         } else {
             $this->string = $string;
         }
-        return $this;
-    }
-    /**
-     * Add item to string value
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
-     */
-    public function addToString($item)
-    {
-        // validation for constraint: itemType
-        if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The string property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->string[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfstring extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfstring extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfstring extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfstring extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -145,7 +138,7 @@ class CdiscountArrayOfstring extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
@@ -154,7 +147,7 @@ class CdiscountArrayOfstring extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string string
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'string';
     }

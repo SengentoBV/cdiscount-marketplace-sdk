@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SellerDealRequest Structs
@@ -18,16 +21,16 @@ class CdiscountSellerDealRequest extends AbstractStructBase
      * The Limit
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Limit;
+    protected ?int $Limit = null;
     /**
      * The Page
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Page;
+    protected ?int $Page = null;
     /**
      * Constructor method for SellerDealRequest
      * @uses CdiscountSellerDealRequest::setLimit()
@@ -35,7 +38,7 @@ class CdiscountSellerDealRequest extends AbstractStructBase
      * @param int $limit
      * @param int $page
      */
-    public function __construct($limit = null, $page = null)
+    public function __construct(?int $limit = null, ?int $page = null)
     {
         $this
             ->setLimit($limit)
@@ -45,7 +48,7 @@ class CdiscountSellerDealRequest extends AbstractStructBase
      * Get Limit value
      * @return int|null
      */
-    public function getLimit()
+    public function getLimit(): ?int
     {
         return $this->Limit;
     }
@@ -54,20 +57,21 @@ class CdiscountSellerDealRequest extends AbstractStructBase
      * @param int $limit
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealRequest
      */
-    public function setLimit($limit = null)
+    public function setLimit(?int $limit = null): self
     {
         // validation for constraint: int
         if (!is_null($limit) && !(is_int($limit) || ctype_digit($limit))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($limit, true), gettype($limit)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($limit, true), gettype($limit)), __LINE__);
         }
         $this->Limit = $limit;
+        
         return $this;
     }
     /**
      * Get Page value
      * @return int|null
      */
-    public function getPage()
+    public function getPage(): ?int
     {
         return $this->Page;
     }
@@ -76,13 +80,14 @@ class CdiscountSellerDealRequest extends AbstractStructBase
      * @param int $page
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealRequest
      */
-    public function setPage($page = null)
+    public function setPage(?int $page = null): self
     {
         // validation for constraint: int
         if (!is_null($page) && !(is_int($page) || ctype_digit($page))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($page, true), gettype($page)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($page, true), gettype($page)), __LINE__);
         }
         $this->Page = $page;
+        
         return $this;
     }
 }

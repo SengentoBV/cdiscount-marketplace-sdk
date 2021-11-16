@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ProductStateEnum Enums
@@ -25,16 +27,23 @@ class CdiscountProductStateEnum extends AbstractStructEnumBase
      */
     const VALUE_USED = 'Used';
     /**
+     * Constant for value 'Refurbished'
+     * @return string 'Refurbished'
+     */
+    const VALUE_REFURBISHED = 'Refurbished';
+    /**
      * Return allowed values
      * @uses self::VALUE_NEW
      * @uses self::VALUE_USED
+     * @uses self::VALUE_REFURBISHED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NEW,
             self::VALUE_USED,
-        );
+            self::VALUE_REFURBISHED,
+        ];
     }
 }

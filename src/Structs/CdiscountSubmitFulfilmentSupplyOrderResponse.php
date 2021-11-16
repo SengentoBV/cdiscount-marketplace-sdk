@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SubmitFulfilmentSupplyOrderResponse Structs
@@ -16,15 +19,15 @@ class CdiscountSubmitFulfilmentSupplyOrderResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportMessage|null
      */
-    public $SubmitFulfilmentSupplyOrderResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportMessage $SubmitFulfilmentSupplyOrderResult = null;
     /**
      * Constructor method for SubmitFulfilmentSupplyOrderResponse
      * @uses CdiscountSubmitFulfilmentSupplyOrderResponse::setSubmitFulfilmentSupplyOrderResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportMessage $submitFulfilmentSupplyOrderResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportMessage $submitFulfilmentSupplyOrderResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportMessage $submitFulfilmentSupplyOrderResult = null)
     {
         $this
             ->setSubmitFulfilmentSupplyOrderResult($submitFulfilmentSupplyOrderResult);
@@ -36,7 +39,7 @@ class CdiscountSubmitFulfilmentSupplyOrderResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportMessage|null
      */
-    public function getSubmitFulfilmentSupplyOrderResult()
+    public function getSubmitFulfilmentSupplyOrderResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportMessage
     {
         return isset($this->SubmitFulfilmentSupplyOrderResult) ? $this->SubmitFulfilmentSupplyOrderResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountSubmitFulfilmentSupplyOrderResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportMessage $submitFulfilmentSupplyOrderResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubmitFulfilmentSupplyOrderResponse
      */
-    public function setSubmitFulfilmentSupplyOrderResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportMessage $submitFulfilmentSupplyOrderResult = null)
+    public function setSubmitFulfilmentSupplyOrderResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportMessage $submitFulfilmentSupplyOrderResult = null): self
     {
         if (is_null($submitFulfilmentSupplyOrderResult) || (is_array($submitFulfilmentSupplyOrderResult) && empty($submitFulfilmentSupplyOrderResult))) {
             unset($this->SubmitFulfilmentSupplyOrderResult);
         } else {
             $this->SubmitFulfilmentSupplyOrderResult = $submitFulfilmentSupplyOrderResult;
         }
+        
         return $this;
     }
 }

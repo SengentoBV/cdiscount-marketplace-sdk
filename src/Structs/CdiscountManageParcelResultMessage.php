@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ManageParcelResultMessage Structs
@@ -19,15 +22,15 @@ class CdiscountManageParcelResultMessage extends CdiscountServiceBaseAPIMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelActionResult
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelActionResult|null
      */
-    public $ParcelActionResultList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelActionResult $ParcelActionResultList = null;
     /**
      * Constructor method for ManageParcelResultMessage
      * @uses CdiscountManageParcelResultMessage::setParcelActionResultList()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelActionResult $parcelActionResultList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelActionResult $parcelActionResultList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelActionResult $parcelActionResultList = null)
     {
         $this
             ->setParcelActionResultList($parcelActionResultList);
@@ -39,7 +42,7 @@ class CdiscountManageParcelResultMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelActionResult|null
      */
-    public function getParcelActionResultList()
+    public function getParcelActionResultList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelActionResult
     {
         return isset($this->ParcelActionResultList) ? $this->ParcelActionResultList : null;
     }
@@ -50,13 +53,14 @@ class CdiscountManageParcelResultMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelActionResult $parcelActionResultList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelResultMessage
      */
-    public function setParcelActionResultList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelActionResult $parcelActionResultList = null)
+    public function setParcelActionResultList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfParcelActionResult $parcelActionResultList = null): self
     {
         if (is_null($parcelActionResultList) || (is_array($parcelActionResultList) && empty($parcelActionResultList))) {
             unset($this->ParcelActionResultList);
         } else {
             $this->ParcelActionResultList = $parcelActionResultList;
         }
+        
         return $this;
     }
 }

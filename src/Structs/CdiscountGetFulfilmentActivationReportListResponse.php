@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetFulfilmentActivationReportListResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetFulfilmentActivationReportListResponse extends AbstractStructB
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReportMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReportMessage|null
      */
-    public $GetFulfilmentActivationReportListResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReportMessage $GetFulfilmentActivationReportListResult = null;
     /**
      * Constructor method for GetFulfilmentActivationReportListResponse
      * @uses CdiscountGetFulfilmentActivationReportListResponse::setGetFulfilmentActivationReportListResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReportMessage $getFulfilmentActivationReportListResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReportMessage $getFulfilmentActivationReportListResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReportMessage $getFulfilmentActivationReportListResult = null)
     {
         $this
             ->setGetFulfilmentActivationReportListResult($getFulfilmentActivationReportListResult);
@@ -36,7 +39,7 @@ class CdiscountGetFulfilmentActivationReportListResponse extends AbstractStructB
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReportMessage|null
      */
-    public function getGetFulfilmentActivationReportListResult()
+    public function getGetFulfilmentActivationReportListResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReportMessage
     {
         return isset($this->GetFulfilmentActivationReportListResult) ? $this->GetFulfilmentActivationReportListResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetFulfilmentActivationReportListResponse extends AbstractStructB
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReportMessage $getFulfilmentActivationReportListResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetFulfilmentActivationReportListResponse
      */
-    public function setGetFulfilmentActivationReportListResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReportMessage $getFulfilmentActivationReportListResult = null)
+    public function setGetFulfilmentActivationReportListResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReportMessage $getFulfilmentActivationReportListResult = null): self
     {
         if (is_null($getFulfilmentActivationReportListResult) || (is_array($getFulfilmentActivationReportListResult) && empty($getFulfilmentActivationReportListResult))) {
             unset($this->GetFulfilmentActivationReportListResult);
         } else {
             $this->GetFulfilmentActivationReportListResult = $getFulfilmentActivationReportListResult;
         }
+        
         return $this;
     }
 }

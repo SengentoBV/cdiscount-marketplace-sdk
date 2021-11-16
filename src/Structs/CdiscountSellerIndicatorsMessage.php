@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SellerIndicatorsMessage Structs
@@ -19,15 +22,15 @@ class CdiscountSellerIndicatorsMessage extends CdiscountServiceBaseAPIMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerIndicator
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerIndicator|null
      */
-    public $SellerIndicators;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerIndicator $SellerIndicators = null;
     /**
      * Constructor method for SellerIndicatorsMessage
      * @uses CdiscountSellerIndicatorsMessage::setSellerIndicators()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerIndicator $sellerIndicators
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerIndicator $sellerIndicators = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerIndicator $sellerIndicators = null)
     {
         $this
             ->setSellerIndicators($sellerIndicators);
@@ -39,7 +42,7 @@ class CdiscountSellerIndicatorsMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerIndicator|null
      */
-    public function getSellerIndicators()
+    public function getSellerIndicators(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerIndicator
     {
         return isset($this->SellerIndicators) ? $this->SellerIndicators : null;
     }
@@ -50,13 +53,14 @@ class CdiscountSellerIndicatorsMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerIndicator $sellerIndicators
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerIndicatorsMessage
      */
-    public function setSellerIndicators(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerIndicator $sellerIndicators = null)
+    public function setSellerIndicators(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerIndicator $sellerIndicators = null): self
     {
         if (is_null($sellerIndicators) || (is_array($sellerIndicators) && empty($sellerIndicators))) {
             unset($this->SellerIndicators);
         } else {
             $this->SellerIndicators = $sellerIndicators;
         }
+        
         return $this;
     }
 }

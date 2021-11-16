@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for OfferStateEnum Enums
@@ -48,14 +50,14 @@ class CdiscountOfferStateEnum extends AbstractStructEnumBase
      * @uses self::VALUE_FULFILLMENT
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_WAITING_FOR_PRODUCT_ACTIVATION,
             self::VALUE_ACTIVE,
             self::VALUE_INACTIVE,
             self::VALUE_OBSOLETE,
             self::VALUE_FULFILLMENT,
-        );
+        ];
     }
 }

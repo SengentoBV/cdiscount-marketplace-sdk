@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for OfferSortOrder Enums
@@ -42,13 +44,13 @@ class CdiscountOfferSortOrder extends AbstractStructEnumBase
      * @uses self::VALUE_BY_CREATION_DATE_DESCENDING
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_BY_SOLD_QUANTITY_DESCENDING,
             self::VALUE_BY_PRICE_ASCENDING,
             self::VALUE_BY_PRICE_DESCENDING,
             self::VALUE_BY_CREATION_DATE_DESCENDING,
-        );
+        ];
     }
 }

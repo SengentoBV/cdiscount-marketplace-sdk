@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Message Structs
@@ -19,31 +22,31 @@ class CdiscountMessage extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Content;
+    protected ?string $Content = null;
     /**
      * The Sender
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Sender;
+    protected ?string $Sender = null;
     /**
      * The SenderType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SenderType;
+    protected ?string $SenderType = null;
     /**
      * The Timestamp
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Timestamp;
+    protected ?string $Timestamp = null;
     /**
      * Constructor method for Message
      * @uses CdiscountMessage::setContent()
@@ -55,7 +58,7 @@ class CdiscountMessage extends AbstractStructBase
      * @param string $senderType
      * @param string $timestamp
      */
-    public function __construct($content = null, $sender = null, $senderType = null, $timestamp = null)
+    public function __construct(?string $content = null, ?string $sender = null, ?string $senderType = null, ?string $timestamp = null)
     {
         $this
             ->setContent($content)
@@ -70,7 +73,7 @@ class CdiscountMessage extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getContent()
+    public function getContent(): ?string
     {
         return isset($this->Content) ? $this->Content : null;
     }
@@ -81,17 +84,18 @@ class CdiscountMessage extends AbstractStructBase
      * @param string $content
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountMessage
      */
-    public function setContent($content = null)
+    public function setContent(?string $content = null): self
     {
         // validation for constraint: string
         if (!is_null($content) && !is_string($content)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($content, true), gettype($content)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($content, true), gettype($content)), __LINE__);
         }
         if (is_null($content) || (is_array($content) && empty($content))) {
             unset($this->Content);
         } else {
             $this->Content = $content;
         }
+        
         return $this;
     }
     /**
@@ -101,7 +105,7 @@ class CdiscountMessage extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSender()
+    public function getSender(): ?string
     {
         return isset($this->Sender) ? $this->Sender : null;
     }
@@ -112,24 +116,25 @@ class CdiscountMessage extends AbstractStructBase
      * @param string $sender
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountMessage
      */
-    public function setSender($sender = null)
+    public function setSender(?string $sender = null): self
     {
         // validation for constraint: string
         if (!is_null($sender) && !is_string($sender)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sender, true), gettype($sender)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sender, true), gettype($sender)), __LINE__);
         }
         if (is_null($sender) || (is_array($sender) && empty($sender))) {
             unset($this->Sender);
         } else {
             $this->Sender = $sender;
         }
+        
         return $this;
     }
     /**
      * Get SenderType value
      * @return string|null
      */
-    public function getSenderType()
+    public function getSenderType(): ?string
     {
         return $this->SenderType;
     }
@@ -137,24 +142,25 @@ class CdiscountMessage extends AbstractStructBase
      * Set SenderType value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountUserType::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountUserType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $senderType
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountMessage
      */
-    public function setSenderType($senderType = null)
+    public function setSenderType(?string $senderType = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountUserType::valueIsValid($senderType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountUserType', is_array($senderType) ? implode(', ', $senderType) : var_export($senderType, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountUserType::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountUserType', is_array($senderType) ? implode(', ', $senderType) : var_export($senderType, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountUserType::getValidValues())), __LINE__);
         }
         $this->SenderType = $senderType;
+        
         return $this;
     }
     /**
      * Get Timestamp value
      * @return string|null
      */
-    public function getTimestamp()
+    public function getTimestamp(): ?string
     {
         return $this->Timestamp;
     }
@@ -163,13 +169,14 @@ class CdiscountMessage extends AbstractStructBase
      * @param string $timestamp
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountMessage
      */
-    public function setTimestamp($timestamp = null)
+    public function setTimestamp(?string $timestamp = null): self
     {
         // validation for constraint: string
         if (!is_null($timestamp) && !is_string($timestamp)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($timestamp, true), gettype($timestamp)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($timestamp, true), gettype($timestamp)), __LINE__);
         }
         $this->Timestamp = $timestamp;
+        
         return $this;
     }
 }

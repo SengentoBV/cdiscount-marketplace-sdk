@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ValidateOrderListResponse Structs
@@ -16,15 +19,15 @@ class CdiscountValidateOrderListResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidationResultMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidationResultMessage|null
      */
-    public $ValidateOrderListResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidationResultMessage $ValidateOrderListResult = null;
     /**
      * Constructor method for ValidateOrderListResponse
      * @uses CdiscountValidateOrderListResponse::setValidateOrderListResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidationResultMessage $validateOrderListResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidationResultMessage $validateOrderListResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidationResultMessage $validateOrderListResult = null)
     {
         $this
             ->setValidateOrderListResult($validateOrderListResult);
@@ -36,7 +39,7 @@ class CdiscountValidateOrderListResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidationResultMessage|null
      */
-    public function getValidateOrderListResult()
+    public function getValidateOrderListResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidationResultMessage
     {
         return isset($this->ValidateOrderListResult) ? $this->ValidateOrderListResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountValidateOrderListResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidationResultMessage $validateOrderListResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderListResponse
      */
-    public function setValidateOrderListResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidationResultMessage $validateOrderListResult = null)
+    public function setValidateOrderListResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidationResultMessage $validateOrderListResult = null): self
     {
         if (is_null($validateOrderListResult) || (is_array($validateOrderListResult) && empty($validateOrderListResult))) {
             unset($this->ValidateOrderListResult);
         } else {
             $this->ValidateOrderListResult = $validateOrderListResult;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfCompetingOffer Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfCompetingOffer extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer[]
      */
-    public $CompetingOffer;
+    protected ?array $CompetingOffer = null;
     /**
      * Constructor method for ArrayOfCompetingOffer
      * @uses CdiscountArrayOfCompetingOffer::setCompetingOffer()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer[] $competingOffer
      */
-    public function __construct(array $competingOffer = array())
+    public function __construct(?array $competingOffer = null)
     {
         $this
             ->setCompetingOffer($competingOffer);
@@ -38,9 +41,9 @@ class CdiscountArrayOfCompetingOffer extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer[]
      */
-    public function getCompetingOffer()
+    public function getCompetingOffer(): ?array
     {
         return isset($this->CompetingOffer) ? $this->CompetingOffer : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfCompetingOffer extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateCompetingOfferForArrayConstraintsFromSetCompetingOffer(array $values = array())
+    public static function validateCompetingOfferForArrayConstraintsFromSetCompetingOffer(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfCompetingOfferCompetingOfferItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfCompetingOffer extends AbstractStructArrayBase
             $message = sprintf('The CompetingOffer property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set CompetingOffer value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer[] $competingOffer
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCompetingOffer
      */
-    public function setCompetingOffer(array $competingOffer = array())
+    public function setCompetingOffer(?array $competingOffer = null): self
     {
         // validation for constraint: array
         if ('' !== ($competingOfferArrayErrorMessage = self::validateCompetingOfferForArrayConstraintsFromSetCompetingOffer($competingOffer))) {
-            throw new \InvalidArgumentException($competingOfferArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($competingOfferArrayErrorMessage, __LINE__);
         }
         if (is_null($competingOffer) || (is_array($competingOffer) && empty($competingOffer))) {
             unset($this->CompetingOffer);
         } else {
             $this->CompetingOffer = $competingOffer;
         }
-        return $this;
-    }
-    /**
-     * Add item to CompetingOffer value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCompetingOffer
-     */
-    public function addToCompetingOffer(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer) {
-            throw new \InvalidArgumentException(sprintf('The CompetingOffer property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->CompetingOffer[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfCompetingOffer extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfCompetingOffer extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfCompetingOffer extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfCompetingOffer extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer
     {
         return parent::last();
     }
@@ -145,16 +138,31 @@ class CdiscountArrayOfCompetingOffer extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCompetingOffer
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer) {
+            throw new InvalidArgumentException(sprintf('The CompetingOffer property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string CompetingOffer
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'CompetingOffer';
     }

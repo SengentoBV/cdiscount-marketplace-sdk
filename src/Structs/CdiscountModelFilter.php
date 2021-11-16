@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ModelFilter Structs
@@ -19,15 +22,15 @@ class CdiscountModelFilter extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public $CategoryCodeList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $CategoryCodeList = null;
     /**
      * Constructor method for ModelFilter
      * @uses CdiscountModelFilter::setCategoryCodeList()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $categoryCodeList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $categoryCodeList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $categoryCodeList = null)
     {
         $this
             ->setCategoryCodeList($categoryCodeList);
@@ -39,7 +42,7 @@ class CdiscountModelFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public function getCategoryCodeList()
+    public function getCategoryCodeList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
     {
         return isset($this->CategoryCodeList) ? $this->CategoryCodeList : null;
     }
@@ -50,13 +53,14 @@ class CdiscountModelFilter extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $categoryCodeList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountModelFilter
      */
-    public function setCategoryCodeList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $categoryCodeList = null)
+    public function setCategoryCodeList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $categoryCodeList = null): self
     {
         if (is_null($categoryCodeList) || (is_array($categoryCodeList) && empty($categoryCodeList))) {
             unset($this->CategoryCodeList);
         } else {
             $this->CategoryCodeList = $categoryCodeList;
         }
+        
         return $this;
     }
 }

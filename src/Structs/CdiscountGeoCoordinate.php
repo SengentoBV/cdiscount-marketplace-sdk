@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GeoCoordinate Structs
@@ -18,51 +21,51 @@ class CdiscountGeoCoordinate extends AbstractStructBase
      * The Altitude
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $Altitude;
+    protected ?float $Altitude = null;
     /**
      * The Course
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $Course;
+    protected ?float $Course = null;
     /**
      * The HorizontalAccuracy
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $HorizontalAccuracy;
+    protected ?float $HorizontalAccuracy = null;
     /**
      * The Latitude
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $Latitude;
+    protected ?float $Latitude = null;
     /**
      * The Longitude
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $Longitude;
+    protected ?float $Longitude = null;
     /**
      * The Speed
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $Speed;
+    protected ?float $Speed = null;
     /**
      * The VerticalAccuracy
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $VerticalAccuracy;
+    protected ?float $VerticalAccuracy = null;
     /**
      * Constructor method for GeoCoordinate
      * @uses CdiscountGeoCoordinate::setAltitude()
@@ -80,7 +83,7 @@ class CdiscountGeoCoordinate extends AbstractStructBase
      * @param float $speed
      * @param float $verticalAccuracy
      */
-    public function __construct($altitude = null, $course = null, $horizontalAccuracy = null, $latitude = null, $longitude = null, $speed = null, $verticalAccuracy = null)
+    public function __construct(?float $altitude = null, ?float $course = null, ?float $horizontalAccuracy = null, ?float $latitude = null, ?float $longitude = null, ?float $speed = null, ?float $verticalAccuracy = null)
     {
         $this
             ->setAltitude($altitude)
@@ -95,7 +98,7 @@ class CdiscountGeoCoordinate extends AbstractStructBase
      * Get Altitude value
      * @return float|null
      */
-    public function getAltitude()
+    public function getAltitude(): ?float
     {
         return $this->Altitude;
     }
@@ -104,20 +107,21 @@ class CdiscountGeoCoordinate extends AbstractStructBase
      * @param float $altitude
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate
      */
-    public function setAltitude($altitude = null)
+    public function setAltitude(?float $altitude = null): self
     {
         // validation for constraint: float
         if (!is_null($altitude) && !(is_float($altitude) || is_numeric($altitude))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($altitude, true), gettype($altitude)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($altitude, true), gettype($altitude)), __LINE__);
         }
         $this->Altitude = $altitude;
+        
         return $this;
     }
     /**
      * Get Course value
      * @return float|null
      */
-    public function getCourse()
+    public function getCourse(): ?float
     {
         return $this->Course;
     }
@@ -126,20 +130,21 @@ class CdiscountGeoCoordinate extends AbstractStructBase
      * @param float $course
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate
      */
-    public function setCourse($course = null)
+    public function setCourse(?float $course = null): self
     {
         // validation for constraint: float
         if (!is_null($course) && !(is_float($course) || is_numeric($course))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($course, true), gettype($course)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($course, true), gettype($course)), __LINE__);
         }
         $this->Course = $course;
+        
         return $this;
     }
     /**
      * Get HorizontalAccuracy value
      * @return float|null
      */
-    public function getHorizontalAccuracy()
+    public function getHorizontalAccuracy(): ?float
     {
         return $this->HorizontalAccuracy;
     }
@@ -148,20 +153,21 @@ class CdiscountGeoCoordinate extends AbstractStructBase
      * @param float $horizontalAccuracy
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate
      */
-    public function setHorizontalAccuracy($horizontalAccuracy = null)
+    public function setHorizontalAccuracy(?float $horizontalAccuracy = null): self
     {
         // validation for constraint: float
         if (!is_null($horizontalAccuracy) && !(is_float($horizontalAccuracy) || is_numeric($horizontalAccuracy))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($horizontalAccuracy, true), gettype($horizontalAccuracy)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($horizontalAccuracy, true), gettype($horizontalAccuracy)), __LINE__);
         }
         $this->HorizontalAccuracy = $horizontalAccuracy;
+        
         return $this;
     }
     /**
      * Get Latitude value
      * @return float|null
      */
-    public function getLatitude()
+    public function getLatitude(): ?float
     {
         return $this->Latitude;
     }
@@ -170,20 +176,21 @@ class CdiscountGeoCoordinate extends AbstractStructBase
      * @param float $latitude
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate
      */
-    public function setLatitude($latitude = null)
+    public function setLatitude(?float $latitude = null): self
     {
         // validation for constraint: float
         if (!is_null($latitude) && !(is_float($latitude) || is_numeric($latitude))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($latitude, true), gettype($latitude)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($latitude, true), gettype($latitude)), __LINE__);
         }
         $this->Latitude = $latitude;
+        
         return $this;
     }
     /**
      * Get Longitude value
      * @return float|null
      */
-    public function getLongitude()
+    public function getLongitude(): ?float
     {
         return $this->Longitude;
     }
@@ -192,20 +199,21 @@ class CdiscountGeoCoordinate extends AbstractStructBase
      * @param float $longitude
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate
      */
-    public function setLongitude($longitude = null)
+    public function setLongitude(?float $longitude = null): self
     {
         // validation for constraint: float
         if (!is_null($longitude) && !(is_float($longitude) || is_numeric($longitude))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($longitude, true), gettype($longitude)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($longitude, true), gettype($longitude)), __LINE__);
         }
         $this->Longitude = $longitude;
+        
         return $this;
     }
     /**
      * Get Speed value
      * @return float|null
      */
-    public function getSpeed()
+    public function getSpeed(): ?float
     {
         return $this->Speed;
     }
@@ -214,20 +222,21 @@ class CdiscountGeoCoordinate extends AbstractStructBase
      * @param float $speed
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate
      */
-    public function setSpeed($speed = null)
+    public function setSpeed(?float $speed = null): self
     {
         // validation for constraint: float
         if (!is_null($speed) && !(is_float($speed) || is_numeric($speed))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($speed, true), gettype($speed)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($speed, true), gettype($speed)), __LINE__);
         }
         $this->Speed = $speed;
+        
         return $this;
     }
     /**
      * Get VerticalAccuracy value
      * @return float|null
      */
-    public function getVerticalAccuracy()
+    public function getVerticalAccuracy(): ?float
     {
         return $this->VerticalAccuracy;
     }
@@ -236,13 +245,14 @@ class CdiscountGeoCoordinate extends AbstractStructBase
      * @param float $verticalAccuracy
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate
      */
-    public function setVerticalAccuracy($verticalAccuracy = null)
+    public function setVerticalAccuracy(?float $verticalAccuracy = null): self
     {
         // validation for constraint: float
         if (!is_null($verticalAccuracy) && !(is_float($verticalAccuracy) || is_numeric($verticalAccuracy))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($verticalAccuracy, true), gettype($verticalAccuracy)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($verticalAccuracy, true), gettype($verticalAccuracy)), __LINE__);
         }
         $this->VerticalAccuracy = $verticalAccuracy;
+        
         return $this;
     }
 }

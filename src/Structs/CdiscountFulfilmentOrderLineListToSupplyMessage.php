@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FulfilmentOrderLineListToSupplyMessage Structs
@@ -19,15 +22,15 @@ class CdiscountFulfilmentOrderLineListToSupplyMessage extends CdiscountServiceBa
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLine
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLine|null
      */
-    public $OrderLineList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLine $OrderLineList = null;
     /**
      * Constructor method for FulfilmentOrderLineListToSupplyMessage
      * @uses CdiscountFulfilmentOrderLineListToSupplyMessage::setOrderLineList()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLine $orderLineList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLine $orderLineList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLine $orderLineList = null)
     {
         $this
             ->setOrderLineList($orderLineList);
@@ -39,7 +42,7 @@ class CdiscountFulfilmentOrderLineListToSupplyMessage extends CdiscountServiceBa
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLine|null
      */
-    public function getOrderLineList()
+    public function getOrderLineList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLine
     {
         return isset($this->OrderLineList) ? $this->OrderLineList : null;
     }
@@ -50,13 +53,14 @@ class CdiscountFulfilmentOrderLineListToSupplyMessage extends CdiscountServiceBa
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLine $orderLineList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOrderLineListToSupplyMessage
      */
-    public function setOrderLineList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLine $orderLineList = null)
+    public function setOrderLineList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLine $orderLineList = null): self
     {
         if (is_null($orderLineList) || (is_array($orderLineList) && empty($orderLineList))) {
             unset($this->OrderLineList);
         } else {
             $this->OrderLineList = $orderLineList;
         }
+        
         return $this;
     }
 }

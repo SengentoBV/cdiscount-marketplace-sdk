@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfServiceOrder Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfServiceOrder extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder[]
      */
-    public $ServiceOrder;
+    protected ?array $ServiceOrder = null;
     /**
      * Constructor method for ArrayOfServiceOrder
      * @uses CdiscountArrayOfServiceOrder::setServiceOrder()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder[] $serviceOrder
      */
-    public function __construct(array $serviceOrder = array())
+    public function __construct(?array $serviceOrder = null)
     {
         $this
             ->setServiceOrder($serviceOrder);
@@ -38,9 +41,9 @@ class CdiscountArrayOfServiceOrder extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder[]
      */
-    public function getServiceOrder()
+    public function getServiceOrder(): ?array
     {
         return isset($this->ServiceOrder) ? $this->ServiceOrder : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfServiceOrder extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateServiceOrderForArrayConstraintsFromSetServiceOrder(array $values = array())
+    public static function validateServiceOrderForArrayConstraintsFromSetServiceOrder(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfServiceOrderServiceOrderItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfServiceOrder extends AbstractStructArrayBase
             $message = sprintf('The ServiceOrder property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ServiceOrder value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder[] $serviceOrder
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfServiceOrder
      */
-    public function setServiceOrder(array $serviceOrder = array())
+    public function setServiceOrder(?array $serviceOrder = null): self
     {
         // validation for constraint: array
         if ('' !== ($serviceOrderArrayErrorMessage = self::validateServiceOrderForArrayConstraintsFromSetServiceOrder($serviceOrder))) {
-            throw new \InvalidArgumentException($serviceOrderArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($serviceOrderArrayErrorMessage, __LINE__);
         }
         if (is_null($serviceOrder) || (is_array($serviceOrder) && empty($serviceOrder))) {
             unset($this->ServiceOrder);
         } else {
             $this->ServiceOrder = $serviceOrder;
         }
-        return $this;
-    }
-    /**
-     * Add item to ServiceOrder value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfServiceOrder
-     */
-    public function addToServiceOrder(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder) {
-            throw new \InvalidArgumentException(sprintf('The ServiceOrder property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ServiceOrder[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfServiceOrder extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfServiceOrder extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfServiceOrder extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfServiceOrder extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder
     {
         return parent::last();
     }
@@ -145,16 +138,31 @@ class CdiscountArrayOfServiceOrder extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfServiceOrder
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder) {
+            throw new InvalidArgumentException(sprintf('The ServiceOrder property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ServiceOrder
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ServiceOrder';
     }

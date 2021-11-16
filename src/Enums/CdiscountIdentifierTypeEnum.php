@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for IdentifierTypeEnum Enums
@@ -24,10 +26,10 @@ class CdiscountIdentifierTypeEnum extends AbstractStructEnumBase
      * @uses self::VALUE_EAN
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_EAN,
-        );
+        ];
     }
 }

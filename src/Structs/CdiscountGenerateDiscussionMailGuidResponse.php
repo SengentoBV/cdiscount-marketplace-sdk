@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GenerateDiscussionMailGuidResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGenerateDiscussionMailGuidResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailGuidCreationResultMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailGuidCreationResultMessage|null
      */
-    public $GenerateDiscussionMailGuidResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailGuidCreationResultMessage $GenerateDiscussionMailGuidResult = null;
     /**
      * Constructor method for GenerateDiscussionMailGuidResponse
      * @uses CdiscountGenerateDiscussionMailGuidResponse::setGenerateDiscussionMailGuidResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailGuidCreationResultMessage $generateDiscussionMailGuidResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailGuidCreationResultMessage $generateDiscussionMailGuidResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailGuidCreationResultMessage $generateDiscussionMailGuidResult = null)
     {
         $this
             ->setGenerateDiscussionMailGuidResult($generateDiscussionMailGuidResult);
@@ -36,7 +39,7 @@ class CdiscountGenerateDiscussionMailGuidResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailGuidCreationResultMessage|null
      */
-    public function getGenerateDiscussionMailGuidResult()
+    public function getGenerateDiscussionMailGuidResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailGuidCreationResultMessage
     {
         return isset($this->GenerateDiscussionMailGuidResult) ? $this->GenerateDiscussionMailGuidResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGenerateDiscussionMailGuidResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailGuidCreationResultMessage $generateDiscussionMailGuidResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGenerateDiscussionMailGuidResponse
      */
-    public function setGenerateDiscussionMailGuidResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailGuidCreationResultMessage $generateDiscussionMailGuidResult = null)
+    public function setGenerateDiscussionMailGuidResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailGuidCreationResultMessage $generateDiscussionMailGuidResult = null): self
     {
         if (is_null($generateDiscussionMailGuidResult) || (is_array($generateDiscussionMailGuidResult) && empty($generateDiscussionMailGuidResult))) {
             unset($this->GenerateDiscussionMailGuidResult);
         } else {
             $this->GenerateDiscussionMailGuidResult = $generateDiscussionMailGuidResult;
         }
+        
         return $this;
     }
 }

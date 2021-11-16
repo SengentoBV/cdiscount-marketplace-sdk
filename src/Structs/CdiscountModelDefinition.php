@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ModelDefinition Structs
@@ -19,33 +22,33 @@ class CdiscountModelDefinition extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1|null
      */
-    public $ListProperties;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $ListProperties = null;
     /**
      * The MandatoryModelProperties
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public $MandatoryModelProperties;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $MandatoryModelProperties = null;
     /**
      * The MultipleFreeTextProperties
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1|null
      */
-    public $MultipleFreeTextProperties;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $MultipleFreeTextProperties = null;
     /**
      * The SingleFreeTextProperties
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1|null
      */
-    public $SingleFreeTextProperties;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $SingleFreeTextProperties = null;
     /**
      * Constructor method for ModelDefinition
      * @uses CdiscountModelDefinition::setListProperties()
@@ -57,7 +60,7 @@ class CdiscountModelDefinition extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $multipleFreeTextProperties
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $singleFreeTextProperties
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $listProperties = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $mandatoryModelProperties = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $multipleFreeTextProperties = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $singleFreeTextProperties = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $listProperties = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $mandatoryModelProperties = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $multipleFreeTextProperties = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $singleFreeTextProperties = null)
     {
         $this
             ->setListProperties($listProperties)
@@ -72,7 +75,7 @@ class CdiscountModelDefinition extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1|null
      */
-    public function getListProperties()
+    public function getListProperties(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1
     {
         return isset($this->ListProperties) ? $this->ListProperties : null;
     }
@@ -83,13 +86,14 @@ class CdiscountModelDefinition extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $listProperties
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountModelDefinition
      */
-    public function setListProperties(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $listProperties = null)
+    public function setListProperties(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $listProperties = null): self
     {
         if (is_null($listProperties) || (is_array($listProperties) && empty($listProperties))) {
             unset($this->ListProperties);
         } else {
             $this->ListProperties = $listProperties;
         }
+        
         return $this;
     }
     /**
@@ -99,7 +103,7 @@ class CdiscountModelDefinition extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public function getMandatoryModelProperties()
+    public function getMandatoryModelProperties(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
     {
         return isset($this->MandatoryModelProperties) ? $this->MandatoryModelProperties : null;
     }
@@ -110,13 +114,14 @@ class CdiscountModelDefinition extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $mandatoryModelProperties
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountModelDefinition
      */
-    public function setMandatoryModelProperties(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $mandatoryModelProperties = null)
+    public function setMandatoryModelProperties(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $mandatoryModelProperties = null): self
     {
         if (is_null($mandatoryModelProperties) || (is_array($mandatoryModelProperties) && empty($mandatoryModelProperties))) {
             unset($this->MandatoryModelProperties);
         } else {
             $this->MandatoryModelProperties = $mandatoryModelProperties;
         }
+        
         return $this;
     }
     /**
@@ -126,7 +131,7 @@ class CdiscountModelDefinition extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1|null
      */
-    public function getMultipleFreeTextProperties()
+    public function getMultipleFreeTextProperties(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1
     {
         return isset($this->MultipleFreeTextProperties) ? $this->MultipleFreeTextProperties : null;
     }
@@ -137,13 +142,14 @@ class CdiscountModelDefinition extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $multipleFreeTextProperties
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountModelDefinition
      */
-    public function setMultipleFreeTextProperties(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $multipleFreeTextProperties = null)
+    public function setMultipleFreeTextProperties(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $multipleFreeTextProperties = null): self
     {
         if (is_null($multipleFreeTextProperties) || (is_array($multipleFreeTextProperties) && empty($multipleFreeTextProperties))) {
             unset($this->MultipleFreeTextProperties);
         } else {
             $this->MultipleFreeTextProperties = $multipleFreeTextProperties;
         }
+        
         return $this;
     }
     /**
@@ -153,7 +159,7 @@ class CdiscountModelDefinition extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1|null
      */
-    public function getSingleFreeTextProperties()
+    public function getSingleFreeTextProperties(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1
     {
         return isset($this->SingleFreeTextProperties) ? $this->SingleFreeTextProperties : null;
     }
@@ -164,13 +170,14 @@ class CdiscountModelDefinition extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $singleFreeTextProperties
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountModelDefinition
      */
-    public function setSingleFreeTextProperties(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $singleFreeTextProperties = null)
+    public function setSingleFreeTextProperties(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 $singleFreeTextProperties = null): self
     {
         if (is_null($singleFreeTextProperties) || (is_array($singleFreeTextProperties) && empty($singleFreeTextProperties))) {
             unset($this->SingleFreeTextProperties);
         } else {
             $this->SingleFreeTextProperties = $singleFreeTextProperties;
         }
+        
         return $this;
     }
 }

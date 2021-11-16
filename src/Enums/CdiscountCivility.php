@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for Civility Enums
@@ -60,9 +62,9 @@ class CdiscountCivility extends AbstractStructEnumBase
      * @uses self::VALUE_PR
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_MR,
             self::VALUE_MISS,
@@ -70,6 +72,6 @@ class CdiscountCivility extends AbstractStructEnumBase
             self::VALUE_DR,
             self::VALUE_PHD,
             self::VALUE_PR,
-        );
+        ];
     }
 }

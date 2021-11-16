@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ManageParcel Structs
@@ -16,17 +19,17 @@ class CdiscountManageParcel extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public $headerMessage;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null;
     /**
      * The manageParcelRequest
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelRequest
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelRequest|null
      */
-    public $manageParcelRequest;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelRequest $manageParcelRequest = null;
     /**
      * Constructor method for ManageParcel
      * @uses CdiscountManageParcel::setHeaderMessage()
@@ -34,7 +37,7 @@ class CdiscountManageParcel extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelRequest $manageParcelRequest
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelRequest $manageParcelRequest = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelRequest $manageParcelRequest = null)
     {
         $this
             ->setHeaderMessage($headerMessage)
@@ -47,7 +50,7 @@ class CdiscountManageParcel extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public function getHeaderMessage()
+    public function getHeaderMessage(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
     {
         return isset($this->headerMessage) ? $this->headerMessage : null;
     }
@@ -58,13 +61,14 @@ class CdiscountManageParcel extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcel
      */
-    public function setHeaderMessage(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null)
+    public function setHeaderMessage(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null): self
     {
         if (is_null($headerMessage) || (is_array($headerMessage) && empty($headerMessage))) {
             unset($this->headerMessage);
         } else {
             $this->headerMessage = $headerMessage;
         }
+        
         return $this;
     }
     /**
@@ -74,7 +78,7 @@ class CdiscountManageParcel extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelRequest|null
      */
-    public function getManageParcelRequest()
+    public function getManageParcelRequest(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelRequest
     {
         return isset($this->manageParcelRequest) ? $this->manageParcelRequest : null;
     }
@@ -85,13 +89,14 @@ class CdiscountManageParcel extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelRequest $manageParcelRequest
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcel
      */
-    public function setManageParcelRequest(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelRequest $manageParcelRequest = null)
+    public function setManageParcelRequest(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelRequest $manageParcelRequest = null): self
     {
         if (is_null($manageParcelRequest) || (is_array($manageParcelRequest) && empty($manageParcelRequest))) {
             unset($this->manageParcelRequest);
         } else {
             $this->manageParcelRequest = $manageParcelRequest;
         }
+        
         return $this;
     }
 }

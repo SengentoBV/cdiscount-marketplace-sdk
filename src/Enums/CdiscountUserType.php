@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for UserType Enums
@@ -42,13 +44,13 @@ class CdiscountUserType extends AbstractStructEnumBase
      * @uses self::VALUE_GRC_OPERATOR
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_CUSTOMER,
             self::VALUE_SELLER,
             self::VALUE_AUTOMATIC,
             self::VALUE_GRC_OPERATOR,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SellerDealListMessage Structs
@@ -18,31 +21,31 @@ class CdiscountSellerDealListMessage extends CdiscountServiceBaseAPIMessage
      * The Count
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Count;
+    protected ?int $Count = null;
     /**
      * The CountByPage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $CountByPage;
+    protected ?int $CountByPage = null;
     /**
      * The Page
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Page;
+    protected ?int $Page = null;
     /**
      * The SellerDealList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerDeal
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerDeal|null
      */
-    public $SellerDealList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerDeal $SellerDealList = null;
     /**
      * Constructor method for SellerDealListMessage
      * @uses CdiscountSellerDealListMessage::setCount()
@@ -54,7 +57,7 @@ class CdiscountSellerDealListMessage extends CdiscountServiceBaseAPIMessage
      * @param int $page
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerDeal $sellerDealList
      */
-    public function __construct($count = null, $countByPage = null, $page = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerDeal $sellerDealList = null)
+    public function __construct(?int $count = null, ?int $countByPage = null, ?int $page = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerDeal $sellerDealList = null)
     {
         $this
             ->setCount($count)
@@ -66,7 +69,7 @@ class CdiscountSellerDealListMessage extends CdiscountServiceBaseAPIMessage
      * Get Count value
      * @return int|null
      */
-    public function getCount()
+    public function getCount(): ?int
     {
         return $this->Count;
     }
@@ -75,20 +78,21 @@ class CdiscountSellerDealListMessage extends CdiscountServiceBaseAPIMessage
      * @param int $count
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage
      */
-    public function setCount($count = null)
+    public function setCount(?int $count = null): self
     {
         // validation for constraint: int
         if (!is_null($count) && !(is_int($count) || ctype_digit($count))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($count, true), gettype($count)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($count, true), gettype($count)), __LINE__);
         }
         $this->Count = $count;
+        
         return $this;
     }
     /**
      * Get CountByPage value
      * @return int|null
      */
-    public function getCountByPage()
+    public function getCountByPage(): ?int
     {
         return $this->CountByPage;
     }
@@ -97,20 +101,21 @@ class CdiscountSellerDealListMessage extends CdiscountServiceBaseAPIMessage
      * @param int $countByPage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage
      */
-    public function setCountByPage($countByPage = null)
+    public function setCountByPage(?int $countByPage = null): self
     {
         // validation for constraint: int
         if (!is_null($countByPage) && !(is_int($countByPage) || ctype_digit($countByPage))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($countByPage, true), gettype($countByPage)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($countByPage, true), gettype($countByPage)), __LINE__);
         }
         $this->CountByPage = $countByPage;
+        
         return $this;
     }
     /**
      * Get Page value
      * @return int|null
      */
-    public function getPage()
+    public function getPage(): ?int
     {
         return $this->Page;
     }
@@ -119,13 +124,14 @@ class CdiscountSellerDealListMessage extends CdiscountServiceBaseAPIMessage
      * @param int $page
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage
      */
-    public function setPage($page = null)
+    public function setPage(?int $page = null): self
     {
         // validation for constraint: int
         if (!is_null($page) && !(is_int($page) || ctype_digit($page))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($page, true), gettype($page)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($page, true), gettype($page)), __LINE__);
         }
         $this->Page = $page;
+        
         return $this;
     }
     /**
@@ -135,7 +141,7 @@ class CdiscountSellerDealListMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerDeal|null
      */
-    public function getSellerDealList()
+    public function getSellerDealList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerDeal
     {
         return isset($this->SellerDealList) ? $this->SellerDealList : null;
     }
@@ -146,13 +152,14 @@ class CdiscountSellerDealListMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerDeal $sellerDealList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage
      */
-    public function setSellerDealList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerDeal $sellerDealList = null)
+    public function setSellerDealList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerDeal $sellerDealList = null): self
     {
         if (is_null($sellerDealList) || (is_array($sellerDealList) && empty($sellerDealList))) {
             unset($this->SellerDealList);
         } else {
             $this->SellerDealList = $sellerDealList;
         }
+        
         return $this;
     }
 }

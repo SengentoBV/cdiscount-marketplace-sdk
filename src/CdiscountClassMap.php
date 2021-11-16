@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk;
 
 /**
@@ -13,9 +15,9 @@ class CdiscountClassMap
      * This array is sent to the \SoapClient when calling the WS
      * @return string[]
      */
-    final public static function get()
+    final public static function get(): array
     {
-        return array(
+        return [
             'GetProductList' => '\\SengentoBV\\CdiscountMarketplaceSdk\\Structs\\CdiscountGetProductList',
             'ProductFilter' => '\\SengentoBV\\CdiscountMarketplaceSdk\\Structs\\CdiscountProductFilter',
             'GetProductListResponse' => '\\SengentoBV\\CdiscountMarketplaceSdk\\Structs\\CdiscountGetProductListResponse',
@@ -121,6 +123,8 @@ class CdiscountClassMap
             'Parcel' => '\\SengentoBV\\CdiscountMarketplaceSdk\\Structs\\CdiscountParcel',
             'ArrayOfParcelItem' => '\\SengentoBV\\CdiscountMarketplaceSdk\\Arrays\\CdiscountArrayOfParcelItem',
             'ParcelItem' => '\\SengentoBV\\CdiscountMarketplaceSdk\\Structs\\CdiscountParcelItem',
+            'ArrayOfTracking' => '\\SengentoBV\\CdiscountMarketplaceSdk\\Arrays\\CdiscountArrayOfTracking',
+            'Tracking' => '\\SengentoBV\\CdiscountMarketplaceSdk\\Structs\\CdiscountTracking',
             'ArrayOfVoucher' => '\\SengentoBV\\CdiscountMarketplaceSdk\\Arrays\\CdiscountArrayOfVoucher',
             'Voucher' => '\\SengentoBV\\CdiscountMarketplaceSdk\\Structs\\CdiscountVoucher',
             'RefundInformation' => '\\SengentoBV\\CdiscountMarketplaceSdk\\Structs\\CdiscountRefundInformation',
@@ -349,6 +353,6 @@ class CdiscountClassMap
             'ExecutionResult' => '\\SengentoBV\\CdiscountMarketplaceSdk\\Structs\\CdiscountExecutionResult',
             'Shipping' => '\\SengentoBV\\CdiscountMarketplaceSdk\\Structs\\CdiscountShipping',
             'DateTimeOffset' => '\\SengentoBV\\CdiscountMarketplaceSdk\\Structs\\CdiscountDateTimeOffset',
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DiscussionMailListMessage Structs
@@ -19,15 +22,15 @@ class CdiscountDiscussionMailListMessage extends CdiscountServiceBaseAPIMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionMail
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionMail|null
      */
-    public $DiscussionMailList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionMail $DiscussionMailList = null;
     /**
      * Constructor method for DiscussionMailListMessage
      * @uses CdiscountDiscussionMailListMessage::setDiscussionMailList()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionMail $discussionMailList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionMail $discussionMailList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionMail $discussionMailList = null)
     {
         $this
             ->setDiscussionMailList($discussionMailList);
@@ -39,7 +42,7 @@ class CdiscountDiscussionMailListMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionMail|null
      */
-    public function getDiscussionMailList()
+    public function getDiscussionMailList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionMail
     {
         return isset($this->DiscussionMailList) ? $this->DiscussionMailList : null;
     }
@@ -50,13 +53,14 @@ class CdiscountDiscussionMailListMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionMail $discussionMailList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailListMessage
      */
-    public function setDiscussionMailList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionMail $discussionMailList = null)
+    public function setDiscussionMailList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionMail $discussionMailList = null): self
     {
         if (is_null($discussionMailList) || (is_array($discussionMailList) && empty($discussionMailList))) {
             unset($this->DiscussionMailList);
         } else {
             $this->DiscussionMailList = $discussionMailList;
         }
+        
         return $this;
     }
 }

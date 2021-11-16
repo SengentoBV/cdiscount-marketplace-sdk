@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ExternalOrderStatus Enums
@@ -36,12 +38,12 @@ class CdiscountExternalOrderStatus extends AbstractStructEnumBase
      * @uses self::VALUE_KO
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_OK,
             self::VALUE_PENDING,
             self::VALUE_KO,
-        );
+        ];
     }
 }

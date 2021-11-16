@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetRelaysFileSubmissionResultResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetRelaysFileSubmissionResultResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage|null
      */
-    public $GetRelaysFileSubmissionResultResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage $GetRelaysFileSubmissionResultResult = null;
     /**
      * Constructor method for GetRelaysFileSubmissionResultResponse
      * @uses CdiscountGetRelaysFileSubmissionResultResponse::setGetRelaysFileSubmissionResultResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage $getRelaysFileSubmissionResultResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage $getRelaysFileSubmissionResultResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage $getRelaysFileSubmissionResultResult = null)
     {
         $this
             ->setGetRelaysFileSubmissionResultResult($getRelaysFileSubmissionResultResult);
@@ -36,7 +39,7 @@ class CdiscountGetRelaysFileSubmissionResultResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage|null
      */
-    public function getGetRelaysFileSubmissionResultResult()
+    public function getGetRelaysFileSubmissionResultResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage
     {
         return isset($this->GetRelaysFileSubmissionResultResult) ? $this->GetRelaysFileSubmissionResultResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetRelaysFileSubmissionResultResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage $getRelaysFileSubmissionResultResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetRelaysFileSubmissionResultResponse
      */
-    public function setGetRelaysFileSubmissionResultResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage $getRelaysFileSubmissionResultResult = null)
+    public function setGetRelaysFileSubmissionResultResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage $getRelaysFileSubmissionResultResult = null): self
     {
         if (is_null($getRelaysFileSubmissionResultResult) || (is_array($getRelaysFileSubmissionResultResult) && empty($getRelaysFileSubmissionResultResult))) {
             unset($this->GetRelaysFileSubmissionResultResult);
         } else {
             $this->GetRelaysFileSubmissionResultResult = $getRelaysFileSubmissionResultResult;
         }
+        
         return $this;
     }
 }

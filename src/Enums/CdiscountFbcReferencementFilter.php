@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for FbcReferencementFilter Enums
@@ -36,12 +38,12 @@ class CdiscountFbcReferencementFilter extends AbstractStructEnumBase
      * @uses self::VALUE_ONLY_NOT_REFERENCED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ALL,
             self::VALUE_ONLY_REFERENCED,
             self::VALUE_ONLY_NOT_REFERENCED,
-        );
+        ];
     }
 }

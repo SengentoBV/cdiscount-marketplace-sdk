@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ParcelInfos Structs
@@ -18,35 +21,35 @@ class CdiscountParcelInfos extends AbstractStructBase
      * The ManageParcel
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string[]
+     * @var string
      */
-    public $ManageParcel;
+    protected ?string $ManageParcel = null;
     /**
      * The ParcelNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ParcelNumber;
+    protected ?string $ParcelNumber = null;
     /**
      * The Sku
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Sku;
+    protected ?string $Sku = null;
     /**
      * Constructor method for ParcelInfos
      * @uses CdiscountParcelInfos::setManageParcel()
      * @uses CdiscountParcelInfos::setParcelNumber()
      * @uses CdiscountParcelInfos::setSku()
-     * @param string[] $manageParcel
+     * @param array|string $manageParcel
      * @param string $parcelNumber
      * @param string $sku
      */
-    public function __construct(array $manageParcel = array(), $parcelNumber = null, $sku = null)
+    public function __construct($manageParcel = null, ?string $parcelNumber = null, ?string $sku = null)
     {
         $this
             ->setManageParcel($manageParcel)
@@ -55,9 +58,9 @@ class CdiscountParcelInfos extends AbstractStructBase
     }
     /**
      * Get ManageParcel value
-     * @return string[]|null
+     * @return string
      */
-    public function getManageParcel()
+    public function getManageParcel(): ?string
     {
         return $this->ManageParcel;
     }
@@ -67,8 +70,11 @@ class CdiscountParcelInfos extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateManageParcelForArrayConstraintsFromSetManageParcel(array $values = array())
+    public static function validateManageParcelForArrayConstraintsFromSetManageParcel(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $parcelInfosManageParcelItem) {
@@ -81,23 +87,25 @@ class CdiscountParcelInfos extends AbstractStructBase
             $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountParcelActionTypes', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountParcelActionTypes::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ManageParcel value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountParcelActionTypes::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountParcelActionTypes::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string[] $manageParcel
+     * @throws InvalidArgumentException
+     * @param array|string $manageParcel
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelInfos
      */
-    public function setManageParcel(array $manageParcel = array())
+    public function setManageParcel($manageParcel = null): self
     {
         // validation for constraint: list
-        if ('' !== ($manageParcelArrayErrorMessage = self::validateManageParcelForArrayConstraintsFromSetManageParcel($manageParcel))) {
-            throw new \InvalidArgumentException($manageParcelArrayErrorMessage, __LINE__);
+        if ('' !== ($manageParcelArrayErrorMessage = self::validateManageParcelForArrayConstraintsFromSetManageParcel(is_string($manageParcel) ? explode(' ', $manageParcel) : $manageParcel))) {
+            throw new InvalidArgumentException($manageParcelArrayErrorMessage, __LINE__);
         }
-        $this->ManageParcel = is_array($manageParcel) ? implode(' ', $manageParcel) : null;
+        $this->ManageParcel = is_array($manageParcel) ? implode(' ', $manageParcel) : $manageParcel;
+        
         return $this;
     }
     /**
@@ -107,7 +115,7 @@ class CdiscountParcelInfos extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getParcelNumber()
+    public function getParcelNumber(): ?string
     {
         return isset($this->ParcelNumber) ? $this->ParcelNumber : null;
     }
@@ -118,17 +126,18 @@ class CdiscountParcelInfos extends AbstractStructBase
      * @param string $parcelNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelInfos
      */
-    public function setParcelNumber($parcelNumber = null)
+    public function setParcelNumber(?string $parcelNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($parcelNumber) && !is_string($parcelNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($parcelNumber, true), gettype($parcelNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($parcelNumber, true), gettype($parcelNumber)), __LINE__);
         }
         if (is_null($parcelNumber) || (is_array($parcelNumber) && empty($parcelNumber))) {
             unset($this->ParcelNumber);
         } else {
             $this->ParcelNumber = $parcelNumber;
         }
+        
         return $this;
     }
     /**
@@ -138,7 +147,7 @@ class CdiscountParcelInfos extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSku()
+    public function getSku(): ?string
     {
         return isset($this->Sku) ? $this->Sku : null;
     }
@@ -149,17 +158,18 @@ class CdiscountParcelInfos extends AbstractStructBase
      * @param string $sku
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelInfos
      */
-    public function setSku($sku = null)
+    public function setSku(?string $sku = null): self
     {
         // validation for constraint: string
         if (!is_null($sku) && !is_string($sku)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sku, true), gettype($sku)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sku, true), gettype($sku)), __LINE__);
         }
         if (is_null($sku) || (is_array($sku) && empty($sku))) {
             unset($this->Sku);
         } else {
             $this->Sku = $sku;
         }
+        
         return $this;
     }
 }

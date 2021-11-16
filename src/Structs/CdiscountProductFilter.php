@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ProductFilter Structs
@@ -19,15 +22,15 @@ class CdiscountProductFilter extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CategoryCode;
+    protected ?string $CategoryCode = null;
     /**
      * Constructor method for ProductFilter
      * @uses CdiscountProductFilter::setCategoryCode()
      * @param string $categoryCode
      */
-    public function __construct($categoryCode = null)
+    public function __construct(?string $categoryCode = null)
     {
         $this
             ->setCategoryCode($categoryCode);
@@ -39,7 +42,7 @@ class CdiscountProductFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCategoryCode()
+    public function getCategoryCode(): ?string
     {
         return isset($this->CategoryCode) ? $this->CategoryCode : null;
     }
@@ -50,17 +53,18 @@ class CdiscountProductFilter extends AbstractStructBase
      * @param string $categoryCode
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductFilter
      */
-    public function setCategoryCode($categoryCode = null)
+    public function setCategoryCode(?string $categoryCode = null): self
     {
         // validation for constraint: string
         if (!is_null($categoryCode) && !is_string($categoryCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($categoryCode, true), gettype($categoryCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($categoryCode, true), gettype($categoryCode)), __LINE__);
         }
         if (is_null($categoryCode) || (is_array($categoryCode) && empty($categoryCode))) {
             unset($this->CategoryCode);
         } else {
             $this->CategoryCode = $categoryCode;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ParcelActionResult Structs
@@ -18,34 +21,34 @@ class CdiscountParcelActionResult extends CdiscountServiceMessage
      * The ActionType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string[]
+     * @var string
      */
-    public $ActionType;
+    protected ?string $ActionType = null;
     /**
      * The IsActionCreated
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsActionCreated;
+    protected ?bool $IsActionCreated = null;
     /**
      * The ParcelNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ParcelNumber;
+    protected ?string $ParcelNumber = null;
     /**
      * Constructor method for ParcelActionResult
      * @uses CdiscountParcelActionResult::setActionType()
      * @uses CdiscountParcelActionResult::setIsActionCreated()
      * @uses CdiscountParcelActionResult::setParcelNumber()
-     * @param string[] $actionType
+     * @param array|string $actionType
      * @param bool $isActionCreated
      * @param string $parcelNumber
      */
-    public function __construct(array $actionType = array(), $isActionCreated = null, $parcelNumber = null)
+    public function __construct($actionType = null, ?bool $isActionCreated = null, ?string $parcelNumber = null)
     {
         $this
             ->setActionType($actionType)
@@ -54,9 +57,9 @@ class CdiscountParcelActionResult extends CdiscountServiceMessage
     }
     /**
      * Get ActionType value
-     * @return string[]|null
+     * @return string
      */
-    public function getActionType()
+    public function getActionType(): ?string
     {
         return $this->ActionType;
     }
@@ -66,8 +69,11 @@ class CdiscountParcelActionResult extends CdiscountServiceMessage
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateActionTypeForArrayConstraintsFromSetActionType(array $values = array())
+    public static function validateActionTypeForArrayConstraintsFromSetActionType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $parcelActionResultActionTypeItem) {
@@ -80,30 +86,32 @@ class CdiscountParcelActionResult extends CdiscountServiceMessage
             $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountParcelActionTypes', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountParcelActionTypes::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ActionType value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountParcelActionTypes::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountParcelActionTypes::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string[] $actionType
+     * @throws InvalidArgumentException
+     * @param array|string $actionType
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelActionResult
      */
-    public function setActionType(array $actionType = array())
+    public function setActionType($actionType = null): self
     {
         // validation for constraint: list
-        if ('' !== ($actionTypeArrayErrorMessage = self::validateActionTypeForArrayConstraintsFromSetActionType($actionType))) {
-            throw new \InvalidArgumentException($actionTypeArrayErrorMessage, __LINE__);
+        if ('' !== ($actionTypeArrayErrorMessage = self::validateActionTypeForArrayConstraintsFromSetActionType(is_string($actionType) ? explode(' ', $actionType) : $actionType))) {
+            throw new InvalidArgumentException($actionTypeArrayErrorMessage, __LINE__);
         }
-        $this->ActionType = is_array($actionType) ? implode(' ', $actionType) : null;
+        $this->ActionType = is_array($actionType) ? implode(' ', $actionType) : $actionType;
+        
         return $this;
     }
     /**
      * Get IsActionCreated value
      * @return bool|null
      */
-    public function getIsActionCreated()
+    public function getIsActionCreated(): ?bool
     {
         return $this->IsActionCreated;
     }
@@ -112,13 +120,14 @@ class CdiscountParcelActionResult extends CdiscountServiceMessage
      * @param bool $isActionCreated
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelActionResult
      */
-    public function setIsActionCreated($isActionCreated = null)
+    public function setIsActionCreated(?bool $isActionCreated = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isActionCreated) && !is_bool($isActionCreated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isActionCreated, true), gettype($isActionCreated)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isActionCreated, true), gettype($isActionCreated)), __LINE__);
         }
         $this->IsActionCreated = $isActionCreated;
+        
         return $this;
     }
     /**
@@ -128,7 +137,7 @@ class CdiscountParcelActionResult extends CdiscountServiceMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getParcelNumber()
+    public function getParcelNumber(): ?string
     {
         return isset($this->ParcelNumber) ? $this->ParcelNumber : null;
     }
@@ -139,17 +148,18 @@ class CdiscountParcelActionResult extends CdiscountServiceMessage
      * @param string $parcelNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelActionResult
      */
-    public function setParcelNumber($parcelNumber = null)
+    public function setParcelNumber(?string $parcelNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($parcelNumber) && !is_string($parcelNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($parcelNumber, true), gettype($parcelNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($parcelNumber, true), gettype($parcelNumber)), __LINE__);
         }
         if (is_null($parcelNumber) || (is_array($parcelNumber) && empty($parcelNumber))) {
             unset($this->ParcelNumber);
         } else {
             $this->ParcelNumber = $parcelNumber;
         }
+        
         return $this;
     }
 }

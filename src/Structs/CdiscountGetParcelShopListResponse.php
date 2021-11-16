@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetParcelShopListResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetParcelShopListResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShopListMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShopListMessage|null
      */
-    public $GetParcelShopListResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShopListMessage $GetParcelShopListResult = null;
     /**
      * Constructor method for GetParcelShopListResponse
      * @uses CdiscountGetParcelShopListResponse::setGetParcelShopListResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShopListMessage $getParcelShopListResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShopListMessage $getParcelShopListResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShopListMessage $getParcelShopListResult = null)
     {
         $this
             ->setGetParcelShopListResult($getParcelShopListResult);
@@ -36,7 +39,7 @@ class CdiscountGetParcelShopListResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShopListMessage|null
      */
-    public function getGetParcelShopListResult()
+    public function getGetParcelShopListResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShopListMessage
     {
         return isset($this->GetParcelShopListResult) ? $this->GetParcelShopListResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetParcelShopListResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShopListMessage $getParcelShopListResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetParcelShopListResponse
      */
-    public function setGetParcelShopListResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShopListMessage $getParcelShopListResult = null)
+    public function setGetParcelShopListResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShopListMessage $getParcelShopListResult = null): self
     {
         if (is_null($getParcelShopListResult) || (is_array($getParcelShopListResult) && empty($getParcelShopListResult))) {
             unset($this->GetParcelShopListResult);
         } else {
             $this->GetParcelShopListResult = $getParcelShopListResult;
         }
+        
         return $this;
     }
 }

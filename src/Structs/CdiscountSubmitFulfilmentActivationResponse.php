@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SubmitFulfilmentActivationResponse Structs
@@ -16,15 +19,15 @@ class CdiscountSubmitFulfilmentActivationResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationMessage|null
      */
-    public $SubmitFulfilmentActivationResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationMessage $SubmitFulfilmentActivationResult = null;
     /**
      * Constructor method for SubmitFulfilmentActivationResponse
      * @uses CdiscountSubmitFulfilmentActivationResponse::setSubmitFulfilmentActivationResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationMessage $submitFulfilmentActivationResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationMessage $submitFulfilmentActivationResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationMessage $submitFulfilmentActivationResult = null)
     {
         $this
             ->setSubmitFulfilmentActivationResult($submitFulfilmentActivationResult);
@@ -36,7 +39,7 @@ class CdiscountSubmitFulfilmentActivationResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationMessage|null
      */
-    public function getSubmitFulfilmentActivationResult()
+    public function getSubmitFulfilmentActivationResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationMessage
     {
         return isset($this->SubmitFulfilmentActivationResult) ? $this->SubmitFulfilmentActivationResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountSubmitFulfilmentActivationResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationMessage $submitFulfilmentActivationResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubmitFulfilmentActivationResponse
      */
-    public function setSubmitFulfilmentActivationResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationMessage $submitFulfilmentActivationResult = null)
+    public function setSubmitFulfilmentActivationResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationMessage $submitFulfilmentActivationResult = null): self
     {
         if (is_null($submitFulfilmentActivationResult) || (is_array($submitFulfilmentActivationResult) && empty($submitFulfilmentActivationResult))) {
             unset($this->SubmitFulfilmentActivationResult);
         } else {
             $this->SubmitFulfilmentActivationResult = $submitFulfilmentActivationResult;
         }
+        
         return $this;
     }
 }

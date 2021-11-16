@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AssociatedOrderInfo Structs
@@ -19,81 +22,81 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $AssociatedSku;
+    protected ?string $AssociatedSku = null;
     /**
      * The CustomerMail
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CustomerMail;
+    protected ?string $CustomerMail = null;
     /**
      * The CustomerPhone
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CustomerPhone;
+    protected ?string $CustomerPhone = null;
     /**
      * The OrderNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $OrderNumber;
+    protected ?string $OrderNumber = null;
     /**
      * The OrderState
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $OrderState;
+    protected ?string $OrderState = null;
     /**
      * The ProductSheetUrl
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ProductSheetUrl;
+    protected ?string $ProductSheetUrl = null;
     /**
      * The RealDeliveryDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $RealDeliveryDate;
+    protected ?string $RealDeliveryDate = null;
     /**
      * The ServiceOrderNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ServiceOrderNumber;
+    protected ?string $ServiceOrderNumber = null;
     /**
      * The ShippingAddress
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAddress
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAddress|null
      */
-    public $ShippingAddress;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAddress $ShippingAddress = null;
     /**
      * The Sku
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Sku;
+    protected ?string $Sku = null;
     /**
      * Constructor method for AssociatedOrderInfo
      * @uses CdiscountAssociatedOrderInfo::setAssociatedSku()
@@ -117,7 +120,7 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAddress $shippingAddress
      * @param string $sku
      */
-    public function __construct($associatedSku = null, $customerMail = null, $customerPhone = null, $orderNumber = null, $orderState = null, $productSheetUrl = null, $realDeliveryDate = null, $serviceOrderNumber = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAddress $shippingAddress = null, $sku = null)
+    public function __construct(?string $associatedSku = null, ?string $customerMail = null, ?string $customerPhone = null, ?string $orderNumber = null, ?string $orderState = null, ?string $productSheetUrl = null, ?string $realDeliveryDate = null, ?string $serviceOrderNumber = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAddress $shippingAddress = null, ?string $sku = null)
     {
         $this
             ->setAssociatedSku($associatedSku)
@@ -138,7 +141,7 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getAssociatedSku()
+    public function getAssociatedSku(): ?string
     {
         return isset($this->AssociatedSku) ? $this->AssociatedSku : null;
     }
@@ -149,17 +152,18 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * @param string $associatedSku
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
      */
-    public function setAssociatedSku($associatedSku = null)
+    public function setAssociatedSku(?string $associatedSku = null): self
     {
         // validation for constraint: string
         if (!is_null($associatedSku) && !is_string($associatedSku)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($associatedSku, true), gettype($associatedSku)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($associatedSku, true), gettype($associatedSku)), __LINE__);
         }
         if (is_null($associatedSku) || (is_array($associatedSku) && empty($associatedSku))) {
             unset($this->AssociatedSku);
         } else {
             $this->AssociatedSku = $associatedSku;
         }
+        
         return $this;
     }
     /**
@@ -169,7 +173,7 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCustomerMail()
+    public function getCustomerMail(): ?string
     {
         return isset($this->CustomerMail) ? $this->CustomerMail : null;
     }
@@ -180,17 +184,18 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * @param string $customerMail
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
      */
-    public function setCustomerMail($customerMail = null)
+    public function setCustomerMail(?string $customerMail = null): self
     {
         // validation for constraint: string
         if (!is_null($customerMail) && !is_string($customerMail)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customerMail, true), gettype($customerMail)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customerMail, true), gettype($customerMail)), __LINE__);
         }
         if (is_null($customerMail) || (is_array($customerMail) && empty($customerMail))) {
             unset($this->CustomerMail);
         } else {
             $this->CustomerMail = $customerMail;
         }
+        
         return $this;
     }
     /**
@@ -200,7 +205,7 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCustomerPhone()
+    public function getCustomerPhone(): ?string
     {
         return isset($this->CustomerPhone) ? $this->CustomerPhone : null;
     }
@@ -211,17 +216,18 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * @param string $customerPhone
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
      */
-    public function setCustomerPhone($customerPhone = null)
+    public function setCustomerPhone(?string $customerPhone = null): self
     {
         // validation for constraint: string
         if (!is_null($customerPhone) && !is_string($customerPhone)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customerPhone, true), gettype($customerPhone)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customerPhone, true), gettype($customerPhone)), __LINE__);
         }
         if (is_null($customerPhone) || (is_array($customerPhone) && empty($customerPhone))) {
             unset($this->CustomerPhone);
         } else {
             $this->CustomerPhone = $customerPhone;
         }
+        
         return $this;
     }
     /**
@@ -231,7 +237,7 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getOrderNumber()
+    public function getOrderNumber(): ?string
     {
         return isset($this->OrderNumber) ? $this->OrderNumber : null;
     }
@@ -242,17 +248,18 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * @param string $orderNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
      */
-    public function setOrderNumber($orderNumber = null)
+    public function setOrderNumber(?string $orderNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($orderNumber) && !is_string($orderNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
         }
         if (is_null($orderNumber) || (is_array($orderNumber) && empty($orderNumber))) {
             unset($this->OrderNumber);
         } else {
             $this->OrderNumber = $orderNumber;
         }
+        
         return $this;
     }
     /**
@@ -262,7 +269,7 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getOrderState()
+    public function getOrderState(): ?string
     {
         return isset($this->OrderState) ? $this->OrderState : null;
     }
@@ -272,21 +279,22 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * if the value assigned to this property is null, it is removed from this object
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $orderState
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
      */
-    public function setOrderState($orderState = null)
+    public function setOrderState(?string $orderState = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::valueIsValid($orderState)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum', is_array($orderState) ? implode(', ', $orderState) : var_export($orderState, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum', is_array($orderState) ? implode(', ', $orderState) : var_export($orderState, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::getValidValues())), __LINE__);
         }
         if (is_null($orderState) || (is_array($orderState) && empty($orderState))) {
             unset($this->OrderState);
         } else {
             $this->OrderState = $orderState;
         }
+        
         return $this;
     }
     /**
@@ -296,7 +304,7 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getProductSheetUrl()
+    public function getProductSheetUrl(): ?string
     {
         return isset($this->ProductSheetUrl) ? $this->ProductSheetUrl : null;
     }
@@ -307,17 +315,18 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * @param string $productSheetUrl
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
      */
-    public function setProductSheetUrl($productSheetUrl = null)
+    public function setProductSheetUrl(?string $productSheetUrl = null): self
     {
         // validation for constraint: string
         if (!is_null($productSheetUrl) && !is_string($productSheetUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productSheetUrl, true), gettype($productSheetUrl)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productSheetUrl, true), gettype($productSheetUrl)), __LINE__);
         }
         if (is_null($productSheetUrl) || (is_array($productSheetUrl) && empty($productSheetUrl))) {
             unset($this->ProductSheetUrl);
         } else {
             $this->ProductSheetUrl = $productSheetUrl;
         }
+        
         return $this;
     }
     /**
@@ -327,7 +336,7 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getRealDeliveryDate()
+    public function getRealDeliveryDate(): ?string
     {
         return isset($this->RealDeliveryDate) ? $this->RealDeliveryDate : null;
     }
@@ -338,17 +347,18 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * @param string $realDeliveryDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
      */
-    public function setRealDeliveryDate($realDeliveryDate = null)
+    public function setRealDeliveryDate(?string $realDeliveryDate = null): self
     {
         // validation for constraint: string
         if (!is_null($realDeliveryDate) && !is_string($realDeliveryDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($realDeliveryDate, true), gettype($realDeliveryDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($realDeliveryDate, true), gettype($realDeliveryDate)), __LINE__);
         }
         if (is_null($realDeliveryDate) || (is_array($realDeliveryDate) && empty($realDeliveryDate))) {
             unset($this->RealDeliveryDate);
         } else {
             $this->RealDeliveryDate = $realDeliveryDate;
         }
+        
         return $this;
     }
     /**
@@ -358,7 +368,7 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getServiceOrderNumber()
+    public function getServiceOrderNumber(): ?string
     {
         return isset($this->ServiceOrderNumber) ? $this->ServiceOrderNumber : null;
     }
@@ -369,17 +379,18 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * @param string $serviceOrderNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
      */
-    public function setServiceOrderNumber($serviceOrderNumber = null)
+    public function setServiceOrderNumber(?string $serviceOrderNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($serviceOrderNumber) && !is_string($serviceOrderNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($serviceOrderNumber, true), gettype($serviceOrderNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($serviceOrderNumber, true), gettype($serviceOrderNumber)), __LINE__);
         }
         if (is_null($serviceOrderNumber) || (is_array($serviceOrderNumber) && empty($serviceOrderNumber))) {
             unset($this->ServiceOrderNumber);
         } else {
             $this->ServiceOrderNumber = $serviceOrderNumber;
         }
+        
         return $this;
     }
     /**
@@ -389,7 +400,7 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAddress|null
      */
-    public function getShippingAddress()
+    public function getShippingAddress(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAddress
     {
         return isset($this->ShippingAddress) ? $this->ShippingAddress : null;
     }
@@ -400,13 +411,14 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAddress $shippingAddress
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
      */
-    public function setShippingAddress(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAddress $shippingAddress = null)
+    public function setShippingAddress(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAddress $shippingAddress = null): self
     {
         if (is_null($shippingAddress) || (is_array($shippingAddress) && empty($shippingAddress))) {
             unset($this->ShippingAddress);
         } else {
             $this->ShippingAddress = $shippingAddress;
         }
+        
         return $this;
     }
     /**
@@ -416,7 +428,7 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSku()
+    public function getSku(): ?string
     {
         return isset($this->Sku) ? $this->Sku : null;
     }
@@ -427,17 +439,18 @@ class CdiscountAssociatedOrderInfo extends AbstractStructBase
      * @param string $sku
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
      */
-    public function setSku($sku = null)
+    public function setSku(?string $sku = null): self
     {
         // validation for constraint: string
         if (!is_null($sku) && !is_string($sku)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sku, true), gettype($sku)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sku, true), gettype($sku)), __LINE__);
         }
         if (is_null($sku) || (is_array($sku) && empty($sku))) {
             unset($this->Sku);
         } else {
             $this->Sku = $sku;
         }
+        
         return $this;
     }
 }

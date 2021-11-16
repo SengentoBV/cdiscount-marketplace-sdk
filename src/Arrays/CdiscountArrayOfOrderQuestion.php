@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfOrderQuestion Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfOrderQuestion extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion[]
      */
-    public $OrderQuestion;
+    protected ?array $OrderQuestion = null;
     /**
      * Constructor method for ArrayOfOrderQuestion
      * @uses CdiscountArrayOfOrderQuestion::setOrderQuestion()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion[] $orderQuestion
      */
-    public function __construct(array $orderQuestion = array())
+    public function __construct(?array $orderQuestion = null)
     {
         $this
             ->setOrderQuestion($orderQuestion);
@@ -38,9 +41,9 @@ class CdiscountArrayOfOrderQuestion extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion[]
      */
-    public function getOrderQuestion()
+    public function getOrderQuestion(): ?array
     {
         return isset($this->OrderQuestion) ? $this->OrderQuestion : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfOrderQuestion extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateOrderQuestionForArrayConstraintsFromSetOrderQuestion(array $values = array())
+    public static function validateOrderQuestionForArrayConstraintsFromSetOrderQuestion(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfOrderQuestionOrderQuestionItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfOrderQuestion extends AbstractStructArrayBase
             $message = sprintf('The OrderQuestion property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set OrderQuestion value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion[] $orderQuestion
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderQuestion
      */
-    public function setOrderQuestion(array $orderQuestion = array())
+    public function setOrderQuestion(?array $orderQuestion = null): self
     {
         // validation for constraint: array
         if ('' !== ($orderQuestionArrayErrorMessage = self::validateOrderQuestionForArrayConstraintsFromSetOrderQuestion($orderQuestion))) {
-            throw new \InvalidArgumentException($orderQuestionArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($orderQuestionArrayErrorMessage, __LINE__);
         }
         if (is_null($orderQuestion) || (is_array($orderQuestion) && empty($orderQuestion))) {
             unset($this->OrderQuestion);
         } else {
             $this->OrderQuestion = $orderQuestion;
         }
-        return $this;
-    }
-    /**
-     * Add item to OrderQuestion value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderQuestion
-     */
-    public function addToOrderQuestion(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion) {
-            throw new \InvalidArgumentException(sprintf('The OrderQuestion property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->OrderQuestion[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfOrderQuestion extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfOrderQuestion extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfOrderQuestion extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfOrderQuestion extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion
     {
         return parent::last();
     }
@@ -145,16 +138,31 @@ class CdiscountArrayOfOrderQuestion extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderQuestion
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion) {
+            throw new InvalidArgumentException(sprintf('The OrderQuestion property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string OrderQuestion
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'OrderQuestion';
     }

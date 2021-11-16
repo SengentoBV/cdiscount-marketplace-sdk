@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ValidateOrderList Structs
@@ -16,17 +19,17 @@ class CdiscountValidateOrderList extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public $headerMessage;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null;
     /**
      * The validateOrderListMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderListMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderListMessage|null
      */
-    public $validateOrderListMessage;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderListMessage $validateOrderListMessage = null;
     /**
      * Constructor method for ValidateOrderList
      * @uses CdiscountValidateOrderList::setHeaderMessage()
@@ -34,7 +37,7 @@ class CdiscountValidateOrderList extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderListMessage $validateOrderListMessage
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderListMessage $validateOrderListMessage = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderListMessage $validateOrderListMessage = null)
     {
         $this
             ->setHeaderMessage($headerMessage)
@@ -47,7 +50,7 @@ class CdiscountValidateOrderList extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public function getHeaderMessage()
+    public function getHeaderMessage(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
     {
         return isset($this->headerMessage) ? $this->headerMessage : null;
     }
@@ -58,13 +61,14 @@ class CdiscountValidateOrderList extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderList
      */
-    public function setHeaderMessage(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null)
+    public function setHeaderMessage(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null): self
     {
         if (is_null($headerMessage) || (is_array($headerMessage) && empty($headerMessage))) {
             unset($this->headerMessage);
         } else {
             $this->headerMessage = $headerMessage;
         }
+        
         return $this;
     }
     /**
@@ -74,7 +78,7 @@ class CdiscountValidateOrderList extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderListMessage|null
      */
-    public function getValidateOrderListMessage()
+    public function getValidateOrderListMessage(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderListMessage
     {
         return isset($this->validateOrderListMessage) ? $this->validateOrderListMessage : null;
     }
@@ -85,13 +89,14 @@ class CdiscountValidateOrderList extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderListMessage $validateOrderListMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderList
      */
-    public function setValidateOrderListMessage(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderListMessage $validateOrderListMessage = null)
+    public function setValidateOrderListMessage(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderListMessage $validateOrderListMessage = null): self
     {
         if (is_null($validateOrderListMessage) || (is_array($validateOrderListMessage) && empty($validateOrderListMessage))) {
             unset($this->validateOrderListMessage);
         } else {
             $this->validateOrderListMessage = $validateOrderListMessage;
         }
+        
         return $this;
     }
 }

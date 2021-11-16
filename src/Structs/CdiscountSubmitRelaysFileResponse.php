@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SubmitRelaysFileResponse Structs
@@ -16,15 +19,15 @@ class CdiscountSubmitRelaysFileResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileDepositMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileDepositMessage|null
      */
-    public $SubmitRelaysFileResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileDepositMessage $SubmitRelaysFileResult = null;
     /**
      * Constructor method for SubmitRelaysFileResponse
      * @uses CdiscountSubmitRelaysFileResponse::setSubmitRelaysFileResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileDepositMessage $submitRelaysFileResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileDepositMessage $submitRelaysFileResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileDepositMessage $submitRelaysFileResult = null)
     {
         $this
             ->setSubmitRelaysFileResult($submitRelaysFileResult);
@@ -36,7 +39,7 @@ class CdiscountSubmitRelaysFileResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileDepositMessage|null
      */
-    public function getSubmitRelaysFileResult()
+    public function getSubmitRelaysFileResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileDepositMessage
     {
         return isset($this->SubmitRelaysFileResult) ? $this->SubmitRelaysFileResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountSubmitRelaysFileResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileDepositMessage $submitRelaysFileResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubmitRelaysFileResponse
      */
-    public function setSubmitRelaysFileResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileDepositMessage $submitRelaysFileResult = null)
+    public function setSubmitRelaysFileResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileDepositMessage $submitRelaysFileResult = null): self
     {
         if (is_null($submitRelaysFileResult) || (is_array($submitRelaysFileResult) && empty($submitRelaysFileResult))) {
             unset($this->SubmitRelaysFileResult);
         } else {
             $this->SubmitRelaysFileResult = $submitRelaysFileResult;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CompetingOfferMessage Structs
@@ -19,17 +22,17 @@ class CdiscountCompetingOfferMessage extends CdiscountServiceBaseAPIMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCompetingOffer
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCompetingOffer|null
      */
-    public $CompetingOffers;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCompetingOffer $CompetingOffers = null;
     /**
      * The Quota
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountQuota
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountQuota|null
      */
-    public $Quota;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountQuota $Quota = null;
     /**
      * Constructor method for CompetingOfferMessage
      * @uses CdiscountCompetingOfferMessage::setCompetingOffers()
@@ -37,7 +40,7 @@ class CdiscountCompetingOfferMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCompetingOffer $competingOffers
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountQuota $quota
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCompetingOffer $competingOffers = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountQuota $quota = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCompetingOffer $competingOffers = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountQuota $quota = null)
     {
         $this
             ->setCompetingOffers($competingOffers)
@@ -50,7 +53,7 @@ class CdiscountCompetingOfferMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCompetingOffer|null
      */
-    public function getCompetingOffers()
+    public function getCompetingOffers(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCompetingOffer
     {
         return isset($this->CompetingOffers) ? $this->CompetingOffers : null;
     }
@@ -61,13 +64,14 @@ class CdiscountCompetingOfferMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCompetingOffer $competingOffers
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOfferMessage
      */
-    public function setCompetingOffers(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCompetingOffer $competingOffers = null)
+    public function setCompetingOffers(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCompetingOffer $competingOffers = null): self
     {
         if (is_null($competingOffers) || (is_array($competingOffers) && empty($competingOffers))) {
             unset($this->CompetingOffers);
         } else {
             $this->CompetingOffers = $competingOffers;
         }
+        
         return $this;
     }
     /**
@@ -77,7 +81,7 @@ class CdiscountCompetingOfferMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountQuota|null
      */
-    public function getQuota()
+    public function getQuota(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountQuota
     {
         return isset($this->Quota) ? $this->Quota : null;
     }
@@ -88,13 +92,14 @@ class CdiscountCompetingOfferMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountQuota $quota
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOfferMessage
      */
-    public function setQuota(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountQuota $quota = null)
+    public function setQuota(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountQuota $quota = null): self
     {
         if (is_null($quota) || (is_array($quota) && empty($quota))) {
             unset($this->Quota);
         } else {
             $this->Quota = $quota;
         }
+        
         return $this;
     }
 }

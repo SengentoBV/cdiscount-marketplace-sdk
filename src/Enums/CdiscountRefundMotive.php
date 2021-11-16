@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for RefundMotive Enums
@@ -66,9 +68,9 @@ class CdiscountRefundMotive extends AbstractStructEnumBase
      * @uses self::VALUE_PRODUCT_STOCK_UNAVAILABLE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_VENDOR_REJECTION,
             self::VALUE_CLIENT_CANCELLATION,
             self::VALUE_VENDOR_REJECTION_AND_CLIENT_CANCELLATION,
@@ -77,6 +79,6 @@ class CdiscountRefundMotive extends AbstractStructEnumBase
             self::VALUE_CLIENT_RETRACTION,
             self::VALUE_NO_CLIENT_WITH_DRAWAL,
             self::VALUE_PRODUCT_STOCK_UNAVAILABLE,
-        );
+        ];
     }
 }

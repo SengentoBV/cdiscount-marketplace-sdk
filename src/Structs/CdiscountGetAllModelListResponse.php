@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetAllModelListResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetAllModelListResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductModelListMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductModelListMessage|null
      */
-    public $GetAllModelListResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductModelListMessage $GetAllModelListResult = null;
     /**
      * Constructor method for GetAllModelListResponse
      * @uses CdiscountGetAllModelListResponse::setGetAllModelListResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductModelListMessage $getAllModelListResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductModelListMessage $getAllModelListResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductModelListMessage $getAllModelListResult = null)
     {
         $this
             ->setGetAllModelListResult($getAllModelListResult);
@@ -36,7 +39,7 @@ class CdiscountGetAllModelListResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductModelListMessage|null
      */
-    public function getGetAllModelListResult()
+    public function getGetAllModelListResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductModelListMessage
     {
         return isset($this->GetAllModelListResult) ? $this->GetAllModelListResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetAllModelListResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductModelListMessage $getAllModelListResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetAllModelListResponse
      */
-    public function setGetAllModelListResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductModelListMessage $getAllModelListResult = null)
+    public function setGetAllModelListResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductModelListMessage $getAllModelListResult = null): self
     {
         if (is_null($getAllModelListResult) || (is_array($getAllModelListResult) && empty($getAllModelListResult))) {
             unset($this->GetAllModelListResult);
         } else {
             $this->GetAllModelListResult = $getAllModelListResult;
         }
+        
         return $this;
     }
 }

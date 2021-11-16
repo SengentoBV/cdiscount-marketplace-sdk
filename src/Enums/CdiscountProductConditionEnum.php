@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ProductConditionEnum Enums
@@ -50,6 +52,21 @@ class CdiscountProductConditionEnum extends AbstractStructEnumBase
      */
     const VALUE_NEW = 'New';
     /**
+     * Constant for value 'RefurbishedLikeNew'
+     * @return string 'RefurbishedLikeNew'
+     */
+    const VALUE_REFURBISHED_LIKE_NEW = 'RefurbishedLikeNew';
+    /**
+     * Constant for value 'RefurbishedVeryGoodState'
+     * @return string 'RefurbishedVeryGoodState'
+     */
+    const VALUE_REFURBISHED_VERY_GOOD_STATE = 'RefurbishedVeryGoodState';
+    /**
+     * Constant for value 'RefurbishedCorrectState'
+     * @return string 'RefurbishedCorrectState'
+     */
+    const VALUE_REFURBISHED_CORRECT_STATE = 'RefurbishedCorrectState';
+    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_LIKE_NEW
@@ -58,11 +75,14 @@ class CdiscountProductConditionEnum extends AbstractStructEnumBase
      * @uses self::VALUE_AVERAGE_STATE
      * @uses self::VALUE_REFURBISHED
      * @uses self::VALUE_NEW
+     * @uses self::VALUE_REFURBISHED_LIKE_NEW
+     * @uses self::VALUE_REFURBISHED_VERY_GOOD_STATE
+     * @uses self::VALUE_REFURBISHED_CORRECT_STATE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_LIKE_NEW,
             self::VALUE_VERY_GOOD_STATE,
@@ -70,6 +90,9 @@ class CdiscountProductConditionEnum extends AbstractStructEnumBase
             self::VALUE_AVERAGE_STATE,
             self::VALUE_REFURBISHED,
             self::VALUE_NEW,
-        );
+            self::VALUE_REFURBISHED_LIKE_NEW,
+            self::VALUE_REFURBISHED_VERY_GOOD_STATE,
+            self::VALUE_REFURBISHED_CORRECT_STATE,
+        ];
     }
 }

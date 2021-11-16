@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RelaysFileIntegrationRequest Structs
@@ -19,15 +22,15 @@ class CdiscountRelaysFileIntegrationRequest extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $RelaysFileURI;
+    protected ?string $RelaysFileURI = null;
     /**
      * Constructor method for RelaysFileIntegrationRequest
      * @uses CdiscountRelaysFileIntegrationRequest::setRelaysFileURI()
      * @param string $relaysFileURI
      */
-    public function __construct($relaysFileURI = null)
+    public function __construct(?string $relaysFileURI = null)
     {
         $this
             ->setRelaysFileURI($relaysFileURI);
@@ -39,7 +42,7 @@ class CdiscountRelaysFileIntegrationRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getRelaysFileURI()
+    public function getRelaysFileURI(): ?string
     {
         return isset($this->RelaysFileURI) ? $this->RelaysFileURI : null;
     }
@@ -50,17 +53,18 @@ class CdiscountRelaysFileIntegrationRequest extends AbstractStructBase
      * @param string $relaysFileURI
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelaysFileIntegrationRequest
      */
-    public function setRelaysFileURI($relaysFileURI = null)
+    public function setRelaysFileURI(?string $relaysFileURI = null): self
     {
         // validation for constraint: string
         if (!is_null($relaysFileURI) && !is_string($relaysFileURI)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($relaysFileURI, true), gettype($relaysFileURI)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($relaysFileURI, true), gettype($relaysFileURI)), __LINE__);
         }
         if (is_null($relaysFileURI) || (is_array($relaysFileURI) && empty($relaysFileURI))) {
             unset($this->RelaysFileURI);
         } else {
             $this->RelaysFileURI = $relaysFileURI;
         }
+        
         return $this;
     }
 }

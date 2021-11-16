@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Error Structs
@@ -16,16 +19,16 @@ class CdiscountError extends AbstractStructBase
 {
     /**
      * The ErrorType
-     * @var string
+     * @var string|null
      */
-    public $ErrorType;
+    protected ?string $ErrorType = null;
     /**
      * The Message
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Message;
+    protected ?string $Message = null;
     /**
      * Constructor method for Error
      * @uses CdiscountError::setErrorType()
@@ -33,7 +36,7 @@ class CdiscountError extends AbstractStructBase
      * @param string $errorType
      * @param string $message
      */
-    public function __construct($errorType = null, $message = null)
+    public function __construct(?string $errorType = null, ?string $message = null)
     {
         $this
             ->setErrorType($errorType)
@@ -43,7 +46,7 @@ class CdiscountError extends AbstractStructBase
      * Get ErrorType value
      * @return string|null
      */
-    public function getErrorType()
+    public function getErrorType(): ?string
     {
         return $this->ErrorType;
     }
@@ -51,24 +54,25 @@ class CdiscountError extends AbstractStructBase
      * Set ErrorType value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountErrorTypeEnum::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountErrorTypeEnum::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $errorType
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountError
      */
-    public function setErrorType($errorType = null)
+    public function setErrorType(?string $errorType = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountErrorTypeEnum::valueIsValid($errorType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountErrorTypeEnum', is_array($errorType) ? implode(', ', $errorType) : var_export($errorType, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountErrorTypeEnum::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountErrorTypeEnum', is_array($errorType) ? implode(', ', $errorType) : var_export($errorType, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountErrorTypeEnum::getValidValues())), __LINE__);
         }
         $this->ErrorType = $errorType;
+        
         return $this;
     }
     /**
      * Get Message value
      * @return string|null
      */
-    public function getMessage()
+    public function getMessage(): ?string
     {
         return $this->Message;
     }
@@ -77,13 +81,14 @@ class CdiscountError extends AbstractStructBase
      * @param string $message
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountError
      */
-    public function setMessage($message = null)
+    public function setMessage(?string $message = null): self
     {
         // validation for constraint: string
         if (!is_null($message) && !is_string($message)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($message, true), gettype($message)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($message, true), gettype($message)), __LINE__);
         }
         $this->Message = $message;
+        
         return $this;
     }
 }

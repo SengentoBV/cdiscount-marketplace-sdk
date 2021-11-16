@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for DiscussionStateFilter Enums
@@ -42,13 +44,13 @@ class CdiscountDiscussionStateFilter extends AbstractStructEnumBase
      * @uses self::VALUE_NOT_PROCESSED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ALL,
             self::VALUE_OPEN,
             self::VALUE_CLOSED,
             self::VALUE_NOT_PROCESSED,
-        );
+        ];
     }
 }

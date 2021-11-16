@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetDiscussionListResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetDiscussionListResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionListMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionListMessage|null
      */
-    public $GetDiscussionListResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionListMessage $GetDiscussionListResult = null;
     /**
      * Constructor method for GetDiscussionListResponse
      * @uses CdiscountGetDiscussionListResponse::setGetDiscussionListResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionListMessage $getDiscussionListResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionListMessage $getDiscussionListResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionListMessage $getDiscussionListResult = null)
     {
         $this
             ->setGetDiscussionListResult($getDiscussionListResult);
@@ -36,7 +39,7 @@ class CdiscountGetDiscussionListResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionListMessage|null
      */
-    public function getGetDiscussionListResult()
+    public function getGetDiscussionListResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionListMessage
     {
         return isset($this->GetDiscussionListResult) ? $this->GetDiscussionListResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetDiscussionListResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionListMessage $getDiscussionListResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetDiscussionListResponse
      */
-    public function setGetDiscussionListResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionListMessage $getDiscussionListResult = null)
+    public function setGetDiscussionListResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionListMessage $getDiscussionListResult = null): self
     {
         if (is_null($getDiscussionListResult) || (is_array($getDiscussionListResult) && empty($getDiscussionListResult))) {
             unset($this->GetDiscussionListResult);
         } else {
             $this->GetDiscussionListResult = $getDiscussionListResult;
         }
+        
         return $this;
     }
 }

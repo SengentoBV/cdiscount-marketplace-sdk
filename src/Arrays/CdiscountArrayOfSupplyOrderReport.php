@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfSupplyOrderReport Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfSupplyOrderReport extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport[]
      */
-    public $SupplyOrderReport;
+    protected ?array $SupplyOrderReport = null;
     /**
      * Constructor method for ArrayOfSupplyOrderReport
      * @uses CdiscountArrayOfSupplyOrderReport::setSupplyOrderReport()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport[] $supplyOrderReport
      */
-    public function __construct(array $supplyOrderReport = array())
+    public function __construct(?array $supplyOrderReport = null)
     {
         $this
             ->setSupplyOrderReport($supplyOrderReport);
@@ -38,9 +41,9 @@ class CdiscountArrayOfSupplyOrderReport extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport[]
      */
-    public function getSupplyOrderReport()
+    public function getSupplyOrderReport(): ?array
     {
         return isset($this->SupplyOrderReport) ? $this->SupplyOrderReport : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfSupplyOrderReport extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateSupplyOrderReportForArrayConstraintsFromSetSupplyOrderReport(array $values = array())
+    public static function validateSupplyOrderReportForArrayConstraintsFromSetSupplyOrderReport(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfSupplyOrderReportSupplyOrderReportItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfSupplyOrderReport extends AbstractStructArrayBase
             $message = sprintf('The SupplyOrderReport property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set SupplyOrderReport value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport[] $supplyOrderReport
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSupplyOrderReport
      */
-    public function setSupplyOrderReport(array $supplyOrderReport = array())
+    public function setSupplyOrderReport(?array $supplyOrderReport = null): self
     {
         // validation for constraint: array
         if ('' !== ($supplyOrderReportArrayErrorMessage = self::validateSupplyOrderReportForArrayConstraintsFromSetSupplyOrderReport($supplyOrderReport))) {
-            throw new \InvalidArgumentException($supplyOrderReportArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($supplyOrderReportArrayErrorMessage, __LINE__);
         }
         if (is_null($supplyOrderReport) || (is_array($supplyOrderReport) && empty($supplyOrderReport))) {
             unset($this->SupplyOrderReport);
         } else {
             $this->SupplyOrderReport = $supplyOrderReport;
         }
-        return $this;
-    }
-    /**
-     * Add item to SupplyOrderReport value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSupplyOrderReport
-     */
-    public function addToSupplyOrderReport(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport) {
-            throw new \InvalidArgumentException(sprintf('The SupplyOrderReport property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->SupplyOrderReport[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfSupplyOrderReport extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfSupplyOrderReport extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfSupplyOrderReport extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfSupplyOrderReport extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport
     {
         return parent::last();
     }
@@ -145,16 +138,31 @@ class CdiscountArrayOfSupplyOrderReport extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSupplyOrderReport
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport) {
+            throw new InvalidArgumentException(sprintf('The SupplyOrderReport property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReport, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string SupplyOrderReport
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'SupplyOrderReport';
     }

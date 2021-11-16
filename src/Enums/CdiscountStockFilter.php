@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for StockFilter Enums
@@ -36,12 +38,12 @@ class CdiscountStockFilter extends AbstractStructEnumBase
      * @uses self::VALUE_WITHOUT_STOCK
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ALL,
             self::VALUE_WITH_STOCK,
             self::VALUE_WITHOUT_STOCK,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfBrand Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfBrand extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand[]
      */
-    public $Brand;
+    protected ?array $Brand = null;
     /**
      * Constructor method for ArrayOfBrand
      * @uses CdiscountArrayOfBrand::setBrand()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand[] $brand
      */
-    public function __construct(array $brand = array())
+    public function __construct(?array $brand = null)
     {
         $this
             ->setBrand($brand);
@@ -38,9 +41,9 @@ class CdiscountArrayOfBrand extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand[]
      */
-    public function getBrand()
+    public function getBrand(): ?array
     {
         return isset($this->Brand) ? $this->Brand : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfBrand extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateBrandForArrayConstraintsFromSetBrand(array $values = array())
+    public static function validateBrandForArrayConstraintsFromSetBrand(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfBrandBrandItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfBrand extends AbstractStructArrayBase
             $message = sprintf('The Brand property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Brand value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand[] $brand
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfBrand
      */
-    public function setBrand(array $brand = array())
+    public function setBrand(?array $brand = null): self
     {
         // validation for constraint: array
         if ('' !== ($brandArrayErrorMessage = self::validateBrandForArrayConstraintsFromSetBrand($brand))) {
-            throw new \InvalidArgumentException($brandArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($brandArrayErrorMessage, __LINE__);
         }
         if (is_null($brand) || (is_array($brand) && empty($brand))) {
             unset($this->Brand);
         } else {
             $this->Brand = $brand;
         }
-        return $this;
-    }
-    /**
-     * Add item to Brand value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfBrand
-     */
-    public function addToBrand(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand) {
-            throw new \InvalidArgumentException(sprintf('The Brand property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Brand[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfBrand extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfBrand extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfBrand extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfBrand extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand
     {
         return parent::last();
     }
@@ -145,16 +138,31 @@ class CdiscountArrayOfBrand extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfBrand
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand) {
+            throw new InvalidArgumentException(sprintf('The Brand property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrand, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Brand
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Brand';
     }

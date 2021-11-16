@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Carrier Structs
@@ -18,25 +21,25 @@ class CdiscountCarrier extends AbstractStructBase
      * The CarrierId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $CarrierId;
+    protected ?int $CarrierId = null;
     /**
      * The DefaultURL
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $DefaultURL;
+    protected ?string $DefaultURL = null;
     /**
      * The Name
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * Constructor method for Carrier
      * @uses CdiscountCarrier::setCarrierId()
@@ -46,7 +49,7 @@ class CdiscountCarrier extends AbstractStructBase
      * @param string $defaultURL
      * @param string $name
      */
-    public function __construct($carrierId = null, $defaultURL = null, $name = null)
+    public function __construct(?int $carrierId = null, ?string $defaultURL = null, ?string $name = null)
     {
         $this
             ->setCarrierId($carrierId)
@@ -57,7 +60,7 @@ class CdiscountCarrier extends AbstractStructBase
      * Get CarrierId value
      * @return int|null
      */
-    public function getCarrierId()
+    public function getCarrierId(): ?int
     {
         return $this->CarrierId;
     }
@@ -66,13 +69,14 @@ class CdiscountCarrier extends AbstractStructBase
      * @param int $carrierId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier
      */
-    public function setCarrierId($carrierId = null)
+    public function setCarrierId(?int $carrierId = null): self
     {
         // validation for constraint: int
         if (!is_null($carrierId) && !(is_int($carrierId) || ctype_digit($carrierId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($carrierId, true), gettype($carrierId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($carrierId, true), gettype($carrierId)), __LINE__);
         }
         $this->CarrierId = $carrierId;
+        
         return $this;
     }
     /**
@@ -82,7 +86,7 @@ class CdiscountCarrier extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getDefaultURL()
+    public function getDefaultURL(): ?string
     {
         return isset($this->DefaultURL) ? $this->DefaultURL : null;
     }
@@ -93,17 +97,18 @@ class CdiscountCarrier extends AbstractStructBase
      * @param string $defaultURL
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier
      */
-    public function setDefaultURL($defaultURL = null)
+    public function setDefaultURL(?string $defaultURL = null): self
     {
         // validation for constraint: string
         if (!is_null($defaultURL) && !is_string($defaultURL)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($defaultURL, true), gettype($defaultURL)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($defaultURL, true), gettype($defaultURL)), __LINE__);
         }
         if (is_null($defaultURL) || (is_array($defaultURL) && empty($defaultURL))) {
             unset($this->DefaultURL);
         } else {
             $this->DefaultURL = $defaultURL;
         }
+        
         return $this;
     }
     /**
@@ -113,7 +118,7 @@ class CdiscountCarrier extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return isset($this->Name) ? $this->Name : null;
     }
@@ -124,17 +129,18 @@ class CdiscountCarrier extends AbstractStructBase
      * @param string $name
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         if (is_null($name) || (is_array($name) && empty($name))) {
             unset($this->Name);
         } else {
             $this->Name = $name;
         }
+        
         return $this;
     }
 }

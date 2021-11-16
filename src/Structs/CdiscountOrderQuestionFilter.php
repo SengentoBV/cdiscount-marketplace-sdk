@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OrderQuestionFilter Structs
@@ -19,15 +22,15 @@ class CdiscountOrderQuestionFilter extends CdiscountDiscussionFilterBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public $OrderNumberList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $OrderNumberList = null;
     /**
      * Constructor method for OrderQuestionFilter
      * @uses CdiscountOrderQuestionFilter::setOrderNumberList()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderNumberList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderNumberList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderNumberList = null)
     {
         $this
             ->setOrderNumberList($orderNumberList);
@@ -39,7 +42,7 @@ class CdiscountOrderQuestionFilter extends CdiscountDiscussionFilterBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public function getOrderNumberList()
+    public function getOrderNumberList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
     {
         return isset($this->OrderNumberList) ? $this->OrderNumberList : null;
     }
@@ -50,13 +53,14 @@ class CdiscountOrderQuestionFilter extends CdiscountDiscussionFilterBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderNumberList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestionFilter
      */
-    public function setOrderNumberList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderNumberList = null)
+    public function setOrderNumberList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderNumberList = null): self
     {
         if (is_null($orderNumberList) || (is_array($orderNumberList) && empty($orderNumberList))) {
             unset($this->OrderNumberList);
         } else {
             $this->OrderNumberList = $orderNumberList;
         }
+        
         return $this;
     }
 }

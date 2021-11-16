@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfAssociatedOrderInfo Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfAssociatedOrderInfo extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo[]
      */
-    public $AssociatedOrderInfo;
+    protected ?array $AssociatedOrderInfo = null;
     /**
      * Constructor method for ArrayOfAssociatedOrderInfo
      * @uses CdiscountArrayOfAssociatedOrderInfo::setAssociatedOrderInfo()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo[] $associatedOrderInfo
      */
-    public function __construct(array $associatedOrderInfo = array())
+    public function __construct(?array $associatedOrderInfo = null)
     {
         $this
             ->setAssociatedOrderInfo($associatedOrderInfo);
@@ -38,9 +41,9 @@ class CdiscountArrayOfAssociatedOrderInfo extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo[]
      */
-    public function getAssociatedOrderInfo()
+    public function getAssociatedOrderInfo(): ?array
     {
         return isset($this->AssociatedOrderInfo) ? $this->AssociatedOrderInfo : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfAssociatedOrderInfo extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateAssociatedOrderInfoForArrayConstraintsFromSetAssociatedOrderInfo(array $values = array())
+    public static function validateAssociatedOrderInfoForArrayConstraintsFromSetAssociatedOrderInfo(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfAssociatedOrderInfoAssociatedOrderInfoItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfAssociatedOrderInfo extends AbstractStructArrayBase
             $message = sprintf('The AssociatedOrderInfo property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set AssociatedOrderInfo value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo[] $associatedOrderInfo
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfAssociatedOrderInfo
      */
-    public function setAssociatedOrderInfo(array $associatedOrderInfo = array())
+    public function setAssociatedOrderInfo(?array $associatedOrderInfo = null): self
     {
         // validation for constraint: array
         if ('' !== ($associatedOrderInfoArrayErrorMessage = self::validateAssociatedOrderInfoForArrayConstraintsFromSetAssociatedOrderInfo($associatedOrderInfo))) {
-            throw new \InvalidArgumentException($associatedOrderInfoArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($associatedOrderInfoArrayErrorMessage, __LINE__);
         }
         if (is_null($associatedOrderInfo) || (is_array($associatedOrderInfo) && empty($associatedOrderInfo))) {
             unset($this->AssociatedOrderInfo);
         } else {
             $this->AssociatedOrderInfo = $associatedOrderInfo;
         }
-        return $this;
-    }
-    /**
-     * Add item to AssociatedOrderInfo value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfAssociatedOrderInfo
-     */
-    public function addToAssociatedOrderInfo(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo) {
-            throw new \InvalidArgumentException(sprintf('The AssociatedOrderInfo property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->AssociatedOrderInfo[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfAssociatedOrderInfo extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfAssociatedOrderInfo extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfAssociatedOrderInfo extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfAssociatedOrderInfo extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
     {
         return parent::last();
     }
@@ -145,16 +138,31 @@ class CdiscountArrayOfAssociatedOrderInfo extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfAssociatedOrderInfo
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo) {
+            throw new InvalidArgumentException(sprintf('The AssociatedOrderInfo property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountAssociatedOrderInfo, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string AssociatedOrderInfo
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'AssociatedOrderInfo';
     }

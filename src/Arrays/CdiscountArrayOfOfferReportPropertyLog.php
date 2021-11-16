@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfOfferReportPropertyLog Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfOfferReportPropertyLog extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog[]
      */
-    public $OfferReportPropertyLog;
+    protected ?array $OfferReportPropertyLog = null;
     /**
      * Constructor method for ArrayOfOfferReportPropertyLog
      * @uses CdiscountArrayOfOfferReportPropertyLog::setOfferReportPropertyLog()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog[] $offerReportPropertyLog
      */
-    public function __construct(array $offerReportPropertyLog = array())
+    public function __construct(?array $offerReportPropertyLog = null)
     {
         $this
             ->setOfferReportPropertyLog($offerReportPropertyLog);
@@ -38,9 +41,9 @@ class CdiscountArrayOfOfferReportPropertyLog extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog[]
      */
-    public function getOfferReportPropertyLog()
+    public function getOfferReportPropertyLog(): ?array
     {
         return isset($this->OfferReportPropertyLog) ? $this->OfferReportPropertyLog : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfOfferReportPropertyLog extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateOfferReportPropertyLogForArrayConstraintsFromSetOfferReportPropertyLog(array $values = array())
+    public static function validateOfferReportPropertyLogForArrayConstraintsFromSetOfferReportPropertyLog(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfOfferReportPropertyLogOfferReportPropertyLogItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfOfferReportPropertyLog extends AbstractStructArrayBase
             $message = sprintf('The OfferReportPropertyLog property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set OfferReportPropertyLog value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog[] $offerReportPropertyLog
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferReportPropertyLog
      */
-    public function setOfferReportPropertyLog(array $offerReportPropertyLog = array())
+    public function setOfferReportPropertyLog(?array $offerReportPropertyLog = null): self
     {
         // validation for constraint: array
         if ('' !== ($offerReportPropertyLogArrayErrorMessage = self::validateOfferReportPropertyLogForArrayConstraintsFromSetOfferReportPropertyLog($offerReportPropertyLog))) {
-            throw new \InvalidArgumentException($offerReportPropertyLogArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($offerReportPropertyLogArrayErrorMessage, __LINE__);
         }
         if (is_null($offerReportPropertyLog) || (is_array($offerReportPropertyLog) && empty($offerReportPropertyLog))) {
             unset($this->OfferReportPropertyLog);
         } else {
             $this->OfferReportPropertyLog = $offerReportPropertyLog;
         }
-        return $this;
-    }
-    /**
-     * Add item to OfferReportPropertyLog value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferReportPropertyLog
-     */
-    public function addToOfferReportPropertyLog(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog) {
-            throw new \InvalidArgumentException(sprintf('The OfferReportPropertyLog property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->OfferReportPropertyLog[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfOfferReportPropertyLog extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfOfferReportPropertyLog extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfOfferReportPropertyLog extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfOfferReportPropertyLog extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog
     {
         return parent::last();
     }
@@ -145,16 +138,31 @@ class CdiscountArrayOfOfferReportPropertyLog extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferReportPropertyLog
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog) {
+            throw new InvalidArgumentException(sprintf('The OfferReportPropertyLog property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferReportPropertyLog, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string OfferReportPropertyLog
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'OfferReportPropertyLog';
     }

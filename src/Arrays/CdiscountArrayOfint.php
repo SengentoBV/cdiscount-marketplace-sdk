@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfint Arrays
@@ -21,22 +24,22 @@ class CdiscountArrayOfint extends AbstractStructArrayBase
      * - minOccurs: 0
      * @var int[]
      */
-    public $int;
+    protected ?array $int = null;
     /**
      * Constructor method for ArrayOfint
      * @uses CdiscountArrayOfint::setInt()
      * @param int[] $int
      */
-    public function __construct(array $int = array())
+    public function __construct(?array $int = null)
     {
         $this
             ->setInt($int);
     }
     /**
      * Get int value
-     * @return int[]|null
+     * @return int[]
      */
-    public function getInt()
+    public function getInt(): ?array
     {
         return $this->int;
     }
@@ -46,8 +49,11 @@ class CdiscountArrayOfint extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateIntForArrayConstraintsFromSetInt(array $values = array())
+    public static function validateIntForArrayConstraintsFromSetInt(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfintIntItem) {
@@ -60,36 +66,23 @@ class CdiscountArrayOfint extends AbstractStructArrayBase
             $message = sprintf('The int property can only contain items of type int, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set int value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param int[] $int
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint
      */
-    public function setInt(array $int = array())
+    public function setInt(?array $int = null): self
     {
         // validation for constraint: array
         if ('' !== ($intArrayErrorMessage = self::validateIntForArrayConstraintsFromSetInt($int))) {
-            throw new \InvalidArgumentException($intArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($intArrayErrorMessage, __LINE__);
         }
         $this->int = $int;
-        return $this;
-    }
-    /**
-     * Add item to int value
-     * @throws \InvalidArgumentException
-     * @param int $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint
-     */
-    public function addToInt($item)
-    {
-        // validation for constraint: itemType
-        if (!(is_int($item) || ctype_digit($item))) {
-            throw new \InvalidArgumentException(sprintf('The int property can only contain items of type int, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->int[] = $item;
+        
         return $this;
     }
     /**
@@ -97,7 +90,7 @@ class CdiscountArrayOfint extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return int|null
      */
-    public function current()
+    public function current(): ?int
     {
         return parent::current();
     }
@@ -107,7 +100,7 @@ class CdiscountArrayOfint extends AbstractStructArrayBase
      * @param int $index
      * @return int|null
      */
-    public function item($index)
+    public function item($index): ?int
     {
         return parent::item($index);
     }
@@ -116,7 +109,7 @@ class CdiscountArrayOfint extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return int|null
      */
-    public function first()
+    public function first(): ?int
     {
         return parent::first();
     }
@@ -125,7 +118,7 @@ class CdiscountArrayOfint extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return int|null
      */
-    public function last()
+    public function last(): ?int
     {
         return parent::last();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfint extends AbstractStructArrayBase
      * @param int $offset
      * @return int|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?int
     {
         return parent::offsetGet($offset);
     }
@@ -144,7 +137,7 @@ class CdiscountArrayOfint extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string int
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'int';
     }

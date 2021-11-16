@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetOfferListPaginatedResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetOfferListPaginatedResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListPaginatedMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListPaginatedMessage|null
      */
-    public $GetOfferListPaginatedResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListPaginatedMessage $GetOfferListPaginatedResult = null;
     /**
      * Constructor method for GetOfferListPaginatedResponse
      * @uses CdiscountGetOfferListPaginatedResponse::setGetOfferListPaginatedResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListPaginatedMessage $getOfferListPaginatedResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListPaginatedMessage $getOfferListPaginatedResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListPaginatedMessage $getOfferListPaginatedResult = null)
     {
         $this
             ->setGetOfferListPaginatedResult($getOfferListPaginatedResult);
@@ -36,7 +39,7 @@ class CdiscountGetOfferListPaginatedResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListPaginatedMessage|null
      */
-    public function getGetOfferListPaginatedResult()
+    public function getGetOfferListPaginatedResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListPaginatedMessage
     {
         return isset($this->GetOfferListPaginatedResult) ? $this->GetOfferListPaginatedResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetOfferListPaginatedResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListPaginatedMessage $getOfferListPaginatedResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOfferListPaginatedResponse
      */
-    public function setGetOfferListPaginatedResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListPaginatedMessage $getOfferListPaginatedResult = null)
+    public function setGetOfferListPaginatedResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListPaginatedMessage $getOfferListPaginatedResult = null): self
     {
         if (is_null($getOfferListPaginatedResult) || (is_array($getOfferListPaginatedResult) && empty($getOfferListPaginatedResult))) {
             unset($this->GetOfferListPaginatedResult);
         } else {
             $this->GetOfferListPaginatedResult = $getOfferListPaginatedResult;
         }
+        
         return $this;
     }
 }

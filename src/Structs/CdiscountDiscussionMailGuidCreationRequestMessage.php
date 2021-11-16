@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DiscussionMailGuidCreationRequestMessage Structs
@@ -19,15 +22,15 @@ class CdiscountDiscussionMailGuidCreationRequestMessage extends AbstractStructBa
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ScopusId;
+    protected ?string $ScopusId = null;
     /**
      * Constructor method for DiscussionMailGuidCreationRequestMessage
      * @uses CdiscountDiscussionMailGuidCreationRequestMessage::setScopusId()
      * @param string $scopusId
      */
-    public function __construct($scopusId = null)
+    public function __construct(?string $scopusId = null)
     {
         $this
             ->setScopusId($scopusId);
@@ -39,7 +42,7 @@ class CdiscountDiscussionMailGuidCreationRequestMessage extends AbstractStructBa
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getScopusId()
+    public function getScopusId(): ?string
     {
         return isset($this->ScopusId) ? $this->ScopusId : null;
     }
@@ -50,17 +53,18 @@ class CdiscountDiscussionMailGuidCreationRequestMessage extends AbstractStructBa
      * @param string $scopusId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailGuidCreationRequestMessage
      */
-    public function setScopusId($scopusId = null)
+    public function setScopusId(?string $scopusId = null): self
     {
         // validation for constraint: string
         if (!is_null($scopusId) && !is_string($scopusId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($scopusId, true), gettype($scopusId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($scopusId, true), gettype($scopusId)), __LINE__);
         }
         if (is_null($scopusId) || (is_array($scopusId) && empty($scopusId))) {
             unset($this->ScopusId);
         } else {
             $this->ScopusId = $scopusId;
         }
+        
         return $this;
     }
 }

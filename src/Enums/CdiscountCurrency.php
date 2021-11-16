@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for Currency Enums
@@ -1092,9 +1094,9 @@ class CdiscountCurrency extends AbstractStructEnumBase
      * @uses self::VALUE_ZWL
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_AED,
             self::VALUE_AFN,
             self::VALUE_ALL,
@@ -1274,6 +1276,6 @@ class CdiscountCurrency extends AbstractStructEnumBase
             self::VALUE_ZAR,
             self::VALUE_ZMW,
             self::VALUE_ZWL,
-        );
+        ];
     }
 }

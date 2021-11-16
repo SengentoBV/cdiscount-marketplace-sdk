@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ManageParcelResponse Structs
@@ -16,15 +19,15 @@ class CdiscountManageParcelResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelResultMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelResultMessage|null
      */
-    public $ManageParcelResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelResultMessage $ManageParcelResult = null;
     /**
      * Constructor method for ManageParcelResponse
      * @uses CdiscountManageParcelResponse::setManageParcelResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelResultMessage $manageParcelResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelResultMessage $manageParcelResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelResultMessage $manageParcelResult = null)
     {
         $this
             ->setManageParcelResult($manageParcelResult);
@@ -36,7 +39,7 @@ class CdiscountManageParcelResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelResultMessage|null
      */
-    public function getManageParcelResult()
+    public function getManageParcelResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelResultMessage
     {
         return isset($this->ManageParcelResult) ? $this->ManageParcelResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountManageParcelResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelResultMessage $manageParcelResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelResponse
      */
-    public function setManageParcelResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelResultMessage $manageParcelResult = null)
+    public function setManageParcelResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelResultMessage $manageParcelResult = null): self
     {
         if (is_null($manageParcelResult) || (is_array($manageParcelResult) && empty($manageParcelResult))) {
             unset($this->ManageParcelResult);
         } else {
             $this->ManageParcelResult = $manageParcelResult;
         }
+        
         return $this;
     }
 }

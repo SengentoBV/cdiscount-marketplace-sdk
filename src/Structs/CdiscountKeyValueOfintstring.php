@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for KeyValueOfintstring Structs
@@ -13,16 +16,16 @@ class CdiscountKeyValueOfintstring extends AbstractStructBase
 {
     /**
      * The Key
-     * @var int
+     * @var int|null
      */
-    public $Key;
+    protected ?int $Key = null;
     /**
      * The Value
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Value;
+    protected ?string $Value = null;
     /**
      * Constructor method for KeyValueOfintstring
      * @uses CdiscountKeyValueOfintstring::setKey()
@@ -30,7 +33,7 @@ class CdiscountKeyValueOfintstring extends AbstractStructBase
      * @param int $key
      * @param string $value
      */
-    public function __construct($key = null, $value = null)
+    public function __construct(?int $key = null, ?string $value = null)
     {
         $this
             ->setKey($key)
@@ -40,7 +43,7 @@ class CdiscountKeyValueOfintstring extends AbstractStructBase
      * Get Key value
      * @return int|null
      */
-    public function getKey()
+    public function getKey(): ?int
     {
         return $this->Key;
     }
@@ -49,20 +52,21 @@ class CdiscountKeyValueOfintstring extends AbstractStructBase
      * @param int $key
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfintstring
      */
-    public function setKey($key = null)
+    public function setKey(?int $key = null): self
     {
         // validation for constraint: int
         if (!is_null($key) && !(is_int($key) || ctype_digit($key))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($key, true), gettype($key)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($key, true), gettype($key)), __LINE__);
         }
         $this->Key = $key;
+        
         return $this;
     }
     /**
      * Get Value value
      * @return string|null
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->Value;
     }
@@ -71,13 +75,14 @@ class CdiscountKeyValueOfintstring extends AbstractStructBase
      * @param string $value
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfintstring
      */
-    public function setValue($value = null)
+    public function setValue(?string $value = null): self
     {
         // validation for constraint: string
         if (!is_null($value) && !is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         $this->Value = $value;
+        
         return $this;
     }
 }

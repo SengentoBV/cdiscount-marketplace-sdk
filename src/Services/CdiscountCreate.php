@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Services;
 
-use \WsdlToPhp\PackageBase\AbstractSoapClientBase;
+use SoapFault;
+use WsdlToPhp\PackageBase\AbstractSoapClientBase;
 
 /**
  * This class stands for Create Services
@@ -15,7 +18,6 @@ class CdiscountCreate extends AbstractSoapClientBase
      * Method to call the operation originally named CreateRefundVoucherAfterShipment
      * @uses AbstractSoapClientBase::getSoapClient()
      * @uses AbstractSoapClientBase::setResult()
-     * @uses AbstractSoapClientBase::getResult()
      * @uses AbstractSoapClientBase::saveLastError()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCreateRefundVoucherAfterShipment $parameters
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCreateRefundVoucherAfterShipmentResponse|bool
@@ -23,10 +25,14 @@ class CdiscountCreate extends AbstractSoapClientBase
     public function CreateRefundVoucherAfterShipment(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCreateRefundVoucherAfterShipment $parameters)
     {
         try {
-            $this->setResult($this->getSoapClient()->CreateRefundVoucherAfterShipment($parameters));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            $this->setResult($resultCreateRefundVoucherAfterShipment = $this->getSoapClient()->__soapCall('CreateRefundVoucherAfterShipment', [
+                $parameters,
+            ], [], [], $this->outputHeaders));
+        
+            return $resultCreateRefundVoucherAfterShipment;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -34,7 +40,6 @@ class CdiscountCreate extends AbstractSoapClientBase
      * Method to call the operation originally named CreateRefundVoucher
      * @uses AbstractSoapClientBase::getSoapClient()
      * @uses AbstractSoapClientBase::setResult()
-     * @uses AbstractSoapClientBase::getResult()
      * @uses AbstractSoapClientBase::saveLastError()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCreateRefundVoucher $parameters
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCreateRefundVoucherResponse|bool
@@ -42,10 +47,14 @@ class CdiscountCreate extends AbstractSoapClientBase
     public function CreateRefundVoucher(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCreateRefundVoucher $parameters)
     {
         try {
-            $this->setResult($this->getSoapClient()->CreateRefundVoucher($parameters));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            $this->setResult($resultCreateRefundVoucher = $this->getSoapClient()->__soapCall('CreateRefundVoucher', [
+                $parameters,
+            ], [], [], $this->outputHeaders));
+        
+            return $resultCreateRefundVoucher;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -53,7 +62,6 @@ class CdiscountCreate extends AbstractSoapClientBase
      * Method to call the operation originally named CreateExternalOrder
      * @uses AbstractSoapClientBase::getSoapClient()
      * @uses AbstractSoapClientBase::setResult()
-     * @uses AbstractSoapClientBase::getResult()
      * @uses AbstractSoapClientBase::saveLastError()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCreateExternalOrder $parameters
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCreateExternalOrderResponse|bool
@@ -61,10 +69,14 @@ class CdiscountCreate extends AbstractSoapClientBase
     public function CreateExternalOrder(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCreateExternalOrder $parameters)
     {
         try {
-            $this->setResult($this->getSoapClient()->CreateExternalOrder($parameters));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            $this->setResult($resultCreateExternalOrder = $this->getSoapClient()->__soapCall('CreateExternalOrder', [
+                $parameters,
+            ], [], [], $this->outputHeaders));
+        
+            return $resultCreateExternalOrder;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }

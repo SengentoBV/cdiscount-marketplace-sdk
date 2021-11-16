@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfDiscussionStateFilter Arrays
@@ -21,22 +24,22 @@ class CdiscountArrayOfDiscussionStateFilter extends AbstractStructArrayBase
      * - minOccurs: 0
      * @var string[]
      */
-    public $DiscussionStateFilter;
+    protected ?array $DiscussionStateFilter = null;
     /**
      * Constructor method for ArrayOfDiscussionStateFilter
      * @uses CdiscountArrayOfDiscussionStateFilter::setDiscussionStateFilter()
      * @param string[] $discussionStateFilter
      */
-    public function __construct(array $discussionStateFilter = array())
+    public function __construct(?array $discussionStateFilter = null)
     {
         $this
             ->setDiscussionStateFilter($discussionStateFilter);
     }
     /**
      * Get DiscussionStateFilter value
-     * @return string[]|null
+     * @return string[]
      */
-    public function getDiscussionStateFilter()
+    public function getDiscussionStateFilter(): ?array
     {
         return $this->DiscussionStateFilter;
     }
@@ -46,8 +49,11 @@ class CdiscountArrayOfDiscussionStateFilter extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateDiscussionStateFilterForArrayConstraintsFromSetDiscussionStateFilter(array $values = array())
+    public static function validateDiscussionStateFilterForArrayConstraintsFromSetDiscussionStateFilter(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfDiscussionStateFilterDiscussionStateFilterItem) {
@@ -60,40 +66,25 @@ class CdiscountArrayOfDiscussionStateFilter extends AbstractStructArrayBase
             $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set DiscussionStateFilter value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $discussionStateFilter
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter
      */
-    public function setDiscussionStateFilter(array $discussionStateFilter = array())
+    public function setDiscussionStateFilter(?array $discussionStateFilter = null): self
     {
         // validation for constraint: array
         if ('' !== ($discussionStateFilterArrayErrorMessage = self::validateDiscussionStateFilterForArrayConstraintsFromSetDiscussionStateFilter($discussionStateFilter))) {
-            throw new \InvalidArgumentException($discussionStateFilterArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($discussionStateFilterArrayErrorMessage, __LINE__);
         }
         $this->DiscussionStateFilter = $discussionStateFilter;
-        return $this;
-    }
-    /**
-     * Add item to DiscussionStateFilter value
-     * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter::valueIsValid()
-     * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter
-     */
-    public function addToDiscussionStateFilter($item)
-    {
-        // validation for constraint: enumeration
-        if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter::getValidValues())), __LINE__);
-        }
-        $this->DiscussionStateFilter[] = $item;
+        
         return $this;
     }
     /**
@@ -101,7 +92,7 @@ class CdiscountArrayOfDiscussionStateFilter extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -111,7 +102,7 @@ class CdiscountArrayOfDiscussionStateFilter extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -120,7 +111,7 @@ class CdiscountArrayOfDiscussionStateFilter extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -129,7 +120,7 @@ class CdiscountArrayOfDiscussionStateFilter extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -139,23 +130,22 @@ class CdiscountArrayOfDiscussionStateFilter extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
     /**
      * Add element to array
      * @see AbstractStructArrayBase::add()
-     * @throws \InvalidArgumentException
-     * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter::valueIsValid()
+     * @throws InvalidArgumentException
      * @param string $item
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter
      */
-    public function add($item)
+    public function add($item): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter::getValidValues())), __LINE__);
         }
         return parent::add($item);
     }
@@ -164,7 +154,7 @@ class CdiscountArrayOfDiscussionStateFilter extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string DiscussionStateFilter
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'DiscussionStateFilter';
     }

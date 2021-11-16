@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for Language Enums
@@ -60,9 +62,9 @@ class CdiscountLanguage extends AbstractStructEnumBase
      * @uses self::VALUE_NOT_DEFINED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_FR,
             self::VALUE_EN,
             self::VALUE_DE,
@@ -70,6 +72,6 @@ class CdiscountLanguage extends AbstractStructEnumBase
             self::VALUE_TH,
             self::VALUE_VI,
             self::VALUE_NOT_DEFINED,
-        );
+        ];
     }
 }

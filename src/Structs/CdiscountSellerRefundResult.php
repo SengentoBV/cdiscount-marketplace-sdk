@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SellerRefundResult Structs
@@ -18,26 +21,26 @@ class CdiscountSellerRefundResult extends CdiscountServiceMessage
      * The Ean
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Ean;
+    protected ?string $Ean = null;
     /**
      * The Motive
-     * @var string
+     * @var string|null
      */
-    public $Motive;
+    protected ?string $Motive = null;
     /**
      * The SellerProductId
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SellerProductId;
+    protected ?string $SellerProductId = null;
     /**
      * The Value
-     * @var float
+     * @var float|null
      */
-    public $Value;
+    protected ?float $Value = null;
     /**
      * Constructor method for SellerRefundResult
      * @uses CdiscountSellerRefundResult::setEan()
@@ -49,7 +52,7 @@ class CdiscountSellerRefundResult extends CdiscountServiceMessage
      * @param string $sellerProductId
      * @param float $value
      */
-    public function __construct($ean = null, $motive = null, $sellerProductId = null, $value = null)
+    public function __construct(?string $ean = null, ?string $motive = null, ?string $sellerProductId = null, ?float $value = null)
     {
         $this
             ->setEan($ean)
@@ -61,7 +64,7 @@ class CdiscountSellerRefundResult extends CdiscountServiceMessage
      * Get Ean value
      * @return string|null
      */
-    public function getEan()
+    public function getEan(): ?string
     {
         return $this->Ean;
     }
@@ -70,20 +73,21 @@ class CdiscountSellerRefundResult extends CdiscountServiceMessage
      * @param string $ean
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResult
      */
-    public function setEan($ean = null)
+    public function setEan(?string $ean = null): self
     {
         // validation for constraint: string
         if (!is_null($ean) && !is_string($ean)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($ean, true), gettype($ean)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($ean, true), gettype($ean)), __LINE__);
         }
         $this->Ean = $ean;
+        
         return $this;
     }
     /**
      * Get Motive value
      * @return string|null
      */
-    public function getMotive()
+    public function getMotive(): ?string
     {
         return $this->Motive;
     }
@@ -91,24 +95,25 @@ class CdiscountSellerRefundResult extends CdiscountServiceMessage
      * Set Motive value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountRefundMotive::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountRefundMotive::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $motive
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResult
      */
-    public function setMotive($motive = null)
+    public function setMotive(?string $motive = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountRefundMotive::valueIsValid($motive)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountRefundMotive', is_array($motive) ? implode(', ', $motive) : var_export($motive, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountRefundMotive::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountRefundMotive', is_array($motive) ? implode(', ', $motive) : var_export($motive, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountRefundMotive::getValidValues())), __LINE__);
         }
         $this->Motive = $motive;
+        
         return $this;
     }
     /**
      * Get SellerProductId value
      * @return string|null
      */
-    public function getSellerProductId()
+    public function getSellerProductId(): ?string
     {
         return $this->SellerProductId;
     }
@@ -117,20 +122,21 @@ class CdiscountSellerRefundResult extends CdiscountServiceMessage
      * @param string $sellerProductId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResult
      */
-    public function setSellerProductId($sellerProductId = null)
+    public function setSellerProductId(?string $sellerProductId = null): self
     {
         // validation for constraint: string
         if (!is_null($sellerProductId) && !is_string($sellerProductId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerProductId, true), gettype($sellerProductId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerProductId, true), gettype($sellerProductId)), __LINE__);
         }
         $this->SellerProductId = $sellerProductId;
+        
         return $this;
     }
     /**
      * Get Value value
      * @return float|null
      */
-    public function getValue()
+    public function getValue(): ?float
     {
         return $this->Value;
     }
@@ -139,13 +145,14 @@ class CdiscountSellerRefundResult extends CdiscountServiceMessage
      * @param float $value
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResult
      */
-    public function setValue($value = null)
+    public function setValue(?float $value = null): self
     {
         // validation for constraint: float
         if (!is_null($value) && !(is_float($value) || is_numeric($value))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         $this->Value = $value;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ServiceOrderListMessage Structs
@@ -19,15 +22,15 @@ class CdiscountServiceOrderListMessage extends CdiscountServiceBaseAPIMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfServiceOrder
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfServiceOrder|null
      */
-    public $ServiceOrderList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfServiceOrder $ServiceOrderList = null;
     /**
      * Constructor method for ServiceOrderListMessage
      * @uses CdiscountServiceOrderListMessage::setServiceOrderList()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfServiceOrder $serviceOrderList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfServiceOrder $serviceOrderList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfServiceOrder $serviceOrderList = null)
     {
         $this
             ->setServiceOrderList($serviceOrderList);
@@ -39,7 +42,7 @@ class CdiscountServiceOrderListMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfServiceOrder|null
      */
-    public function getServiceOrderList()
+    public function getServiceOrderList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfServiceOrder
     {
         return isset($this->ServiceOrderList) ? $this->ServiceOrderList : null;
     }
@@ -50,13 +53,14 @@ class CdiscountServiceOrderListMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfServiceOrder $serviceOrderList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrderListMessage
      */
-    public function setServiceOrderList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfServiceOrder $serviceOrderList = null)
+    public function setServiceOrderList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfServiceOrder $serviceOrderList = null): self
     {
         if (is_null($serviceOrderList) || (is_array($serviceOrderList) && empty($serviceOrderList))) {
             unset($this->ServiceOrderList);
         } else {
             $this->ServiceOrderList = $serviceOrderList;
         }
+        
         return $this;
     }
 }

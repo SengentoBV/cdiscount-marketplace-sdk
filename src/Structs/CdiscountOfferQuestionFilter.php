@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OfferQuestionFilter Structs
@@ -19,17 +22,17 @@ class CdiscountOfferQuestionFilter extends CdiscountDiscussionFilterBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public $ProductEANList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $ProductEANList = null;
     /**
      * The ProductSellerReferenceList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public $ProductSellerReferenceList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $ProductSellerReferenceList = null;
     /**
      * Constructor method for OfferQuestionFilter
      * @uses CdiscountOfferQuestionFilter::setProductEANList()
@@ -37,7 +40,7 @@ class CdiscountOfferQuestionFilter extends CdiscountDiscussionFilterBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productEANList
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productSellerReferenceList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productEANList = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productSellerReferenceList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productEANList = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productSellerReferenceList = null)
     {
         $this
             ->setProductEANList($productEANList)
@@ -50,7 +53,7 @@ class CdiscountOfferQuestionFilter extends CdiscountDiscussionFilterBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public function getProductEANList()
+    public function getProductEANList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
     {
         return isset($this->ProductEANList) ? $this->ProductEANList : null;
     }
@@ -61,13 +64,14 @@ class CdiscountOfferQuestionFilter extends CdiscountDiscussionFilterBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productEANList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferQuestionFilter
      */
-    public function setProductEANList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productEANList = null)
+    public function setProductEANList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productEANList = null): self
     {
         if (is_null($productEANList) || (is_array($productEANList) && empty($productEANList))) {
             unset($this->ProductEANList);
         } else {
             $this->ProductEANList = $productEANList;
         }
+        
         return $this;
     }
     /**
@@ -77,7 +81,7 @@ class CdiscountOfferQuestionFilter extends CdiscountDiscussionFilterBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public function getProductSellerReferenceList()
+    public function getProductSellerReferenceList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
     {
         return isset($this->ProductSellerReferenceList) ? $this->ProductSellerReferenceList : null;
     }
@@ -88,13 +92,14 @@ class CdiscountOfferQuestionFilter extends CdiscountDiscussionFilterBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productSellerReferenceList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferQuestionFilter
      */
-    public function setProductSellerReferenceList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productSellerReferenceList = null)
+    public function setProductSellerReferenceList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productSellerReferenceList = null): self
     {
         if (is_null($productSellerReferenceList) || (is_array($productSellerReferenceList) && empty($productSellerReferenceList))) {
             unset($this->ProductSellerReferenceList);
         } else {
             $this->ProductSellerReferenceList = $productSellerReferenceList;
         }
+        
         return $this;
     }
 }

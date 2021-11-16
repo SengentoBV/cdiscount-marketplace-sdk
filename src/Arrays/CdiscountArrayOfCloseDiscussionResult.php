@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfCloseDiscussionResult Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfCloseDiscussionResult extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult[]
      */
-    public $CloseDiscussionResult;
+    protected ?array $CloseDiscussionResult = null;
     /**
      * Constructor method for ArrayOfCloseDiscussionResult
      * @uses CdiscountArrayOfCloseDiscussionResult::setCloseDiscussionResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult[] $closeDiscussionResult
      */
-    public function __construct(array $closeDiscussionResult = array())
+    public function __construct(?array $closeDiscussionResult = null)
     {
         $this
             ->setCloseDiscussionResult($closeDiscussionResult);
@@ -38,9 +41,9 @@ class CdiscountArrayOfCloseDiscussionResult extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult[]
      */
-    public function getCloseDiscussionResult()
+    public function getCloseDiscussionResult(): ?array
     {
         return isset($this->CloseDiscussionResult) ? $this->CloseDiscussionResult : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfCloseDiscussionResult extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateCloseDiscussionResultForArrayConstraintsFromSetCloseDiscussionResult(array $values = array())
+    public static function validateCloseDiscussionResultForArrayConstraintsFromSetCloseDiscussionResult(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfCloseDiscussionResultCloseDiscussionResultItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfCloseDiscussionResult extends AbstractStructArrayBase
             $message = sprintf('The CloseDiscussionResult property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set CloseDiscussionResult value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult[] $closeDiscussionResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCloseDiscussionResult
      */
-    public function setCloseDiscussionResult(array $closeDiscussionResult = array())
+    public function setCloseDiscussionResult(?array $closeDiscussionResult = null): self
     {
         // validation for constraint: array
         if ('' !== ($closeDiscussionResultArrayErrorMessage = self::validateCloseDiscussionResultForArrayConstraintsFromSetCloseDiscussionResult($closeDiscussionResult))) {
-            throw new \InvalidArgumentException($closeDiscussionResultArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($closeDiscussionResultArrayErrorMessage, __LINE__);
         }
         if (is_null($closeDiscussionResult) || (is_array($closeDiscussionResult) && empty($closeDiscussionResult))) {
             unset($this->CloseDiscussionResult);
         } else {
             $this->CloseDiscussionResult = $closeDiscussionResult;
         }
-        return $this;
-    }
-    /**
-     * Add item to CloseDiscussionResult value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCloseDiscussionResult
-     */
-    public function addToCloseDiscussionResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult) {
-            throw new \InvalidArgumentException(sprintf('The CloseDiscussionResult property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->CloseDiscussionResult[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfCloseDiscussionResult extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfCloseDiscussionResult extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfCloseDiscussionResult extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfCloseDiscussionResult extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult
     {
         return parent::last();
     }
@@ -145,16 +138,31 @@ class CdiscountArrayOfCloseDiscussionResult extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCloseDiscussionResult
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult) {
+            throw new InvalidArgumentException(sprintf('The CloseDiscussionResult property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResult, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string CloseDiscussionResult
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'CloseDiscussionResult';
     }

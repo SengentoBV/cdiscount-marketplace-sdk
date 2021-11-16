@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for DiscountType Enums
@@ -36,12 +38,12 @@ class CdiscountDiscountType extends AbstractStructEnumBase
      * @uses self::VALUE_SALES
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_STRIKED_PRICE,
             self::VALUE_FLASH,
             self::VALUE_SALES,
-        );
+        ];
     }
 }

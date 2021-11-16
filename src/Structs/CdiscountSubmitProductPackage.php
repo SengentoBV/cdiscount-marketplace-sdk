@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SubmitProductPackage Structs
@@ -16,17 +19,17 @@ class CdiscountSubmitProductPackage extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public $headerMessage;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null;
     /**
      * The productPackageRequest
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductPackageRequest
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductPackageRequest|null
      */
-    public $productPackageRequest;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductPackageRequest $productPackageRequest = null;
     /**
      * Constructor method for SubmitProductPackage
      * @uses CdiscountSubmitProductPackage::setHeaderMessage()
@@ -34,7 +37,7 @@ class CdiscountSubmitProductPackage extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductPackageRequest $productPackageRequest
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductPackageRequest $productPackageRequest = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductPackageRequest $productPackageRequest = null)
     {
         $this
             ->setHeaderMessage($headerMessage)
@@ -47,7 +50,7 @@ class CdiscountSubmitProductPackage extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public function getHeaderMessage()
+    public function getHeaderMessage(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
     {
         return isset($this->headerMessage) ? $this->headerMessage : null;
     }
@@ -58,13 +61,14 @@ class CdiscountSubmitProductPackage extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubmitProductPackage
      */
-    public function setHeaderMessage(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null)
+    public function setHeaderMessage(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null): self
     {
         if (is_null($headerMessage) || (is_array($headerMessage) && empty($headerMessage))) {
             unset($this->headerMessage);
         } else {
             $this->headerMessage = $headerMessage;
         }
+        
         return $this;
     }
     /**
@@ -74,7 +78,7 @@ class CdiscountSubmitProductPackage extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductPackageRequest|null
      */
-    public function getProductPackageRequest()
+    public function getProductPackageRequest(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductPackageRequest
     {
         return isset($this->productPackageRequest) ? $this->productPackageRequest : null;
     }
@@ -85,13 +89,14 @@ class CdiscountSubmitProductPackage extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductPackageRequest $productPackageRequest
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubmitProductPackage
      */
-    public function setProductPackageRequest(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductPackageRequest $productPackageRequest = null)
+    public function setProductPackageRequest(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductPackageRequest $productPackageRequest = null): self
     {
         if (is_null($productPackageRequest) || (is_array($productPackageRequest) && empty($productPackageRequest))) {
             unset($this->productPackageRequest);
         } else {
             $this->productPackageRequest = $productPackageRequest;
         }
+        
         return $this;
     }
 }

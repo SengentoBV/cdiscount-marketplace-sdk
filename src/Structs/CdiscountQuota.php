@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Quota Structs
@@ -19,23 +22,23 @@ class CdiscountQuota extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $DateResetQuota;
+    protected ?string $DateResetQuota = null;
     /**
      * The QuotaAvailable
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $QuotaAvailable;
+    protected ?int $QuotaAvailable = null;
     /**
      * The QuotaTotal
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $QuotaTotal;
+    protected ?int $QuotaTotal = null;
     /**
      * Constructor method for Quota
      * @uses CdiscountQuota::setDateResetQuota()
@@ -45,7 +48,7 @@ class CdiscountQuota extends AbstractStructBase
      * @param int $quotaAvailable
      * @param int $quotaTotal
      */
-    public function __construct($dateResetQuota = null, $quotaAvailable = null, $quotaTotal = null)
+    public function __construct(?string $dateResetQuota = null, ?int $quotaAvailable = null, ?int $quotaTotal = null)
     {
         $this
             ->setDateResetQuota($dateResetQuota)
@@ -59,7 +62,7 @@ class CdiscountQuota extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getDateResetQuota()
+    public function getDateResetQuota(): ?string
     {
         return isset($this->DateResetQuota) ? $this->DateResetQuota : null;
     }
@@ -70,24 +73,25 @@ class CdiscountQuota extends AbstractStructBase
      * @param string $dateResetQuota
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountQuota
      */
-    public function setDateResetQuota($dateResetQuota = null)
+    public function setDateResetQuota(?string $dateResetQuota = null): self
     {
         // validation for constraint: string
         if (!is_null($dateResetQuota) && !is_string($dateResetQuota)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateResetQuota, true), gettype($dateResetQuota)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateResetQuota, true), gettype($dateResetQuota)), __LINE__);
         }
         if (is_null($dateResetQuota) || (is_array($dateResetQuota) && empty($dateResetQuota))) {
             unset($this->DateResetQuota);
         } else {
             $this->DateResetQuota = $dateResetQuota;
         }
+        
         return $this;
     }
     /**
      * Get QuotaAvailable value
      * @return int|null
      */
-    public function getQuotaAvailable()
+    public function getQuotaAvailable(): ?int
     {
         return $this->QuotaAvailable;
     }
@@ -96,20 +100,21 @@ class CdiscountQuota extends AbstractStructBase
      * @param int $quotaAvailable
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountQuota
      */
-    public function setQuotaAvailable($quotaAvailable = null)
+    public function setQuotaAvailable(?int $quotaAvailable = null): self
     {
         // validation for constraint: int
         if (!is_null($quotaAvailable) && !(is_int($quotaAvailable) || ctype_digit($quotaAvailable))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($quotaAvailable, true), gettype($quotaAvailable)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($quotaAvailable, true), gettype($quotaAvailable)), __LINE__);
         }
         $this->QuotaAvailable = $quotaAvailable;
+        
         return $this;
     }
     /**
      * Get QuotaTotal value
      * @return int|null
      */
-    public function getQuotaTotal()
+    public function getQuotaTotal(): ?int
     {
         return $this->QuotaTotal;
     }
@@ -118,13 +123,14 @@ class CdiscountQuota extends AbstractStructBase
      * @param int $quotaTotal
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountQuota
      */
-    public function setQuotaTotal($quotaTotal = null)
+    public function setQuotaTotal(?int $quotaTotal = null): self
     {
         // validation for constraint: int
         if (!is_null($quotaTotal) && !(is_int($quotaTotal) || ctype_digit($quotaTotal))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($quotaTotal, true), gettype($quotaTotal)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($quotaTotal, true), gettype($quotaTotal)), __LINE__);
         }
         $this->QuotaTotal = $quotaTotal;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SecurityDescriptor Structs
@@ -16,21 +19,21 @@ class CdiscountSecurityDescriptor extends AbstractStructBase
 {
     /**
      * The Authorization
-     * @var string
+     * @var string|null
      */
-    public $Authorization;
+    protected ?string $Authorization = null;
     /**
      * The FunctionIdentifier
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $FunctionIdentifier;
+    protected ?string $FunctionIdentifier = null;
     /**
      * The Version
-     * @var int
+     * @var int|null
      */
-    public $Version;
+    protected ?int $Version = null;
     /**
      * Constructor method for SecurityDescriptor
      * @uses CdiscountSecurityDescriptor::setAuthorization()
@@ -40,7 +43,7 @@ class CdiscountSecurityDescriptor extends AbstractStructBase
      * @param string $functionIdentifier
      * @param int $version
      */
-    public function __construct($authorization = null, $functionIdentifier = null, $version = null)
+    public function __construct(?string $authorization = null, ?string $functionIdentifier = null, ?int $version = null)
     {
         $this
             ->setAuthorization($authorization)
@@ -51,7 +54,7 @@ class CdiscountSecurityDescriptor extends AbstractStructBase
      * Get Authorization value
      * @return string|null
      */
-    public function getAuthorization()
+    public function getAuthorization(): ?string
     {
         return $this->Authorization;
     }
@@ -59,24 +62,25 @@ class CdiscountSecurityDescriptor extends AbstractStructBase
      * Set Authorization value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountAuthorization::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountAuthorization::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $authorization
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSecurityDescriptor
      */
-    public function setAuthorization($authorization = null)
+    public function setAuthorization(?string $authorization = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountAuthorization::valueIsValid($authorization)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountAuthorization', is_array($authorization) ? implode(', ', $authorization) : var_export($authorization, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountAuthorization::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountAuthorization', is_array($authorization) ? implode(', ', $authorization) : var_export($authorization, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountAuthorization::getValidValues())), __LINE__);
         }
         $this->Authorization = $authorization;
+        
         return $this;
     }
     /**
      * Get FunctionIdentifier value
      * @return string|null
      */
-    public function getFunctionIdentifier()
+    public function getFunctionIdentifier(): ?string
     {
         return $this->FunctionIdentifier;
     }
@@ -85,20 +89,21 @@ class CdiscountSecurityDescriptor extends AbstractStructBase
      * @param string $functionIdentifier
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSecurityDescriptor
      */
-    public function setFunctionIdentifier($functionIdentifier = null)
+    public function setFunctionIdentifier(?string $functionIdentifier = null): self
     {
         // validation for constraint: string
         if (!is_null($functionIdentifier) && !is_string($functionIdentifier)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($functionIdentifier, true), gettype($functionIdentifier)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($functionIdentifier, true), gettype($functionIdentifier)), __LINE__);
         }
         $this->FunctionIdentifier = $functionIdentifier;
+        
         return $this;
     }
     /**
      * Get Version value
      * @return int|null
      */
-    public function getVersion()
+    public function getVersion(): ?int
     {
         return $this->Version;
     }
@@ -107,13 +112,14 @@ class CdiscountSecurityDescriptor extends AbstractStructBase
      * @param int $version
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSecurityDescriptor
      */
-    public function setVersion($version = null)
+    public function setVersion(?int $version = null): self
     {
         // validation for constraint: int
         if (!is_null($version) && !(is_int($version) || ctype_digit($version))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($version, true), gettype($version)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($version, true), gettype($version)), __LINE__);
         }
         $this->Version = $version;
+        
         return $this;
     }
 }

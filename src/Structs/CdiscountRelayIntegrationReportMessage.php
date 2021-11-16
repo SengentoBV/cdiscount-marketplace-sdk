@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RelayIntegrationReportMessage Structs
@@ -18,32 +21,32 @@ class CdiscountRelayIntegrationReportMessage extends CdiscountServiceBaseAPIMess
      * The NumberOfErrors
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $NumberOfErrors;
+    protected ?int $NumberOfErrors = null;
     /**
      * The RelaysFileId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $RelaysFileId;
+    protected ?int $RelaysFileId = null;
     /**
      * The RelaysFileIntegrationStatus
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $RelaysFileIntegrationStatus;
+    protected ?string $RelaysFileIntegrationStatus = null;
     /**
      * The RelaysLogList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRelayIntegrationLog
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRelayIntegrationLog|null
      */
-    public $RelaysLogList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRelayIntegrationLog $RelaysLogList = null;
     /**
      * Constructor method for RelayIntegrationReportMessage
      * @uses CdiscountRelayIntegrationReportMessage::setNumberOfErrors()
@@ -55,7 +58,7 @@ class CdiscountRelayIntegrationReportMessage extends CdiscountServiceBaseAPIMess
      * @param string $relaysFileIntegrationStatus
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRelayIntegrationLog $relaysLogList
      */
-    public function __construct($numberOfErrors = null, $relaysFileId = null, $relaysFileIntegrationStatus = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRelayIntegrationLog $relaysLogList = null)
+    public function __construct(?int $numberOfErrors = null, ?int $relaysFileId = null, ?string $relaysFileIntegrationStatus = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRelayIntegrationLog $relaysLogList = null)
     {
         $this
             ->setNumberOfErrors($numberOfErrors)
@@ -67,7 +70,7 @@ class CdiscountRelayIntegrationReportMessage extends CdiscountServiceBaseAPIMess
      * Get NumberOfErrors value
      * @return int|null
      */
-    public function getNumberOfErrors()
+    public function getNumberOfErrors(): ?int
     {
         return $this->NumberOfErrors;
     }
@@ -76,20 +79,21 @@ class CdiscountRelayIntegrationReportMessage extends CdiscountServiceBaseAPIMess
      * @param int $numberOfErrors
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage
      */
-    public function setNumberOfErrors($numberOfErrors = null)
+    public function setNumberOfErrors(?int $numberOfErrors = null): self
     {
         // validation for constraint: int
         if (!is_null($numberOfErrors) && !(is_int($numberOfErrors) || ctype_digit($numberOfErrors))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfErrors, true), gettype($numberOfErrors)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfErrors, true), gettype($numberOfErrors)), __LINE__);
         }
         $this->NumberOfErrors = $numberOfErrors;
+        
         return $this;
     }
     /**
      * Get RelaysFileId value
      * @return int|null
      */
-    public function getRelaysFileId()
+    public function getRelaysFileId(): ?int
     {
         return $this->RelaysFileId;
     }
@@ -98,13 +102,14 @@ class CdiscountRelayIntegrationReportMessage extends CdiscountServiceBaseAPIMess
      * @param int $relaysFileId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage
      */
-    public function setRelaysFileId($relaysFileId = null)
+    public function setRelaysFileId(?int $relaysFileId = null): self
     {
         // validation for constraint: int
         if (!is_null($relaysFileId) && !(is_int($relaysFileId) || ctype_digit($relaysFileId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($relaysFileId, true), gettype($relaysFileId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($relaysFileId, true), gettype($relaysFileId)), __LINE__);
         }
         $this->RelaysFileId = $relaysFileId;
+        
         return $this;
     }
     /**
@@ -114,7 +119,7 @@ class CdiscountRelayIntegrationReportMessage extends CdiscountServiceBaseAPIMess
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getRelaysFileIntegrationStatus()
+    public function getRelaysFileIntegrationStatus(): ?string
     {
         return isset($this->RelaysFileIntegrationStatus) ? $this->RelaysFileIntegrationStatus : null;
     }
@@ -125,17 +130,18 @@ class CdiscountRelayIntegrationReportMessage extends CdiscountServiceBaseAPIMess
      * @param string $relaysFileIntegrationStatus
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage
      */
-    public function setRelaysFileIntegrationStatus($relaysFileIntegrationStatus = null)
+    public function setRelaysFileIntegrationStatus(?string $relaysFileIntegrationStatus = null): self
     {
         // validation for constraint: string
         if (!is_null($relaysFileIntegrationStatus) && !is_string($relaysFileIntegrationStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($relaysFileIntegrationStatus, true), gettype($relaysFileIntegrationStatus)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($relaysFileIntegrationStatus, true), gettype($relaysFileIntegrationStatus)), __LINE__);
         }
         if (is_null($relaysFileIntegrationStatus) || (is_array($relaysFileIntegrationStatus) && empty($relaysFileIntegrationStatus))) {
             unset($this->RelaysFileIntegrationStatus);
         } else {
             $this->RelaysFileIntegrationStatus = $relaysFileIntegrationStatus;
         }
+        
         return $this;
     }
     /**
@@ -145,7 +151,7 @@ class CdiscountRelayIntegrationReportMessage extends CdiscountServiceBaseAPIMess
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRelayIntegrationLog|null
      */
-    public function getRelaysLogList()
+    public function getRelaysLogList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRelayIntegrationLog
     {
         return isset($this->RelaysLogList) ? $this->RelaysLogList : null;
     }
@@ -156,13 +162,14 @@ class CdiscountRelayIntegrationReportMessage extends CdiscountServiceBaseAPIMess
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRelayIntegrationLog $relaysLogList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationReportMessage
      */
-    public function setRelaysLogList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRelayIntegrationLog $relaysLogList = null)
+    public function setRelaysLogList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRelayIntegrationLog $relaysLogList = null): self
     {
         if (is_null($relaysLogList) || (is_array($relaysLogList) && empty($relaysLogList))) {
             unset($this->RelaysLogList);
         } else {
             $this->RelaysLogList = $relaysLogList;
         }
+        
         return $this;
     }
 }

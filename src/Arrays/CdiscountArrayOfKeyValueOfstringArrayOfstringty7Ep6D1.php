@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 Arrays
@@ -21,22 +24,22 @@ class CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 extends AbstractStru
      * - minOccurs: 0
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1[]
      */
-    public $KeyValueOfstringArrayOfstringty7Ep6D1;
+    protected ?array $KeyValueOfstringArrayOfstringty7Ep6D1 = null;
     /**
      * Constructor method for ArrayOfKeyValueOfstringArrayOfstringty7Ep6D1
      * @uses CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1::setKeyValueOfstringArrayOfstringty7Ep6D1()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1[] $keyValueOfstringArrayOfstringty7Ep6D1
      */
-    public function __construct(array $keyValueOfstringArrayOfstringty7Ep6D1 = array())
+    public function __construct(?array $keyValueOfstringArrayOfstringty7Ep6D1 = null)
     {
         $this
             ->setKeyValueOfstringArrayOfstringty7Ep6D1($keyValueOfstringArrayOfstringty7Ep6D1);
     }
     /**
      * Get KeyValueOfstringArrayOfstringty7Ep6D1 value
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1[]
      */
-    public function getKeyValueOfstringArrayOfstringty7Ep6D1()
+    public function getKeyValueOfstringArrayOfstringty7Ep6D1(): ?array
     {
         return $this->KeyValueOfstringArrayOfstringty7Ep6D1;
     }
@@ -46,8 +49,11 @@ class CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 extends AbstractStru
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateKeyValueOfstringArrayOfstringty7Ep6D1ForArrayConstraintsFromSetKeyValueOfstringArrayOfstringty7Ep6D1(array $values = array())
+    public static function validateKeyValueOfstringArrayOfstringty7Ep6D1ForArrayConstraintsFromSetKeyValueOfstringArrayOfstringty7Ep6D1(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfKeyValueOfstringArrayOfstringty7Ep6D1KeyValueOfstringArrayOfstringty7Ep6D1Item) {
@@ -60,36 +66,23 @@ class CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 extends AbstractStru
             $message = sprintf('The KeyValueOfstringArrayOfstringty7Ep6D1 property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set KeyValueOfstringArrayOfstringty7Ep6D1 value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1[] $keyValueOfstringArrayOfstringty7Ep6D1
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1
      */
-    public function setKeyValueOfstringArrayOfstringty7Ep6D1(array $keyValueOfstringArrayOfstringty7Ep6D1 = array())
+    public function setKeyValueOfstringArrayOfstringty7Ep6D1(?array $keyValueOfstringArrayOfstringty7Ep6D1 = null): self
     {
         // validation for constraint: array
         if ('' !== ($keyValueOfstringArrayOfstringty7Ep6D1ArrayErrorMessage = self::validateKeyValueOfstringArrayOfstringty7Ep6D1ForArrayConstraintsFromSetKeyValueOfstringArrayOfstringty7Ep6D1($keyValueOfstringArrayOfstringty7Ep6D1))) {
-            throw new \InvalidArgumentException($keyValueOfstringArrayOfstringty7Ep6D1ArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($keyValueOfstringArrayOfstringty7Ep6D1ArrayErrorMessage, __LINE__);
         }
         $this->KeyValueOfstringArrayOfstringty7Ep6D1 = $keyValueOfstringArrayOfstringty7Ep6D1;
-        return $this;
-    }
-    /**
-     * Add item to KeyValueOfstringArrayOfstringty7Ep6D1 value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1 $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1
-     */
-    public function addToKeyValueOfstringArrayOfstringty7Ep6D1(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1 $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1) {
-            throw new \InvalidArgumentException(sprintf('The KeyValueOfstringArrayOfstringty7Ep6D1 property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->KeyValueOfstringArrayOfstringty7Ep6D1[] = $item;
+        
         return $this;
     }
     /**
@@ -97,7 +90,7 @@ class CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 extends AbstractStru
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1
     {
         return parent::current();
     }
@@ -107,7 +100,7 @@ class CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 extends AbstractStru
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1
     {
         return parent::item($index);
     }
@@ -116,7 +109,7 @@ class CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 extends AbstractStru
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1
     {
         return parent::first();
     }
@@ -125,7 +118,7 @@ class CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 extends AbstractStru
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1
     {
         return parent::last();
     }
@@ -135,16 +128,31 @@ class CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 extends AbstractStru
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1 $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1) {
+            throw new InvalidArgumentException(sprintf('The KeyValueOfstringArrayOfstringty7Ep6D1 property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountKeyValueOfstringArrayOfstringty7Ep6D1, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string KeyValueOfstringArrayOfstringty7Ep6D1
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'KeyValueOfstringArrayOfstringty7Ep6D1';
     }

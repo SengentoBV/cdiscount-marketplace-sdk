@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SellerRefundRequestMessage Structs
@@ -18,16 +21,16 @@ class CdiscountSellerRefundRequestMessage extends AbstractStructBase
      * The OrderNumber
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $OrderNumber;
+    protected ?string $OrderNumber = null;
     /**
      * The SellerRefundRequestList
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest|null
      */
-    public $SellerRefundRequestList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest $SellerRefundRequestList = null;
     /**
      * Constructor method for SellerRefundRequestMessage
      * @uses CdiscountSellerRefundRequestMessage::setOrderNumber()
@@ -35,7 +38,7 @@ class CdiscountSellerRefundRequestMessage extends AbstractStructBase
      * @param string $orderNumber
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest $sellerRefundRequestList
      */
-    public function __construct($orderNumber = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest $sellerRefundRequestList = null)
+    public function __construct(?string $orderNumber = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest $sellerRefundRequestList = null)
     {
         $this
             ->setOrderNumber($orderNumber)
@@ -45,7 +48,7 @@ class CdiscountSellerRefundRequestMessage extends AbstractStructBase
      * Get OrderNumber value
      * @return string|null
      */
-    public function getOrderNumber()
+    public function getOrderNumber(): ?string
     {
         return $this->OrderNumber;
     }
@@ -54,20 +57,21 @@ class CdiscountSellerRefundRequestMessage extends AbstractStructBase
      * @param string $orderNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundRequestMessage
      */
-    public function setOrderNumber($orderNumber = null)
+    public function setOrderNumber(?string $orderNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($orderNumber) && !is_string($orderNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
         }
         $this->OrderNumber = $orderNumber;
+        
         return $this;
     }
     /**
      * Get SellerRefundRequestList value
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest|null
      */
-    public function getSellerRefundRequestList()
+    public function getSellerRefundRequestList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest
     {
         return $this->SellerRefundRequestList;
     }
@@ -76,9 +80,10 @@ class CdiscountSellerRefundRequestMessage extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest $sellerRefundRequestList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundRequestMessage
      */
-    public function setSellerRefundRequestList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest $sellerRefundRequestList = null)
+    public function setSellerRefundRequestList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest $sellerRefundRequestList = null): self
     {
         $this->SellerRefundRequestList = $sellerRefundRequestList;
+        
         return $this;
     }
 }

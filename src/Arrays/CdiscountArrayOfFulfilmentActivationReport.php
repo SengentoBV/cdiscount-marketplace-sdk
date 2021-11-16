@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfFulfilmentActivationReport Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfFulfilmentActivationReport extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport[]
      */
-    public $FulfilmentActivationReport;
+    protected ?array $FulfilmentActivationReport = null;
     /**
      * Constructor method for ArrayOfFulfilmentActivationReport
      * @uses CdiscountArrayOfFulfilmentActivationReport::setFulfilmentActivationReport()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport[] $fulfilmentActivationReport
      */
-    public function __construct(array $fulfilmentActivationReport = array())
+    public function __construct(?array $fulfilmentActivationReport = null)
     {
         $this
             ->setFulfilmentActivationReport($fulfilmentActivationReport);
@@ -38,9 +41,9 @@ class CdiscountArrayOfFulfilmentActivationReport extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport[]
      */
-    public function getFulfilmentActivationReport()
+    public function getFulfilmentActivationReport(): ?array
     {
         return isset($this->FulfilmentActivationReport) ? $this->FulfilmentActivationReport : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfFulfilmentActivationReport extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateFulfilmentActivationReportForArrayConstraintsFromSetFulfilmentActivationReport(array $values = array())
+    public static function validateFulfilmentActivationReportForArrayConstraintsFromSetFulfilmentActivationReport(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfFulfilmentActivationReportFulfilmentActivationReportItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfFulfilmentActivationReport extends AbstractStructArrayBase
             $message = sprintf('The FulfilmentActivationReport property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set FulfilmentActivationReport value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport[] $fulfilmentActivationReport
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentActivationReport
      */
-    public function setFulfilmentActivationReport(array $fulfilmentActivationReport = array())
+    public function setFulfilmentActivationReport(?array $fulfilmentActivationReport = null): self
     {
         // validation for constraint: array
         if ('' !== ($fulfilmentActivationReportArrayErrorMessage = self::validateFulfilmentActivationReportForArrayConstraintsFromSetFulfilmentActivationReport($fulfilmentActivationReport))) {
-            throw new \InvalidArgumentException($fulfilmentActivationReportArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($fulfilmentActivationReportArrayErrorMessage, __LINE__);
         }
         if (is_null($fulfilmentActivationReport) || (is_array($fulfilmentActivationReport) && empty($fulfilmentActivationReport))) {
             unset($this->FulfilmentActivationReport);
         } else {
             $this->FulfilmentActivationReport = $fulfilmentActivationReport;
         }
-        return $this;
-    }
-    /**
-     * Add item to FulfilmentActivationReport value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentActivationReport
-     */
-    public function addToFulfilmentActivationReport(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport) {
-            throw new \InvalidArgumentException(sprintf('The FulfilmentActivationReport property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->FulfilmentActivationReport[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfFulfilmentActivationReport extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfFulfilmentActivationReport extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfFulfilmentActivationReport extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfFulfilmentActivationReport extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport
     {
         return parent::last();
     }
@@ -145,16 +138,31 @@ class CdiscountArrayOfFulfilmentActivationReport extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentActivationReport
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport) {
+            throw new InvalidArgumentException(sprintf('The FulfilmentActivationReport property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string FulfilmentActivationReport
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'FulfilmentActivationReport';
     }
