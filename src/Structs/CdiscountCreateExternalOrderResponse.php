@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateExternalOrderResponse Structs
@@ -16,15 +19,15 @@ class CdiscountCreateExternalOrderResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderIntegrationMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderIntegrationMessage|null
      */
-    public $CreateExternalOrderResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderIntegrationMessage $CreateExternalOrderResult = null;
     /**
      * Constructor method for CreateExternalOrderResponse
      * @uses CdiscountCreateExternalOrderResponse::setCreateExternalOrderResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderIntegrationMessage $createExternalOrderResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderIntegrationMessage $createExternalOrderResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderIntegrationMessage $createExternalOrderResult = null)
     {
         $this
             ->setCreateExternalOrderResult($createExternalOrderResult);
@@ -36,7 +39,7 @@ class CdiscountCreateExternalOrderResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderIntegrationMessage|null
      */
-    public function getCreateExternalOrderResult()
+    public function getCreateExternalOrderResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderIntegrationMessage
     {
         return isset($this->CreateExternalOrderResult) ? $this->CreateExternalOrderResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountCreateExternalOrderResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderIntegrationMessage $createExternalOrderResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCreateExternalOrderResponse
      */
-    public function setCreateExternalOrderResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderIntegrationMessage $createExternalOrderResult = null)
+    public function setCreateExternalOrderResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderIntegrationMessage $createExternalOrderResult = null): self
     {
         if (is_null($createExternalOrderResult) || (is_array($createExternalOrderResult) && empty($createExternalOrderResult))) {
             unset($this->CreateExternalOrderResult);
         } else {
             $this->CreateExternalOrderResult = $createExternalOrderResult;
         }
+        
         return $this;
     }
 }

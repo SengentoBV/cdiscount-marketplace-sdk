@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ExternalOrderLine Structs
@@ -18,22 +21,22 @@ class CdiscountExternalOrderLine extends AbstractStructBase
      * The ProductEan
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ProductEan;
+    protected ?string $ProductEan = null;
     /**
      * The ProductReference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ProductReference;
+    protected ?string $ProductReference = null;
     /**
      * The Quantity
-     * @var int
+     * @var int|null
      */
-    public $Quantity;
+    protected ?int $Quantity = null;
     /**
      * Constructor method for ExternalOrderLine
      * @uses CdiscountExternalOrderLine::setProductEan()
@@ -43,7 +46,7 @@ class CdiscountExternalOrderLine extends AbstractStructBase
      * @param string $productReference
      * @param int $quantity
      */
-    public function __construct($productEan = null, $productReference = null, $quantity = null)
+    public function __construct(?string $productEan = null, ?string $productReference = null, ?int $quantity = null)
     {
         $this
             ->setProductEan($productEan)
@@ -54,7 +57,7 @@ class CdiscountExternalOrderLine extends AbstractStructBase
      * Get ProductEan value
      * @return string|null
      */
-    public function getProductEan()
+    public function getProductEan(): ?string
     {
         return $this->ProductEan;
     }
@@ -63,13 +66,14 @@ class CdiscountExternalOrderLine extends AbstractStructBase
      * @param string $productEan
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalOrderLine
      */
-    public function setProductEan($productEan = null)
+    public function setProductEan(?string $productEan = null): self
     {
         // validation for constraint: string
         if (!is_null($productEan) && !is_string($productEan)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productEan, true), gettype($productEan)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productEan, true), gettype($productEan)), __LINE__);
         }
         $this->ProductEan = $productEan;
+        
         return $this;
     }
     /**
@@ -79,7 +83,7 @@ class CdiscountExternalOrderLine extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getProductReference()
+    public function getProductReference(): ?string
     {
         return isset($this->ProductReference) ? $this->ProductReference : null;
     }
@@ -90,24 +94,25 @@ class CdiscountExternalOrderLine extends AbstractStructBase
      * @param string $productReference
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalOrderLine
      */
-    public function setProductReference($productReference = null)
+    public function setProductReference(?string $productReference = null): self
     {
         // validation for constraint: string
         if (!is_null($productReference) && !is_string($productReference)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productReference, true), gettype($productReference)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productReference, true), gettype($productReference)), __LINE__);
         }
         if (is_null($productReference) || (is_array($productReference) && empty($productReference))) {
             unset($this->ProductReference);
         } else {
             $this->ProductReference = $productReference;
         }
+        
         return $this;
     }
     /**
      * Get Quantity value
      * @return int|null
      */
-    public function getQuantity()
+    public function getQuantity(): ?int
     {
         return $this->Quantity;
     }
@@ -116,13 +121,14 @@ class CdiscountExternalOrderLine extends AbstractStructBase
      * @param int $quantity
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalOrderLine
      */
-    public function setQuantity($quantity = null)
+    public function setQuantity(?int $quantity = null): self
     {
         // validation for constraint: int
         if (!is_null($quantity) && !(is_int($quantity) || ctype_digit($quantity))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($quantity, true), gettype($quantity)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($quantity, true), gettype($quantity)), __LINE__);
         }
         $this->Quantity = $quantity;
+        
         return $this;
     }
 }

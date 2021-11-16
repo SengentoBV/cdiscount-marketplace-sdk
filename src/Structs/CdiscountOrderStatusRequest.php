@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OrderStatusRequest Structs
@@ -19,16 +22,16 @@ class CdiscountOrderStatusRequest extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Corporation;
+    protected ?string $Corporation = null;
     /**
      * The CustomerOrderNumber
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CustomerOrderNumber;
+    protected ?string $CustomerOrderNumber = null;
     /**
      * Constructor method for OrderStatusRequest
      * @uses CdiscountOrderStatusRequest::setCorporation()
@@ -36,7 +39,7 @@ class CdiscountOrderStatusRequest extends AbstractStructBase
      * @param string $corporation
      * @param string $customerOrderNumber
      */
-    public function __construct($corporation = null, $customerOrderNumber = null)
+    public function __construct(?string $corporation = null, ?string $customerOrderNumber = null)
     {
         $this
             ->setCorporation($corporation)
@@ -49,7 +52,7 @@ class CdiscountOrderStatusRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCorporation()
+    public function getCorporation(): ?string
     {
         return isset($this->Corporation) ? $this->Corporation : null;
     }
@@ -60,24 +63,25 @@ class CdiscountOrderStatusRequest extends AbstractStructBase
      * @param string $corporation
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderStatusRequest
      */
-    public function setCorporation($corporation = null)
+    public function setCorporation(?string $corporation = null): self
     {
         // validation for constraint: string
         if (!is_null($corporation) && !is_string($corporation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($corporation, true), gettype($corporation)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($corporation, true), gettype($corporation)), __LINE__);
         }
         if (is_null($corporation) || (is_array($corporation) && empty($corporation))) {
             unset($this->Corporation);
         } else {
             $this->Corporation = $corporation;
         }
+        
         return $this;
     }
     /**
      * Get CustomerOrderNumber value
      * @return string|null
      */
-    public function getCustomerOrderNumber()
+    public function getCustomerOrderNumber(): ?string
     {
         return $this->CustomerOrderNumber;
     }
@@ -86,13 +90,14 @@ class CdiscountOrderStatusRequest extends AbstractStructBase
      * @param string $customerOrderNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderStatusRequest
      */
-    public function setCustomerOrderNumber($customerOrderNumber = null)
+    public function setCustomerOrderNumber(?string $customerOrderNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($customerOrderNumber) && !is_string($customerOrderNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customerOrderNumber, true), gettype($customerOrderNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customerOrderNumber, true), gettype($customerOrderNumber)), __LINE__);
         }
         $this->CustomerOrderNumber = $customerOrderNumber;
+        
         return $this;
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ProductTypeEnum Enums
@@ -32,9 +34,9 @@ class CdiscountProductTypeEnum extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_STANDARD,
             self::VALUE_VARIANT,
-        );
+        ];
     }
 }

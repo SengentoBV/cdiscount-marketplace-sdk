@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetExternalOrderStatusResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetExternalOrderStatusResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderStatusMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderStatusMessage|null
      */
-    public $GetExternalOrderStatusResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderStatusMessage $GetExternalOrderStatusResult = null;
     /**
      * Constructor method for GetExternalOrderStatusResponse
      * @uses CdiscountGetExternalOrderStatusResponse::setGetExternalOrderStatusResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderStatusMessage $getExternalOrderStatusResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderStatusMessage $getExternalOrderStatusResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderStatusMessage $getExternalOrderStatusResult = null)
     {
         $this
             ->setGetExternalOrderStatusResult($getExternalOrderStatusResult);
@@ -36,7 +39,7 @@ class CdiscountGetExternalOrderStatusResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderStatusMessage|null
      */
-    public function getGetExternalOrderStatusResult()
+    public function getGetExternalOrderStatusResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderStatusMessage
     {
         return isset($this->GetExternalOrderStatusResult) ? $this->GetExternalOrderStatusResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetExternalOrderStatusResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderStatusMessage $getExternalOrderStatusResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetExternalOrderStatusResponse
      */
-    public function setGetExternalOrderStatusResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderStatusMessage $getExternalOrderStatusResult = null)
+    public function setGetExternalOrderStatusResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderStatusMessage $getExternalOrderStatusResult = null): self
     {
         if (is_null($getExternalOrderStatusResult) || (is_array($getExternalOrderStatusResult) && empty($getExternalOrderStatusResult))) {
             unset($this->GetExternalOrderStatusResult);
         } else {
             $this->GetExternalOrderStatusResult = $getExternalOrderStatusResult;
         }
+        
         return $this;
     }
 }

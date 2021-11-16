@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for OrderStateEnum Enums
@@ -224,7 +226,7 @@ class CdiscountOrderStateEnum extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_CANCELLED_BY_CUSTOMER,
             self::VALUE_WAITING_FOR_SELLER_ACCEPTATION,
             self::VALUE_ACCEPTED_BY_SELLER,
@@ -259,6 +261,6 @@ class CdiscountOrderStateEnum extends AbstractStructEnumBase
             self::VALUE_PARTIAL_IN_GNX,
             self::VALUE_BEING_VALIDATED_FIANET,
             self::VALUE_BLOCKED_MARKETPLACE_SERVICE,
-        );
+        ];
     }
 }

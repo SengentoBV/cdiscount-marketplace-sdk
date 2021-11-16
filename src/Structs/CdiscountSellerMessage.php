@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SellerMessage Structs
@@ -19,25 +22,25 @@ class CdiscountSellerMessage extends CdiscountServiceBaseAPIMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDeliveryModeInformation
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDeliveryModeInformation|null
      */
-    public $DeliveryModes;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDeliveryModeInformation $DeliveryModes = null;
     /**
      * The OfferPoolList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferPool
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferPool|null
      */
-    public $OfferPoolList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferPool $OfferPoolList = null;
     /**
      * The Seller
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSeller
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSeller|null
      */
-    public $Seller;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSeller $Seller = null;
     /**
      * Constructor method for SellerMessage
      * @uses CdiscountSellerMessage::setDeliveryModes()
@@ -47,7 +50,7 @@ class CdiscountSellerMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferPool $offerPoolList
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSeller $seller
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDeliveryModeInformation $deliveryModes = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferPool $offerPoolList = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSeller $seller = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDeliveryModeInformation $deliveryModes = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferPool $offerPoolList = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSeller $seller = null)
     {
         $this
             ->setDeliveryModes($deliveryModes)
@@ -61,7 +64,7 @@ class CdiscountSellerMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDeliveryModeInformation|null
      */
-    public function getDeliveryModes()
+    public function getDeliveryModes(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDeliveryModeInformation
     {
         return isset($this->DeliveryModes) ? $this->DeliveryModes : null;
     }
@@ -72,13 +75,14 @@ class CdiscountSellerMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDeliveryModeInformation $deliveryModes
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerMessage
      */
-    public function setDeliveryModes(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDeliveryModeInformation $deliveryModes = null)
+    public function setDeliveryModes(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDeliveryModeInformation $deliveryModes = null): self
     {
         if (is_null($deliveryModes) || (is_array($deliveryModes) && empty($deliveryModes))) {
             unset($this->DeliveryModes);
         } else {
             $this->DeliveryModes = $deliveryModes;
         }
+        
         return $this;
     }
     /**
@@ -88,7 +92,7 @@ class CdiscountSellerMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferPool|null
      */
-    public function getOfferPoolList()
+    public function getOfferPoolList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferPool
     {
         return isset($this->OfferPoolList) ? $this->OfferPoolList : null;
     }
@@ -99,13 +103,14 @@ class CdiscountSellerMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferPool $offerPoolList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerMessage
      */
-    public function setOfferPoolList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferPool $offerPoolList = null)
+    public function setOfferPoolList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOfferPool $offerPoolList = null): self
     {
         if (is_null($offerPoolList) || (is_array($offerPoolList) && empty($offerPoolList))) {
             unset($this->OfferPoolList);
         } else {
             $this->OfferPoolList = $offerPoolList;
         }
+        
         return $this;
     }
     /**
@@ -115,7 +120,7 @@ class CdiscountSellerMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSeller|null
      */
-    public function getSeller()
+    public function getSeller(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSeller
     {
         return isset($this->Seller) ? $this->Seller : null;
     }
@@ -126,13 +131,14 @@ class CdiscountSellerMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSeller $seller
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerMessage
      */
-    public function setSeller(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSeller $seller = null)
+    public function setSeller(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSeller $seller = null): self
     {
         if (is_null($seller) || (is_array($seller) && empty($seller))) {
             unset($this->Seller);
         } else {
             $this->Seller = $seller;
         }
+        
         return $this;
     }
 }

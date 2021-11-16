@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ProductIntegrationReportMessage Structs
@@ -18,32 +21,32 @@ class CdiscountProductIntegrationReportMessage extends CdiscountServiceBaseAPIMe
      * The NumberOfErrors
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $NumberOfErrors;
+    protected ?int $NumberOfErrors = null;
     /**
      * The PackageId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $PackageId;
+    protected ?int $PackageId = null;
     /**
      * The PackageIntegrationStatus
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $PackageIntegrationStatus;
+    protected ?string $PackageIntegrationStatus = null;
     /**
      * The ProductLogList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportLog
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportLog|null
      */
-    public $ProductLogList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportLog $ProductLogList = null;
     /**
      * Constructor method for ProductIntegrationReportMessage
      * @uses CdiscountProductIntegrationReportMessage::setNumberOfErrors()
@@ -55,7 +58,7 @@ class CdiscountProductIntegrationReportMessage extends CdiscountServiceBaseAPIMe
      * @param string $packageIntegrationStatus
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportLog $productLogList
      */
-    public function __construct($numberOfErrors = null, $packageId = null, $packageIntegrationStatus = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportLog $productLogList = null)
+    public function __construct(?int $numberOfErrors = null, ?int $packageId = null, ?string $packageIntegrationStatus = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportLog $productLogList = null)
     {
         $this
             ->setNumberOfErrors($numberOfErrors)
@@ -67,7 +70,7 @@ class CdiscountProductIntegrationReportMessage extends CdiscountServiceBaseAPIMe
      * Get NumberOfErrors value
      * @return int|null
      */
-    public function getNumberOfErrors()
+    public function getNumberOfErrors(): ?int
     {
         return $this->NumberOfErrors;
     }
@@ -76,20 +79,21 @@ class CdiscountProductIntegrationReportMessage extends CdiscountServiceBaseAPIMe
      * @param int $numberOfErrors
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage
      */
-    public function setNumberOfErrors($numberOfErrors = null)
+    public function setNumberOfErrors(?int $numberOfErrors = null): self
     {
         // validation for constraint: int
         if (!is_null($numberOfErrors) && !(is_int($numberOfErrors) || ctype_digit($numberOfErrors))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfErrors, true), gettype($numberOfErrors)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfErrors, true), gettype($numberOfErrors)), __LINE__);
         }
         $this->NumberOfErrors = $numberOfErrors;
+        
         return $this;
     }
     /**
      * Get PackageId value
      * @return int|null
      */
-    public function getPackageId()
+    public function getPackageId(): ?int
     {
         return $this->PackageId;
     }
@@ -98,13 +102,14 @@ class CdiscountProductIntegrationReportMessage extends CdiscountServiceBaseAPIMe
      * @param int $packageId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage
      */
-    public function setPackageId($packageId = null)
+    public function setPackageId(?int $packageId = null): self
     {
         // validation for constraint: int
         if (!is_null($packageId) && !(is_int($packageId) || ctype_digit($packageId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($packageId, true), gettype($packageId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($packageId, true), gettype($packageId)), __LINE__);
         }
         $this->PackageId = $packageId;
+        
         return $this;
     }
     /**
@@ -114,7 +119,7 @@ class CdiscountProductIntegrationReportMessage extends CdiscountServiceBaseAPIMe
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getPackageIntegrationStatus()
+    public function getPackageIntegrationStatus(): ?string
     {
         return isset($this->PackageIntegrationStatus) ? $this->PackageIntegrationStatus : null;
     }
@@ -125,17 +130,18 @@ class CdiscountProductIntegrationReportMessage extends CdiscountServiceBaseAPIMe
      * @param string $packageIntegrationStatus
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage
      */
-    public function setPackageIntegrationStatus($packageIntegrationStatus = null)
+    public function setPackageIntegrationStatus(?string $packageIntegrationStatus = null): self
     {
         // validation for constraint: string
         if (!is_null($packageIntegrationStatus) && !is_string($packageIntegrationStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($packageIntegrationStatus, true), gettype($packageIntegrationStatus)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($packageIntegrationStatus, true), gettype($packageIntegrationStatus)), __LINE__);
         }
         if (is_null($packageIntegrationStatus) || (is_array($packageIntegrationStatus) && empty($packageIntegrationStatus))) {
             unset($this->PackageIntegrationStatus);
         } else {
             $this->PackageIntegrationStatus = $packageIntegrationStatus;
         }
+        
         return $this;
     }
     /**
@@ -145,7 +151,7 @@ class CdiscountProductIntegrationReportMessage extends CdiscountServiceBaseAPIMe
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportLog|null
      */
-    public function getProductLogList()
+    public function getProductLogList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportLog
     {
         return isset($this->ProductLogList) ? $this->ProductLogList : null;
     }
@@ -156,13 +162,14 @@ class CdiscountProductIntegrationReportMessage extends CdiscountServiceBaseAPIMe
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportLog $productLogList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage
      */
-    public function setProductLogList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportLog $productLogList = null)
+    public function setProductLogList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportLog $productLogList = null): self
     {
         if (is_null($productLogList) || (is_array($productLogList) && empty($productLogList))) {
             unset($this->ProductLogList);
         } else {
             $this->ProductLogList = $productLogList;
         }
+        
         return $this;
     }
 }

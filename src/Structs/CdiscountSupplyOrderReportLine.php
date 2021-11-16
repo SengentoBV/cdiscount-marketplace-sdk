@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SupplyOrderReportLine Structs
@@ -19,66 +22,66 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfintstring
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfintstring|null
      */
-    public $ErrorDetails;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfintstring $ErrorDetails = null;
     /**
      * The OrderedQuantity
-     * @var int
+     * @var int|null
      */
-    public $OrderedQuantity;
+    protected ?int $OrderedQuantity = null;
     /**
      * The ProductEan
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ProductEan;
+    protected ?string $ProductEan = null;
     /**
      * The SellerId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $SellerId;
+    protected ?int $SellerId = null;
     /**
      * The SellerProductReference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SellerProductReference;
+    protected ?string $SellerProductReference = null;
     /**
      * The SellerSupplyOrderNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SellerSupplyOrderNumber;
+    protected ?string $SellerSupplyOrderNumber = null;
     /**
      * The SupplyOrderNumber
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SupplyOrderNumber;
+    protected ?string $SupplyOrderNumber = null;
     /**
      * The Warehouse
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Warehouse;
+    protected ?string $Warehouse = null;
     /**
      * The WarehouseReceptionMinDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $WarehouseReceptionMinDate;
+    protected ?string $WarehouseReceptionMinDate = null;
     /**
      * Constructor method for SupplyOrderReportLine
      * @uses CdiscountSupplyOrderReportLine::setErrorDetails()
@@ -100,7 +103,7 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * @param string $warehouse
      * @param string $warehouseReceptionMinDate
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfintstring $errorDetails = null, $orderedQuantity = null, $productEan = null, $sellerId = null, $sellerProductReference = null, $sellerSupplyOrderNumber = null, $supplyOrderNumber = null, $warehouse = null, $warehouseReceptionMinDate = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfintstring $errorDetails = null, ?int $orderedQuantity = null, ?string $productEan = null, ?int $sellerId = null, ?string $sellerProductReference = null, ?string $sellerSupplyOrderNumber = null, ?string $supplyOrderNumber = null, ?string $warehouse = null, ?string $warehouseReceptionMinDate = null)
     {
         $this
             ->setErrorDetails($errorDetails)
@@ -120,7 +123,7 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfintstring|null
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfintstring
     {
         return isset($this->ErrorDetails) ? $this->ErrorDetails : null;
     }
@@ -131,20 +134,21 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfintstring $errorDetails
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportLine
      */
-    public function setErrorDetails(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfintstring $errorDetails = null)
+    public function setErrorDetails(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfKeyValueOfintstring $errorDetails = null): self
     {
         if (is_null($errorDetails) || (is_array($errorDetails) && empty($errorDetails))) {
             unset($this->ErrorDetails);
         } else {
             $this->ErrorDetails = $errorDetails;
         }
+        
         return $this;
     }
     /**
      * Get OrderedQuantity value
      * @return int|null
      */
-    public function getOrderedQuantity()
+    public function getOrderedQuantity(): ?int
     {
         return $this->OrderedQuantity;
     }
@@ -153,20 +157,21 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * @param int $orderedQuantity
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportLine
      */
-    public function setOrderedQuantity($orderedQuantity = null)
+    public function setOrderedQuantity(?int $orderedQuantity = null): self
     {
         // validation for constraint: int
         if (!is_null($orderedQuantity) && !(is_int($orderedQuantity) || ctype_digit($orderedQuantity))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($orderedQuantity, true), gettype($orderedQuantity)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($orderedQuantity, true), gettype($orderedQuantity)), __LINE__);
         }
         $this->OrderedQuantity = $orderedQuantity;
+        
         return $this;
     }
     /**
      * Get ProductEan value
      * @return string|null
      */
-    public function getProductEan()
+    public function getProductEan(): ?string
     {
         return $this->ProductEan;
     }
@@ -175,20 +180,21 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * @param string $productEan
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportLine
      */
-    public function setProductEan($productEan = null)
+    public function setProductEan(?string $productEan = null): self
     {
         // validation for constraint: string
         if (!is_null($productEan) && !is_string($productEan)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productEan, true), gettype($productEan)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productEan, true), gettype($productEan)), __LINE__);
         }
         $this->ProductEan = $productEan;
+        
         return $this;
     }
     /**
      * Get SellerId value
      * @return int|null
      */
-    public function getSellerId()
+    public function getSellerId(): ?int
     {
         return $this->SellerId;
     }
@@ -197,13 +203,14 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * @param int $sellerId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportLine
      */
-    public function setSellerId($sellerId = null)
+    public function setSellerId(?int $sellerId = null): self
     {
         // validation for constraint: int
         if (!is_null($sellerId) && !(is_int($sellerId) || ctype_digit($sellerId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($sellerId, true), gettype($sellerId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($sellerId, true), gettype($sellerId)), __LINE__);
         }
         $this->SellerId = $sellerId;
+        
         return $this;
     }
     /**
@@ -213,7 +220,7 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSellerProductReference()
+    public function getSellerProductReference(): ?string
     {
         return isset($this->SellerProductReference) ? $this->SellerProductReference : null;
     }
@@ -224,17 +231,18 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * @param string $sellerProductReference
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportLine
      */
-    public function setSellerProductReference($sellerProductReference = null)
+    public function setSellerProductReference(?string $sellerProductReference = null): self
     {
         // validation for constraint: string
         if (!is_null($sellerProductReference) && !is_string($sellerProductReference)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerProductReference, true), gettype($sellerProductReference)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerProductReference, true), gettype($sellerProductReference)), __LINE__);
         }
         if (is_null($sellerProductReference) || (is_array($sellerProductReference) && empty($sellerProductReference))) {
             unset($this->SellerProductReference);
         } else {
             $this->SellerProductReference = $sellerProductReference;
         }
+        
         return $this;
     }
     /**
@@ -244,7 +252,7 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSellerSupplyOrderNumber()
+    public function getSellerSupplyOrderNumber(): ?string
     {
         return isset($this->SellerSupplyOrderNumber) ? $this->SellerSupplyOrderNumber : null;
     }
@@ -255,24 +263,25 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * @param string $sellerSupplyOrderNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportLine
      */
-    public function setSellerSupplyOrderNumber($sellerSupplyOrderNumber = null)
+    public function setSellerSupplyOrderNumber(?string $sellerSupplyOrderNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($sellerSupplyOrderNumber) && !is_string($sellerSupplyOrderNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerSupplyOrderNumber, true), gettype($sellerSupplyOrderNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerSupplyOrderNumber, true), gettype($sellerSupplyOrderNumber)), __LINE__);
         }
         if (is_null($sellerSupplyOrderNumber) || (is_array($sellerSupplyOrderNumber) && empty($sellerSupplyOrderNumber))) {
             unset($this->SellerSupplyOrderNumber);
         } else {
             $this->SellerSupplyOrderNumber = $sellerSupplyOrderNumber;
         }
+        
         return $this;
     }
     /**
      * Get SupplyOrderNumber value
      * @return string|null
      */
-    public function getSupplyOrderNumber()
+    public function getSupplyOrderNumber(): ?string
     {
         return $this->SupplyOrderNumber;
     }
@@ -281,20 +290,21 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * @param string $supplyOrderNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportLine
      */
-    public function setSupplyOrderNumber($supplyOrderNumber = null)
+    public function setSupplyOrderNumber(?string $supplyOrderNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($supplyOrderNumber) && !is_string($supplyOrderNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($supplyOrderNumber, true), gettype($supplyOrderNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($supplyOrderNumber, true), gettype($supplyOrderNumber)), __LINE__);
         }
         $this->SupplyOrderNumber = $supplyOrderNumber;
+        
         return $this;
     }
     /**
      * Get Warehouse value
      * @return string|null
      */
-    public function getWarehouse()
+    public function getWarehouse(): ?string
     {
         return $this->Warehouse;
     }
@@ -302,17 +312,18 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * Set Warehouse value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountWarehouseType::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountWarehouseType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $warehouse
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportLine
      */
-    public function setWarehouse($warehouse = null)
+    public function setWarehouse(?string $warehouse = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountWarehouseType::valueIsValid($warehouse)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountWarehouseType', is_array($warehouse) ? implode(', ', $warehouse) : var_export($warehouse, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountWarehouseType::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountWarehouseType', is_array($warehouse) ? implode(', ', $warehouse) : var_export($warehouse, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountWarehouseType::getValidValues())), __LINE__);
         }
         $this->Warehouse = $warehouse;
+        
         return $this;
     }
     /**
@@ -322,7 +333,7 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getWarehouseReceptionMinDate()
+    public function getWarehouseReceptionMinDate(): ?string
     {
         return isset($this->WarehouseReceptionMinDate) ? $this->WarehouseReceptionMinDate : null;
     }
@@ -333,17 +344,18 @@ class CdiscountSupplyOrderReportLine extends AbstractStructBase
      * @param string $warehouseReceptionMinDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderReportLine
      */
-    public function setWarehouseReceptionMinDate($warehouseReceptionMinDate = null)
+    public function setWarehouseReceptionMinDate(?string $warehouseReceptionMinDate = null): self
     {
         // validation for constraint: string
         if (!is_null($warehouseReceptionMinDate) && !is_string($warehouseReceptionMinDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($warehouseReceptionMinDate, true), gettype($warehouseReceptionMinDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($warehouseReceptionMinDate, true), gettype($warehouseReceptionMinDate)), __LINE__);
         }
         if (is_null($warehouseReceptionMinDate) || (is_array($warehouseReceptionMinDate) && empty($warehouseReceptionMinDate))) {
             unset($this->WarehouseReceptionMinDate);
         } else {
             $this->WarehouseReceptionMinDate = $warehouseReceptionMinDate;
         }
+        
         return $this;
     }
 }

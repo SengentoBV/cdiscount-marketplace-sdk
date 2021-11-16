@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetProductListByIdentifier Structs
@@ -16,17 +19,17 @@ class CdiscountGetProductListByIdentifier extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public $headerMessage;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null;
     /**
      * The identifierRequest
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountIdentifierRequest
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountIdentifierRequest|null
      */
-    public $identifierRequest;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountIdentifierRequest $identifierRequest = null;
     /**
      * Constructor method for GetProductListByIdentifier
      * @uses CdiscountGetProductListByIdentifier::setHeaderMessage()
@@ -34,7 +37,7 @@ class CdiscountGetProductListByIdentifier extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountIdentifierRequest $identifierRequest
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountIdentifierRequest $identifierRequest = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountIdentifierRequest $identifierRequest = null)
     {
         $this
             ->setHeaderMessage($headerMessage)
@@ -47,7 +50,7 @@ class CdiscountGetProductListByIdentifier extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public function getHeaderMessage()
+    public function getHeaderMessage(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
     {
         return isset($this->headerMessage) ? $this->headerMessage : null;
     }
@@ -58,13 +61,14 @@ class CdiscountGetProductListByIdentifier extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetProductListByIdentifier
      */
-    public function setHeaderMessage(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null)
+    public function setHeaderMessage(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null): self
     {
         if (is_null($headerMessage) || (is_array($headerMessage) && empty($headerMessage))) {
             unset($this->headerMessage);
         } else {
             $this->headerMessage = $headerMessage;
         }
+        
         return $this;
     }
     /**
@@ -74,7 +78,7 @@ class CdiscountGetProductListByIdentifier extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountIdentifierRequest|null
      */
-    public function getIdentifierRequest()
+    public function getIdentifierRequest(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountIdentifierRequest
     {
         return isset($this->identifierRequest) ? $this->identifierRequest : null;
     }
@@ -85,13 +89,14 @@ class CdiscountGetProductListByIdentifier extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountIdentifierRequest $identifierRequest
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetProductListByIdentifier
      */
-    public function setIdentifierRequest(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountIdentifierRequest $identifierRequest = null)
+    public function setIdentifierRequest(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountIdentifierRequest $identifierRequest = null): self
     {
         if (is_null($identifierRequest) || (is_array($identifierRequest) && empty($identifierRequest))) {
             unset($this->identifierRequest);
         } else {
             $this->identifierRequest = $identifierRequest;
         }
+        
         return $this;
     }
 }

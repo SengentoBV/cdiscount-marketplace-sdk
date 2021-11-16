@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for OfferStateFilter Enums
@@ -44,11 +46,11 @@ class CdiscountOfferStateFilter extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ALL_OFFERS_ONLY,
             self::VALUE_ONLINE_OFFERS_ONLY,
             self::VALUE_PUBLISHED_OFFERS_ONLY,
             self::VALUE_OFFLINE_OFFERS_ONLY,
-        );
+        ];
     }
 }

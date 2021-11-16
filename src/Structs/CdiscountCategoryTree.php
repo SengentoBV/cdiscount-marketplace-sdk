@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CategoryTree Structs
@@ -18,62 +21,62 @@ class CdiscountCategoryTree extends AbstractStructBase
      * The AllowOfferIntegration
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $AllowOfferIntegration;
+    protected ?bool $AllowOfferIntegration = null;
     /**
      * The AllowProductIntegration
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $AllowProductIntegration;
+    protected ?bool $AllowProductIntegration = null;
     /**
      * The ChildrenCategoryList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCategoryTree
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCategoryTree|null
      */
-    public $ChildrenCategoryList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCategoryTree $ChildrenCategoryList = null;
     /**
      * The Code
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Code;
+    protected ?string $Code = null;
     /**
      * The IsEANOptional
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var bool
+     * @var bool|null
      */
-    public $IsEANOptional;
+    protected ?bool $IsEANOptional = null;
     /**
      * The IsStandardProductKindEligible
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsStandardProductKindEligible;
+    protected ?bool $IsStandardProductKindEligible = null;
     /**
      * The IsVariantProductKindEligible
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsVariantProductKindEligible;
+    protected ?bool $IsVariantProductKindEligible = null;
     /**
      * The Name
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * Constructor method for CategoryTree
      * @uses CdiscountCategoryTree::setAllowOfferIntegration()
@@ -93,7 +96,7 @@ class CdiscountCategoryTree extends AbstractStructBase
      * @param bool $isVariantProductKindEligible
      * @param string $name
      */
-    public function __construct($allowOfferIntegration = null, $allowProductIntegration = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCategoryTree $childrenCategoryList = null, $code = null, $isEANOptional = null, $isStandardProductKindEligible = null, $isVariantProductKindEligible = null, $name = null)
+    public function __construct(?bool $allowOfferIntegration = null, ?bool $allowProductIntegration = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCategoryTree $childrenCategoryList = null, ?string $code = null, ?bool $isEANOptional = null, ?bool $isStandardProductKindEligible = null, ?bool $isVariantProductKindEligible = null, ?string $name = null)
     {
         $this
             ->setAllowOfferIntegration($allowOfferIntegration)
@@ -109,7 +112,7 @@ class CdiscountCategoryTree extends AbstractStructBase
      * Get AllowOfferIntegration value
      * @return bool|null
      */
-    public function getAllowOfferIntegration()
+    public function getAllowOfferIntegration(): ?bool
     {
         return $this->AllowOfferIntegration;
     }
@@ -118,20 +121,21 @@ class CdiscountCategoryTree extends AbstractStructBase
      * @param bool $allowOfferIntegration
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree
      */
-    public function setAllowOfferIntegration($allowOfferIntegration = null)
+    public function setAllowOfferIntegration(?bool $allowOfferIntegration = null): self
     {
         // validation for constraint: boolean
         if (!is_null($allowOfferIntegration) && !is_bool($allowOfferIntegration)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($allowOfferIntegration, true), gettype($allowOfferIntegration)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($allowOfferIntegration, true), gettype($allowOfferIntegration)), __LINE__);
         }
         $this->AllowOfferIntegration = $allowOfferIntegration;
+        
         return $this;
     }
     /**
      * Get AllowProductIntegration value
      * @return bool|null
      */
-    public function getAllowProductIntegration()
+    public function getAllowProductIntegration(): ?bool
     {
         return $this->AllowProductIntegration;
     }
@@ -140,13 +144,14 @@ class CdiscountCategoryTree extends AbstractStructBase
      * @param bool $allowProductIntegration
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree
      */
-    public function setAllowProductIntegration($allowProductIntegration = null)
+    public function setAllowProductIntegration(?bool $allowProductIntegration = null): self
     {
         // validation for constraint: boolean
         if (!is_null($allowProductIntegration) && !is_bool($allowProductIntegration)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($allowProductIntegration, true), gettype($allowProductIntegration)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($allowProductIntegration, true), gettype($allowProductIntegration)), __LINE__);
         }
         $this->AllowProductIntegration = $allowProductIntegration;
+        
         return $this;
     }
     /**
@@ -156,7 +161,7 @@ class CdiscountCategoryTree extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCategoryTree|null
      */
-    public function getChildrenCategoryList()
+    public function getChildrenCategoryList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCategoryTree
     {
         return isset($this->ChildrenCategoryList) ? $this->ChildrenCategoryList : null;
     }
@@ -167,13 +172,14 @@ class CdiscountCategoryTree extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCategoryTree $childrenCategoryList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree
      */
-    public function setChildrenCategoryList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCategoryTree $childrenCategoryList = null)
+    public function setChildrenCategoryList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCategoryTree $childrenCategoryList = null): self
     {
         if (is_null($childrenCategoryList) || (is_array($childrenCategoryList) && empty($childrenCategoryList))) {
             unset($this->ChildrenCategoryList);
         } else {
             $this->ChildrenCategoryList = $childrenCategoryList;
         }
+        
         return $this;
     }
     /**
@@ -183,7 +189,7 @@ class CdiscountCategoryTree extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCode()
+    public function getCode(): ?string
     {
         return isset($this->Code) ? $this->Code : null;
     }
@@ -194,17 +200,18 @@ class CdiscountCategoryTree extends AbstractStructBase
      * @param string $code
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree
      */
-    public function setCode($code = null)
+    public function setCode(?string $code = null): self
     {
         // validation for constraint: string
         if (!is_null($code) && !is_string($code)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($code, true), gettype($code)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($code, true), gettype($code)), __LINE__);
         }
         if (is_null($code) || (is_array($code) && empty($code))) {
             unset($this->Code);
         } else {
             $this->Code = $code;
         }
+        
         return $this;
     }
     /**
@@ -214,7 +221,7 @@ class CdiscountCategoryTree extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return bool|null
      */
-    public function getIsEANOptional()
+    public function getIsEANOptional(): ?bool
     {
         return isset($this->IsEANOptional) ? $this->IsEANOptional : null;
     }
@@ -225,24 +232,25 @@ class CdiscountCategoryTree extends AbstractStructBase
      * @param bool $isEANOptional
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree
      */
-    public function setIsEANOptional($isEANOptional = null)
+    public function setIsEANOptional(?bool $isEANOptional = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isEANOptional) && !is_bool($isEANOptional)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isEANOptional, true), gettype($isEANOptional)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isEANOptional, true), gettype($isEANOptional)), __LINE__);
         }
         if (is_null($isEANOptional) || (is_array($isEANOptional) && empty($isEANOptional))) {
             unset($this->IsEANOptional);
         } else {
             $this->IsEANOptional = $isEANOptional;
         }
+        
         return $this;
     }
     /**
      * Get IsStandardProductKindEligible value
      * @return bool|null
      */
-    public function getIsStandardProductKindEligible()
+    public function getIsStandardProductKindEligible(): ?bool
     {
         return $this->IsStandardProductKindEligible;
     }
@@ -251,20 +259,21 @@ class CdiscountCategoryTree extends AbstractStructBase
      * @param bool $isStandardProductKindEligible
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree
      */
-    public function setIsStandardProductKindEligible($isStandardProductKindEligible = null)
+    public function setIsStandardProductKindEligible(?bool $isStandardProductKindEligible = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isStandardProductKindEligible) && !is_bool($isStandardProductKindEligible)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isStandardProductKindEligible, true), gettype($isStandardProductKindEligible)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isStandardProductKindEligible, true), gettype($isStandardProductKindEligible)), __LINE__);
         }
         $this->IsStandardProductKindEligible = $isStandardProductKindEligible;
+        
         return $this;
     }
     /**
      * Get IsVariantProductKindEligible value
      * @return bool|null
      */
-    public function getIsVariantProductKindEligible()
+    public function getIsVariantProductKindEligible(): ?bool
     {
         return $this->IsVariantProductKindEligible;
     }
@@ -273,13 +282,14 @@ class CdiscountCategoryTree extends AbstractStructBase
      * @param bool $isVariantProductKindEligible
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree
      */
-    public function setIsVariantProductKindEligible($isVariantProductKindEligible = null)
+    public function setIsVariantProductKindEligible(?bool $isVariantProductKindEligible = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isVariantProductKindEligible) && !is_bool($isVariantProductKindEligible)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isVariantProductKindEligible, true), gettype($isVariantProductKindEligible)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isVariantProductKindEligible, true), gettype($isVariantProductKindEligible)), __LINE__);
         }
         $this->IsVariantProductKindEligible = $isVariantProductKindEligible;
+        
         return $this;
     }
     /**
@@ -289,7 +299,7 @@ class CdiscountCategoryTree extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return isset($this->Name) ? $this->Name : null;
     }
@@ -300,17 +310,18 @@ class CdiscountCategoryTree extends AbstractStructBase
      * @param string $name
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         if (is_null($name) || (is_array($name) && empty($name))) {
             unset($this->Name);
         } else {
             $this->Name = $name;
         }
+        
         return $this;
     }
 }

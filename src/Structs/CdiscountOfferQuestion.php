@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OfferQuestion Structs
@@ -19,17 +22,17 @@ class CdiscountOfferQuestion extends CdiscountDiscussionThreadBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ProductEAN;
+    protected ?string $ProductEAN = null;
     /**
      * The ProductSellerReference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ProductSellerReference;
+    protected ?string $ProductSellerReference = null;
     /**
      * Constructor method for OfferQuestion
      * @uses CdiscountOfferQuestion::setProductEAN()
@@ -37,7 +40,7 @@ class CdiscountOfferQuestion extends CdiscountDiscussionThreadBase
      * @param string $productEAN
      * @param string $productSellerReference
      */
-    public function __construct($productEAN = null, $productSellerReference = null)
+    public function __construct(?string $productEAN = null, ?string $productSellerReference = null)
     {
         $this
             ->setProductEAN($productEAN)
@@ -50,7 +53,7 @@ class CdiscountOfferQuestion extends CdiscountDiscussionThreadBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getProductEAN()
+    public function getProductEAN(): ?string
     {
         return isset($this->ProductEAN) ? $this->ProductEAN : null;
     }
@@ -61,17 +64,18 @@ class CdiscountOfferQuestion extends CdiscountDiscussionThreadBase
      * @param string $productEAN
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferQuestion
      */
-    public function setProductEAN($productEAN = null)
+    public function setProductEAN(?string $productEAN = null): self
     {
         // validation for constraint: string
         if (!is_null($productEAN) && !is_string($productEAN)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productEAN, true), gettype($productEAN)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productEAN, true), gettype($productEAN)), __LINE__);
         }
         if (is_null($productEAN) || (is_array($productEAN) && empty($productEAN))) {
             unset($this->ProductEAN);
         } else {
             $this->ProductEAN = $productEAN;
         }
+        
         return $this;
     }
     /**
@@ -81,7 +85,7 @@ class CdiscountOfferQuestion extends CdiscountDiscussionThreadBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getProductSellerReference()
+    public function getProductSellerReference(): ?string
     {
         return isset($this->ProductSellerReference) ? $this->ProductSellerReference : null;
     }
@@ -92,17 +96,18 @@ class CdiscountOfferQuestion extends CdiscountDiscussionThreadBase
      * @param string $productSellerReference
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferQuestion
      */
-    public function setProductSellerReference($productSellerReference = null)
+    public function setProductSellerReference(?string $productSellerReference = null): self
     {
         // validation for constraint: string
         if (!is_null($productSellerReference) && !is_string($productSellerReference)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productSellerReference, true), gettype($productSellerReference)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productSellerReference, true), gettype($productSellerReference)), __LINE__);
         }
         if (is_null($productSellerReference) || (is_array($productSellerReference) && empty($productSellerReference))) {
             unset($this->ProductSellerReference);
         } else {
             $this->ProductSellerReference = $productSellerReference;
         }
+        
         return $this;
     }
 }

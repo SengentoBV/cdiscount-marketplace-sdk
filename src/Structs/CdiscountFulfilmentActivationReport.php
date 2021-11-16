@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FulfilmentActivationReport Structs
@@ -19,66 +22,66 @@ class CdiscountFulfilmentActivationReport extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var int
+     * @var int|null
      */
-    public $DepositId;
+    protected ?int $DepositId = null;
     /**
      * The DetailsList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentActivationReportDetails
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentActivationReportDetails|null
      */
-    public $DetailsList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentActivationReportDetails $DetailsList = null;
     /**
      * The NumberOfActivatedProducts
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $NumberOfActivatedProducts;
+    protected ?int $NumberOfActivatedProducts = null;
     /**
      * The NumberOfDeactivatedProducts
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $NumberOfDeactivatedProducts;
+    protected ?int $NumberOfDeactivatedProducts = null;
     /**
      * The NumberOfProcessedProducts
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $NumberOfProcessedProducts;
+    protected ?int $NumberOfProcessedProducts = null;
     /**
      * The NumberOfProducts
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $NumberOfProducts;
+    protected ?int $NumberOfProducts = null;
     /**
      * The NumberOfProductsInError
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $NumberOfProductsInError;
+    protected ?int $NumberOfProductsInError = null;
     /**
      * The NumberOfRemainingProductsToProcess
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $NumberOfRemainingProductsToProcess;
+    protected ?int $NumberOfRemainingProductsToProcess = null;
     /**
      * The ReportDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ReportDate;
+    protected ?string $ReportDate = null;
     /**
      * Constructor method for FulfilmentActivationReport
      * @uses CdiscountFulfilmentActivationReport::setDepositId()
@@ -100,7 +103,7 @@ class CdiscountFulfilmentActivationReport extends AbstractStructBase
      * @param int $numberOfRemainingProductsToProcess
      * @param string $reportDate
      */
-    public function __construct($depositId = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentActivationReportDetails $detailsList = null, $numberOfActivatedProducts = null, $numberOfDeactivatedProducts = null, $numberOfProcessedProducts = null, $numberOfProducts = null, $numberOfProductsInError = null, $numberOfRemainingProductsToProcess = null, $reportDate = null)
+    public function __construct(?int $depositId = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentActivationReportDetails $detailsList = null, ?int $numberOfActivatedProducts = null, ?int $numberOfDeactivatedProducts = null, ?int $numberOfProcessedProducts = null, ?int $numberOfProducts = null, ?int $numberOfProductsInError = null, ?int $numberOfRemainingProductsToProcess = null, ?string $reportDate = null)
     {
         $this
             ->setDepositId($depositId)
@@ -120,7 +123,7 @@ class CdiscountFulfilmentActivationReport extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return int|null
      */
-    public function getDepositId()
+    public function getDepositId(): ?int
     {
         return isset($this->DepositId) ? $this->DepositId : null;
     }
@@ -131,17 +134,18 @@ class CdiscountFulfilmentActivationReport extends AbstractStructBase
      * @param int $depositId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport
      */
-    public function setDepositId($depositId = null)
+    public function setDepositId(?int $depositId = null): self
     {
         // validation for constraint: int
         if (!is_null($depositId) && !(is_int($depositId) || ctype_digit($depositId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($depositId, true), gettype($depositId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($depositId, true), gettype($depositId)), __LINE__);
         }
         if (is_null($depositId) || (is_array($depositId) && empty($depositId))) {
             unset($this->DepositId);
         } else {
             $this->DepositId = $depositId;
         }
+        
         return $this;
     }
     /**
@@ -151,7 +155,7 @@ class CdiscountFulfilmentActivationReport extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentActivationReportDetails|null
      */
-    public function getDetailsList()
+    public function getDetailsList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentActivationReportDetails
     {
         return isset($this->DetailsList) ? $this->DetailsList : null;
     }
@@ -162,20 +166,21 @@ class CdiscountFulfilmentActivationReport extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentActivationReportDetails $detailsList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport
      */
-    public function setDetailsList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentActivationReportDetails $detailsList = null)
+    public function setDetailsList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentActivationReportDetails $detailsList = null): self
     {
         if (is_null($detailsList) || (is_array($detailsList) && empty($detailsList))) {
             unset($this->DetailsList);
         } else {
             $this->DetailsList = $detailsList;
         }
+        
         return $this;
     }
     /**
      * Get NumberOfActivatedProducts value
      * @return int|null
      */
-    public function getNumberOfActivatedProducts()
+    public function getNumberOfActivatedProducts(): ?int
     {
         return $this->NumberOfActivatedProducts;
     }
@@ -184,20 +189,21 @@ class CdiscountFulfilmentActivationReport extends AbstractStructBase
      * @param int $numberOfActivatedProducts
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport
      */
-    public function setNumberOfActivatedProducts($numberOfActivatedProducts = null)
+    public function setNumberOfActivatedProducts(?int $numberOfActivatedProducts = null): self
     {
         // validation for constraint: int
         if (!is_null($numberOfActivatedProducts) && !(is_int($numberOfActivatedProducts) || ctype_digit($numberOfActivatedProducts))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfActivatedProducts, true), gettype($numberOfActivatedProducts)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfActivatedProducts, true), gettype($numberOfActivatedProducts)), __LINE__);
         }
         $this->NumberOfActivatedProducts = $numberOfActivatedProducts;
+        
         return $this;
     }
     /**
      * Get NumberOfDeactivatedProducts value
      * @return int|null
      */
-    public function getNumberOfDeactivatedProducts()
+    public function getNumberOfDeactivatedProducts(): ?int
     {
         return $this->NumberOfDeactivatedProducts;
     }
@@ -206,20 +212,21 @@ class CdiscountFulfilmentActivationReport extends AbstractStructBase
      * @param int $numberOfDeactivatedProducts
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport
      */
-    public function setNumberOfDeactivatedProducts($numberOfDeactivatedProducts = null)
+    public function setNumberOfDeactivatedProducts(?int $numberOfDeactivatedProducts = null): self
     {
         // validation for constraint: int
         if (!is_null($numberOfDeactivatedProducts) && !(is_int($numberOfDeactivatedProducts) || ctype_digit($numberOfDeactivatedProducts))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfDeactivatedProducts, true), gettype($numberOfDeactivatedProducts)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfDeactivatedProducts, true), gettype($numberOfDeactivatedProducts)), __LINE__);
         }
         $this->NumberOfDeactivatedProducts = $numberOfDeactivatedProducts;
+        
         return $this;
     }
     /**
      * Get NumberOfProcessedProducts value
      * @return int|null
      */
-    public function getNumberOfProcessedProducts()
+    public function getNumberOfProcessedProducts(): ?int
     {
         return $this->NumberOfProcessedProducts;
     }
@@ -228,20 +235,21 @@ class CdiscountFulfilmentActivationReport extends AbstractStructBase
      * @param int $numberOfProcessedProducts
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport
      */
-    public function setNumberOfProcessedProducts($numberOfProcessedProducts = null)
+    public function setNumberOfProcessedProducts(?int $numberOfProcessedProducts = null): self
     {
         // validation for constraint: int
         if (!is_null($numberOfProcessedProducts) && !(is_int($numberOfProcessedProducts) || ctype_digit($numberOfProcessedProducts))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfProcessedProducts, true), gettype($numberOfProcessedProducts)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfProcessedProducts, true), gettype($numberOfProcessedProducts)), __LINE__);
         }
         $this->NumberOfProcessedProducts = $numberOfProcessedProducts;
+        
         return $this;
     }
     /**
      * Get NumberOfProducts value
      * @return int|null
      */
-    public function getNumberOfProducts()
+    public function getNumberOfProducts(): ?int
     {
         return $this->NumberOfProducts;
     }
@@ -250,20 +258,21 @@ class CdiscountFulfilmentActivationReport extends AbstractStructBase
      * @param int $numberOfProducts
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport
      */
-    public function setNumberOfProducts($numberOfProducts = null)
+    public function setNumberOfProducts(?int $numberOfProducts = null): self
     {
         // validation for constraint: int
         if (!is_null($numberOfProducts) && !(is_int($numberOfProducts) || ctype_digit($numberOfProducts))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfProducts, true), gettype($numberOfProducts)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfProducts, true), gettype($numberOfProducts)), __LINE__);
         }
         $this->NumberOfProducts = $numberOfProducts;
+        
         return $this;
     }
     /**
      * Get NumberOfProductsInError value
      * @return int|null
      */
-    public function getNumberOfProductsInError()
+    public function getNumberOfProductsInError(): ?int
     {
         return $this->NumberOfProductsInError;
     }
@@ -272,20 +281,21 @@ class CdiscountFulfilmentActivationReport extends AbstractStructBase
      * @param int $numberOfProductsInError
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport
      */
-    public function setNumberOfProductsInError($numberOfProductsInError = null)
+    public function setNumberOfProductsInError(?int $numberOfProductsInError = null): self
     {
         // validation for constraint: int
         if (!is_null($numberOfProductsInError) && !(is_int($numberOfProductsInError) || ctype_digit($numberOfProductsInError))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfProductsInError, true), gettype($numberOfProductsInError)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfProductsInError, true), gettype($numberOfProductsInError)), __LINE__);
         }
         $this->NumberOfProductsInError = $numberOfProductsInError;
+        
         return $this;
     }
     /**
      * Get NumberOfRemainingProductsToProcess value
      * @return int|null
      */
-    public function getNumberOfRemainingProductsToProcess()
+    public function getNumberOfRemainingProductsToProcess(): ?int
     {
         return $this->NumberOfRemainingProductsToProcess;
     }
@@ -294,20 +304,21 @@ class CdiscountFulfilmentActivationReport extends AbstractStructBase
      * @param int $numberOfRemainingProductsToProcess
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport
      */
-    public function setNumberOfRemainingProductsToProcess($numberOfRemainingProductsToProcess = null)
+    public function setNumberOfRemainingProductsToProcess(?int $numberOfRemainingProductsToProcess = null): self
     {
         // validation for constraint: int
         if (!is_null($numberOfRemainingProductsToProcess) && !(is_int($numberOfRemainingProductsToProcess) || ctype_digit($numberOfRemainingProductsToProcess))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfRemainingProductsToProcess, true), gettype($numberOfRemainingProductsToProcess)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfRemainingProductsToProcess, true), gettype($numberOfRemainingProductsToProcess)), __LINE__);
         }
         $this->NumberOfRemainingProductsToProcess = $numberOfRemainingProductsToProcess;
+        
         return $this;
     }
     /**
      * Get ReportDate value
      * @return string|null
      */
-    public function getReportDate()
+    public function getReportDate(): ?string
     {
         return $this->ReportDate;
     }
@@ -316,13 +327,14 @@ class CdiscountFulfilmentActivationReport extends AbstractStructBase
      * @param string $reportDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReport
      */
-    public function setReportDate($reportDate = null)
+    public function setReportDate(?string $reportDate = null): self
     {
         // validation for constraint: string
         if (!is_null($reportDate) && !is_string($reportDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reportDate, true), gettype($reportDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reportDate, true), gettype($reportDate)), __LINE__);
         }
         $this->ReportDate = $reportDate;
+        
         return $this;
     }
 }

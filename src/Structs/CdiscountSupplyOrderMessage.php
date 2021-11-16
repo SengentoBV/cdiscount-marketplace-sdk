@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SupplyOrderMessage Structs
@@ -18,24 +21,24 @@ class CdiscountSupplyOrderMessage extends CdiscountServiceBaseAPIMessage
      * The CurrentPageNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $CurrentPageNumber;
+    protected ?int $CurrentPageNumber = null;
     /**
      * The NumberOfPages
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $NumberOfPages;
+    protected ?int $NumberOfPages = null;
     /**
      * The SupplyOrderLineList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSupplyOrderLine
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSupplyOrderLine|null
      */
-    public $SupplyOrderLineList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSupplyOrderLine $SupplyOrderLineList = null;
     /**
      * Constructor method for SupplyOrderMessage
      * @uses CdiscountSupplyOrderMessage::setCurrentPageNumber()
@@ -45,7 +48,7 @@ class CdiscountSupplyOrderMessage extends CdiscountServiceBaseAPIMessage
      * @param int $numberOfPages
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSupplyOrderLine $supplyOrderLineList
      */
-    public function __construct($currentPageNumber = null, $numberOfPages = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSupplyOrderLine $supplyOrderLineList = null)
+    public function __construct(?int $currentPageNumber = null, ?int $numberOfPages = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSupplyOrderLine $supplyOrderLineList = null)
     {
         $this
             ->setCurrentPageNumber($currentPageNumber)
@@ -56,7 +59,7 @@ class CdiscountSupplyOrderMessage extends CdiscountServiceBaseAPIMessage
      * Get CurrentPageNumber value
      * @return int|null
      */
-    public function getCurrentPageNumber()
+    public function getCurrentPageNumber(): ?int
     {
         return $this->CurrentPageNumber;
     }
@@ -65,20 +68,21 @@ class CdiscountSupplyOrderMessage extends CdiscountServiceBaseAPIMessage
      * @param int $currentPageNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderMessage
      */
-    public function setCurrentPageNumber($currentPageNumber = null)
+    public function setCurrentPageNumber(?int $currentPageNumber = null): self
     {
         // validation for constraint: int
         if (!is_null($currentPageNumber) && !(is_int($currentPageNumber) || ctype_digit($currentPageNumber))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($currentPageNumber, true), gettype($currentPageNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($currentPageNumber, true), gettype($currentPageNumber)), __LINE__);
         }
         $this->CurrentPageNumber = $currentPageNumber;
+        
         return $this;
     }
     /**
      * Get NumberOfPages value
      * @return int|null
      */
-    public function getNumberOfPages()
+    public function getNumberOfPages(): ?int
     {
         return $this->NumberOfPages;
     }
@@ -87,13 +91,14 @@ class CdiscountSupplyOrderMessage extends CdiscountServiceBaseAPIMessage
      * @param int $numberOfPages
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderMessage
      */
-    public function setNumberOfPages($numberOfPages = null)
+    public function setNumberOfPages(?int $numberOfPages = null): self
     {
         // validation for constraint: int
         if (!is_null($numberOfPages) && !(is_int($numberOfPages) || ctype_digit($numberOfPages))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfPages, true), gettype($numberOfPages)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfPages, true), gettype($numberOfPages)), __LINE__);
         }
         $this->NumberOfPages = $numberOfPages;
+        
         return $this;
     }
     /**
@@ -103,7 +108,7 @@ class CdiscountSupplyOrderMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSupplyOrderLine|null
      */
-    public function getSupplyOrderLineList()
+    public function getSupplyOrderLineList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSupplyOrderLine
     {
         return isset($this->SupplyOrderLineList) ? $this->SupplyOrderLineList : null;
     }
@@ -114,13 +119,14 @@ class CdiscountSupplyOrderMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSupplyOrderLine $supplyOrderLineList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSupplyOrderMessage
      */
-    public function setSupplyOrderLineList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSupplyOrderLine $supplyOrderLineList = null)
+    public function setSupplyOrderLineList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSupplyOrderLine $supplyOrderLineList = null): self
     {
         if (is_null($supplyOrderLineList) || (is_array($supplyOrderLineList) && empty($supplyOrderLineList))) {
             unset($this->SupplyOrderLineList);
         } else {
             $this->SupplyOrderLineList = $supplyOrderLineList;
         }
+        
         return $this;
     }
 }

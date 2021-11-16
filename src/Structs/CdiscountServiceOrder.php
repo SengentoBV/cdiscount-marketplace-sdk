@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ServiceOrder Structs
@@ -19,15 +22,15 @@ class CdiscountServiceOrder extends CdiscountOrder
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfAssociatedOrderInfo
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfAssociatedOrderInfo|null
      */
-    public $AssociatedOrderInfoList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfAssociatedOrderInfo $AssociatedOrderInfoList = null;
     /**
      * Constructor method for ServiceOrder
      * @uses CdiscountServiceOrder::setAssociatedOrderInfoList()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfAssociatedOrderInfo $associatedOrderInfoList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfAssociatedOrderInfo $associatedOrderInfoList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfAssociatedOrderInfo $associatedOrderInfoList = null)
     {
         $this
             ->setAssociatedOrderInfoList($associatedOrderInfoList);
@@ -39,7 +42,7 @@ class CdiscountServiceOrder extends CdiscountOrder
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfAssociatedOrderInfo|null
      */
-    public function getAssociatedOrderInfoList()
+    public function getAssociatedOrderInfoList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfAssociatedOrderInfo
     {
         return isset($this->AssociatedOrderInfoList) ? $this->AssociatedOrderInfoList : null;
     }
@@ -50,13 +53,14 @@ class CdiscountServiceOrder extends CdiscountOrder
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfAssociatedOrderInfo $associatedOrderInfoList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrder
      */
-    public function setAssociatedOrderInfoList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfAssociatedOrderInfo $associatedOrderInfoList = null)
+    public function setAssociatedOrderInfoList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfAssociatedOrderInfo $associatedOrderInfoList = null): self
     {
         if (is_null($associatedOrderInfoList) || (is_array($associatedOrderInfoList) && empty($associatedOrderInfoList))) {
             unset($this->AssociatedOrderInfoList);
         } else {
             $this->AssociatedOrderInfoList = $associatedOrderInfoList;
         }
+        
         return $this;
     }
 }

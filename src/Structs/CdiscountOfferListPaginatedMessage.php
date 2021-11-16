@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OfferListPaginatedMessage Structs
@@ -18,16 +21,16 @@ class CdiscountOfferListPaginatedMessage extends CdiscountOfferListMessage
      * The CurrentPageNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $CurrentPageNumber;
+    protected ?int $CurrentPageNumber = null;
     /**
      * The NumberOfPages
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $NumberOfPages;
+    protected ?int $NumberOfPages = null;
     /**
      * Constructor method for OfferListPaginatedMessage
      * @uses CdiscountOfferListPaginatedMessage::setCurrentPageNumber()
@@ -35,7 +38,7 @@ class CdiscountOfferListPaginatedMessage extends CdiscountOfferListMessage
      * @param int $currentPageNumber
      * @param int $numberOfPages
      */
-    public function __construct($currentPageNumber = null, $numberOfPages = null)
+    public function __construct(?int $currentPageNumber = null, ?int $numberOfPages = null)
     {
         $this
             ->setCurrentPageNumber($currentPageNumber)
@@ -45,7 +48,7 @@ class CdiscountOfferListPaginatedMessage extends CdiscountOfferListMessage
      * Get CurrentPageNumber value
      * @return int|null
      */
-    public function getCurrentPageNumber()
+    public function getCurrentPageNumber(): ?int
     {
         return $this->CurrentPageNumber;
     }
@@ -54,20 +57,21 @@ class CdiscountOfferListPaginatedMessage extends CdiscountOfferListMessage
      * @param int $currentPageNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListPaginatedMessage
      */
-    public function setCurrentPageNumber($currentPageNumber = null)
+    public function setCurrentPageNumber(?int $currentPageNumber = null): self
     {
         // validation for constraint: int
         if (!is_null($currentPageNumber) && !(is_int($currentPageNumber) || ctype_digit($currentPageNumber))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($currentPageNumber, true), gettype($currentPageNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($currentPageNumber, true), gettype($currentPageNumber)), __LINE__);
         }
         $this->CurrentPageNumber = $currentPageNumber;
+        
         return $this;
     }
     /**
      * Get NumberOfPages value
      * @return int|null
      */
-    public function getNumberOfPages()
+    public function getNumberOfPages(): ?int
     {
         return $this->NumberOfPages;
     }
@@ -76,13 +80,14 @@ class CdiscountOfferListPaginatedMessage extends CdiscountOfferListMessage
      * @param int $numberOfPages
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListPaginatedMessage
      */
-    public function setNumberOfPages($numberOfPages = null)
+    public function setNumberOfPages(?int $numberOfPages = null): self
     {
         // validation for constraint: int
         if (!is_null($numberOfPages) && !(is_int($numberOfPages) || ctype_digit($numberOfPages))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfPages, true), gettype($numberOfPages)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfPages, true), gettype($numberOfPages)), __LINE__);
         }
         $this->NumberOfPages = $numberOfPages;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetOfferList Structs
@@ -16,17 +19,17 @@ class CdiscountGetOfferList extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public $headerMessage;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null;
     /**
      * The offerFilter
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter|null
      */
-    public $offerFilter;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter $offerFilter = null;
     /**
      * Constructor method for GetOfferList
      * @uses CdiscountGetOfferList::setHeaderMessage()
@@ -34,7 +37,7 @@ class CdiscountGetOfferList extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter $offerFilter
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter $offerFilter = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter $offerFilter = null)
     {
         $this
             ->setHeaderMessage($headerMessage)
@@ -47,7 +50,7 @@ class CdiscountGetOfferList extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public function getHeaderMessage()
+    public function getHeaderMessage(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
     {
         return isset($this->headerMessage) ? $this->headerMessage : null;
     }
@@ -58,13 +61,14 @@ class CdiscountGetOfferList extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOfferList
      */
-    public function setHeaderMessage(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null)
+    public function setHeaderMessage(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null): self
     {
         if (is_null($headerMessage) || (is_array($headerMessage) && empty($headerMessage))) {
             unset($this->headerMessage);
         } else {
             $this->headerMessage = $headerMessage;
         }
+        
         return $this;
     }
     /**
@@ -74,7 +78,7 @@ class CdiscountGetOfferList extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter|null
      */
-    public function getOfferFilter()
+    public function getOfferFilter(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter
     {
         return isset($this->offerFilter) ? $this->offerFilter : null;
     }
@@ -85,13 +89,14 @@ class CdiscountGetOfferList extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter $offerFilter
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOfferList
      */
-    public function setOfferFilter(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter $offerFilter = null)
+    public function setOfferFilter(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter $offerFilter = null): self
     {
         if (is_null($offerFilter) || (is_array($offerFilter) && empty($offerFilter))) {
             unset($this->offerFilter);
         } else {
             $this->offerFilter = $offerFilter;
         }
+        
         return $this;
     }
 }

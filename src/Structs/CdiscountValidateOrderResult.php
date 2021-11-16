@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ValidateOrderResult Structs
@@ -19,40 +22,40 @@ class CdiscountValidateOrderResult extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError|null
      */
-    public $Errors;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $Errors = null;
     /**
      * The OrderNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $OrderNumber;
+    protected ?string $OrderNumber = null;
     /**
      * The ValidateOrderLineResults
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLineResult
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLineResult|null
      */
-    public $ValidateOrderLineResults;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLineResult $ValidateOrderLineResults = null;
     /**
      * The Validated
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $Validated;
+    protected ?bool $Validated = null;
     /**
      * The Warnings
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError|null
      */
-    public $Warnings;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $Warnings = null;
     /**
      * Constructor method for ValidateOrderResult
      * @uses CdiscountValidateOrderResult::setErrors()
@@ -66,7 +69,7 @@ class CdiscountValidateOrderResult extends AbstractStructBase
      * @param bool $validated
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $warnings
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $errors = null, $orderNumber = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLineResult $validateOrderLineResults = null, $validated = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $warnings = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $errors = null, ?string $orderNumber = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLineResult $validateOrderLineResults = null, ?bool $validated = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $warnings = null)
     {
         $this
             ->setErrors($errors)
@@ -82,7 +85,7 @@ class CdiscountValidateOrderResult extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError|null
      */
-    public function getErrors()
+    public function getErrors(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError
     {
         return isset($this->Errors) ? $this->Errors : null;
     }
@@ -93,13 +96,14 @@ class CdiscountValidateOrderResult extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $errors
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderResult
      */
-    public function setErrors(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $errors = null)
+    public function setErrors(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $errors = null): self
     {
         if (is_null($errors) || (is_array($errors) && empty($errors))) {
             unset($this->Errors);
         } else {
             $this->Errors = $errors;
         }
+        
         return $this;
     }
     /**
@@ -109,7 +113,7 @@ class CdiscountValidateOrderResult extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getOrderNumber()
+    public function getOrderNumber(): ?string
     {
         return isset($this->OrderNumber) ? $this->OrderNumber : null;
     }
@@ -120,17 +124,18 @@ class CdiscountValidateOrderResult extends AbstractStructBase
      * @param string $orderNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderResult
      */
-    public function setOrderNumber($orderNumber = null)
+    public function setOrderNumber(?string $orderNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($orderNumber) && !is_string($orderNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
         }
         if (is_null($orderNumber) || (is_array($orderNumber) && empty($orderNumber))) {
             unset($this->OrderNumber);
         } else {
             $this->OrderNumber = $orderNumber;
         }
+        
         return $this;
     }
     /**
@@ -140,7 +145,7 @@ class CdiscountValidateOrderResult extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLineResult|null
      */
-    public function getValidateOrderLineResults()
+    public function getValidateOrderLineResults(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLineResult
     {
         return isset($this->ValidateOrderLineResults) ? $this->ValidateOrderLineResults : null;
     }
@@ -151,20 +156,21 @@ class CdiscountValidateOrderResult extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLineResult $validateOrderLineResults
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderResult
      */
-    public function setValidateOrderLineResults(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLineResult $validateOrderLineResults = null)
+    public function setValidateOrderLineResults(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLineResult $validateOrderLineResults = null): self
     {
         if (is_null($validateOrderLineResults) || (is_array($validateOrderLineResults) && empty($validateOrderLineResults))) {
             unset($this->ValidateOrderLineResults);
         } else {
             $this->ValidateOrderLineResults = $validateOrderLineResults;
         }
+        
         return $this;
     }
     /**
      * Get Validated value
      * @return bool|null
      */
-    public function getValidated()
+    public function getValidated(): ?bool
     {
         return $this->Validated;
     }
@@ -173,13 +179,14 @@ class CdiscountValidateOrderResult extends AbstractStructBase
      * @param bool $validated
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderResult
      */
-    public function setValidated($validated = null)
+    public function setValidated(?bool $validated = null): self
     {
         // validation for constraint: boolean
         if (!is_null($validated) && !is_bool($validated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($validated, true), gettype($validated)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($validated, true), gettype($validated)), __LINE__);
         }
         $this->Validated = $validated;
+        
         return $this;
     }
     /**
@@ -189,7 +196,7 @@ class CdiscountValidateOrderResult extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError|null
      */
-    public function getWarnings()
+    public function getWarnings(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError
     {
         return isset($this->Warnings) ? $this->Warnings : null;
     }
@@ -200,13 +207,14 @@ class CdiscountValidateOrderResult extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $warnings
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderResult
      */
-    public function setWarnings(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $warnings = null)
+    public function setWarnings(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $warnings = null): self
     {
         if (is_null($warnings) || (is_array($warnings) && empty($warnings))) {
             unset($this->Warnings);
         } else {
             $this->Warnings = $warnings;
         }
+        
         return $this;
     }
 }

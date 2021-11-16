@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DiscussionFilterBase Structs
@@ -19,41 +22,41 @@ class CdiscountDiscussionFilterBase extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $BeginCreationDate;
+    protected ?string $BeginCreationDate = null;
     /**
      * The BeginModificationDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $BeginModificationDate;
+    protected ?string $BeginModificationDate = null;
     /**
      * The EndCreationDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $EndCreationDate;
+    protected ?string $EndCreationDate = null;
     /**
      * The EndModificationDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $EndModificationDate;
+    protected ?string $EndModificationDate = null;
     /**
      * The StatusList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter|null
      */
-    public $StatusList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter $StatusList = null;
     /**
      * Constructor method for DiscussionFilterBase
      * @uses CdiscountDiscussionFilterBase::setBeginCreationDate()
@@ -67,7 +70,7 @@ class CdiscountDiscussionFilterBase extends AbstractStructBase
      * @param string $endModificationDate
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter $statusList
      */
-    public function __construct($beginCreationDate = null, $beginModificationDate = null, $endCreationDate = null, $endModificationDate = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter $statusList = null)
+    public function __construct(?string $beginCreationDate = null, ?string $beginModificationDate = null, ?string $endCreationDate = null, ?string $endModificationDate = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter $statusList = null)
     {
         $this
             ->setBeginCreationDate($beginCreationDate)
@@ -83,7 +86,7 @@ class CdiscountDiscussionFilterBase extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getBeginCreationDate()
+    public function getBeginCreationDate(): ?string
     {
         return isset($this->BeginCreationDate) ? $this->BeginCreationDate : null;
     }
@@ -94,17 +97,18 @@ class CdiscountDiscussionFilterBase extends AbstractStructBase
      * @param string $beginCreationDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilterBase
      */
-    public function setBeginCreationDate($beginCreationDate = null)
+    public function setBeginCreationDate(?string $beginCreationDate = null): self
     {
         // validation for constraint: string
         if (!is_null($beginCreationDate) && !is_string($beginCreationDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginCreationDate, true), gettype($beginCreationDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginCreationDate, true), gettype($beginCreationDate)), __LINE__);
         }
         if (is_null($beginCreationDate) || (is_array($beginCreationDate) && empty($beginCreationDate))) {
             unset($this->BeginCreationDate);
         } else {
             $this->BeginCreationDate = $beginCreationDate;
         }
+        
         return $this;
     }
     /**
@@ -114,7 +118,7 @@ class CdiscountDiscussionFilterBase extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getBeginModificationDate()
+    public function getBeginModificationDate(): ?string
     {
         return isset($this->BeginModificationDate) ? $this->BeginModificationDate : null;
     }
@@ -125,17 +129,18 @@ class CdiscountDiscussionFilterBase extends AbstractStructBase
      * @param string $beginModificationDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilterBase
      */
-    public function setBeginModificationDate($beginModificationDate = null)
+    public function setBeginModificationDate(?string $beginModificationDate = null): self
     {
         // validation for constraint: string
         if (!is_null($beginModificationDate) && !is_string($beginModificationDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginModificationDate, true), gettype($beginModificationDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginModificationDate, true), gettype($beginModificationDate)), __LINE__);
         }
         if (is_null($beginModificationDate) || (is_array($beginModificationDate) && empty($beginModificationDate))) {
             unset($this->BeginModificationDate);
         } else {
             $this->BeginModificationDate = $beginModificationDate;
         }
+        
         return $this;
     }
     /**
@@ -145,7 +150,7 @@ class CdiscountDiscussionFilterBase extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getEndCreationDate()
+    public function getEndCreationDate(): ?string
     {
         return isset($this->EndCreationDate) ? $this->EndCreationDate : null;
     }
@@ -156,17 +161,18 @@ class CdiscountDiscussionFilterBase extends AbstractStructBase
      * @param string $endCreationDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilterBase
      */
-    public function setEndCreationDate($endCreationDate = null)
+    public function setEndCreationDate(?string $endCreationDate = null): self
     {
         // validation for constraint: string
         if (!is_null($endCreationDate) && !is_string($endCreationDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endCreationDate, true), gettype($endCreationDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endCreationDate, true), gettype($endCreationDate)), __LINE__);
         }
         if (is_null($endCreationDate) || (is_array($endCreationDate) && empty($endCreationDate))) {
             unset($this->EndCreationDate);
         } else {
             $this->EndCreationDate = $endCreationDate;
         }
+        
         return $this;
     }
     /**
@@ -176,7 +182,7 @@ class CdiscountDiscussionFilterBase extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getEndModificationDate()
+    public function getEndModificationDate(): ?string
     {
         return isset($this->EndModificationDate) ? $this->EndModificationDate : null;
     }
@@ -187,17 +193,18 @@ class CdiscountDiscussionFilterBase extends AbstractStructBase
      * @param string $endModificationDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilterBase
      */
-    public function setEndModificationDate($endModificationDate = null)
+    public function setEndModificationDate(?string $endModificationDate = null): self
     {
         // validation for constraint: string
         if (!is_null($endModificationDate) && !is_string($endModificationDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endModificationDate, true), gettype($endModificationDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endModificationDate, true), gettype($endModificationDate)), __LINE__);
         }
         if (is_null($endModificationDate) || (is_array($endModificationDate) && empty($endModificationDate))) {
             unset($this->EndModificationDate);
         } else {
             $this->EndModificationDate = $endModificationDate;
         }
+        
         return $this;
     }
     /**
@@ -207,7 +214,7 @@ class CdiscountDiscussionFilterBase extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter|null
      */
-    public function getStatusList()
+    public function getStatusList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter
     {
         return isset($this->StatusList) ? $this->StatusList : null;
     }
@@ -218,13 +225,14 @@ class CdiscountDiscussionFilterBase extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter $statusList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilterBase
      */
-    public function setStatusList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter $statusList = null)
+    public function setStatusList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter $statusList = null): self
     {
         if (is_null($statusList) || (is_array($statusList) && empty($statusList))) {
             unset($this->StatusList);
         } else {
             $this->StatusList = $statusList;
         }
+        
         return $this;
     }
 }

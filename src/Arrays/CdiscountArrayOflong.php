@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOflong Arrays
@@ -21,22 +24,22 @@ class CdiscountArrayOflong extends AbstractStructArrayBase
      * - minOccurs: 0
      * @var int[]
      */
-    public $long;
+    protected ?array $long = null;
     /**
      * Constructor method for ArrayOflong
      * @uses CdiscountArrayOflong::setLong()
      * @param int[] $long
      */
-    public function __construct(array $long = array())
+    public function __construct(?array $long = null)
     {
         $this
             ->setLong($long);
     }
     /**
      * Get long value
-     * @return int[]|null
+     * @return int[]
      */
-    public function getLong()
+    public function getLong(): ?array
     {
         return $this->long;
     }
@@ -46,8 +49,11 @@ class CdiscountArrayOflong extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateLongForArrayConstraintsFromSetLong(array $values = array())
+    public static function validateLongForArrayConstraintsFromSetLong(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOflongLongItem) {
@@ -57,39 +63,26 @@ class CdiscountArrayOflong extends AbstractStructArrayBase
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The long property can only contain items of type long, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The long property can only contain items of type int, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set long value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param int[] $long
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOflong
      */
-    public function setLong(array $long = array())
+    public function setLong(?array $long = null): self
     {
         // validation for constraint: array
         if ('' !== ($longArrayErrorMessage = self::validateLongForArrayConstraintsFromSetLong($long))) {
-            throw new \InvalidArgumentException($longArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($longArrayErrorMessage, __LINE__);
         }
         $this->long = $long;
-        return $this;
-    }
-    /**
-     * Add item to long value
-     * @throws \InvalidArgumentException
-     * @param int $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOflong
-     */
-    public function addToLong($item)
-    {
-        // validation for constraint: itemType
-        if (!(is_int($item) || ctype_digit($item))) {
-            throw new \InvalidArgumentException(sprintf('The long property can only contain items of type long, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->long[] = $item;
+        
         return $this;
     }
     /**
@@ -97,7 +90,7 @@ class CdiscountArrayOflong extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return int|null
      */
-    public function current()
+    public function current(): ?int
     {
         return parent::current();
     }
@@ -107,7 +100,7 @@ class CdiscountArrayOflong extends AbstractStructArrayBase
      * @param int $index
      * @return int|null
      */
-    public function item($index)
+    public function item($index): ?int
     {
         return parent::item($index);
     }
@@ -116,7 +109,7 @@ class CdiscountArrayOflong extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return int|null
      */
-    public function first()
+    public function first(): ?int
     {
         return parent::first();
     }
@@ -125,7 +118,7 @@ class CdiscountArrayOflong extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return int|null
      */
-    public function last()
+    public function last(): ?int
     {
         return parent::last();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOflong extends AbstractStructArrayBase
      * @param int $offset
      * @return int|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?int
     {
         return parent::offsetGet($offset);
     }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FulfilmentOnDemandSupplyOrderRequest Structs
@@ -18,15 +21,15 @@ class CdiscountFulfilmentOnDemandSupplyOrderRequest extends AbstractStructBase
      * The OrderLineList
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLineRequest
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLineRequest|null
      */
-    public $OrderLineList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLineRequest $OrderLineList = null;
     /**
      * Constructor method for FulfilmentOnDemandSupplyOrderRequest
      * @uses CdiscountFulfilmentOnDemandSupplyOrderRequest::setOrderLineList()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLineRequest $orderLineList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLineRequest $orderLineList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLineRequest $orderLineList = null)
     {
         $this
             ->setOrderLineList($orderLineList);
@@ -35,7 +38,7 @@ class CdiscountFulfilmentOnDemandSupplyOrderRequest extends AbstractStructBase
      * Get OrderLineList value
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLineRequest|null
      */
-    public function getOrderLineList()
+    public function getOrderLineList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLineRequest
     {
         return $this->OrderLineList;
     }
@@ -44,9 +47,10 @@ class CdiscountFulfilmentOnDemandSupplyOrderRequest extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLineRequest $orderLineList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandSupplyOrderRequest
      */
-    public function setOrderLineList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLineRequest $orderLineList = null)
+    public function setOrderLineList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfFulfilmentOrderLineRequest $orderLineList = null): self
     {
         $this->OrderLineList = $orderLineList;
+        
         return $this;
     }
 }

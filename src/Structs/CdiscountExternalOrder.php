@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ExternalOrder Structs
@@ -19,60 +22,60 @@ class CdiscountExternalOrder extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Comments;
+    protected ?string $Comments = null;
     /**
      * The Corporation
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Corporation;
+    protected ?string $Corporation = null;
     /**
      * The Customer
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalCustomer
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalCustomer|null
      */
-    public $Customer;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalCustomer $Customer = null;
     /**
      * The CustomerOrderNumber
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CustomerOrderNumber;
+    protected ?string $CustomerOrderNumber = null;
     /**
      * The OrderDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $OrderDate;
+    protected ?string $OrderDate = null;
     /**
      * The OrderLineList
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfExternalOrderLine
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfExternalOrderLine|null
      */
-    public $OrderLineList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfExternalOrderLine $OrderLineList = null;
     /**
      * The ShippingDateFromSeller
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ShippingDateFromSeller;
+    protected ?string $ShippingDateFromSeller = null;
     /**
      * The ShippingMode
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ShippingMode;
+    protected ?string $ShippingMode = null;
     /**
      * Constructor method for ExternalOrder
      * @uses CdiscountExternalOrder::setComments()
@@ -92,7 +95,7 @@ class CdiscountExternalOrder extends AbstractStructBase
      * @param string $shippingDateFromSeller
      * @param string $shippingMode
      */
-    public function __construct($comments = null, $corporation = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalCustomer $customer = null, $customerOrderNumber = null, $orderDate = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfExternalOrderLine $orderLineList = null, $shippingDateFromSeller = null, $shippingMode = null)
+    public function __construct(?string $comments = null, ?string $corporation = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalCustomer $customer = null, ?string $customerOrderNumber = null, ?string $orderDate = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfExternalOrderLine $orderLineList = null, ?string $shippingDateFromSeller = null, ?string $shippingMode = null)
     {
         $this
             ->setComments($comments)
@@ -111,7 +114,7 @@ class CdiscountExternalOrder extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getComments()
+    public function getComments(): ?string
     {
         return isset($this->Comments) ? $this->Comments : null;
     }
@@ -122,24 +125,25 @@ class CdiscountExternalOrder extends AbstractStructBase
      * @param string $comments
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalOrder
      */
-    public function setComments($comments = null)
+    public function setComments(?string $comments = null): self
     {
         // validation for constraint: string
         if (!is_null($comments) && !is_string($comments)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($comments, true), gettype($comments)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($comments, true), gettype($comments)), __LINE__);
         }
         if (is_null($comments) || (is_array($comments) && empty($comments))) {
             unset($this->Comments);
         } else {
             $this->Comments = $comments;
         }
+        
         return $this;
     }
     /**
      * Get Corporation value
      * @return string|null
      */
-    public function getCorporation()
+    public function getCorporation(): ?string
     {
         return $this->Corporation;
     }
@@ -148,20 +152,21 @@ class CdiscountExternalOrder extends AbstractStructBase
      * @param string $corporation
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalOrder
      */
-    public function setCorporation($corporation = null)
+    public function setCorporation(?string $corporation = null): self
     {
         // validation for constraint: string
         if (!is_null($corporation) && !is_string($corporation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($corporation, true), gettype($corporation)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($corporation, true), gettype($corporation)), __LINE__);
         }
         $this->Corporation = $corporation;
+        
         return $this;
     }
     /**
      * Get Customer value
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalCustomer|null
      */
-    public function getCustomer()
+    public function getCustomer(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalCustomer
     {
         return $this->Customer;
     }
@@ -170,16 +175,17 @@ class CdiscountExternalOrder extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalCustomer $customer
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalOrder
      */
-    public function setCustomer(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalCustomer $customer = null)
+    public function setCustomer(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalCustomer $customer = null): self
     {
         $this->Customer = $customer;
+        
         return $this;
     }
     /**
      * Get CustomerOrderNumber value
      * @return string|null
      */
-    public function getCustomerOrderNumber()
+    public function getCustomerOrderNumber(): ?string
     {
         return $this->CustomerOrderNumber;
     }
@@ -188,13 +194,14 @@ class CdiscountExternalOrder extends AbstractStructBase
      * @param string $customerOrderNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalOrder
      */
-    public function setCustomerOrderNumber($customerOrderNumber = null)
+    public function setCustomerOrderNumber(?string $customerOrderNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($customerOrderNumber) && !is_string($customerOrderNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customerOrderNumber, true), gettype($customerOrderNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customerOrderNumber, true), gettype($customerOrderNumber)), __LINE__);
         }
         $this->CustomerOrderNumber = $customerOrderNumber;
+        
         return $this;
     }
     /**
@@ -204,7 +211,7 @@ class CdiscountExternalOrder extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getOrderDate()
+    public function getOrderDate(): ?string
     {
         return isset($this->OrderDate) ? $this->OrderDate : null;
     }
@@ -215,24 +222,25 @@ class CdiscountExternalOrder extends AbstractStructBase
      * @param string $orderDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalOrder
      */
-    public function setOrderDate($orderDate = null)
+    public function setOrderDate(?string $orderDate = null): self
     {
         // validation for constraint: string
         if (!is_null($orderDate) && !is_string($orderDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderDate, true), gettype($orderDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderDate, true), gettype($orderDate)), __LINE__);
         }
         if (is_null($orderDate) || (is_array($orderDate) && empty($orderDate))) {
             unset($this->OrderDate);
         } else {
             $this->OrderDate = $orderDate;
         }
+        
         return $this;
     }
     /**
      * Get OrderLineList value
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfExternalOrderLine|null
      */
-    public function getOrderLineList()
+    public function getOrderLineList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfExternalOrderLine
     {
         return $this->OrderLineList;
     }
@@ -241,9 +249,10 @@ class CdiscountExternalOrder extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfExternalOrderLine $orderLineList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalOrder
      */
-    public function setOrderLineList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfExternalOrderLine $orderLineList = null)
+    public function setOrderLineList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfExternalOrderLine $orderLineList = null): self
     {
         $this->OrderLineList = $orderLineList;
+        
         return $this;
     }
     /**
@@ -253,7 +262,7 @@ class CdiscountExternalOrder extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getShippingDateFromSeller()
+    public function getShippingDateFromSeller(): ?string
     {
         return isset($this->ShippingDateFromSeller) ? $this->ShippingDateFromSeller : null;
     }
@@ -264,24 +273,25 @@ class CdiscountExternalOrder extends AbstractStructBase
      * @param string $shippingDateFromSeller
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalOrder
      */
-    public function setShippingDateFromSeller($shippingDateFromSeller = null)
+    public function setShippingDateFromSeller(?string $shippingDateFromSeller = null): self
     {
         // validation for constraint: string
         if (!is_null($shippingDateFromSeller) && !is_string($shippingDateFromSeller)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($shippingDateFromSeller, true), gettype($shippingDateFromSeller)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($shippingDateFromSeller, true), gettype($shippingDateFromSeller)), __LINE__);
         }
         if (is_null($shippingDateFromSeller) || (is_array($shippingDateFromSeller) && empty($shippingDateFromSeller))) {
             unset($this->ShippingDateFromSeller);
         } else {
             $this->ShippingDateFromSeller = $shippingDateFromSeller;
         }
+        
         return $this;
     }
     /**
      * Get ShippingMode value
      * @return string|null
      */
-    public function getShippingMode()
+    public function getShippingMode(): ?string
     {
         return $this->ShippingMode;
     }
@@ -290,13 +300,14 @@ class CdiscountExternalOrder extends AbstractStructBase
      * @param string $shippingMode
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExternalOrder
      */
-    public function setShippingMode($shippingMode = null)
+    public function setShippingMode(?string $shippingMode = null): self
     {
         // validation for constraint: string
         if (!is_null($shippingMode) && !is_string($shippingMode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($shippingMode, true), gettype($shippingMode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($shippingMode, true), gettype($shippingMode)), __LINE__);
         }
         $this->ShippingMode = $shippingMode;
+        
         return $this;
     }
 }

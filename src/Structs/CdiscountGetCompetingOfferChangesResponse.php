@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetCompetingOfferChangesResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetCompetingOfferChangesResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOfferMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOfferMessage|null
      */
-    public $GetCompetingOfferChangesResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOfferMessage $GetCompetingOfferChangesResult = null;
     /**
      * Constructor method for GetCompetingOfferChangesResponse
      * @uses CdiscountGetCompetingOfferChangesResponse::setGetCompetingOfferChangesResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOfferMessage $getCompetingOfferChangesResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOfferMessage $getCompetingOfferChangesResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOfferMessage $getCompetingOfferChangesResult = null)
     {
         $this
             ->setGetCompetingOfferChangesResult($getCompetingOfferChangesResult);
@@ -36,7 +39,7 @@ class CdiscountGetCompetingOfferChangesResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOfferMessage|null
      */
-    public function getGetCompetingOfferChangesResult()
+    public function getGetCompetingOfferChangesResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOfferMessage
     {
         return isset($this->GetCompetingOfferChangesResult) ? $this->GetCompetingOfferChangesResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetCompetingOfferChangesResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOfferMessage $getCompetingOfferChangesResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetCompetingOfferChangesResponse
      */
-    public function setGetCompetingOfferChangesResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOfferMessage $getCompetingOfferChangesResult = null)
+    public function setGetCompetingOfferChangesResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOfferMessage $getCompetingOfferChangesResult = null): self
     {
         if (is_null($getCompetingOfferChangesResult) || (is_array($getCompetingOfferChangesResult) && empty($getCompetingOfferChangesResult))) {
             unset($this->GetCompetingOfferChangesResult);
         } else {
             $this->GetCompetingOfferChangesResult = $getCompetingOfferChangesResult;
         }
+        
         return $this;
     }
 }

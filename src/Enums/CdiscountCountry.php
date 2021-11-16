@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for Country Enums
@@ -1496,7 +1498,7 @@ class CdiscountCountry extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_FR,
             self::VALUE_BE,
             self::VALUE_AF,
@@ -1743,6 +1745,6 @@ class CdiscountCountry extends AbstractStructEnumBase
             self::VALUE_YE,
             self::VALUE_ZM,
             self::VALUE_ZW,
-        );
+        ];
     }
 }

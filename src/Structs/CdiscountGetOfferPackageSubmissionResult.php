@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetOfferPackageSubmissionResult Structs
@@ -16,17 +19,17 @@ class CdiscountGetOfferPackageSubmissionResult extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public $headerMessage;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null;
     /**
      * The offerPackageFilter
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountPackageFilter
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountPackageFilter|null
      */
-    public $offerPackageFilter;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountPackageFilter $offerPackageFilter = null;
     /**
      * Constructor method for GetOfferPackageSubmissionResult
      * @uses CdiscountGetOfferPackageSubmissionResult::setHeaderMessage()
@@ -34,7 +37,7 @@ class CdiscountGetOfferPackageSubmissionResult extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountPackageFilter $offerPackageFilter
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountPackageFilter $offerPackageFilter = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountPackageFilter $offerPackageFilter = null)
     {
         $this
             ->setHeaderMessage($headerMessage)
@@ -47,7 +50,7 @@ class CdiscountGetOfferPackageSubmissionResult extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public function getHeaderMessage()
+    public function getHeaderMessage(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
     {
         return isset($this->headerMessage) ? $this->headerMessage : null;
     }
@@ -58,13 +61,14 @@ class CdiscountGetOfferPackageSubmissionResult extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOfferPackageSubmissionResult
      */
-    public function setHeaderMessage(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null)
+    public function setHeaderMessage(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null): self
     {
         if (is_null($headerMessage) || (is_array($headerMessage) && empty($headerMessage))) {
             unset($this->headerMessage);
         } else {
             $this->headerMessage = $headerMessage;
         }
+        
         return $this;
     }
     /**
@@ -74,7 +78,7 @@ class CdiscountGetOfferPackageSubmissionResult extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountPackageFilter|null
      */
-    public function getOfferPackageFilter()
+    public function getOfferPackageFilter(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountPackageFilter
     {
         return isset($this->offerPackageFilter) ? $this->offerPackageFilter : null;
     }
@@ -85,13 +89,14 @@ class CdiscountGetOfferPackageSubmissionResult extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountPackageFilter $offerPackageFilter
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOfferPackageSubmissionResult
      */
-    public function setOfferPackageFilter(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountPackageFilter $offerPackageFilter = null)
+    public function setOfferPackageFilter(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountPackageFilter $offerPackageFilter = null): self
     {
         if (is_null($offerPackageFilter) || (is_array($offerPackageFilter) && empty($offerPackageFilter))) {
             unset($this->offerPackageFilter);
         } else {
             $this->offerPackageFilter = $offerPackageFilter;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetFulfilmentOrderListToSupply Structs
@@ -16,17 +19,17 @@ class CdiscountGetFulfilmentOrderListToSupply extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public $headerMessage;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null;
     /**
      * The request
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandOrderLineFilter
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandOrderLineFilter|null
      */
-    public $request;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandOrderLineFilter $request = null;
     /**
      * Constructor method for GetFulfilmentOrderListToSupply
      * @uses CdiscountGetFulfilmentOrderListToSupply::setHeaderMessage()
@@ -34,7 +37,7 @@ class CdiscountGetFulfilmentOrderListToSupply extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandOrderLineFilter $request
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandOrderLineFilter $request = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandOrderLineFilter $request = null)
     {
         $this
             ->setHeaderMessage($headerMessage)
@@ -47,7 +50,7 @@ class CdiscountGetFulfilmentOrderListToSupply extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public function getHeaderMessage()
+    public function getHeaderMessage(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
     {
         return isset($this->headerMessage) ? $this->headerMessage : null;
     }
@@ -58,13 +61,14 @@ class CdiscountGetFulfilmentOrderListToSupply extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetFulfilmentOrderListToSupply
      */
-    public function setHeaderMessage(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null)
+    public function setHeaderMessage(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null): self
     {
         if (is_null($headerMessage) || (is_array($headerMessage) && empty($headerMessage))) {
             unset($this->headerMessage);
         } else {
             $this->headerMessage = $headerMessage;
         }
+        
         return $this;
     }
     /**
@@ -74,7 +78,7 @@ class CdiscountGetFulfilmentOrderListToSupply extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandOrderLineFilter|null
      */
-    public function getRequest()
+    public function getRequest(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandOrderLineFilter
     {
         return isset($this->request) ? $this->request : null;
     }
@@ -85,13 +89,14 @@ class CdiscountGetFulfilmentOrderListToSupply extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandOrderLineFilter $request
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetFulfilmentOrderListToSupply
      */
-    public function setRequest(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandOrderLineFilter $request = null)
+    public function setRequest(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandOrderLineFilter $request = null): self
     {
         if (is_null($request) || (is_array($request) && empty($request))) {
             unset($this->request);
         } else {
             $this->request = $request;
         }
+        
         return $this;
     }
 }

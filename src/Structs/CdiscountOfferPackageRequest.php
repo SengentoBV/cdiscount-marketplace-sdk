@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OfferPackageRequest Structs
@@ -19,15 +22,15 @@ class CdiscountOfferPackageRequest extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ZipFileFullPath;
+    protected ?string $ZipFileFullPath = null;
     /**
      * Constructor method for OfferPackageRequest
      * @uses CdiscountOfferPackageRequest::setZipFileFullPath()
      * @param string $zipFileFullPath
      */
-    public function __construct($zipFileFullPath = null)
+    public function __construct(?string $zipFileFullPath = null)
     {
         $this
             ->setZipFileFullPath($zipFileFullPath);
@@ -39,7 +42,7 @@ class CdiscountOfferPackageRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getZipFileFullPath()
+    public function getZipFileFullPath(): ?string
     {
         return isset($this->ZipFileFullPath) ? $this->ZipFileFullPath : null;
     }
@@ -50,17 +53,18 @@ class CdiscountOfferPackageRequest extends AbstractStructBase
      * @param string $zipFileFullPath
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferPackageRequest
      */
-    public function setZipFileFullPath($zipFileFullPath = null)
+    public function setZipFileFullPath(?string $zipFileFullPath = null): self
     {
         // validation for constraint: string
         if (!is_null($zipFileFullPath) && !is_string($zipFileFullPath)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($zipFileFullPath, true), gettype($zipFileFullPath)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($zipFileFullPath, true), gettype($zipFileFullPath)), __LINE__);
         }
         if (is_null($zipFileFullPath) || (is_array($zipFileFullPath) && empty($zipFileFullPath))) {
             unset($this->ZipFileFullPath);
         } else {
             $this->ZipFileFullPath = $zipFileFullPath;
         }
+        
         return $this;
     }
 }

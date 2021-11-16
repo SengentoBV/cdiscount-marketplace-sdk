@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for SupplyOrderStatusType Enums
@@ -68,7 +70,7 @@ class CdiscountSupplyOrderStatusType extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_REGISTERED,
             self::VALUE_APPOINTMENT_SCHEDULED,
             self::VALUE_SUPPLYING_IN_PROGRESS,
@@ -77,6 +79,6 @@ class CdiscountSupplyOrderStatusType extends AbstractStructEnumBase
             self::VALUE_VALIDATED,
             self::VALUE_CANCELLED,
             self::VALUE_PARTIALLY_RECEIVED,
-        );
+        ];
     }
 }

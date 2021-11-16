@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetSellerDealsResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetSellerDealsResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage|null
      */
-    public $GetSellerDealsResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage $GetSellerDealsResult = null;
     /**
      * Constructor method for GetSellerDealsResponse
      * @uses CdiscountGetSellerDealsResponse::setGetSellerDealsResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage $getSellerDealsResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage $getSellerDealsResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage $getSellerDealsResult = null)
     {
         $this
             ->setGetSellerDealsResult($getSellerDealsResult);
@@ -36,7 +39,7 @@ class CdiscountGetSellerDealsResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage|null
      */
-    public function getGetSellerDealsResult()
+    public function getGetSellerDealsResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage
     {
         return isset($this->GetSellerDealsResult) ? $this->GetSellerDealsResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetSellerDealsResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage $getSellerDealsResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetSellerDealsResponse
      */
-    public function setGetSellerDealsResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage $getSellerDealsResult = null)
+    public function setGetSellerDealsResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerDealListMessage $getSellerDealsResult = null): self
     {
         if (is_null($getSellerDealsResult) || (is_array($getSellerDealsResult) && empty($getSellerDealsResult))) {
             unset($this->GetSellerDealsResult);
         } else {
             $this->GetSellerDealsResult = $getSellerDealsResult;
         }
+        
         return $this;
     }
 }

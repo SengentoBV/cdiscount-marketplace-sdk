@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Discussion Structs
@@ -18,25 +21,25 @@ class CdiscountDiscussion extends CdiscountOrderQuestion
      * The ClaimType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ClaimType;
+    protected ?string $ClaimType = null;
     /**
      * The ProductEAN
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ProductEAN;
+    protected ?string $ProductEAN = null;
     /**
      * The ProductSellerReference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ProductSellerReference;
+    protected ?string $ProductSellerReference = null;
     /**
      * Constructor method for Discussion
      * @uses CdiscountDiscussion::setClaimType()
@@ -46,7 +49,7 @@ class CdiscountDiscussion extends CdiscountOrderQuestion
      * @param string $productEAN
      * @param string $productSellerReference
      */
-    public function __construct($claimType = null, $productEAN = null, $productSellerReference = null)
+    public function __construct(?string $claimType = null, ?string $productEAN = null, ?string $productSellerReference = null)
     {
         $this
             ->setClaimType($claimType)
@@ -57,7 +60,7 @@ class CdiscountDiscussion extends CdiscountOrderQuestion
      * Get ClaimType value
      * @return string|null
      */
-    public function getClaimType()
+    public function getClaimType(): ?string
     {
         return $this->ClaimType;
     }
@@ -65,17 +68,18 @@ class CdiscountDiscussion extends CdiscountOrderQuestion
      * Set ClaimType value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountClaimType::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountClaimType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $claimType
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion
      */
-    public function setClaimType($claimType = null)
+    public function setClaimType(?string $claimType = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountClaimType::valueIsValid($claimType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountClaimType', is_array($claimType) ? implode(', ', $claimType) : var_export($claimType, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountClaimType::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountClaimType', is_array($claimType) ? implode(', ', $claimType) : var_export($claimType, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountClaimType::getValidValues())), __LINE__);
         }
         $this->ClaimType = $claimType;
+        
         return $this;
     }
     /**
@@ -85,7 +89,7 @@ class CdiscountDiscussion extends CdiscountOrderQuestion
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getProductEAN()
+    public function getProductEAN(): ?string
     {
         return isset($this->ProductEAN) ? $this->ProductEAN : null;
     }
@@ -96,17 +100,18 @@ class CdiscountDiscussion extends CdiscountOrderQuestion
      * @param string $productEAN
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion
      */
-    public function setProductEAN($productEAN = null)
+    public function setProductEAN(?string $productEAN = null): self
     {
         // validation for constraint: string
         if (!is_null($productEAN) && !is_string($productEAN)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productEAN, true), gettype($productEAN)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productEAN, true), gettype($productEAN)), __LINE__);
         }
         if (is_null($productEAN) || (is_array($productEAN) && empty($productEAN))) {
             unset($this->ProductEAN);
         } else {
             $this->ProductEAN = $productEAN;
         }
+        
         return $this;
     }
     /**
@@ -116,7 +121,7 @@ class CdiscountDiscussion extends CdiscountOrderQuestion
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getProductSellerReference()
+    public function getProductSellerReference(): ?string
     {
         return isset($this->ProductSellerReference) ? $this->ProductSellerReference : null;
     }
@@ -127,17 +132,18 @@ class CdiscountDiscussion extends CdiscountOrderQuestion
      * @param string $productSellerReference
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussion
      */
-    public function setProductSellerReference($productSellerReference = null)
+    public function setProductSellerReference(?string $productSellerReference = null): self
     {
         // validation for constraint: string
         if (!is_null($productSellerReference) && !is_string($productSellerReference)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productSellerReference, true), gettype($productSellerReference)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productSellerReference, true), gettype($productSellerReference)), __LINE__);
         }
         if (is_null($productSellerReference) || (is_array($productSellerReference) && empty($productSellerReference))) {
             unset($this->ProductSellerReference);
         } else {
             $this->ProductSellerReference = $productSellerReference;
         }
+        
         return $this;
     }
 }

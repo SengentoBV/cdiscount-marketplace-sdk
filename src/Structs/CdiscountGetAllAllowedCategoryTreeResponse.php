@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetAllAllowedCategoryTreeResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetAllAllowedCategoryTreeResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTreeMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTreeMessage|null
      */
-    public $GetAllAllowedCategoryTreeResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTreeMessage $GetAllAllowedCategoryTreeResult = null;
     /**
      * Constructor method for GetAllAllowedCategoryTreeResponse
      * @uses CdiscountGetAllAllowedCategoryTreeResponse::setGetAllAllowedCategoryTreeResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTreeMessage $getAllAllowedCategoryTreeResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTreeMessage $getAllAllowedCategoryTreeResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTreeMessage $getAllAllowedCategoryTreeResult = null)
     {
         $this
             ->setGetAllAllowedCategoryTreeResult($getAllAllowedCategoryTreeResult);
@@ -36,7 +39,7 @@ class CdiscountGetAllAllowedCategoryTreeResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTreeMessage|null
      */
-    public function getGetAllAllowedCategoryTreeResult()
+    public function getGetAllAllowedCategoryTreeResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTreeMessage
     {
         return isset($this->GetAllAllowedCategoryTreeResult) ? $this->GetAllAllowedCategoryTreeResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetAllAllowedCategoryTreeResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTreeMessage $getAllAllowedCategoryTreeResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetAllAllowedCategoryTreeResponse
      */
-    public function setGetAllAllowedCategoryTreeResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTreeMessage $getAllAllowedCategoryTreeResult = null)
+    public function setGetAllAllowedCategoryTreeResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTreeMessage $getAllAllowedCategoryTreeResult = null): self
     {
         if (is_null($getAllAllowedCategoryTreeResult) || (is_array($getAllAllowedCategoryTreeResult) && empty($getAllAllowedCategoryTreeResult))) {
             unset($this->GetAllAllowedCategoryTreeResult);
         } else {
             $this->GetAllAllowedCategoryTreeResult = $getAllAllowedCategoryTreeResult;
         }
+        
         return $this;
     }
 }

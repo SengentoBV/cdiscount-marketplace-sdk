@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfOrderStateEnum Arrays
@@ -21,22 +24,22 @@ class CdiscountArrayOfOrderStateEnum extends AbstractStructArrayBase
      * - minOccurs: 0
      * @var string[]
      */
-    public $OrderStateEnum;
+    protected ?array $OrderStateEnum = null;
     /**
      * Constructor method for ArrayOfOrderStateEnum
      * @uses CdiscountArrayOfOrderStateEnum::setOrderStateEnum()
      * @param string[] $orderStateEnum
      */
-    public function __construct(array $orderStateEnum = array())
+    public function __construct(?array $orderStateEnum = null)
     {
         $this
             ->setOrderStateEnum($orderStateEnum);
     }
     /**
      * Get OrderStateEnum value
-     * @return string[]|null
+     * @return string[]
      */
-    public function getOrderStateEnum()
+    public function getOrderStateEnum(): ?array
     {
         return $this->OrderStateEnum;
     }
@@ -46,8 +49,11 @@ class CdiscountArrayOfOrderStateEnum extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateOrderStateEnumForArrayConstraintsFromSetOrderStateEnum(array $values = array())
+    public static function validateOrderStateEnumForArrayConstraintsFromSetOrderStateEnum(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfOrderStateEnumOrderStateEnumItem) {
@@ -60,40 +66,25 @@ class CdiscountArrayOfOrderStateEnum extends AbstractStructArrayBase
             $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set OrderStateEnum value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $orderStateEnum
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum
      */
-    public function setOrderStateEnum(array $orderStateEnum = array())
+    public function setOrderStateEnum(?array $orderStateEnum = null): self
     {
         // validation for constraint: array
         if ('' !== ($orderStateEnumArrayErrorMessage = self::validateOrderStateEnumForArrayConstraintsFromSetOrderStateEnum($orderStateEnum))) {
-            throw new \InvalidArgumentException($orderStateEnumArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($orderStateEnumArrayErrorMessage, __LINE__);
         }
         $this->OrderStateEnum = $orderStateEnum;
-        return $this;
-    }
-    /**
-     * Add item to OrderStateEnum value
-     * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::valueIsValid()
-     * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum
-     */
-    public function addToOrderStateEnum($item)
-    {
-        // validation for constraint: enumeration
-        if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::getValidValues())), __LINE__);
-        }
-        $this->OrderStateEnum[] = $item;
+        
         return $this;
     }
     /**
@@ -101,7 +92,7 @@ class CdiscountArrayOfOrderStateEnum extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -111,7 +102,7 @@ class CdiscountArrayOfOrderStateEnum extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -120,7 +111,7 @@ class CdiscountArrayOfOrderStateEnum extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -129,7 +120,7 @@ class CdiscountArrayOfOrderStateEnum extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -139,15 +130,14 @@ class CdiscountArrayOfOrderStateEnum extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
     /**
      * Add element to array
      * @see AbstractStructArrayBase::add()
-     * @throws \InvalidArgumentException
-     * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::valueIsValid()
+     * @throws InvalidArgumentException
      * @param string $item
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum
      */
@@ -155,7 +145,7 @@ class CdiscountArrayOfOrderStateEnum extends AbstractStructArrayBase
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::getValidValues())), __LINE__);
         }
         return parent::add($item);
     }

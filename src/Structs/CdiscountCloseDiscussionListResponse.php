@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CloseDiscussionListResponse Structs
@@ -16,15 +19,15 @@ class CdiscountCloseDiscussionListResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResultMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResultMessage|null
      */
-    public $CloseDiscussionListResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResultMessage $CloseDiscussionListResult = null;
     /**
      * Constructor method for CloseDiscussionListResponse
      * @uses CdiscountCloseDiscussionListResponse::setCloseDiscussionListResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResultMessage $closeDiscussionListResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResultMessage $closeDiscussionListResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResultMessage $closeDiscussionListResult = null)
     {
         $this
             ->setCloseDiscussionListResult($closeDiscussionListResult);
@@ -36,7 +39,7 @@ class CdiscountCloseDiscussionListResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResultMessage|null
      */
-    public function getCloseDiscussionListResult()
+    public function getCloseDiscussionListResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResultMessage
     {
         return isset($this->CloseDiscussionListResult) ? $this->CloseDiscussionListResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountCloseDiscussionListResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResultMessage $closeDiscussionListResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionListResponse
      */
-    public function setCloseDiscussionListResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResultMessage $closeDiscussionListResult = null)
+    public function setCloseDiscussionListResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCloseDiscussionResultMessage $closeDiscussionListResult = null): self
     {
         if (is_null($closeDiscussionListResult) || (is_array($closeDiscussionListResult) && empty($closeDiscussionListResult))) {
             unset($this->CloseDiscussionListResult);
         } else {
             $this->CloseDiscussionListResult = $closeDiscussionListResult;
         }
+        
         return $this;
     }
 }

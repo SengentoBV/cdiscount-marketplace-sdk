@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetSellerInformationResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetSellerInformationResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerMessage|null
      */
-    public $GetSellerInformationResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerMessage $GetSellerInformationResult = null;
     /**
      * Constructor method for GetSellerInformationResponse
      * @uses CdiscountGetSellerInformationResponse::setGetSellerInformationResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerMessage $getSellerInformationResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerMessage $getSellerInformationResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerMessage $getSellerInformationResult = null)
     {
         $this
             ->setGetSellerInformationResult($getSellerInformationResult);
@@ -36,7 +39,7 @@ class CdiscountGetSellerInformationResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerMessage|null
      */
-    public function getGetSellerInformationResult()
+    public function getGetSellerInformationResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerMessage
     {
         return isset($this->GetSellerInformationResult) ? $this->GetSellerInformationResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetSellerInformationResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerMessage $getSellerInformationResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetSellerInformationResponse
      */
-    public function setGetSellerInformationResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerMessage $getSellerInformationResult = null)
+    public function setGetSellerInformationResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerMessage $getSellerInformationResult = null): self
     {
         if (is_null($getSellerInformationResult) || (is_array($getSellerInformationResult) && empty($getSellerInformationResult))) {
             unset($this->GetSellerInformationResult);
         } else {
             $this->GetSellerInformationResult = $getSellerInformationResult;
         }
+        
         return $this;
     }
 }

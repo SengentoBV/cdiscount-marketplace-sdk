@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateRefundVoucherAfterShipmentResponse Structs
@@ -16,15 +19,15 @@ class CdiscountCreateRefundVoucherAfterShipmentResponse extends AbstractStructBa
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResultMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResultMessage|null
      */
-    public $CreateRefundVoucherAfterShipmentResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResultMessage $CreateRefundVoucherAfterShipmentResult = null;
     /**
      * Constructor method for CreateRefundVoucherAfterShipmentResponse
      * @uses CdiscountCreateRefundVoucherAfterShipmentResponse::setCreateRefundVoucherAfterShipmentResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResultMessage $createRefundVoucherAfterShipmentResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResultMessage $createRefundVoucherAfterShipmentResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResultMessage $createRefundVoucherAfterShipmentResult = null)
     {
         $this
             ->setCreateRefundVoucherAfterShipmentResult($createRefundVoucherAfterShipmentResult);
@@ -36,7 +39,7 @@ class CdiscountCreateRefundVoucherAfterShipmentResponse extends AbstractStructBa
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResultMessage|null
      */
-    public function getCreateRefundVoucherAfterShipmentResult()
+    public function getCreateRefundVoucherAfterShipmentResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResultMessage
     {
         return isset($this->CreateRefundVoucherAfterShipmentResult) ? $this->CreateRefundVoucherAfterShipmentResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountCreateRefundVoucherAfterShipmentResponse extends AbstractStructBa
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResultMessage $createRefundVoucherAfterShipmentResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCreateRefundVoucherAfterShipmentResponse
      */
-    public function setCreateRefundVoucherAfterShipmentResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResultMessage $createRefundVoucherAfterShipmentResult = null)
+    public function setCreateRefundVoucherAfterShipmentResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResultMessage $createRefundVoucherAfterShipmentResult = null): self
     {
         if (is_null($createRefundVoucherAfterShipmentResult) || (is_array($createRefundVoucherAfterShipmentResult) && empty($createRefundVoucherAfterShipmentResult))) {
             unset($this->CreateRefundVoucherAfterShipmentResult);
         } else {
             $this->CreateRefundVoucherAfterShipmentResult = $createRefundVoucherAfterShipmentResult;
         }
+        
         return $this;
     }
 }

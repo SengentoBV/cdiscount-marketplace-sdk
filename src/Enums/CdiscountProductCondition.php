@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ProductCondition Enums
@@ -45,6 +47,21 @@ class CdiscountProductCondition extends AbstractStructEnumBase
      */
     const VALUE_NEW_NEW = 'NewNew';
     /**
+     * Constant for value 'RefurbishedLikeNew'
+     * @return string 'RefurbishedLikeNew'
+     */
+    const VALUE_REFURBISHED_LIKE_NEW = 'RefurbishedLikeNew';
+    /**
+     * Constant for value 'RefurbishedVeryGoodState'
+     * @return string 'RefurbishedVeryGoodState'
+     */
+    const VALUE_REFURBISHED_VERY_GOOD_STATE = 'RefurbishedVeryGoodState';
+    /**
+     * Constant for value 'RefurbishedCorrectState'
+     * @return string 'RefurbishedCorrectState'
+     */
+    const VALUE_REFURBISHED_CORRECT_STATE = 'RefurbishedCorrectState';
+    /**
      * Return allowed values
      * @uses self::VALUE_USED_LIKE_NEW
      * @uses self::VALUE_USED_VERY_GOOD_CONDITION
@@ -52,17 +69,23 @@ class CdiscountProductCondition extends AbstractStructEnumBase
      * @uses self::VALUE_USED_SATISFACTORY_CONDTION
      * @uses self::VALUE_NEW_REFURBISHED
      * @uses self::VALUE_NEW_NEW
+     * @uses self::VALUE_REFURBISHED_LIKE_NEW
+     * @uses self::VALUE_REFURBISHED_VERY_GOOD_STATE
+     * @uses self::VALUE_REFURBISHED_CORRECT_STATE
      * @return string[]
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_USED_LIKE_NEW,
             self::VALUE_USED_VERY_GOOD_CONDITION,
             self::VALUE_USED_GOOD_CONDITION,
             self::VALUE_USED_SATISFACTORY_CONDTION,
             self::VALUE_NEW_REFURBISHED,
             self::VALUE_NEW_NEW,
-        );
+            self::VALUE_REFURBISHED_LIKE_NEW,
+            self::VALUE_REFURBISHED_VERY_GOOD_STATE,
+            self::VALUE_REFURBISHED_CORRECT_STATE,
+        ];
     }
 }

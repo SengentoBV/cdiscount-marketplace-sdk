@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OfferStateActionRequest Structs
@@ -16,17 +19,17 @@ class CdiscountOfferStateActionRequest extends AbstractStructBase
 {
     /**
      * The Action
-     * @var string
+     * @var string|null
      */
-    public $Action;
+    protected ?string $Action = null;
     /**
      * The SellerProductId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SellerProductId;
+    protected ?string $SellerProductId = null;
     /**
      * Constructor method for OfferStateActionRequest
      * @uses CdiscountOfferStateActionRequest::setAction()
@@ -34,7 +37,7 @@ class CdiscountOfferStateActionRequest extends AbstractStructBase
      * @param string $action
      * @param string $sellerProductId
      */
-    public function __construct($action = null, $sellerProductId = null)
+    public function __construct(?string $action = null, ?string $sellerProductId = null)
     {
         $this
             ->setAction($action)
@@ -44,7 +47,7 @@ class CdiscountOfferStateActionRequest extends AbstractStructBase
      * Get Action value
      * @return string|null
      */
-    public function getAction()
+    public function getAction(): ?string
     {
         return $this->Action;
     }
@@ -52,17 +55,18 @@ class CdiscountOfferStateActionRequest extends AbstractStructBase
      * Set Action value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOfferStateActionType::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOfferStateActionType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $action
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferStateActionRequest
      */
-    public function setAction($action = null)
+    public function setAction(?string $action = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOfferStateActionType::valueIsValid($action)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOfferStateActionType', is_array($action) ? implode(', ', $action) : var_export($action, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOfferStateActionType::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOfferStateActionType', is_array($action) ? implode(', ', $action) : var_export($action, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOfferStateActionType::getValidValues())), __LINE__);
         }
         $this->Action = $action;
+        
         return $this;
     }
     /**
@@ -72,7 +76,7 @@ class CdiscountOfferStateActionRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSellerProductId()
+    public function getSellerProductId(): ?string
     {
         return isset($this->SellerProductId) ? $this->SellerProductId : null;
     }
@@ -83,17 +87,18 @@ class CdiscountOfferStateActionRequest extends AbstractStructBase
      * @param string $sellerProductId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferStateActionRequest
      */
-    public function setSellerProductId($sellerProductId = null)
+    public function setSellerProductId(?string $sellerProductId = null): self
     {
         // validation for constraint: string
         if (!is_null($sellerProductId) && !is_string($sellerProductId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerProductId, true), gettype($sellerProductId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerProductId, true), gettype($sellerProductId)), __LINE__);
         }
         if (is_null($sellerProductId) || (is_array($sellerProductId) && empty($sellerProductId))) {
             unset($this->SellerProductId);
         } else {
             $this->SellerProductId = $sellerProductId;
         }
+        
         return $this;
     }
 }

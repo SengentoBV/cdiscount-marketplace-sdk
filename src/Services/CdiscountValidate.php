@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Services;
 
-use \WsdlToPhp\PackageBase\AbstractSoapClientBase;
+use SoapFault;
+use WsdlToPhp\PackageBase\AbstractSoapClientBase;
 
 /**
  * This class stands for Validate Services
@@ -15,7 +18,6 @@ class CdiscountValidate extends AbstractSoapClientBase
      * Method to call the operation originally named ValidateOrderList
      * @uses AbstractSoapClientBase::getSoapClient()
      * @uses AbstractSoapClientBase::setResult()
-     * @uses AbstractSoapClientBase::getResult()
      * @uses AbstractSoapClientBase::saveLastError()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderList $parameters
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderListResponse|bool
@@ -23,10 +25,14 @@ class CdiscountValidate extends AbstractSoapClientBase
     public function ValidateOrderList(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderList $parameters)
     {
         try {
-            $this->setResult($this->getSoapClient()->ValidateOrderList($parameters));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            $this->setResult($resultValidateOrderList = $this->getSoapClient()->__soapCall('ValidateOrderList', [
+                $parameters,
+            ], [], [], $this->outputHeaders));
+        
+            return $resultValidateOrderList;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }

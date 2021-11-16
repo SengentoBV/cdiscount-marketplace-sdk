@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FulfilmentActivationMessage Structs
@@ -18,15 +21,15 @@ class CdiscountFulfilmentActivationMessage extends CdiscountServiceBaseAPIMessag
      * The DepositId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $DepositId;
+    protected ?int $DepositId = null;
     /**
      * Constructor method for FulfilmentActivationMessage
      * @uses CdiscountFulfilmentActivationMessage::setDepositId()
      * @param int $depositId
      */
-    public function __construct($depositId = null)
+    public function __construct(?int $depositId = null)
     {
         $this
             ->setDepositId($depositId);
@@ -35,7 +38,7 @@ class CdiscountFulfilmentActivationMessage extends CdiscountServiceBaseAPIMessag
      * Get DepositId value
      * @return int|null
      */
-    public function getDepositId()
+    public function getDepositId(): ?int
     {
         return $this->DepositId;
     }
@@ -44,13 +47,14 @@ class CdiscountFulfilmentActivationMessage extends CdiscountServiceBaseAPIMessag
      * @param int $depositId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationMessage
      */
-    public function setDepositId($depositId = null)
+    public function setDepositId(?int $depositId = null): self
     {
         // validation for constraint: int
         if (!is_null($depositId) && !(is_int($depositId) || ctype_digit($depositId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($depositId, true), gettype($depositId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($depositId, true), gettype($depositId)), __LINE__);
         }
         $this->DepositId = $depositId;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetDiscussionMailListResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetDiscussionMailListResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailListMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailListMessage|null
      */
-    public $GetDiscussionMailListResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailListMessage $GetDiscussionMailListResult = null;
     /**
      * Constructor method for GetDiscussionMailListResponse
      * @uses CdiscountGetDiscussionMailListResponse::setGetDiscussionMailListResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailListMessage $getDiscussionMailListResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailListMessage $getDiscussionMailListResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailListMessage $getDiscussionMailListResult = null)
     {
         $this
             ->setGetDiscussionMailListResult($getDiscussionMailListResult);
@@ -36,7 +39,7 @@ class CdiscountGetDiscussionMailListResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailListMessage|null
      */
-    public function getGetDiscussionMailListResult()
+    public function getGetDiscussionMailListResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailListMessage
     {
         return isset($this->GetDiscussionMailListResult) ? $this->GetDiscussionMailListResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetDiscussionMailListResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailListMessage $getDiscussionMailListResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetDiscussionMailListResponse
      */
-    public function setGetDiscussionMailListResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailListMessage $getDiscussionMailListResult = null)
+    public function setGetDiscussionMailListResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailListMessage $getDiscussionMailListResult = null): self
     {
         if (is_null($getDiscussionMailListResult) || (is_array($getDiscussionMailListResult) && empty($getDiscussionMailListResult))) {
             unset($this->GetDiscussionMailListResult);
         } else {
             $this->GetDiscussionMailListResult = $getDiscussionMailListResult;
         }
+        
         return $this;
     }
 }

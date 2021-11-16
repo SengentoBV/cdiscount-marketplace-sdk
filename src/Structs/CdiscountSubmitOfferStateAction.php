@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SubmitOfferStateAction Structs
@@ -16,17 +19,17 @@ class CdiscountSubmitOfferStateAction extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public $headerMessage;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null;
     /**
      * The offerStateRequest
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferStateActionRequest
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferStateActionRequest|null
      */
-    public $offerStateRequest;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferStateActionRequest $offerStateRequest = null;
     /**
      * Constructor method for SubmitOfferStateAction
      * @uses CdiscountSubmitOfferStateAction::setHeaderMessage()
@@ -34,7 +37,7 @@ class CdiscountSubmitOfferStateAction extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferStateActionRequest $offerStateRequest
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferStateActionRequest $offerStateRequest = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferStateActionRequest $offerStateRequest = null)
     {
         $this
             ->setHeaderMessage($headerMessage)
@@ -47,7 +50,7 @@ class CdiscountSubmitOfferStateAction extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public function getHeaderMessage()
+    public function getHeaderMessage(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
     {
         return isset($this->headerMessage) ? $this->headerMessage : null;
     }
@@ -58,13 +61,14 @@ class CdiscountSubmitOfferStateAction extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubmitOfferStateAction
      */
-    public function setHeaderMessage(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null)
+    public function setHeaderMessage(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null): self
     {
         if (is_null($headerMessage) || (is_array($headerMessage) && empty($headerMessage))) {
             unset($this->headerMessage);
         } else {
             $this->headerMessage = $headerMessage;
         }
+        
         return $this;
     }
     /**
@@ -74,7 +78,7 @@ class CdiscountSubmitOfferStateAction extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferStateActionRequest|null
      */
-    public function getOfferStateRequest()
+    public function getOfferStateRequest(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferStateActionRequest
     {
         return isset($this->offerStateRequest) ? $this->offerStateRequest : null;
     }
@@ -85,13 +89,14 @@ class CdiscountSubmitOfferStateAction extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferStateActionRequest $offerStateRequest
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubmitOfferStateAction
      */
-    public function setOfferStateRequest(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferStateActionRequest $offerStateRequest = null)
+    public function setOfferStateRequest(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferStateActionRequest $offerStateRequest = null): self
     {
         if (is_null($offerStateRequest) || (is_array($offerStateRequest) && empty($offerStateRequest))) {
             unset($this->offerStateRequest);
         } else {
             $this->offerStateRequest = $offerStateRequest;
         }
+        
         return $this;
     }
 }

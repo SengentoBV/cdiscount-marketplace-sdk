@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ProductListByIdentifierMessage Structs
@@ -19,15 +22,15 @@ class CdiscountProductListByIdentifierMessage extends CdiscountServiceBaseAPIMes
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductByIdentifier
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductByIdentifier|null
      */
-    public $ProductListByIdentifier;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductByIdentifier $ProductListByIdentifier = null;
     /**
      * Constructor method for ProductListByIdentifierMessage
      * @uses CdiscountProductListByIdentifierMessage::setProductListByIdentifier()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductByIdentifier $productListByIdentifier
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductByIdentifier $productListByIdentifier = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductByIdentifier $productListByIdentifier = null)
     {
         $this
             ->setProductListByIdentifier($productListByIdentifier);
@@ -39,7 +42,7 @@ class CdiscountProductListByIdentifierMessage extends CdiscountServiceBaseAPIMes
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductByIdentifier|null
      */
-    public function getProductListByIdentifier()
+    public function getProductListByIdentifier(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductByIdentifier
     {
         return isset($this->ProductListByIdentifier) ? $this->ProductListByIdentifier : null;
     }
@@ -50,13 +53,14 @@ class CdiscountProductListByIdentifierMessage extends CdiscountServiceBaseAPIMes
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductByIdentifier $productListByIdentifier
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductListByIdentifierMessage
      */
-    public function setProductListByIdentifier(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductByIdentifier $productListByIdentifier = null)
+    public function setProductListByIdentifier(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductByIdentifier $productListByIdentifier = null): self
     {
         if (is_null($productListByIdentifier) || (is_array($productListByIdentifier) && empty($productListByIdentifier))) {
             unset($this->ProductListByIdentifier);
         } else {
             $this->ProductListByIdentifier = $productListByIdentifier;
         }
+        
         return $this;
     }
 }

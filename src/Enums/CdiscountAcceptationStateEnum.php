@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for AcceptationStateEnum Enums
@@ -98,7 +100,7 @@ class CdiscountAcceptationStateEnum extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_ACCEPTED_BY_SELLER,
             self::VALUE_REFUSED_BY_SELLER,
@@ -112,6 +114,6 @@ class CdiscountAcceptationStateEnum extends AbstractStructEnumBase
             self::VALUE_CANCELLED_AFTER_PAYMENT_BY_CUSTOMER,
             self::VALUE_REFUNDED_AFTER_CUSTOMER_CANCELLATION,
             self::VALUE_PAYMENT_REFUSED,
-        );
+        ];
     }
 }

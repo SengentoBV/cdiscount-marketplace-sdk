@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RelayIntegrationLog Structs
@@ -19,31 +22,31 @@ class CdiscountRelayIntegrationLog extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public $Errors;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $Errors = null;
     /**
      * The LogDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LogDate;
+    protected ?string $LogDate = null;
     /**
      * The RelayReference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $RelayReference;
+    protected ?string $RelayReference = null;
     /**
      * The Validated
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $Validated;
+    protected ?bool $Validated = null;
     /**
      * Constructor method for RelayIntegrationLog
      * @uses CdiscountRelayIntegrationLog::setErrors()
@@ -55,7 +58,7 @@ class CdiscountRelayIntegrationLog extends AbstractStructBase
      * @param string $relayReference
      * @param bool $validated
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $errors = null, $logDate = null, $relayReference = null, $validated = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $errors = null, ?string $logDate = null, ?string $relayReference = null, ?bool $validated = null)
     {
         $this
             ->setErrors($errors)
@@ -70,7 +73,7 @@ class CdiscountRelayIntegrationLog extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public function getErrors()
+    public function getErrors(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
     {
         return isset($this->Errors) ? $this->Errors : null;
     }
@@ -81,20 +84,21 @@ class CdiscountRelayIntegrationLog extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $errors
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationLog
      */
-    public function setErrors(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $errors = null)
+    public function setErrors(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $errors = null): self
     {
         if (is_null($errors) || (is_array($errors) && empty($errors))) {
             unset($this->Errors);
         } else {
             $this->Errors = $errors;
         }
+        
         return $this;
     }
     /**
      * Get LogDate value
      * @return string|null
      */
-    public function getLogDate()
+    public function getLogDate(): ?string
     {
         return $this->LogDate;
     }
@@ -103,13 +107,14 @@ class CdiscountRelayIntegrationLog extends AbstractStructBase
      * @param string $logDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationLog
      */
-    public function setLogDate($logDate = null)
+    public function setLogDate(?string $logDate = null): self
     {
         // validation for constraint: string
         if (!is_null($logDate) && !is_string($logDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($logDate, true), gettype($logDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($logDate, true), gettype($logDate)), __LINE__);
         }
         $this->LogDate = $logDate;
+        
         return $this;
     }
     /**
@@ -119,7 +124,7 @@ class CdiscountRelayIntegrationLog extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getRelayReference()
+    public function getRelayReference(): ?string
     {
         return isset($this->RelayReference) ? $this->RelayReference : null;
     }
@@ -130,24 +135,25 @@ class CdiscountRelayIntegrationLog extends AbstractStructBase
      * @param string $relayReference
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationLog
      */
-    public function setRelayReference($relayReference = null)
+    public function setRelayReference(?string $relayReference = null): self
     {
         // validation for constraint: string
         if (!is_null($relayReference) && !is_string($relayReference)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($relayReference, true), gettype($relayReference)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($relayReference, true), gettype($relayReference)), __LINE__);
         }
         if (is_null($relayReference) || (is_array($relayReference) && empty($relayReference))) {
             unset($this->RelayReference);
         } else {
             $this->RelayReference = $relayReference;
         }
+        
         return $this;
     }
     /**
      * Get Validated value
      * @return bool|null
      */
-    public function getValidated()
+    public function getValidated(): ?bool
     {
         return $this->Validated;
     }
@@ -156,13 +162,14 @@ class CdiscountRelayIntegrationLog extends AbstractStructBase
      * @param bool $validated
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRelayIntegrationLog
      */
-    public function setValidated($validated = null)
+    public function setValidated(?bool $validated = null): self
     {
         // validation for constraint: boolean
         if (!is_null($validated) && !is_bool($validated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($validated, true), gettype($validated)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($validated, true), gettype($validated)), __LINE__);
         }
         $this->Validated = $validated;
+        
         return $this;
     }
 }

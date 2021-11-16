@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OrderFilter Structs
@@ -19,101 +22,101 @@ class CdiscountOrderFilter extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $BeginCreationDate;
+    protected ?string $BeginCreationDate = null;
     /**
      * The BeginModificationDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $BeginModificationDate;
+    protected ?string $BeginModificationDate = null;
     /**
      * The CorporationCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CorporationCode;
+    protected ?string $CorporationCode = null;
     /**
      * The Country
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Country;
+    protected ?string $Country = null;
     /**
      * The EndCreationDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $EndCreationDate;
+    protected ?string $EndCreationDate = null;
     /**
      * The EndModificationDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $EndModificationDate;
+    protected ?string $EndModificationDate = null;
     /**
      * The FetchOrderLines
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $FetchOrderLines;
+    protected ?bool $FetchOrderLines = null;
     /**
      * The FetchParcels
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $FetchParcels;
+    protected ?bool $FetchParcels = null;
     /**
      * The IncludeExternalFbcSiteId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IncludeExternalFbcSiteId;
+    protected ?bool $IncludeExternalFbcSiteId = null;
     /**
      * The OrderReferenceList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public $OrderReferenceList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $OrderReferenceList = null;
     /**
      * The OrderType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $OrderType;
+    protected ?string $OrderType = null;
     /**
      * The PartnerOrderRef
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $PartnerOrderRef;
+    protected ?string $PartnerOrderRef = null;
     /**
      * The States
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum|null
      */
-    public $States;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum $States = null;
     /**
      * Constructor method for OrderFilter
      * @uses CdiscountOrderFilter::setBeginCreationDate()
@@ -143,7 +146,7 @@ class CdiscountOrderFilter extends AbstractStructBase
      * @param string $partnerOrderRef
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum $states
      */
-    public function __construct($beginCreationDate = null, $beginModificationDate = null, $corporationCode = null, $country = null, $endCreationDate = null, $endModificationDate = null, $fetchOrderLines = null, $fetchParcels = null, $includeExternalFbcSiteId = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderReferenceList = null, $orderType = null, $partnerOrderRef = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum $states = null)
+    public function __construct(?string $beginCreationDate = null, ?string $beginModificationDate = null, ?string $corporationCode = null, ?string $country = null, ?string $endCreationDate = null, ?string $endModificationDate = null, ?bool $fetchOrderLines = null, ?bool $fetchParcels = null, ?bool $includeExternalFbcSiteId = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderReferenceList = null, ?string $orderType = null, ?string $partnerOrderRef = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum $states = null)
     {
         $this
             ->setBeginCreationDate($beginCreationDate)
@@ -167,7 +170,7 @@ class CdiscountOrderFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getBeginCreationDate()
+    public function getBeginCreationDate(): ?string
     {
         return isset($this->BeginCreationDate) ? $this->BeginCreationDate : null;
     }
@@ -178,17 +181,18 @@ class CdiscountOrderFilter extends AbstractStructBase
      * @param string $beginCreationDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter
      */
-    public function setBeginCreationDate($beginCreationDate = null)
+    public function setBeginCreationDate(?string $beginCreationDate = null): self
     {
         // validation for constraint: string
         if (!is_null($beginCreationDate) && !is_string($beginCreationDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginCreationDate, true), gettype($beginCreationDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginCreationDate, true), gettype($beginCreationDate)), __LINE__);
         }
         if (is_null($beginCreationDate) || (is_array($beginCreationDate) && empty($beginCreationDate))) {
             unset($this->BeginCreationDate);
         } else {
             $this->BeginCreationDate = $beginCreationDate;
         }
+        
         return $this;
     }
     /**
@@ -198,7 +202,7 @@ class CdiscountOrderFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getBeginModificationDate()
+    public function getBeginModificationDate(): ?string
     {
         return isset($this->BeginModificationDate) ? $this->BeginModificationDate : null;
     }
@@ -209,17 +213,18 @@ class CdiscountOrderFilter extends AbstractStructBase
      * @param string $beginModificationDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter
      */
-    public function setBeginModificationDate($beginModificationDate = null)
+    public function setBeginModificationDate(?string $beginModificationDate = null): self
     {
         // validation for constraint: string
         if (!is_null($beginModificationDate) && !is_string($beginModificationDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginModificationDate, true), gettype($beginModificationDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginModificationDate, true), gettype($beginModificationDate)), __LINE__);
         }
         if (is_null($beginModificationDate) || (is_array($beginModificationDate) && empty($beginModificationDate))) {
             unset($this->BeginModificationDate);
         } else {
             $this->BeginModificationDate = $beginModificationDate;
         }
+        
         return $this;
     }
     /**
@@ -229,7 +234,7 @@ class CdiscountOrderFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCorporationCode()
+    public function getCorporationCode(): ?string
     {
         return isset($this->CorporationCode) ? $this->CorporationCode : null;
     }
@@ -240,24 +245,25 @@ class CdiscountOrderFilter extends AbstractStructBase
      * @param string $corporationCode
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter
      */
-    public function setCorporationCode($corporationCode = null)
+    public function setCorporationCode(?string $corporationCode = null): self
     {
         // validation for constraint: string
         if (!is_null($corporationCode) && !is_string($corporationCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($corporationCode, true), gettype($corporationCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($corporationCode, true), gettype($corporationCode)), __LINE__);
         }
         if (is_null($corporationCode) || (is_array($corporationCode) && empty($corporationCode))) {
             unset($this->CorporationCode);
         } else {
             $this->CorporationCode = $corporationCode;
         }
+        
         return $this;
     }
     /**
      * Get Country value
      * @return string|null
      */
-    public function getCountry()
+    public function getCountry(): ?string
     {
         return $this->Country;
     }
@@ -265,17 +271,18 @@ class CdiscountOrderFilter extends AbstractStructBase
      * Set Country value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCountryEnum::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCountryEnum::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $country
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter
      */
-    public function setCountry($country = null)
+    public function setCountry(?string $country = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCountryEnum::valueIsValid($country)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCountryEnum', is_array($country) ? implode(', ', $country) : var_export($country, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCountryEnum::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCountryEnum', is_array($country) ? implode(', ', $country) : var_export($country, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountCountryEnum::getValidValues())), __LINE__);
         }
         $this->Country = $country;
+        
         return $this;
     }
     /**
@@ -285,7 +292,7 @@ class CdiscountOrderFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getEndCreationDate()
+    public function getEndCreationDate(): ?string
     {
         return isset($this->EndCreationDate) ? $this->EndCreationDate : null;
     }
@@ -296,17 +303,18 @@ class CdiscountOrderFilter extends AbstractStructBase
      * @param string $endCreationDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter
      */
-    public function setEndCreationDate($endCreationDate = null)
+    public function setEndCreationDate(?string $endCreationDate = null): self
     {
         // validation for constraint: string
         if (!is_null($endCreationDate) && !is_string($endCreationDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endCreationDate, true), gettype($endCreationDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endCreationDate, true), gettype($endCreationDate)), __LINE__);
         }
         if (is_null($endCreationDate) || (is_array($endCreationDate) && empty($endCreationDate))) {
             unset($this->EndCreationDate);
         } else {
             $this->EndCreationDate = $endCreationDate;
         }
+        
         return $this;
     }
     /**
@@ -316,7 +324,7 @@ class CdiscountOrderFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getEndModificationDate()
+    public function getEndModificationDate(): ?string
     {
         return isset($this->EndModificationDate) ? $this->EndModificationDate : null;
     }
@@ -327,24 +335,25 @@ class CdiscountOrderFilter extends AbstractStructBase
      * @param string $endModificationDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter
      */
-    public function setEndModificationDate($endModificationDate = null)
+    public function setEndModificationDate(?string $endModificationDate = null): self
     {
         // validation for constraint: string
         if (!is_null($endModificationDate) && !is_string($endModificationDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endModificationDate, true), gettype($endModificationDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endModificationDate, true), gettype($endModificationDate)), __LINE__);
         }
         if (is_null($endModificationDate) || (is_array($endModificationDate) && empty($endModificationDate))) {
             unset($this->EndModificationDate);
         } else {
             $this->EndModificationDate = $endModificationDate;
         }
+        
         return $this;
     }
     /**
      * Get FetchOrderLines value
      * @return bool|null
      */
-    public function getFetchOrderLines()
+    public function getFetchOrderLines(): ?bool
     {
         return $this->FetchOrderLines;
     }
@@ -353,20 +362,21 @@ class CdiscountOrderFilter extends AbstractStructBase
      * @param bool $fetchOrderLines
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter
      */
-    public function setFetchOrderLines($fetchOrderLines = null)
+    public function setFetchOrderLines(?bool $fetchOrderLines = null): self
     {
         // validation for constraint: boolean
         if (!is_null($fetchOrderLines) && !is_bool($fetchOrderLines)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($fetchOrderLines, true), gettype($fetchOrderLines)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($fetchOrderLines, true), gettype($fetchOrderLines)), __LINE__);
         }
         $this->FetchOrderLines = $fetchOrderLines;
+        
         return $this;
     }
     /**
      * Get FetchParcels value
      * @return bool|null
      */
-    public function getFetchParcels()
+    public function getFetchParcels(): ?bool
     {
         return $this->FetchParcels;
     }
@@ -375,20 +385,21 @@ class CdiscountOrderFilter extends AbstractStructBase
      * @param bool $fetchParcels
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter
      */
-    public function setFetchParcels($fetchParcels = null)
+    public function setFetchParcels(?bool $fetchParcels = null): self
     {
         // validation for constraint: boolean
         if (!is_null($fetchParcels) && !is_bool($fetchParcels)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($fetchParcels, true), gettype($fetchParcels)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($fetchParcels, true), gettype($fetchParcels)), __LINE__);
         }
         $this->FetchParcels = $fetchParcels;
+        
         return $this;
     }
     /**
      * Get IncludeExternalFbcSiteId value
      * @return bool|null
      */
-    public function getIncludeExternalFbcSiteId()
+    public function getIncludeExternalFbcSiteId(): ?bool
     {
         return $this->IncludeExternalFbcSiteId;
     }
@@ -397,13 +408,14 @@ class CdiscountOrderFilter extends AbstractStructBase
      * @param bool $includeExternalFbcSiteId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter
      */
-    public function setIncludeExternalFbcSiteId($includeExternalFbcSiteId = null)
+    public function setIncludeExternalFbcSiteId(?bool $includeExternalFbcSiteId = null): self
     {
         // validation for constraint: boolean
         if (!is_null($includeExternalFbcSiteId) && !is_bool($includeExternalFbcSiteId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includeExternalFbcSiteId, true), gettype($includeExternalFbcSiteId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includeExternalFbcSiteId, true), gettype($includeExternalFbcSiteId)), __LINE__);
         }
         $this->IncludeExternalFbcSiteId = $includeExternalFbcSiteId;
+        
         return $this;
     }
     /**
@@ -413,7 +425,7 @@ class CdiscountOrderFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public function getOrderReferenceList()
+    public function getOrderReferenceList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
     {
         return isset($this->OrderReferenceList) ? $this->OrderReferenceList : null;
     }
@@ -424,13 +436,14 @@ class CdiscountOrderFilter extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderReferenceList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter
      */
-    public function setOrderReferenceList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderReferenceList = null)
+    public function setOrderReferenceList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderReferenceList = null): self
     {
         if (is_null($orderReferenceList) || (is_array($orderReferenceList) && empty($orderReferenceList))) {
             unset($this->OrderReferenceList);
         } else {
             $this->OrderReferenceList = $orderReferenceList;
         }
+        
         return $this;
     }
     /**
@@ -440,7 +453,7 @@ class CdiscountOrderFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getOrderType()
+    public function getOrderType(): ?string
     {
         return isset($this->OrderType) ? $this->OrderType : null;
     }
@@ -450,21 +463,22 @@ class CdiscountOrderFilter extends AbstractStructBase
      * if the value assigned to this property is null, it is removed from this object
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderTypeEnum::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderTypeEnum::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $orderType
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter
      */
-    public function setOrderType($orderType = null)
+    public function setOrderType(?string $orderType = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderTypeEnum::valueIsValid($orderType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderTypeEnum', is_array($orderType) ? implode(', ', $orderType) : var_export($orderType, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderTypeEnum::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderTypeEnum', is_array($orderType) ? implode(', ', $orderType) : var_export($orderType, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderTypeEnum::getValidValues())), __LINE__);
         }
         if (is_null($orderType) || (is_array($orderType) && empty($orderType))) {
             unset($this->OrderType);
         } else {
             $this->OrderType = $orderType;
         }
+        
         return $this;
     }
     /**
@@ -474,7 +488,7 @@ class CdiscountOrderFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getPartnerOrderRef()
+    public function getPartnerOrderRef(): ?string
     {
         return isset($this->PartnerOrderRef) ? $this->PartnerOrderRef : null;
     }
@@ -485,17 +499,18 @@ class CdiscountOrderFilter extends AbstractStructBase
      * @param string $partnerOrderRef
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter
      */
-    public function setPartnerOrderRef($partnerOrderRef = null)
+    public function setPartnerOrderRef(?string $partnerOrderRef = null): self
     {
         // validation for constraint: string
         if (!is_null($partnerOrderRef) && !is_string($partnerOrderRef)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($partnerOrderRef, true), gettype($partnerOrderRef)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($partnerOrderRef, true), gettype($partnerOrderRef)), __LINE__);
         }
         if (is_null($partnerOrderRef) || (is_array($partnerOrderRef) && empty($partnerOrderRef))) {
             unset($this->PartnerOrderRef);
         } else {
             $this->PartnerOrderRef = $partnerOrderRef;
         }
+        
         return $this;
     }
     /**
@@ -505,7 +520,7 @@ class CdiscountOrderFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum|null
      */
-    public function getStates()
+    public function getStates(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum
     {
         return isset($this->States) ? $this->States : null;
     }
@@ -516,13 +531,14 @@ class CdiscountOrderFilter extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum $states
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderFilter
      */
-    public function setStates(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum $states = null)
+    public function setStates(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum $states = null): self
     {
         if (is_null($states) || (is_array($states) && empty($states))) {
             unset($this->States);
         } else {
             $this->States = $states;
         }
+        
         return $this;
     }
 }

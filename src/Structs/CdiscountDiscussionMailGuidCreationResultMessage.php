@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DiscussionMailGuidCreationResultMessage Structs
@@ -19,15 +22,15 @@ class CdiscountDiscussionMailGuidCreationResultMessage extends CdiscountServiceB
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $MailGuid;
+    protected ?string $MailGuid = null;
     /**
      * Constructor method for DiscussionMailGuidCreationResultMessage
      * @uses CdiscountDiscussionMailGuidCreationResultMessage::setMailGuid()
      * @param string $mailGuid
      */
-    public function __construct($mailGuid = null)
+    public function __construct(?string $mailGuid = null)
     {
         $this
             ->setMailGuid($mailGuid);
@@ -39,7 +42,7 @@ class CdiscountDiscussionMailGuidCreationResultMessage extends CdiscountServiceB
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getMailGuid()
+    public function getMailGuid(): ?string
     {
         return isset($this->MailGuid) ? $this->MailGuid : null;
     }
@@ -50,17 +53,18 @@ class CdiscountDiscussionMailGuidCreationResultMessage extends CdiscountServiceB
      * @param string $mailGuid
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionMailGuidCreationResultMessage
      */
-    public function setMailGuid($mailGuid = null)
+    public function setMailGuid(?string $mailGuid = null): self
     {
         // validation for constraint: string
         if (!is_null($mailGuid) && !is_string($mailGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailGuid, true), gettype($mailGuid)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailGuid, true), gettype($mailGuid)), __LINE__);
         }
         if (is_null($mailGuid) || (is_array($mailGuid) && empty($mailGuid))) {
             unset($this->MailGuid);
         } else {
             $this->MailGuid = $mailGuid;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ContextMessage Structs
@@ -19,68 +22,68 @@ class CdiscountContextMessage extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var int
+     * @var int|null
      */
-    public $CatalogID;
+    protected ?int $CatalogID = null;
     /**
      * The ConfigurationPolicy
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ConfigurationPolicy;
+    protected ?string $ConfigurationPolicy = null;
     /**
      * The CustomerID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CustomerID;
+    protected ?string $CustomerID = null;
     /**
      * The CustomerId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $CustomerId;
+    protected ?int $CustomerId = null;
     /**
      * The CustomerNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CustomerNumber;
+    protected ?string $CustomerNumber = null;
     /**
      * The CustomerPoolID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var int
+     * @var int|null
      */
-    public $CustomerPoolID;
+    protected ?int $CustomerPoolID = null;
     /**
      * The GeoCoordinate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate|null
      */
-    public $GeoCoordinate;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate $GeoCoordinate = null;
     /**
      * The SecuredContext
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $SecuredContext;
+    protected ?bool $SecuredContext = null;
     /**
      * The SiteID
-     * @var int
+     * @var int|null
      */
-    public $SiteID;
+    protected ?int $SiteID = null;
     /**
      * Constructor method for ContextMessage
      * @uses CdiscountContextMessage::setCatalogID()
@@ -102,7 +105,7 @@ class CdiscountContextMessage extends AbstractStructBase
      * @param bool $securedContext
      * @param int $siteID
      */
-    public function __construct($catalogID = null, $configurationPolicy = null, $customerID = null, $customerId_1 = null, $customerNumber = null, $customerPoolID = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate $geoCoordinate = null, $securedContext = null, $siteID = null)
+    public function __construct(?int $catalogID = null, ?string $configurationPolicy = null, ?string $customerID = null, ?int $customerId_1 = null, ?string $customerNumber = null, ?int $customerPoolID = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate $geoCoordinate = null, ?bool $securedContext = null, ?int $siteID = null)
     {
         $this
             ->setCatalogID($catalogID)
@@ -122,7 +125,7 @@ class CdiscountContextMessage extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return int|null
      */
-    public function getCatalogID()
+    public function getCatalogID(): ?int
     {
         return isset($this->CatalogID) ? $this->CatalogID : null;
     }
@@ -133,17 +136,18 @@ class CdiscountContextMessage extends AbstractStructBase
      * @param int $catalogID
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountContextMessage
      */
-    public function setCatalogID($catalogID = null)
+    public function setCatalogID(?int $catalogID = null): self
     {
         // validation for constraint: int
         if (!is_null($catalogID) && !(is_int($catalogID) || ctype_digit($catalogID))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($catalogID, true), gettype($catalogID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($catalogID, true), gettype($catalogID)), __LINE__);
         }
         if (is_null($catalogID) || (is_array($catalogID) && empty($catalogID))) {
             unset($this->CatalogID);
         } else {
             $this->CatalogID = $catalogID;
         }
+        
         return $this;
     }
     /**
@@ -153,7 +157,7 @@ class CdiscountContextMessage extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getConfigurationPolicy()
+    public function getConfigurationPolicy(): ?string
     {
         return isset($this->ConfigurationPolicy) ? $this->ConfigurationPolicy : null;
     }
@@ -164,17 +168,18 @@ class CdiscountContextMessage extends AbstractStructBase
      * @param string $configurationPolicy
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountContextMessage
      */
-    public function setConfigurationPolicy($configurationPolicy = null)
+    public function setConfigurationPolicy(?string $configurationPolicy = null): self
     {
         // validation for constraint: string
         if (!is_null($configurationPolicy) && !is_string($configurationPolicy)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($configurationPolicy, true), gettype($configurationPolicy)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($configurationPolicy, true), gettype($configurationPolicy)), __LINE__);
         }
         if (is_null($configurationPolicy) || (is_array($configurationPolicy) && empty($configurationPolicy))) {
             unset($this->ConfigurationPolicy);
         } else {
             $this->ConfigurationPolicy = $configurationPolicy;
         }
+        
         return $this;
     }
     /**
@@ -184,7 +189,7 @@ class CdiscountContextMessage extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCustomerID()
+    public function getCustomerID(): ?string
     {
         return isset($this->CustomerID) ? $this->CustomerID : null;
     }
@@ -195,24 +200,25 @@ class CdiscountContextMessage extends AbstractStructBase
      * @param string $customerID
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountContextMessage
      */
-    public function setCustomerID($customerID = null)
+    public function setCustomerID(?string $customerID = null): self
     {
         // validation for constraint: string
         if (!is_null($customerID) && !is_string($customerID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customerID, true), gettype($customerID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customerID, true), gettype($customerID)), __LINE__);
         }
         if (is_null($customerID) || (is_array($customerID) && empty($customerID))) {
             unset($this->CustomerID);
         } else {
             $this->CustomerID = $customerID;
         }
+        
         return $this;
     }
     /**
      * Get CustomerId value
      * @return int|null
      */
-    public function getCustomerId_1()
+    public function getCustomerId_1(): ?int
     {
         return $this->CustomerId;
     }
@@ -221,13 +227,14 @@ class CdiscountContextMessage extends AbstractStructBase
      * @param int $customerId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountContextMessage
      */
-    public function setCustomerId_1($customerId_1 = null)
+    public function setCustomerId_1(?int $customerId_1 = null): self
     {
         // validation for constraint: int
         if (!is_null($customerId_1) && !(is_int($customerId_1) || ctype_digit($customerId_1))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($customerId_1, true), gettype($customerId_1)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($customerId_1, true), gettype($customerId_1)), __LINE__);
         }
         $this->CustomerId = $customerId_1;
+        
         return $this;
     }
     /**
@@ -237,7 +244,7 @@ class CdiscountContextMessage extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCustomerNumber()
+    public function getCustomerNumber(): ?string
     {
         return isset($this->CustomerNumber) ? $this->CustomerNumber : null;
     }
@@ -248,17 +255,18 @@ class CdiscountContextMessage extends AbstractStructBase
      * @param string $customerNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountContextMessage
      */
-    public function setCustomerNumber($customerNumber = null)
+    public function setCustomerNumber(?string $customerNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($customerNumber) && !is_string($customerNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customerNumber, true), gettype($customerNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customerNumber, true), gettype($customerNumber)), __LINE__);
         }
         if (is_null($customerNumber) || (is_array($customerNumber) && empty($customerNumber))) {
             unset($this->CustomerNumber);
         } else {
             $this->CustomerNumber = $customerNumber;
         }
+        
         return $this;
     }
     /**
@@ -268,7 +276,7 @@ class CdiscountContextMessage extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return int|null
      */
-    public function getCustomerPoolID()
+    public function getCustomerPoolID(): ?int
     {
         return isset($this->CustomerPoolID) ? $this->CustomerPoolID : null;
     }
@@ -279,17 +287,18 @@ class CdiscountContextMessage extends AbstractStructBase
      * @param int $customerPoolID
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountContextMessage
      */
-    public function setCustomerPoolID($customerPoolID = null)
+    public function setCustomerPoolID(?int $customerPoolID = null): self
     {
         // validation for constraint: int
         if (!is_null($customerPoolID) && !(is_int($customerPoolID) || ctype_digit($customerPoolID))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($customerPoolID, true), gettype($customerPoolID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($customerPoolID, true), gettype($customerPoolID)), __LINE__);
         }
         if (is_null($customerPoolID) || (is_array($customerPoolID) && empty($customerPoolID))) {
             unset($this->CustomerPoolID);
         } else {
             $this->CustomerPoolID = $customerPoolID;
         }
+        
         return $this;
     }
     /**
@@ -299,7 +308,7 @@ class CdiscountContextMessage extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate|null
      */
-    public function getGeoCoordinate()
+    public function getGeoCoordinate(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate
     {
         return isset($this->GeoCoordinate) ? $this->GeoCoordinate : null;
     }
@@ -310,20 +319,21 @@ class CdiscountContextMessage extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate $geoCoordinate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountContextMessage
      */
-    public function setGeoCoordinate(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate $geoCoordinate = null)
+    public function setGeoCoordinate(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGeoCoordinate $geoCoordinate = null): self
     {
         if (is_null($geoCoordinate) || (is_array($geoCoordinate) && empty($geoCoordinate))) {
             unset($this->GeoCoordinate);
         } else {
             $this->GeoCoordinate = $geoCoordinate;
         }
+        
         return $this;
     }
     /**
      * Get SecuredContext value
      * @return bool|null
      */
-    public function getSecuredContext()
+    public function getSecuredContext(): ?bool
     {
         return $this->SecuredContext;
     }
@@ -332,20 +342,21 @@ class CdiscountContextMessage extends AbstractStructBase
      * @param bool $securedContext
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountContextMessage
      */
-    public function setSecuredContext($securedContext = null)
+    public function setSecuredContext(?bool $securedContext = null): self
     {
         // validation for constraint: boolean
         if (!is_null($securedContext) && !is_bool($securedContext)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($securedContext, true), gettype($securedContext)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($securedContext, true), gettype($securedContext)), __LINE__);
         }
         $this->SecuredContext = $securedContext;
+        
         return $this;
     }
     /**
      * Get SiteID value
      * @return int|null
      */
-    public function getSiteID()
+    public function getSiteID(): ?int
     {
         return $this->SiteID;
     }
@@ -354,13 +365,14 @@ class CdiscountContextMessage extends AbstractStructBase
      * @param int $siteID
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountContextMessage
      */
-    public function setSiteID($siteID = null)
+    public function setSiteID(?int $siteID = null): self
     {
         // validation for constraint: int
         if (!is_null($siteID) && !(is_int($siteID) || ctype_digit($siteID))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($siteID, true), gettype($siteID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($siteID, true), gettype($siteID)), __LINE__);
         }
         $this->SiteID = $siteID;
+        
         return $this;
     }
 }

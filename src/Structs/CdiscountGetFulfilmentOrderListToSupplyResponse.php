@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetFulfilmentOrderListToSupplyResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetFulfilmentOrderListToSupplyResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOrderLineListToSupplyMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOrderLineListToSupplyMessage|null
      */
-    public $GetFulfilmentOrderListToSupplyResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOrderLineListToSupplyMessage $GetFulfilmentOrderListToSupplyResult = null;
     /**
      * Constructor method for GetFulfilmentOrderListToSupplyResponse
      * @uses CdiscountGetFulfilmentOrderListToSupplyResponse::setGetFulfilmentOrderListToSupplyResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOrderLineListToSupplyMessage $getFulfilmentOrderListToSupplyResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOrderLineListToSupplyMessage $getFulfilmentOrderListToSupplyResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOrderLineListToSupplyMessage $getFulfilmentOrderListToSupplyResult = null)
     {
         $this
             ->setGetFulfilmentOrderListToSupplyResult($getFulfilmentOrderListToSupplyResult);
@@ -36,7 +39,7 @@ class CdiscountGetFulfilmentOrderListToSupplyResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOrderLineListToSupplyMessage|null
      */
-    public function getGetFulfilmentOrderListToSupplyResult()
+    public function getGetFulfilmentOrderListToSupplyResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOrderLineListToSupplyMessage
     {
         return isset($this->GetFulfilmentOrderListToSupplyResult) ? $this->GetFulfilmentOrderListToSupplyResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetFulfilmentOrderListToSupplyResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOrderLineListToSupplyMessage $getFulfilmentOrderListToSupplyResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetFulfilmentOrderListToSupplyResponse
      */
-    public function setGetFulfilmentOrderListToSupplyResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOrderLineListToSupplyMessage $getFulfilmentOrderListToSupplyResult = null)
+    public function setGetFulfilmentOrderListToSupplyResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOrderLineListToSupplyMessage $getFulfilmentOrderListToSupplyResult = null): self
     {
         if (is_null($getFulfilmentOrderListToSupplyResult) || (is_array($getFulfilmentOrderListToSupplyResult) && empty($getFulfilmentOrderListToSupplyResult))) {
             unset($this->GetFulfilmentOrderListToSupplyResult);
         } else {
             $this->GetFulfilmentOrderListToSupplyResult = $getFulfilmentOrderListToSupplyResult;
         }
+        
         return $this;
     }
 }

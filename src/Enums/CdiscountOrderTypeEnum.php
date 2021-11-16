@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for OrderTypeEnum Enums
@@ -44,11 +46,11 @@ class CdiscountOrderTypeEnum extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_IS_FULFILLMENT,
             self::VALUE_MKPFBC,
             self::VALUE_EXTFBC,
             self::VALUE_NONE,
-        );
+        ];
     }
 }

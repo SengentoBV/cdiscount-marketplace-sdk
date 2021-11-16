@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OrderQuestion Structs
@@ -19,15 +22,15 @@ class CdiscountOrderQuestion extends CdiscountDiscussionThreadBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $OrderNumber;
+    protected ?string $OrderNumber = null;
     /**
      * Constructor method for OrderQuestion
      * @uses CdiscountOrderQuestion::setOrderNumber()
      * @param string $orderNumber
      */
-    public function __construct($orderNumber = null)
+    public function __construct(?string $orderNumber = null)
     {
         $this
             ->setOrderNumber($orderNumber);
@@ -39,7 +42,7 @@ class CdiscountOrderQuestion extends CdiscountDiscussionThreadBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getOrderNumber()
+    public function getOrderNumber(): ?string
     {
         return isset($this->OrderNumber) ? $this->OrderNumber : null;
     }
@@ -50,17 +53,18 @@ class CdiscountOrderQuestion extends CdiscountDiscussionThreadBase
      * @param string $orderNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderQuestion
      */
-    public function setOrderNumber($orderNumber = null)
+    public function setOrderNumber(?string $orderNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($orderNumber) && !is_string($orderNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
         }
         if (is_null($orderNumber) || (is_array($orderNumber) && empty($orderNumber))) {
             unset($this->OrderNumber);
         } else {
             $this->OrderNumber = $orderNumber;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfShippingInformation Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfShippingInformation extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation[]
      */
-    public $ShippingInformation;
+    protected ?array $ShippingInformation = null;
     /**
      * Constructor method for ArrayOfShippingInformation
      * @uses CdiscountArrayOfShippingInformation::setShippingInformation()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation[] $shippingInformation
      */
-    public function __construct(array $shippingInformation = array())
+    public function __construct(?array $shippingInformation = null)
     {
         $this
             ->setShippingInformation($shippingInformation);
@@ -38,9 +41,9 @@ class CdiscountArrayOfShippingInformation extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation[]
      */
-    public function getShippingInformation()
+    public function getShippingInformation(): ?array
     {
         return isset($this->ShippingInformation) ? $this->ShippingInformation : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfShippingInformation extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateShippingInformationForArrayConstraintsFromSetShippingInformation(array $values = array())
+    public static function validateShippingInformationForArrayConstraintsFromSetShippingInformation(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfShippingInformationShippingInformationItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfShippingInformation extends AbstractStructArrayBase
             $message = sprintf('The ShippingInformation property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ShippingInformation value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation[] $shippingInformation
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfShippingInformation
      */
-    public function setShippingInformation(array $shippingInformation = array())
+    public function setShippingInformation(?array $shippingInformation = null): self
     {
         // validation for constraint: array
         if ('' !== ($shippingInformationArrayErrorMessage = self::validateShippingInformationForArrayConstraintsFromSetShippingInformation($shippingInformation))) {
-            throw new \InvalidArgumentException($shippingInformationArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($shippingInformationArrayErrorMessage, __LINE__);
         }
         if (is_null($shippingInformation) || (is_array($shippingInformation) && empty($shippingInformation))) {
             unset($this->ShippingInformation);
         } else {
             $this->ShippingInformation = $shippingInformation;
         }
-        return $this;
-    }
-    /**
-     * Add item to ShippingInformation value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfShippingInformation
-     */
-    public function addToShippingInformation(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation) {
-            throw new \InvalidArgumentException(sprintf('The ShippingInformation property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ShippingInformation[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfShippingInformation extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfShippingInformation extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfShippingInformation extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfShippingInformation extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation
     {
         return parent::last();
     }
@@ -145,9 +138,24 @@ class CdiscountArrayOfShippingInformation extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfShippingInformation
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation) {
+            throw new InvalidArgumentException(sprintf('The ShippingInformation property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name

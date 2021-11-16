@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ShippingInformation Structs
@@ -18,38 +21,38 @@ class CdiscountShippingInformation extends AbstractStructBase
      * The AdditionalShippingCharges
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $AdditionalShippingCharges;
+    protected ?float $AdditionalShippingCharges = null;
     /**
      * The DeliveryMode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDeliveryModeInformation
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDeliveryModeInformation|null
      */
-    public $DeliveryMode;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDeliveryModeInformation $DeliveryMode = null;
     /**
      * The MaxLeadTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $MaxLeadTime;
+    protected ?int $MaxLeadTime = null;
     /**
      * The MinLeadTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $MinLeadTime;
+    protected ?int $MinLeadTime = null;
     /**
      * The ShippingCharges
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $ShippingCharges;
+    protected ?float $ShippingCharges = null;
     /**
      * Constructor method for ShippingInformation
      * @uses CdiscountShippingInformation::setAdditionalShippingCharges()
@@ -63,7 +66,7 @@ class CdiscountShippingInformation extends AbstractStructBase
      * @param int $minLeadTime
      * @param float $shippingCharges
      */
-    public function __construct($additionalShippingCharges = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDeliveryModeInformation $deliveryMode = null, $maxLeadTime = null, $minLeadTime = null, $shippingCharges = null)
+    public function __construct(?float $additionalShippingCharges = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDeliveryModeInformation $deliveryMode = null, ?int $maxLeadTime = null, ?int $minLeadTime = null, ?float $shippingCharges = null)
     {
         $this
             ->setAdditionalShippingCharges($additionalShippingCharges)
@@ -76,7 +79,7 @@ class CdiscountShippingInformation extends AbstractStructBase
      * Get AdditionalShippingCharges value
      * @return float|null
      */
-    public function getAdditionalShippingCharges()
+    public function getAdditionalShippingCharges(): ?float
     {
         return $this->AdditionalShippingCharges;
     }
@@ -85,13 +88,14 @@ class CdiscountShippingInformation extends AbstractStructBase
      * @param float $additionalShippingCharges
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation
      */
-    public function setAdditionalShippingCharges($additionalShippingCharges = null)
+    public function setAdditionalShippingCharges(?float $additionalShippingCharges = null): self
     {
         // validation for constraint: float
         if (!is_null($additionalShippingCharges) && !(is_float($additionalShippingCharges) || is_numeric($additionalShippingCharges))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($additionalShippingCharges, true), gettype($additionalShippingCharges)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($additionalShippingCharges, true), gettype($additionalShippingCharges)), __LINE__);
         }
         $this->AdditionalShippingCharges = $additionalShippingCharges;
+        
         return $this;
     }
     /**
@@ -101,7 +105,7 @@ class CdiscountShippingInformation extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDeliveryModeInformation|null
      */
-    public function getDeliveryMode()
+    public function getDeliveryMode(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDeliveryModeInformation
     {
         return isset($this->DeliveryMode) ? $this->DeliveryMode : null;
     }
@@ -112,20 +116,21 @@ class CdiscountShippingInformation extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDeliveryModeInformation $deliveryMode
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation
      */
-    public function setDeliveryMode(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDeliveryModeInformation $deliveryMode = null)
+    public function setDeliveryMode(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDeliveryModeInformation $deliveryMode = null): self
     {
         if (is_null($deliveryMode) || (is_array($deliveryMode) && empty($deliveryMode))) {
             unset($this->DeliveryMode);
         } else {
             $this->DeliveryMode = $deliveryMode;
         }
+        
         return $this;
     }
     /**
      * Get MaxLeadTime value
      * @return int|null
      */
-    public function getMaxLeadTime()
+    public function getMaxLeadTime(): ?int
     {
         return $this->MaxLeadTime;
     }
@@ -134,20 +139,21 @@ class CdiscountShippingInformation extends AbstractStructBase
      * @param int $maxLeadTime
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation
      */
-    public function setMaxLeadTime($maxLeadTime = null)
+    public function setMaxLeadTime(?int $maxLeadTime = null): self
     {
         // validation for constraint: int
         if (!is_null($maxLeadTime) && !(is_int($maxLeadTime) || ctype_digit($maxLeadTime))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxLeadTime, true), gettype($maxLeadTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxLeadTime, true), gettype($maxLeadTime)), __LINE__);
         }
         $this->MaxLeadTime = $maxLeadTime;
+        
         return $this;
     }
     /**
      * Get MinLeadTime value
      * @return int|null
      */
-    public function getMinLeadTime()
+    public function getMinLeadTime(): ?int
     {
         return $this->MinLeadTime;
     }
@@ -156,20 +162,21 @@ class CdiscountShippingInformation extends AbstractStructBase
      * @param int $minLeadTime
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation
      */
-    public function setMinLeadTime($minLeadTime = null)
+    public function setMinLeadTime(?int $minLeadTime = null): self
     {
         // validation for constraint: int
         if (!is_null($minLeadTime) && !(is_int($minLeadTime) || ctype_digit($minLeadTime))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($minLeadTime, true), gettype($minLeadTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($minLeadTime, true), gettype($minLeadTime)), __LINE__);
         }
         $this->MinLeadTime = $minLeadTime;
+        
         return $this;
     }
     /**
      * Get ShippingCharges value
      * @return float|null
      */
-    public function getShippingCharges()
+    public function getShippingCharges(): ?float
     {
         return $this->ShippingCharges;
     }
@@ -178,13 +185,14 @@ class CdiscountShippingInformation extends AbstractStructBase
      * @param float $shippingCharges
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountShippingInformation
      */
-    public function setShippingCharges($shippingCharges = null)
+    public function setShippingCharges(?float $shippingCharges = null): self
     {
         // validation for constraint: float
         if (!is_null($shippingCharges) && !(is_float($shippingCharges) || is_numeric($shippingCharges))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($shippingCharges, true), gettype($shippingCharges)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($shippingCharges, true), gettype($shippingCharges)), __LINE__);
         }
         $this->ShippingCharges = $shippingCharges;
+        
         return $this;
     }
 }

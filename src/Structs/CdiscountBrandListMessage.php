@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BrandListMessage Structs
@@ -19,15 +22,15 @@ class CdiscountBrandListMessage extends CdiscountServiceBaseAPIMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfBrand
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfBrand|null
      */
-    public $BrandList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfBrand $BrandList = null;
     /**
      * Constructor method for BrandListMessage
      * @uses CdiscountBrandListMessage::setBrandList()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfBrand $brandList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfBrand $brandList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfBrand $brandList = null)
     {
         $this
             ->setBrandList($brandList);
@@ -39,7 +42,7 @@ class CdiscountBrandListMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfBrand|null
      */
-    public function getBrandList()
+    public function getBrandList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfBrand
     {
         return isset($this->BrandList) ? $this->BrandList : null;
     }
@@ -50,13 +53,14 @@ class CdiscountBrandListMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfBrand $brandList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrandListMessage
      */
-    public function setBrandList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfBrand $brandList = null)
+    public function setBrandList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfBrand $brandList = null): self
     {
         if (is_null($brandList) || (is_array($brandList) && empty($brandList))) {
             unset($this->BrandList);
         } else {
             $this->BrandList = $brandList;
         }
+        
         return $this;
     }
 }

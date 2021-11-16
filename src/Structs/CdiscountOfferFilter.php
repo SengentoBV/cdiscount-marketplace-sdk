@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OfferFilter Structs
@@ -19,17 +22,17 @@ class CdiscountOfferFilter extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var int
+     * @var int|null
      */
-    public $OfferPoolId;
+    protected ?int $OfferPoolId = null;
     /**
      * The SellerProductIdList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public $SellerProductIdList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $SellerProductIdList = null;
     /**
      * Constructor method for OfferFilter
      * @uses CdiscountOfferFilter::setOfferPoolId()
@@ -37,7 +40,7 @@ class CdiscountOfferFilter extends AbstractStructBase
      * @param int $offerPoolId
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $sellerProductIdList
      */
-    public function __construct($offerPoolId = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $sellerProductIdList = null)
+    public function __construct(?int $offerPoolId = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $sellerProductIdList = null)
     {
         $this
             ->setOfferPoolId($offerPoolId)
@@ -50,7 +53,7 @@ class CdiscountOfferFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return int|null
      */
-    public function getOfferPoolId()
+    public function getOfferPoolId(): ?int
     {
         return isset($this->OfferPoolId) ? $this->OfferPoolId : null;
     }
@@ -61,17 +64,18 @@ class CdiscountOfferFilter extends AbstractStructBase
      * @param int $offerPoolId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter
      */
-    public function setOfferPoolId($offerPoolId = null)
+    public function setOfferPoolId(?int $offerPoolId = null): self
     {
         // validation for constraint: int
         if (!is_null($offerPoolId) && !(is_int($offerPoolId) || ctype_digit($offerPoolId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($offerPoolId, true), gettype($offerPoolId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($offerPoolId, true), gettype($offerPoolId)), __LINE__);
         }
         if (is_null($offerPoolId) || (is_array($offerPoolId) && empty($offerPoolId))) {
             unset($this->OfferPoolId);
         } else {
             $this->OfferPoolId = $offerPoolId;
         }
+        
         return $this;
     }
     /**
@@ -81,7 +85,7 @@ class CdiscountOfferFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public function getSellerProductIdList()
+    public function getSellerProductIdList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
     {
         return isset($this->SellerProductIdList) ? $this->SellerProductIdList : null;
     }
@@ -92,13 +96,14 @@ class CdiscountOfferFilter extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $sellerProductIdList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferFilter
      */
-    public function setSellerProductIdList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $sellerProductIdList = null)
+    public function setSellerProductIdList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $sellerProductIdList = null): self
     {
         if (is_null($sellerProductIdList) || (is_array($sellerProductIdList) && empty($sellerProductIdList))) {
             unset($this->SellerProductIdList);
         } else {
             $this->SellerProductIdList = $sellerProductIdList;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ProductListMessage Structs
@@ -19,15 +22,15 @@ class CdiscountProductListMessage extends CdiscountServiceBaseAPIMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProduct
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProduct|null
      */
-    public $ProductList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProduct $ProductList = null;
     /**
      * Constructor method for ProductListMessage
      * @uses CdiscountProductListMessage::setProductList()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProduct $productList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProduct $productList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProduct $productList = null)
     {
         $this
             ->setProductList($productList);
@@ -39,7 +42,7 @@ class CdiscountProductListMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProduct|null
      */
-    public function getProductList()
+    public function getProductList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProduct
     {
         return isset($this->ProductList) ? $this->ProductList : null;
     }
@@ -50,13 +53,14 @@ class CdiscountProductListMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProduct $productList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductListMessage
      */
-    public function setProductList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProduct $productList = null)
+    public function setProductList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProduct $productList = null): self
     {
         if (is_null($productList) || (is_array($productList) && empty($productList))) {
             unset($this->ProductList);
         } else {
             $this->ProductList = $productList;
         }
+        
         return $this;
     }
 }

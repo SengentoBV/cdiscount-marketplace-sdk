@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OrderClaimFilter Structs
@@ -19,15 +22,15 @@ class CdiscountOrderClaimFilter extends CdiscountOrderQuestionFilter
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var bool
+     * @var bool|null
      */
-    public $OnlyWithMessageFromCdsCustomerService;
+    protected ?bool $OnlyWithMessageFromCdsCustomerService = null;
     /**
      * Constructor method for OrderClaimFilter
      * @uses CdiscountOrderClaimFilter::setOnlyWithMessageFromCdsCustomerService()
      * @param bool $onlyWithMessageFromCdsCustomerService
      */
-    public function __construct($onlyWithMessageFromCdsCustomerService = null)
+    public function __construct(?bool $onlyWithMessageFromCdsCustomerService = null)
     {
         $this
             ->setOnlyWithMessageFromCdsCustomerService($onlyWithMessageFromCdsCustomerService);
@@ -39,7 +42,7 @@ class CdiscountOrderClaimFilter extends CdiscountOrderQuestionFilter
      * removable from the request (nillable=true+minOccurs=0)
      * @return bool|null
      */
-    public function getOnlyWithMessageFromCdsCustomerService()
+    public function getOnlyWithMessageFromCdsCustomerService(): ?bool
     {
         return isset($this->OnlyWithMessageFromCdsCustomerService) ? $this->OnlyWithMessageFromCdsCustomerService : null;
     }
@@ -50,17 +53,18 @@ class CdiscountOrderClaimFilter extends CdiscountOrderQuestionFilter
      * @param bool $onlyWithMessageFromCdsCustomerService
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOrderClaimFilter
      */
-    public function setOnlyWithMessageFromCdsCustomerService($onlyWithMessageFromCdsCustomerService = null)
+    public function setOnlyWithMessageFromCdsCustomerService(?bool $onlyWithMessageFromCdsCustomerService = null): self
     {
         // validation for constraint: boolean
         if (!is_null($onlyWithMessageFromCdsCustomerService) && !is_bool($onlyWithMessageFromCdsCustomerService)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($onlyWithMessageFromCdsCustomerService, true), gettype($onlyWithMessageFromCdsCustomerService)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($onlyWithMessageFromCdsCustomerService, true), gettype($onlyWithMessageFromCdsCustomerService)), __LINE__);
         }
         if (is_null($onlyWithMessageFromCdsCustomerService) || (is_array($onlyWithMessageFromCdsCustomerService) && empty($onlyWithMessageFromCdsCustomerService))) {
             unset($this->OnlyWithMessageFromCdsCustomerService);
         } else {
             $this->OnlyWithMessageFromCdsCustomerService = $onlyWithMessageFromCdsCustomerService;
         }
+        
         return $this;
     }
 }

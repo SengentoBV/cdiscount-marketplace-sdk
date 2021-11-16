@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DiscussionFilter Structs
@@ -18,33 +21,33 @@ class CdiscountDiscussionFilter extends CdiscountDiscussionFilterBase
      * The DiscussionType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DiscussionType;
+    protected ?string $DiscussionType = null;
     /**
      * The OrderNumberList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public $OrderNumberList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $OrderNumberList = null;
     /**
      * The ProductEanList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public $ProductEanList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $ProductEanList = null;
     /**
      * The ProductSellerReferenceList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public $ProductSellerReferenceList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $ProductSellerReferenceList = null;
     /**
      * Constructor method for DiscussionFilter
      * @uses CdiscountDiscussionFilter::setDiscussionType()
@@ -56,7 +59,7 @@ class CdiscountDiscussionFilter extends CdiscountDiscussionFilterBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productEanList
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productSellerReferenceList
      */
-    public function __construct($discussionType = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderNumberList = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productEanList = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productSellerReferenceList = null)
+    public function __construct(?string $discussionType = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderNumberList = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productEanList = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productSellerReferenceList = null)
     {
         $this
             ->setDiscussionType($discussionType)
@@ -68,7 +71,7 @@ class CdiscountDiscussionFilter extends CdiscountDiscussionFilterBase
      * Get DiscussionType value
      * @return string|null
      */
-    public function getDiscussionType()
+    public function getDiscussionType(): ?string
     {
         return $this->DiscussionType;
     }
@@ -76,17 +79,18 @@ class CdiscountDiscussionFilter extends CdiscountDiscussionFilterBase
      * Set DiscussionType value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionTypeFilter::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionTypeFilter::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $discussionType
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter
      */
-    public function setDiscussionType($discussionType = null)
+    public function setDiscussionType(?string $discussionType = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionTypeFilter::valueIsValid($discussionType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionTypeFilter', is_array($discussionType) ? implode(', ', $discussionType) : var_export($discussionType, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionTypeFilter::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionTypeFilter', is_array($discussionType) ? implode(', ', $discussionType) : var_export($discussionType, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionTypeFilter::getValidValues())), __LINE__);
         }
         $this->DiscussionType = $discussionType;
+        
         return $this;
     }
     /**
@@ -96,7 +100,7 @@ class CdiscountDiscussionFilter extends CdiscountDiscussionFilterBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public function getOrderNumberList()
+    public function getOrderNumberList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
     {
         return isset($this->OrderNumberList) ? $this->OrderNumberList : null;
     }
@@ -107,13 +111,14 @@ class CdiscountDiscussionFilter extends CdiscountDiscussionFilterBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderNumberList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter
      */
-    public function setOrderNumberList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderNumberList = null)
+    public function setOrderNumberList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $orderNumberList = null): self
     {
         if (is_null($orderNumberList) || (is_array($orderNumberList) && empty($orderNumberList))) {
             unset($this->OrderNumberList);
         } else {
             $this->OrderNumberList = $orderNumberList;
         }
+        
         return $this;
     }
     /**
@@ -123,7 +128,7 @@ class CdiscountDiscussionFilter extends CdiscountDiscussionFilterBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public function getProductEanList()
+    public function getProductEanList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
     {
         return isset($this->ProductEanList) ? $this->ProductEanList : null;
     }
@@ -134,13 +139,14 @@ class CdiscountDiscussionFilter extends CdiscountDiscussionFilterBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productEanList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter
      */
-    public function setProductEanList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productEanList = null)
+    public function setProductEanList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productEanList = null): self
     {
         if (is_null($productEanList) || (is_array($productEanList) && empty($productEanList))) {
             unset($this->ProductEanList);
         } else {
             $this->ProductEanList = $productEanList;
         }
+        
         return $this;
     }
     /**
@@ -150,7 +156,7 @@ class CdiscountDiscussionFilter extends CdiscountDiscussionFilterBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public function getProductSellerReferenceList()
+    public function getProductSellerReferenceList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
     {
         return isset($this->ProductSellerReferenceList) ? $this->ProductSellerReferenceList : null;
     }
@@ -161,13 +167,14 @@ class CdiscountDiscussionFilter extends CdiscountDiscussionFilterBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productSellerReferenceList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter
      */
-    public function setProductSellerReferenceList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productSellerReferenceList = null)
+    public function setProductSellerReferenceList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productSellerReferenceList = null): self
     {
         if (is_null($productSellerReferenceList) || (is_array($productSellerReferenceList) && empty($productSellerReferenceList))) {
             unset($this->ProductSellerReferenceList);
         } else {
             $this->ProductSellerReferenceList = $productSellerReferenceList;
         }
+        
         return $this;
     }
 }

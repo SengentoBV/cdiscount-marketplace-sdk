@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Services;
 
-use \WsdlToPhp\PackageBase\AbstractSoapClientBase;
+use SoapFault;
+use WsdlToPhp\PackageBase\AbstractSoapClientBase;
 
 /**
  * This class stands for Manage Services
@@ -15,7 +18,6 @@ class CdiscountManage extends AbstractSoapClientBase
      * Method to call the operation originally named ManageParcel
      * @uses AbstractSoapClientBase::getSoapClient()
      * @uses AbstractSoapClientBase::setResult()
-     * @uses AbstractSoapClientBase::getResult()
      * @uses AbstractSoapClientBase::saveLastError()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcel $parameters
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcelResponse|bool
@@ -23,10 +25,14 @@ class CdiscountManage extends AbstractSoapClientBase
     public function ManageParcel(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountManageParcel $parameters)
     {
         try {
-            $this->setResult($this->getSoapClient()->ManageParcel($parameters));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            $this->setResult($resultManageParcel = $this->getSoapClient()->__soapCall('ManageParcel', [
+                $parameters,
+            ], [], [], $this->outputHeaders));
+        
+            return $resultManageParcel;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }

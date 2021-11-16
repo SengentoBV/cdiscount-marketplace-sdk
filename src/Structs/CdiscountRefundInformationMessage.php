@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RefundInformationMessage Structs
@@ -16,14 +19,14 @@ class CdiscountRefundInformationMessage extends CdiscountServiceMessage
 {
     /**
      * The Amount
-     * @var float
+     * @var float|null
      */
-    public $Amount;
+    protected ?float $Amount = null;
     /**
      * The MotiveId
-     * @var int
+     * @var int|null
      */
-    public $MotiveId;
+    protected ?int $MotiveId = null;
     /**
      * Constructor method for RefundInformationMessage
      * @uses CdiscountRefundInformationMessage::setAmount()
@@ -31,7 +34,7 @@ class CdiscountRefundInformationMessage extends CdiscountServiceMessage
      * @param float $amount
      * @param int $motiveId
      */
-    public function __construct($amount = null, $motiveId = null)
+    public function __construct(?float $amount = null, ?int $motiveId = null)
     {
         $this
             ->setAmount($amount)
@@ -41,7 +44,7 @@ class CdiscountRefundInformationMessage extends CdiscountServiceMessage
      * Get Amount value
      * @return float|null
      */
-    public function getAmount()
+    public function getAmount(): ?float
     {
         return $this->Amount;
     }
@@ -50,20 +53,21 @@ class CdiscountRefundInformationMessage extends CdiscountServiceMessage
      * @param float $amount
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage
      */
-    public function setAmount($amount = null)
+    public function setAmount(?float $amount = null): self
     {
         // validation for constraint: float
         if (!is_null($amount) && !(is_float($amount) || is_numeric($amount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($amount, true), gettype($amount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($amount, true), gettype($amount)), __LINE__);
         }
         $this->Amount = $amount;
+        
         return $this;
     }
     /**
      * Get MotiveId value
      * @return int|null
      */
-    public function getMotiveId()
+    public function getMotiveId(): ?int
     {
         return $this->MotiveId;
     }
@@ -72,13 +76,14 @@ class CdiscountRefundInformationMessage extends CdiscountServiceMessage
      * @param int $motiveId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage
      */
-    public function setMotiveId($motiveId = null)
+    public function setMotiveId(?int $motiveId = null): self
     {
         // validation for constraint: int
         if (!is_null($motiveId) && !(is_int($motiveId) || ctype_digit($motiveId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($motiveId, true), gettype($motiveId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($motiveId, true), gettype($motiveId)), __LINE__);
         }
         $this->MotiveId = $motiveId;
+        
         return $this;
     }
 }

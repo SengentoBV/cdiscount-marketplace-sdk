@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetServiceOrderListResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetServiceOrderListResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrderListMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrderListMessage|null
      */
-    public $GetServiceOrderListResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrderListMessage $GetServiceOrderListResult = null;
     /**
      * Constructor method for GetServiceOrderListResponse
      * @uses CdiscountGetServiceOrderListResponse::setGetServiceOrderListResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrderListMessage $getServiceOrderListResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrderListMessage $getServiceOrderListResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrderListMessage $getServiceOrderListResult = null)
     {
         $this
             ->setGetServiceOrderListResult($getServiceOrderListResult);
@@ -36,7 +39,7 @@ class CdiscountGetServiceOrderListResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrderListMessage|null
      */
-    public function getGetServiceOrderListResult()
+    public function getGetServiceOrderListResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrderListMessage
     {
         return isset($this->GetServiceOrderListResult) ? $this->GetServiceOrderListResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetServiceOrderListResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrderListMessage $getServiceOrderListResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetServiceOrderListResponse
      */
-    public function setGetServiceOrderListResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrderListMessage $getServiceOrderListResult = null)
+    public function setGetServiceOrderListResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceOrderListMessage $getServiceOrderListResult = null): self
     {
         if (is_null($getServiceOrderListResult) || (is_array($getServiceOrderListResult) && empty($getServiceOrderListResult))) {
             unset($this->GetServiceOrderListResult);
         } else {
             $this->GetServiceOrderListResult = $getServiceOrderListResult;
         }
+        
         return $this;
     }
 }

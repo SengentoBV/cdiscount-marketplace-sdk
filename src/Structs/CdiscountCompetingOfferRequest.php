@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CompetingOfferRequest Structs
@@ -19,15 +22,15 @@ class CdiscountCompetingOfferRequest extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public $ProductIds;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $ProductIds = null;
     /**
      * Constructor method for CompetingOfferRequest
      * @uses CdiscountCompetingOfferRequest::setProductIds()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productIds
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productIds = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productIds = null)
     {
         $this
             ->setProductIds($productIds);
@@ -39,7 +42,7 @@ class CdiscountCompetingOfferRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring|null
      */
-    public function getProductIds()
+    public function getProductIds(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring
     {
         return isset($this->ProductIds) ? $this->ProductIds : null;
     }
@@ -50,13 +53,14 @@ class CdiscountCompetingOfferRequest extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productIds
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOfferRequest
      */
-    public function setProductIds(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productIds = null)
+    public function setProductIds(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfstring $productIds = null): self
     {
         if (is_null($productIds) || (is_array($productIds) && empty($productIds))) {
             unset($this->ProductIds);
         } else {
             $this->ProductIds = $productIds;
         }
+        
         return $this;
     }
 }

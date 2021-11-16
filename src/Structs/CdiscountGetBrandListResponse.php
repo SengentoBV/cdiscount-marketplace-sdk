@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetBrandListResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetBrandListResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrandListMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrandListMessage|null
      */
-    public $GetBrandListResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrandListMessage $GetBrandListResult = null;
     /**
      * Constructor method for GetBrandListResponse
      * @uses CdiscountGetBrandListResponse::setGetBrandListResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrandListMessage $getBrandListResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrandListMessage $getBrandListResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrandListMessage $getBrandListResult = null)
     {
         $this
             ->setGetBrandListResult($getBrandListResult);
@@ -36,7 +39,7 @@ class CdiscountGetBrandListResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrandListMessage|null
      */
-    public function getGetBrandListResult()
+    public function getGetBrandListResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrandListMessage
     {
         return isset($this->GetBrandListResult) ? $this->GetBrandListResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetBrandListResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrandListMessage $getBrandListResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetBrandListResponse
      */
-    public function setGetBrandListResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrandListMessage $getBrandListResult = null)
+    public function setGetBrandListResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountBrandListMessage $getBrandListResult = null): self
     {
         if (is_null($getBrandListResult) || (is_array($getBrandListResult) && empty($getBrandListResult))) {
             unset($this->GetBrandListResult);
         } else {
             $this->GetBrandListResult = $getBrandListResult;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for LogisticsManagement Enums
@@ -38,10 +40,10 @@ class CdiscountLogisticsManagement extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_AUTOMATIC,
             self::VALUE_SELLER_ONLY,
             self::VALUE_FULFILMENT_ON_DEMAND,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ServiceMessage Structs
@@ -19,16 +22,16 @@ class CdiscountServiceMessage extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ErrorMessage;
+    protected ?string $ErrorMessage = null;
     /**
      * The OperationSuccess
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $OperationSuccess;
+    protected ?bool $OperationSuccess = null;
     /**
      * Constructor method for ServiceMessage
      * @uses CdiscountServiceMessage::setErrorMessage()
@@ -36,7 +39,7 @@ class CdiscountServiceMessage extends AbstractStructBase
      * @param string $errorMessage
      * @param bool $operationSuccess
      */
-    public function __construct($errorMessage = null, $operationSuccess = null)
+    public function __construct(?string $errorMessage = null, ?bool $operationSuccess = null)
     {
         $this
             ->setErrorMessage($errorMessage)
@@ -49,7 +52,7 @@ class CdiscountServiceMessage extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getErrorMessage()
+    public function getErrorMessage(): ?string
     {
         return isset($this->ErrorMessage) ? $this->ErrorMessage : null;
     }
@@ -60,24 +63,25 @@ class CdiscountServiceMessage extends AbstractStructBase
      * @param string $errorMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceMessage
      */
-    public function setErrorMessage($errorMessage = null)
+    public function setErrorMessage(?string $errorMessage = null): self
     {
         // validation for constraint: string
         if (!is_null($errorMessage) && !is_string($errorMessage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorMessage, true), gettype($errorMessage)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorMessage, true), gettype($errorMessage)), __LINE__);
         }
         if (is_null($errorMessage) || (is_array($errorMessage) && empty($errorMessage))) {
             unset($this->ErrorMessage);
         } else {
             $this->ErrorMessage = $errorMessage;
         }
+        
         return $this;
     }
     /**
      * Get OperationSuccess value
      * @return bool|null
      */
-    public function getOperationSuccess()
+    public function getOperationSuccess(): ?bool
     {
         return $this->OperationSuccess;
     }
@@ -86,13 +90,14 @@ class CdiscountServiceMessage extends AbstractStructBase
      * @param bool $operationSuccess
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceMessage
      */
-    public function setOperationSuccess($operationSuccess = null)
+    public function setOperationSuccess(?bool $operationSuccess = null): self
     {
         // validation for constraint: boolean
         if (!is_null($operationSuccess) && !is_bool($operationSuccess)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($operationSuccess, true), gettype($operationSuccess)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($operationSuccess, true), gettype($operationSuccess)), __LINE__);
         }
         $this->OperationSuccess = $operationSuccess;
+        
         return $this;
     }
 }

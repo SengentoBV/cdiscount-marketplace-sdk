@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ServiceBaseAPIMessage Structs
@@ -19,25 +22,25 @@ class CdiscountServiceBaseAPIMessage extends CdiscountServiceMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError|null
      */
-    public $ErrorList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $ErrorList = null;
     /**
      * The SellerLogin
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SellerLogin;
+    protected ?string $SellerLogin = null;
     /**
      * The TokenId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $TokenId;
+    protected ?string $TokenId = null;
     /**
      * Constructor method for ServiceBaseAPIMessage
      * @uses CdiscountServiceBaseAPIMessage::setErrorList()
@@ -47,7 +50,7 @@ class CdiscountServiceBaseAPIMessage extends CdiscountServiceMessage
      * @param string $sellerLogin
      * @param string $tokenId
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $errorList = null, $sellerLogin = null, $tokenId = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $errorList = null, ?string $sellerLogin = null, ?string $tokenId = null)
     {
         $this
             ->setErrorList($errorList)
@@ -61,7 +64,7 @@ class CdiscountServiceBaseAPIMessage extends CdiscountServiceMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError|null
      */
-    public function getErrorList()
+    public function getErrorList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError
     {
         return isset($this->ErrorList) ? $this->ErrorList : null;
     }
@@ -72,13 +75,14 @@ class CdiscountServiceBaseAPIMessage extends CdiscountServiceMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $errorList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceBaseAPIMessage
      */
-    public function setErrorList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $errorList = null)
+    public function setErrorList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfError $errorList = null): self
     {
         if (is_null($errorList) || (is_array($errorList) && empty($errorList))) {
             unset($this->ErrorList);
         } else {
             $this->ErrorList = $errorList;
         }
+        
         return $this;
     }
     /**
@@ -88,7 +92,7 @@ class CdiscountServiceBaseAPIMessage extends CdiscountServiceMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSellerLogin()
+    public function getSellerLogin(): ?string
     {
         return isset($this->SellerLogin) ? $this->SellerLogin : null;
     }
@@ -99,17 +103,18 @@ class CdiscountServiceBaseAPIMessage extends CdiscountServiceMessage
      * @param string $sellerLogin
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceBaseAPIMessage
      */
-    public function setSellerLogin($sellerLogin = null)
+    public function setSellerLogin(?string $sellerLogin = null): self
     {
         // validation for constraint: string
         if (!is_null($sellerLogin) && !is_string($sellerLogin)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerLogin, true), gettype($sellerLogin)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerLogin, true), gettype($sellerLogin)), __LINE__);
         }
         if (is_null($sellerLogin) || (is_array($sellerLogin) && empty($sellerLogin))) {
             unset($this->SellerLogin);
         } else {
             $this->SellerLogin = $sellerLogin;
         }
+        
         return $this;
     }
     /**
@@ -119,7 +124,7 @@ class CdiscountServiceBaseAPIMessage extends CdiscountServiceMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getTokenId()
+    public function getTokenId(): ?string
     {
         return isset($this->TokenId) ? $this->TokenId : null;
     }
@@ -130,17 +135,18 @@ class CdiscountServiceBaseAPIMessage extends CdiscountServiceMessage
      * @param string $tokenId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountServiceBaseAPIMessage
      */
-    public function setTokenId($tokenId = null)
+    public function setTokenId(?string $tokenId = null): self
     {
         // validation for constraint: string
         if (!is_null($tokenId) && !is_string($tokenId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tokenId, true), gettype($tokenId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tokenId, true), gettype($tokenId)), __LINE__);
         }
         if (is_null($tokenId) || (is_array($tokenId) && empty($tokenId))) {
             unset($this->TokenId);
         } else {
             $this->TokenId = $tokenId;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ClaimType Enums
@@ -98,7 +100,7 @@ class CdiscountClaimType extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_PACKAGE_NOT_RECEIVED,
             self::VALUE_INCOMPLETE_PACKAGE,
             self::VALUE_MISSING_ACCESSORIES,
@@ -112,6 +114,6 @@ class CdiscountClaimType extends AbstractStructEnumBase
             self::VALUE_ORDER_CANCELING,
             self::VALUE_WISH_TO_WITHDRAW,
             self::VALUE_ORDER_NOT_SHIPPED,
-        );
+        ];
     }
 }

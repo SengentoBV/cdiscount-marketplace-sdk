@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CompetingOffer Structs
@@ -19,25 +22,25 @@ class CdiscountCompetingOffer extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExecutionResult
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExecutionResult|null
      */
-    public $ExecutionResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExecutionResult $ExecutionResult = null;
     /**
      * The Offers
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer|null
      */
-    public $Offers;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer $Offers = null;
     /**
      * The Product
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProduct
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProduct|null
      */
-    public $Product;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProduct $Product = null;
     /**
      * Constructor method for CompetingOffer
      * @uses CdiscountCompetingOffer::setExecutionResult()
@@ -47,7 +50,7 @@ class CdiscountCompetingOffer extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer $offers
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProduct $product
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExecutionResult $executionResult = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer $offers = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProduct $product = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExecutionResult $executionResult = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer $offers = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProduct $product = null)
     {
         $this
             ->setExecutionResult($executionResult)
@@ -61,7 +64,7 @@ class CdiscountCompetingOffer extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExecutionResult|null
      */
-    public function getExecutionResult()
+    public function getExecutionResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExecutionResult
     {
         return isset($this->ExecutionResult) ? $this->ExecutionResult : null;
     }
@@ -72,13 +75,14 @@ class CdiscountCompetingOffer extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExecutionResult $executionResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer
      */
-    public function setExecutionResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExecutionResult $executionResult = null)
+    public function setExecutionResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountExecutionResult $executionResult = null): self
     {
         if (is_null($executionResult) || (is_array($executionResult) && empty($executionResult))) {
             unset($this->ExecutionResult);
         } else {
             $this->ExecutionResult = $executionResult;
         }
+        
         return $this;
     }
     /**
@@ -88,7 +92,7 @@ class CdiscountCompetingOffer extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer|null
      */
-    public function getOffers()
+    public function getOffers(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer
     {
         return isset($this->Offers) ? $this->Offers : null;
     }
@@ -99,13 +103,14 @@ class CdiscountCompetingOffer extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer $offers
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer
      */
-    public function setOffers(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer $offers = null)
+    public function setOffers(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer $offers = null): self
     {
         if (is_null($offers) || (is_array($offers) && empty($offers))) {
             unset($this->Offers);
         } else {
             $this->Offers = $offers;
         }
+        
         return $this;
     }
     /**
@@ -115,7 +120,7 @@ class CdiscountCompetingOffer extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProduct|null
      */
-    public function getProduct()
+    public function getProduct(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProduct
     {
         return isset($this->Product) ? $this->Product : null;
     }
@@ -126,13 +131,14 @@ class CdiscountCompetingOffer extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProduct $product
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCompetingOffer
      */
-    public function setProduct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProduct $product = null)
+    public function setProduct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProduct $product = null): self
     {
         if (is_null($product) || (is_array($product) && empty($product))) {
             unset($this->Product);
         } else {
             $this->Product = $product;
         }
+        
         return $this;
     }
 }

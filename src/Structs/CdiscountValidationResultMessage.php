@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ValidationResultMessage Structs
@@ -19,15 +22,15 @@ class CdiscountValidationResultMessage extends CdiscountServiceBaseAPIMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderResult
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderResult|null
      */
-    public $ValidateOrderResults;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderResult $ValidateOrderResults = null;
     /**
      * Constructor method for ValidationResultMessage
      * @uses CdiscountValidationResultMessage::setValidateOrderResults()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderResult $validateOrderResults
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderResult $validateOrderResults = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderResult $validateOrderResults = null)
     {
         $this
             ->setValidateOrderResults($validateOrderResults);
@@ -39,7 +42,7 @@ class CdiscountValidationResultMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderResult|null
      */
-    public function getValidateOrderResults()
+    public function getValidateOrderResults(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderResult
     {
         return isset($this->ValidateOrderResults) ? $this->ValidateOrderResults : null;
     }
@@ -50,13 +53,14 @@ class CdiscountValidationResultMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderResult $validateOrderResults
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidationResultMessage
      */
-    public function setValidateOrderResults(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderResult $validateOrderResults = null)
+    public function setValidateOrderResults(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderResult $validateOrderResults = null): self
     {
         if (is_null($validateOrderResults) || (is_array($validateOrderResults) && empty($validateOrderResults))) {
             unset($this->ValidateOrderResults);
         } else {
             $this->ValidateOrderResults = $validateOrderResults;
         }
+        
         return $this;
     }
 }

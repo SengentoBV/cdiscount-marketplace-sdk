@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FulfilmentOnDemandOrderLineFilter Structs
@@ -19,25 +22,25 @@ class CdiscountFulfilmentOnDemandOrderLineFilter extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $OrderReference;
+    protected ?string $OrderReference = null;
     /**
      * The ProductEan
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ProductEan;
+    protected ?string $ProductEan = null;
     /**
      * The Warehouse
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Warehouse;
+    protected ?string $Warehouse = null;
     /**
      * Constructor method for FulfilmentOnDemandOrderLineFilter
      * @uses CdiscountFulfilmentOnDemandOrderLineFilter::setOrderReference()
@@ -47,7 +50,7 @@ class CdiscountFulfilmentOnDemandOrderLineFilter extends AbstractStructBase
      * @param string $productEan
      * @param string $warehouse
      */
-    public function __construct($orderReference = null, $productEan = null, $warehouse = null)
+    public function __construct(?string $orderReference = null, ?string $productEan = null, ?string $warehouse = null)
     {
         $this
             ->setOrderReference($orderReference)
@@ -61,7 +64,7 @@ class CdiscountFulfilmentOnDemandOrderLineFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getOrderReference()
+    public function getOrderReference(): ?string
     {
         return isset($this->OrderReference) ? $this->OrderReference : null;
     }
@@ -72,17 +75,18 @@ class CdiscountFulfilmentOnDemandOrderLineFilter extends AbstractStructBase
      * @param string $orderReference
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandOrderLineFilter
      */
-    public function setOrderReference($orderReference = null)
+    public function setOrderReference(?string $orderReference = null): self
     {
         // validation for constraint: string
         if (!is_null($orderReference) && !is_string($orderReference)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderReference, true), gettype($orderReference)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderReference, true), gettype($orderReference)), __LINE__);
         }
         if (is_null($orderReference) || (is_array($orderReference) && empty($orderReference))) {
             unset($this->OrderReference);
         } else {
             $this->OrderReference = $orderReference;
         }
+        
         return $this;
     }
     /**
@@ -92,7 +96,7 @@ class CdiscountFulfilmentOnDemandOrderLineFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getProductEan()
+    public function getProductEan(): ?string
     {
         return isset($this->ProductEan) ? $this->ProductEan : null;
     }
@@ -103,17 +107,18 @@ class CdiscountFulfilmentOnDemandOrderLineFilter extends AbstractStructBase
      * @param string $productEan
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandOrderLineFilter
      */
-    public function setProductEan($productEan = null)
+    public function setProductEan(?string $productEan = null): self
     {
         // validation for constraint: string
         if (!is_null($productEan) && !is_string($productEan)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productEan, true), gettype($productEan)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productEan, true), gettype($productEan)), __LINE__);
         }
         if (is_null($productEan) || (is_array($productEan) && empty($productEan))) {
             unset($this->ProductEan);
         } else {
             $this->ProductEan = $productEan;
         }
+        
         return $this;
     }
     /**
@@ -123,7 +128,7 @@ class CdiscountFulfilmentOnDemandOrderLineFilter extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getWarehouse()
+    public function getWarehouse(): ?string
     {
         return isset($this->Warehouse) ? $this->Warehouse : null;
     }
@@ -133,21 +138,22 @@ class CdiscountFulfilmentOnDemandOrderLineFilter extends AbstractStructBase
      * if the value assigned to this property is null, it is removed from this object
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountWarehouseType::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountWarehouseType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $warehouse
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentOnDemandOrderLineFilter
      */
-    public function setWarehouse($warehouse = null)
+    public function setWarehouse(?string $warehouse = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountWarehouseType::valueIsValid($warehouse)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountWarehouseType', is_array($warehouse) ? implode(', ', $warehouse) : var_export($warehouse, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountWarehouseType::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountWarehouseType', is_array($warehouse) ? implode(', ', $warehouse) : var_export($warehouse, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountWarehouseType::getValidValues())), __LINE__);
         }
         if (is_null($warehouse) || (is_array($warehouse) && empty($warehouse))) {
             unset($this->Warehouse);
         } else {
             $this->Warehouse = $warehouse;
         }
+        
         return $this;
     }
 }

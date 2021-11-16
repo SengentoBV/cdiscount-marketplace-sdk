@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ParcelItem Structs
@@ -19,24 +22,24 @@ class CdiscountParcelItem extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ProductName;
+    protected ?string $ProductName = null;
     /**
      * The Quantity
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Quantity;
+    protected ?int $Quantity = null;
     /**
      * The Sku
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Sku;
+    protected ?string $Sku = null;
     /**
      * Constructor method for ParcelItem
      * @uses CdiscountParcelItem::setProductName()
@@ -46,7 +49,7 @@ class CdiscountParcelItem extends AbstractStructBase
      * @param int $quantity
      * @param string $sku
      */
-    public function __construct($productName = null, $quantity = null, $sku = null)
+    public function __construct(?string $productName = null, ?int $quantity = null, ?string $sku = null)
     {
         $this
             ->setProductName($productName)
@@ -60,7 +63,7 @@ class CdiscountParcelItem extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getProductName()
+    public function getProductName(): ?string
     {
         return isset($this->ProductName) ? $this->ProductName : null;
     }
@@ -71,24 +74,25 @@ class CdiscountParcelItem extends AbstractStructBase
      * @param string $productName
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelItem
      */
-    public function setProductName($productName = null)
+    public function setProductName(?string $productName = null): self
     {
         // validation for constraint: string
         if (!is_null($productName) && !is_string($productName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productName, true), gettype($productName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productName, true), gettype($productName)), __LINE__);
         }
         if (is_null($productName) || (is_array($productName) && empty($productName))) {
             unset($this->ProductName);
         } else {
             $this->ProductName = $productName;
         }
+        
         return $this;
     }
     /**
      * Get Quantity value
      * @return int|null
      */
-    public function getQuantity()
+    public function getQuantity(): ?int
     {
         return $this->Quantity;
     }
@@ -97,13 +101,14 @@ class CdiscountParcelItem extends AbstractStructBase
      * @param int $quantity
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelItem
      */
-    public function setQuantity($quantity = null)
+    public function setQuantity(?int $quantity = null): self
     {
         // validation for constraint: int
         if (!is_null($quantity) && !(is_int($quantity) || ctype_digit($quantity))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($quantity, true), gettype($quantity)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($quantity, true), gettype($quantity)), __LINE__);
         }
         $this->Quantity = $quantity;
+        
         return $this;
     }
     /**
@@ -113,7 +118,7 @@ class CdiscountParcelItem extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSku()
+    public function getSku(): ?string
     {
         return isset($this->Sku) ? $this->Sku : null;
     }
@@ -124,17 +129,18 @@ class CdiscountParcelItem extends AbstractStructBase
      * @param string $sku
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelItem
      */
-    public function setSku($sku = null)
+    public function setSku(?string $sku = null): self
     {
         // validation for constraint: string
         if (!is_null($sku) && !is_string($sku)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sku, true), gettype($sku)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sku, true), gettype($sku)), __LINE__);
         }
         if (is_null($sku) || (is_array($sku) && empty($sku))) {
             unset($this->Sku);
         } else {
             $this->Sku = $sku;
         }
+        
         return $this;
     }
 }

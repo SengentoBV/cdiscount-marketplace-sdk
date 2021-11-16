@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ProductPackagingUnit Enums
@@ -40,22 +42,29 @@ class CdiscountProductPackagingUnit extends AbstractStructEnumBase
      */
     const VALUE_CUBIC_METER = 'CubicMeter';
     /**
+     * Constant for value 'Piece'
+     * @return string 'Piece'
+     */
+    const VALUE_PIECE = 'Piece';
+    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_LITER
      * @uses self::VALUE_KILOGRAM
      * @uses self::VALUE_SQUARE_METER
      * @uses self::VALUE_CUBIC_METER
+     * @uses self::VALUE_PIECE
      * @return string[]
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_LITER,
             self::VALUE_KILOGRAM,
             self::VALUE_SQUARE_METER,
             self::VALUE_CUBIC_METER,
-        );
+            self::VALUE_PIECE,
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Voucher Structs
@@ -19,24 +22,24 @@ class CdiscountVoucher extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CreateDate;
+    protected ?string $CreateDate = null;
     /**
      * The RefundInformation
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformation
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformation|null
      */
-    public $RefundInformation;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformation $RefundInformation = null;
     /**
      * The Source
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Source;
+    protected ?string $Source = null;
     /**
      * Constructor method for Voucher
      * @uses CdiscountVoucher::setCreateDate()
@@ -46,7 +49,7 @@ class CdiscountVoucher extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformation $refundInformation
      * @param string $source
      */
-    public function __construct($createDate = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformation $refundInformation = null, $source = null)
+    public function __construct(?string $createDate = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformation $refundInformation = null, ?string $source = null)
     {
         $this
             ->setCreateDate($createDate)
@@ -60,7 +63,7 @@ class CdiscountVoucher extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCreateDate()
+    public function getCreateDate(): ?string
     {
         return isset($this->CreateDate) ? $this->CreateDate : null;
     }
@@ -71,24 +74,25 @@ class CdiscountVoucher extends AbstractStructBase
      * @param string $createDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountVoucher
      */
-    public function setCreateDate($createDate = null)
+    public function setCreateDate(?string $createDate = null): self
     {
         // validation for constraint: string
         if (!is_null($createDate) && !is_string($createDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($createDate, true), gettype($createDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($createDate, true), gettype($createDate)), __LINE__);
         }
         if (is_null($createDate) || (is_array($createDate) && empty($createDate))) {
             unset($this->CreateDate);
         } else {
             $this->CreateDate = $createDate;
         }
+        
         return $this;
     }
     /**
      * Get RefundInformation value
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformation|null
      */
-    public function getRefundInformation()
+    public function getRefundInformation(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformation
     {
         return $this->RefundInformation;
     }
@@ -97,9 +101,10 @@ class CdiscountVoucher extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformation $refundInformation
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountVoucher
      */
-    public function setRefundInformation(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformation $refundInformation = null)
+    public function setRefundInformation(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformation $refundInformation = null): self
     {
         $this->RefundInformation = $refundInformation;
+        
         return $this;
     }
     /**
@@ -109,7 +114,7 @@ class CdiscountVoucher extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSource()
+    public function getSource(): ?string
     {
         return isset($this->Source) ? $this->Source : null;
     }
@@ -119,21 +124,22 @@ class CdiscountVoucher extends AbstractStructBase
      * if the value assigned to this property is null, it is removed from this object
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountVoucherSourceActor::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountVoucherSourceActor::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $source
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountVoucher
      */
-    public function setSource($source = null)
+    public function setSource(?string $source = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountVoucherSourceActor::valueIsValid($source)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountVoucherSourceActor', is_array($source) ? implode(', ', $source) : var_export($source, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountVoucherSourceActor::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountVoucherSourceActor', is_array($source) ? implode(', ', $source) : var_export($source, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountVoucherSourceActor::getValidValues())), __LINE__);
         }
         if (is_null($source) || (is_array($source) && empty($source))) {
             unset($this->Source);
         } else {
             $this->Source = $source;
         }
+        
         return $this;
     }
 }

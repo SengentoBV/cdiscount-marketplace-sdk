@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ErrorTypeEnum Enums
@@ -254,7 +256,7 @@ class CdiscountErrorTypeEnum extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_UNEXPECTED_EXCEPTION,
             self::VALUE_MISSING_FIELD,
             self::VALUE_PACKAGE_NOT_FOUND,
@@ -294,6 +296,6 @@ class CdiscountErrorTypeEnum extends AbstractStructEnumBase
             self::VALUE_PRODUCT_NOT_REFERENCED_EXCEPTION,
             self::VALUE_PRODUCT_REFERENCED_WITHOUT_STOCK_EXCEPTION,
             self::VALUE_PRODUCT_NUMBER_LIMIT_EXCEEDED_EXCEPTION,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SellerRefundOrderLine Structs
@@ -19,24 +22,24 @@ class CdiscountSellerRefundOrderLine extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Ean;
+    protected ?string $Ean = null;
     /**
      * The RefundShippingCharges
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var bool
+     * @var bool|null
      */
-    public $RefundShippingCharges;
+    protected ?bool $RefundShippingCharges = null;
     /**
      * The SellerProductId
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SellerProductId;
+    protected ?string $SellerProductId = null;
     /**
      * Constructor method for SellerRefundOrderLine
      * @uses CdiscountSellerRefundOrderLine::setEan()
@@ -46,7 +49,7 @@ class CdiscountSellerRefundOrderLine extends AbstractStructBase
      * @param bool $refundShippingCharges
      * @param string $sellerProductId
      */
-    public function __construct($ean = null, $refundShippingCharges = null, $sellerProductId = null)
+    public function __construct(?string $ean = null, ?bool $refundShippingCharges = null, ?string $sellerProductId = null)
     {
         $this
             ->setEan($ean)
@@ -60,7 +63,7 @@ class CdiscountSellerRefundOrderLine extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getEan()
+    public function getEan(): ?string
     {
         return isset($this->Ean) ? $this->Ean : null;
     }
@@ -71,17 +74,18 @@ class CdiscountSellerRefundOrderLine extends AbstractStructBase
      * @param string $ean
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundOrderLine
      */
-    public function setEan($ean = null)
+    public function setEan(?string $ean = null): self
     {
         // validation for constraint: string
         if (!is_null($ean) && !is_string($ean)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($ean, true), gettype($ean)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($ean, true), gettype($ean)), __LINE__);
         }
         if (is_null($ean) || (is_array($ean) && empty($ean))) {
             unset($this->Ean);
         } else {
             $this->Ean = $ean;
         }
+        
         return $this;
     }
     /**
@@ -91,7 +95,7 @@ class CdiscountSellerRefundOrderLine extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return bool|null
      */
-    public function getRefundShippingCharges()
+    public function getRefundShippingCharges(): ?bool
     {
         return isset($this->RefundShippingCharges) ? $this->RefundShippingCharges : null;
     }
@@ -102,24 +106,25 @@ class CdiscountSellerRefundOrderLine extends AbstractStructBase
      * @param bool $refundShippingCharges
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundOrderLine
      */
-    public function setRefundShippingCharges($refundShippingCharges = null)
+    public function setRefundShippingCharges(?bool $refundShippingCharges = null): self
     {
         // validation for constraint: boolean
         if (!is_null($refundShippingCharges) && !is_bool($refundShippingCharges)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($refundShippingCharges, true), gettype($refundShippingCharges)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($refundShippingCharges, true), gettype($refundShippingCharges)), __LINE__);
         }
         if (is_null($refundShippingCharges) || (is_array($refundShippingCharges) && empty($refundShippingCharges))) {
             unset($this->RefundShippingCharges);
         } else {
             $this->RefundShippingCharges = $refundShippingCharges;
         }
+        
         return $this;
     }
     /**
      * Get SellerProductId value
      * @return string|null
      */
-    public function getSellerProductId()
+    public function getSellerProductId(): ?string
     {
         return $this->SellerProductId;
     }
@@ -128,13 +133,14 @@ class CdiscountSellerRefundOrderLine extends AbstractStructBase
      * @param string $sellerProductId
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundOrderLine
      */
-    public function setSellerProductId($sellerProductId = null)
+    public function setSellerProductId(?string $sellerProductId = null): self
     {
         // validation for constraint: string
         if (!is_null($sellerProductId) && !is_string($sellerProductId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerProductId, true), gettype($sellerProductId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sellerProductId, true), gettype($sellerProductId)), __LINE__);
         }
         $this->SellerProductId = $sellerProductId;
+        
         return $this;
     }
 }

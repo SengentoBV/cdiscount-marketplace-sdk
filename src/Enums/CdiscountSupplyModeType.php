@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for SupplyModeType Enums
@@ -38,10 +40,10 @@ class CdiscountSupplyModeType extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_MKP,
             self::VALUE_FBC,
             self::VALUE_TTD,
-        );
+        ];
     }
 }

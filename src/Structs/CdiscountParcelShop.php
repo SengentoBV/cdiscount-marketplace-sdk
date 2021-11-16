@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ParcelShop Structs
@@ -19,391 +22,391 @@ class CdiscountParcelShop extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $AddressComplement;
+    protected ?string $AddressComplement = null;
     /**
      * The City
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $City;
+    protected ?string $City = null;
     /**
      * The ClosingDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ClosingDate;
+    protected ?string $ClosingDate = null;
     /**
      * The ExceptionalClosingDate1
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ExceptionalClosingDate1;
+    protected ?string $ExceptionalClosingDate1 = null;
     /**
      * The ExceptionalClosingDate2
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ExceptionalClosingDate2;
+    protected ?string $ExceptionalClosingDate2 = null;
     /**
      * The ExceptionalClosingDate3
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ExceptionalClosingDate3;
+    protected ?string $ExceptionalClosingDate3 = null;
     /**
      * The ExceptionalClosingDate4
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ExceptionalClosingDate4;
+    protected ?string $ExceptionalClosingDate4 = null;
     /**
      * The ExceptionalClosingDate5
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ExceptionalClosingDate5;
+    protected ?string $ExceptionalClosingDate5 = null;
     /**
      * The FridayAfternoonClosingHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $FridayAfternoonClosingHour;
+    protected ?string $FridayAfternoonClosingHour = null;
     /**
      * The FridayAfternoonOpeningHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $FridayAfternoonOpeningHour;
+    protected ?string $FridayAfternoonOpeningHour = null;
     /**
      * The FridayMorningClosingHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $FridayMorningClosingHour;
+    protected ?string $FridayMorningClosingHour = null;
     /**
      * The FridayMorningOpeningHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $FridayMorningOpeningHour;
+    protected ?string $FridayMorningOpeningHour = null;
     /**
      * The IsStoreShipmentActive
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsStoreShipmentActive;
+    protected ?bool $IsStoreShipmentActive = null;
     /**
      * The IsTakeAwayDeliveryActive
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsTakeAwayDeliveryActive;
+    protected ?bool $IsTakeAwayDeliveryActive = null;
     /**
      * The Latitude
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var float
+     * @var float|null
      */
-    public $Latitude;
+    protected ?float $Latitude = null;
     /**
      * The Locality
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Locality;
+    protected ?string $Locality = null;
     /**
      * The Longitude
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var float
+     * @var float|null
      */
-    public $Longitude;
+    protected ?float $Longitude = null;
     /**
      * The MondayAfternoonClosingHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $MondayAfternoonClosingHour;
+    protected ?string $MondayAfternoonClosingHour = null;
     /**
      * The MondayAfternoonOpeningHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $MondayAfternoonOpeningHour;
+    protected ?string $MondayAfternoonOpeningHour = null;
     /**
      * The MondayMorningClosingHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $MondayMorningClosingHour;
+    protected ?string $MondayMorningClosingHour = null;
     /**
      * The MondayMorningOpeningHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $MondayMorningOpeningHour;
+    protected ?string $MondayMorningOpeningHour = null;
     /**
      * The Name
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * The OpeningDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $OpeningDate;
+    protected ?string $OpeningDate = null;
     /**
      * The PhoneNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $PhoneNumber;
+    protected ?string $PhoneNumber = null;
     /**
      * The Reference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Reference;
+    protected ?string $Reference = null;
     /**
      * The SaturdayAfternoonClosingHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SaturdayAfternoonClosingHour;
+    protected ?string $SaturdayAfternoonClosingHour = null;
     /**
      * The SaturdayAfternoonOpeningHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SaturdayAfternoonOpeningHour;
+    protected ?string $SaturdayAfternoonOpeningHour = null;
     /**
      * The SaturdayMorningClosingHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SaturdayMorningClosingHour;
+    protected ?string $SaturdayMorningClosingHour = null;
     /**
      * The SaturdayMorningOpeningHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SaturdayMorningOpeningHour;
+    protected ?string $SaturdayMorningOpeningHour = null;
     /**
      * The StreetAndStreetNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $StreetAndStreetNumber;
+    protected ?string $StreetAndStreetNumber = null;
     /**
      * The SundayAfternoonClosingHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SundayAfternoonClosingHour;
+    protected ?string $SundayAfternoonClosingHour = null;
     /**
      * The SundayAfternoonOpeningHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SundayAfternoonOpeningHour;
+    protected ?string $SundayAfternoonOpeningHour = null;
     /**
      * The SundayMorningClosingHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SundayMorningClosingHour;
+    protected ?string $SundayMorningClosingHour = null;
     /**
      * The SundayMorningOpeningHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SundayMorningOpeningHour;
+    protected ?string $SundayMorningOpeningHour = null;
     /**
      * The TemporaryClosingEndDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $TemporaryClosingEndDate;
+    protected ?string $TemporaryClosingEndDate = null;
     /**
      * The TemporaryClosingStartDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $TemporaryClosingStartDate;
+    protected ?string $TemporaryClosingStartDate = null;
     /**
      * The ThursdayAfternoonClosingHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ThursdayAfternoonClosingHour;
+    protected ?string $ThursdayAfternoonClosingHour = null;
     /**
      * The ThursdayAfternoonOpeningHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ThursdayAfternoonOpeningHour;
+    protected ?string $ThursdayAfternoonOpeningHour = null;
     /**
      * The ThursdayMorningClosingHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ThursdayMorningClosingHour;
+    protected ?string $ThursdayMorningClosingHour = null;
     /**
      * The ThursdayMorningOpeningHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ThursdayMorningOpeningHour;
+    protected ?string $ThursdayMorningOpeningHour = null;
     /**
      * The TuesdayAfternoonClosingHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $TuesdayAfternoonClosingHour;
+    protected ?string $TuesdayAfternoonClosingHour = null;
     /**
      * The TuesdayAfternoonOpeningHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $TuesdayAfternoonOpeningHour;
+    protected ?string $TuesdayAfternoonOpeningHour = null;
     /**
      * The TuesdayMorningClosingHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $TuesdayMorningClosingHour;
+    protected ?string $TuesdayMorningClosingHour = null;
     /**
      * The TuesdayMorningOpeningHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $TuesdayMorningOpeningHour;
+    protected ?string $TuesdayMorningOpeningHour = null;
     /**
      * The WednesdayAfternoonClosingHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $WednesdayAfternoonClosingHour;
+    protected ?string $WednesdayAfternoonClosingHour = null;
     /**
      * The WednesdayAfternoonOpeningHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $WednesdayAfternoonOpeningHour;
+    protected ?string $WednesdayAfternoonOpeningHour = null;
     /**
      * The WednesdayMorningClosingHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $WednesdayMorningClosingHour;
+    protected ?string $WednesdayMorningClosingHour = null;
     /**
      * The WednesdayMorningOpeningHour
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $WednesdayMorningOpeningHour;
+    protected ?string $WednesdayMorningOpeningHour = null;
     /**
      * The ZipCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ZipCode;
+    protected ?string $ZipCode = null;
     /**
      * Constructor method for ParcelShop
      * @uses CdiscountParcelShop::setAddressComplement()
@@ -505,7 +508,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $wednesdayMorningOpeningHour
      * @param string $zipCode
      */
-    public function __construct($addressComplement = null, $city = null, $closingDate = null, $exceptionalClosingDate1 = null, $exceptionalClosingDate2 = null, $exceptionalClosingDate3 = null, $exceptionalClosingDate4 = null, $exceptionalClosingDate5 = null, $fridayAfternoonClosingHour = null, $fridayAfternoonOpeningHour = null, $fridayMorningClosingHour = null, $fridayMorningOpeningHour = null, $isStoreShipmentActive = null, $isTakeAwayDeliveryActive = null, $latitude = null, $locality = null, $longitude = null, $mondayAfternoonClosingHour = null, $mondayAfternoonOpeningHour = null, $mondayMorningClosingHour = null, $mondayMorningOpeningHour = null, $name = null, $openingDate = null, $phoneNumber = null, $reference = null, $saturdayAfternoonClosingHour = null, $saturdayAfternoonOpeningHour = null, $saturdayMorningClosingHour = null, $saturdayMorningOpeningHour = null, $streetAndStreetNumber = null, $sundayAfternoonClosingHour = null, $sundayAfternoonOpeningHour = null, $sundayMorningClosingHour = null, $sundayMorningOpeningHour = null, $temporaryClosingEndDate = null, $temporaryClosingStartDate = null, $thursdayAfternoonClosingHour = null, $thursdayAfternoonOpeningHour = null, $thursdayMorningClosingHour = null, $thursdayMorningOpeningHour = null, $tuesdayAfternoonClosingHour = null, $tuesdayAfternoonOpeningHour = null, $tuesdayMorningClosingHour = null, $tuesdayMorningOpeningHour = null, $wednesdayAfternoonClosingHour = null, $wednesdayAfternoonOpeningHour = null, $wednesdayMorningClosingHour = null, $wednesdayMorningOpeningHour = null, $zipCode = null)
+    public function __construct(?string $addressComplement = null, ?string $city = null, ?string $closingDate = null, ?string $exceptionalClosingDate1 = null, ?string $exceptionalClosingDate2 = null, ?string $exceptionalClosingDate3 = null, ?string $exceptionalClosingDate4 = null, ?string $exceptionalClosingDate5 = null, ?string $fridayAfternoonClosingHour = null, ?string $fridayAfternoonOpeningHour = null, ?string $fridayMorningClosingHour = null, ?string $fridayMorningOpeningHour = null, ?bool $isStoreShipmentActive = null, ?bool $isTakeAwayDeliveryActive = null, ?float $latitude = null, ?string $locality = null, ?float $longitude = null, ?string $mondayAfternoonClosingHour = null, ?string $mondayAfternoonOpeningHour = null, ?string $mondayMorningClosingHour = null, ?string $mondayMorningOpeningHour = null, ?string $name = null, ?string $openingDate = null, ?string $phoneNumber = null, ?string $reference = null, ?string $saturdayAfternoonClosingHour = null, ?string $saturdayAfternoonOpeningHour = null, ?string $saturdayMorningClosingHour = null, ?string $saturdayMorningOpeningHour = null, ?string $streetAndStreetNumber = null, ?string $sundayAfternoonClosingHour = null, ?string $sundayAfternoonOpeningHour = null, ?string $sundayMorningClosingHour = null, ?string $sundayMorningOpeningHour = null, ?string $temporaryClosingEndDate = null, ?string $temporaryClosingStartDate = null, ?string $thursdayAfternoonClosingHour = null, ?string $thursdayAfternoonOpeningHour = null, ?string $thursdayMorningClosingHour = null, ?string $thursdayMorningOpeningHour = null, ?string $tuesdayAfternoonClosingHour = null, ?string $tuesdayAfternoonOpeningHour = null, ?string $tuesdayMorningClosingHour = null, ?string $tuesdayMorningOpeningHour = null, ?string $wednesdayAfternoonClosingHour = null, ?string $wednesdayAfternoonOpeningHour = null, ?string $wednesdayMorningClosingHour = null, ?string $wednesdayMorningOpeningHour = null, ?string $zipCode = null)
     {
         $this
             ->setAddressComplement($addressComplement)
@@ -565,7 +568,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getAddressComplement()
+    public function getAddressComplement(): ?string
     {
         return isset($this->AddressComplement) ? $this->AddressComplement : null;
     }
@@ -576,17 +579,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $addressComplement
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setAddressComplement($addressComplement = null)
+    public function setAddressComplement(?string $addressComplement = null): self
     {
         // validation for constraint: string
         if (!is_null($addressComplement) && !is_string($addressComplement)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($addressComplement, true), gettype($addressComplement)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($addressComplement, true), gettype($addressComplement)), __LINE__);
         }
         if (is_null($addressComplement) || (is_array($addressComplement) && empty($addressComplement))) {
             unset($this->AddressComplement);
         } else {
             $this->AddressComplement = $addressComplement;
         }
+        
         return $this;
     }
     /**
@@ -596,7 +600,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCity()
+    public function getCity(): ?string
     {
         return isset($this->City) ? $this->City : null;
     }
@@ -607,17 +611,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $city
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setCity($city = null)
+    public function setCity(?string $city = null): self
     {
         // validation for constraint: string
         if (!is_null($city) && !is_string($city)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($city, true), gettype($city)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($city, true), gettype($city)), __LINE__);
         }
         if (is_null($city) || (is_array($city) && empty($city))) {
             unset($this->City);
         } else {
             $this->City = $city;
         }
+        
         return $this;
     }
     /**
@@ -627,7 +632,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getClosingDate()
+    public function getClosingDate(): ?string
     {
         return isset($this->ClosingDate) ? $this->ClosingDate : null;
     }
@@ -638,17 +643,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $closingDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setClosingDate($closingDate = null)
+    public function setClosingDate(?string $closingDate = null): self
     {
         // validation for constraint: string
         if (!is_null($closingDate) && !is_string($closingDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($closingDate, true), gettype($closingDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($closingDate, true), gettype($closingDate)), __LINE__);
         }
         if (is_null($closingDate) || (is_array($closingDate) && empty($closingDate))) {
             unset($this->ClosingDate);
         } else {
             $this->ClosingDate = $closingDate;
         }
+        
         return $this;
     }
     /**
@@ -658,7 +664,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getExceptionalClosingDate1()
+    public function getExceptionalClosingDate1(): ?string
     {
         return isset($this->ExceptionalClosingDate1) ? $this->ExceptionalClosingDate1 : null;
     }
@@ -669,17 +675,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $exceptionalClosingDate1
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setExceptionalClosingDate1($exceptionalClosingDate1 = null)
+    public function setExceptionalClosingDate1(?string $exceptionalClosingDate1 = null): self
     {
         // validation for constraint: string
         if (!is_null($exceptionalClosingDate1) && !is_string($exceptionalClosingDate1)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($exceptionalClosingDate1, true), gettype($exceptionalClosingDate1)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($exceptionalClosingDate1, true), gettype($exceptionalClosingDate1)), __LINE__);
         }
         if (is_null($exceptionalClosingDate1) || (is_array($exceptionalClosingDate1) && empty($exceptionalClosingDate1))) {
             unset($this->ExceptionalClosingDate1);
         } else {
             $this->ExceptionalClosingDate1 = $exceptionalClosingDate1;
         }
+        
         return $this;
     }
     /**
@@ -689,7 +696,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getExceptionalClosingDate2()
+    public function getExceptionalClosingDate2(): ?string
     {
         return isset($this->ExceptionalClosingDate2) ? $this->ExceptionalClosingDate2 : null;
     }
@@ -700,17 +707,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $exceptionalClosingDate2
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setExceptionalClosingDate2($exceptionalClosingDate2 = null)
+    public function setExceptionalClosingDate2(?string $exceptionalClosingDate2 = null): self
     {
         // validation for constraint: string
         if (!is_null($exceptionalClosingDate2) && !is_string($exceptionalClosingDate2)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($exceptionalClosingDate2, true), gettype($exceptionalClosingDate2)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($exceptionalClosingDate2, true), gettype($exceptionalClosingDate2)), __LINE__);
         }
         if (is_null($exceptionalClosingDate2) || (is_array($exceptionalClosingDate2) && empty($exceptionalClosingDate2))) {
             unset($this->ExceptionalClosingDate2);
         } else {
             $this->ExceptionalClosingDate2 = $exceptionalClosingDate2;
         }
+        
         return $this;
     }
     /**
@@ -720,7 +728,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getExceptionalClosingDate3()
+    public function getExceptionalClosingDate3(): ?string
     {
         return isset($this->ExceptionalClosingDate3) ? $this->ExceptionalClosingDate3 : null;
     }
@@ -731,17 +739,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $exceptionalClosingDate3
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setExceptionalClosingDate3($exceptionalClosingDate3 = null)
+    public function setExceptionalClosingDate3(?string $exceptionalClosingDate3 = null): self
     {
         // validation for constraint: string
         if (!is_null($exceptionalClosingDate3) && !is_string($exceptionalClosingDate3)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($exceptionalClosingDate3, true), gettype($exceptionalClosingDate3)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($exceptionalClosingDate3, true), gettype($exceptionalClosingDate3)), __LINE__);
         }
         if (is_null($exceptionalClosingDate3) || (is_array($exceptionalClosingDate3) && empty($exceptionalClosingDate3))) {
             unset($this->ExceptionalClosingDate3);
         } else {
             $this->ExceptionalClosingDate3 = $exceptionalClosingDate3;
         }
+        
         return $this;
     }
     /**
@@ -751,7 +760,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getExceptionalClosingDate4()
+    public function getExceptionalClosingDate4(): ?string
     {
         return isset($this->ExceptionalClosingDate4) ? $this->ExceptionalClosingDate4 : null;
     }
@@ -762,17 +771,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $exceptionalClosingDate4
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setExceptionalClosingDate4($exceptionalClosingDate4 = null)
+    public function setExceptionalClosingDate4(?string $exceptionalClosingDate4 = null): self
     {
         // validation for constraint: string
         if (!is_null($exceptionalClosingDate4) && !is_string($exceptionalClosingDate4)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($exceptionalClosingDate4, true), gettype($exceptionalClosingDate4)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($exceptionalClosingDate4, true), gettype($exceptionalClosingDate4)), __LINE__);
         }
         if (is_null($exceptionalClosingDate4) || (is_array($exceptionalClosingDate4) && empty($exceptionalClosingDate4))) {
             unset($this->ExceptionalClosingDate4);
         } else {
             $this->ExceptionalClosingDate4 = $exceptionalClosingDate4;
         }
+        
         return $this;
     }
     /**
@@ -782,7 +792,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getExceptionalClosingDate5()
+    public function getExceptionalClosingDate5(): ?string
     {
         return isset($this->ExceptionalClosingDate5) ? $this->ExceptionalClosingDate5 : null;
     }
@@ -793,17 +803,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $exceptionalClosingDate5
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setExceptionalClosingDate5($exceptionalClosingDate5 = null)
+    public function setExceptionalClosingDate5(?string $exceptionalClosingDate5 = null): self
     {
         // validation for constraint: string
         if (!is_null($exceptionalClosingDate5) && !is_string($exceptionalClosingDate5)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($exceptionalClosingDate5, true), gettype($exceptionalClosingDate5)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($exceptionalClosingDate5, true), gettype($exceptionalClosingDate5)), __LINE__);
         }
         if (is_null($exceptionalClosingDate5) || (is_array($exceptionalClosingDate5) && empty($exceptionalClosingDate5))) {
             unset($this->ExceptionalClosingDate5);
         } else {
             $this->ExceptionalClosingDate5 = $exceptionalClosingDate5;
         }
+        
         return $this;
     }
     /**
@@ -813,7 +824,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getFridayAfternoonClosingHour()
+    public function getFridayAfternoonClosingHour(): ?string
     {
         return isset($this->FridayAfternoonClosingHour) ? $this->FridayAfternoonClosingHour : null;
     }
@@ -824,17 +835,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $fridayAfternoonClosingHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setFridayAfternoonClosingHour($fridayAfternoonClosingHour = null)
+    public function setFridayAfternoonClosingHour(?string $fridayAfternoonClosingHour = null): self
     {
         // validation for constraint: string
         if (!is_null($fridayAfternoonClosingHour) && !is_string($fridayAfternoonClosingHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fridayAfternoonClosingHour, true), gettype($fridayAfternoonClosingHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fridayAfternoonClosingHour, true), gettype($fridayAfternoonClosingHour)), __LINE__);
         }
         if (is_null($fridayAfternoonClosingHour) || (is_array($fridayAfternoonClosingHour) && empty($fridayAfternoonClosingHour))) {
             unset($this->FridayAfternoonClosingHour);
         } else {
             $this->FridayAfternoonClosingHour = $fridayAfternoonClosingHour;
         }
+        
         return $this;
     }
     /**
@@ -844,7 +856,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getFridayAfternoonOpeningHour()
+    public function getFridayAfternoonOpeningHour(): ?string
     {
         return isset($this->FridayAfternoonOpeningHour) ? $this->FridayAfternoonOpeningHour : null;
     }
@@ -855,17 +867,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $fridayAfternoonOpeningHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setFridayAfternoonOpeningHour($fridayAfternoonOpeningHour = null)
+    public function setFridayAfternoonOpeningHour(?string $fridayAfternoonOpeningHour = null): self
     {
         // validation for constraint: string
         if (!is_null($fridayAfternoonOpeningHour) && !is_string($fridayAfternoonOpeningHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fridayAfternoonOpeningHour, true), gettype($fridayAfternoonOpeningHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fridayAfternoonOpeningHour, true), gettype($fridayAfternoonOpeningHour)), __LINE__);
         }
         if (is_null($fridayAfternoonOpeningHour) || (is_array($fridayAfternoonOpeningHour) && empty($fridayAfternoonOpeningHour))) {
             unset($this->FridayAfternoonOpeningHour);
         } else {
             $this->FridayAfternoonOpeningHour = $fridayAfternoonOpeningHour;
         }
+        
         return $this;
     }
     /**
@@ -875,7 +888,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getFridayMorningClosingHour()
+    public function getFridayMorningClosingHour(): ?string
     {
         return isset($this->FridayMorningClosingHour) ? $this->FridayMorningClosingHour : null;
     }
@@ -886,17 +899,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $fridayMorningClosingHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setFridayMorningClosingHour($fridayMorningClosingHour = null)
+    public function setFridayMorningClosingHour(?string $fridayMorningClosingHour = null): self
     {
         // validation for constraint: string
         if (!is_null($fridayMorningClosingHour) && !is_string($fridayMorningClosingHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fridayMorningClosingHour, true), gettype($fridayMorningClosingHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fridayMorningClosingHour, true), gettype($fridayMorningClosingHour)), __LINE__);
         }
         if (is_null($fridayMorningClosingHour) || (is_array($fridayMorningClosingHour) && empty($fridayMorningClosingHour))) {
             unset($this->FridayMorningClosingHour);
         } else {
             $this->FridayMorningClosingHour = $fridayMorningClosingHour;
         }
+        
         return $this;
     }
     /**
@@ -906,7 +920,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getFridayMorningOpeningHour()
+    public function getFridayMorningOpeningHour(): ?string
     {
         return isset($this->FridayMorningOpeningHour) ? $this->FridayMorningOpeningHour : null;
     }
@@ -917,24 +931,25 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $fridayMorningOpeningHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setFridayMorningOpeningHour($fridayMorningOpeningHour = null)
+    public function setFridayMorningOpeningHour(?string $fridayMorningOpeningHour = null): self
     {
         // validation for constraint: string
         if (!is_null($fridayMorningOpeningHour) && !is_string($fridayMorningOpeningHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fridayMorningOpeningHour, true), gettype($fridayMorningOpeningHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fridayMorningOpeningHour, true), gettype($fridayMorningOpeningHour)), __LINE__);
         }
         if (is_null($fridayMorningOpeningHour) || (is_array($fridayMorningOpeningHour) && empty($fridayMorningOpeningHour))) {
             unset($this->FridayMorningOpeningHour);
         } else {
             $this->FridayMorningOpeningHour = $fridayMorningOpeningHour;
         }
+        
         return $this;
     }
     /**
      * Get IsStoreShipmentActive value
      * @return bool|null
      */
-    public function getIsStoreShipmentActive()
+    public function getIsStoreShipmentActive(): ?bool
     {
         return $this->IsStoreShipmentActive;
     }
@@ -943,20 +958,21 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param bool $isStoreShipmentActive
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setIsStoreShipmentActive($isStoreShipmentActive = null)
+    public function setIsStoreShipmentActive(?bool $isStoreShipmentActive = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isStoreShipmentActive) && !is_bool($isStoreShipmentActive)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isStoreShipmentActive, true), gettype($isStoreShipmentActive)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isStoreShipmentActive, true), gettype($isStoreShipmentActive)), __LINE__);
         }
         $this->IsStoreShipmentActive = $isStoreShipmentActive;
+        
         return $this;
     }
     /**
      * Get IsTakeAwayDeliveryActive value
      * @return bool|null
      */
-    public function getIsTakeAwayDeliveryActive()
+    public function getIsTakeAwayDeliveryActive(): ?bool
     {
         return $this->IsTakeAwayDeliveryActive;
     }
@@ -965,13 +981,14 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param bool $isTakeAwayDeliveryActive
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setIsTakeAwayDeliveryActive($isTakeAwayDeliveryActive = null)
+    public function setIsTakeAwayDeliveryActive(?bool $isTakeAwayDeliveryActive = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isTakeAwayDeliveryActive) && !is_bool($isTakeAwayDeliveryActive)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isTakeAwayDeliveryActive, true), gettype($isTakeAwayDeliveryActive)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isTakeAwayDeliveryActive, true), gettype($isTakeAwayDeliveryActive)), __LINE__);
         }
         $this->IsTakeAwayDeliveryActive = $isTakeAwayDeliveryActive;
+        
         return $this;
     }
     /**
@@ -981,7 +998,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return float|null
      */
-    public function getLatitude()
+    public function getLatitude(): ?float
     {
         return isset($this->Latitude) ? $this->Latitude : null;
     }
@@ -992,17 +1009,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param float $latitude
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setLatitude($latitude = null)
+    public function setLatitude(?float $latitude = null): self
     {
         // validation for constraint: float
         if (!is_null($latitude) && !(is_float($latitude) || is_numeric($latitude))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($latitude, true), gettype($latitude)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($latitude, true), gettype($latitude)), __LINE__);
         }
         if (is_null($latitude) || (is_array($latitude) && empty($latitude))) {
             unset($this->Latitude);
         } else {
             $this->Latitude = $latitude;
         }
+        
         return $this;
     }
     /**
@@ -1012,7 +1030,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getLocality()
+    public function getLocality(): ?string
     {
         return isset($this->Locality) ? $this->Locality : null;
     }
@@ -1023,17 +1041,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $locality
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setLocality($locality = null)
+    public function setLocality(?string $locality = null): self
     {
         // validation for constraint: string
         if (!is_null($locality) && !is_string($locality)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($locality, true), gettype($locality)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($locality, true), gettype($locality)), __LINE__);
         }
         if (is_null($locality) || (is_array($locality) && empty($locality))) {
             unset($this->Locality);
         } else {
             $this->Locality = $locality;
         }
+        
         return $this;
     }
     /**
@@ -1043,7 +1062,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return float|null
      */
-    public function getLongitude()
+    public function getLongitude(): ?float
     {
         return isset($this->Longitude) ? $this->Longitude : null;
     }
@@ -1054,17 +1073,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param float $longitude
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setLongitude($longitude = null)
+    public function setLongitude(?float $longitude = null): self
     {
         // validation for constraint: float
         if (!is_null($longitude) && !(is_float($longitude) || is_numeric($longitude))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($longitude, true), gettype($longitude)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($longitude, true), gettype($longitude)), __LINE__);
         }
         if (is_null($longitude) || (is_array($longitude) && empty($longitude))) {
             unset($this->Longitude);
         } else {
             $this->Longitude = $longitude;
         }
+        
         return $this;
     }
     /**
@@ -1074,7 +1094,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getMondayAfternoonClosingHour()
+    public function getMondayAfternoonClosingHour(): ?string
     {
         return isset($this->MondayAfternoonClosingHour) ? $this->MondayAfternoonClosingHour : null;
     }
@@ -1085,17 +1105,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $mondayAfternoonClosingHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setMondayAfternoonClosingHour($mondayAfternoonClosingHour = null)
+    public function setMondayAfternoonClosingHour(?string $mondayAfternoonClosingHour = null): self
     {
         // validation for constraint: string
         if (!is_null($mondayAfternoonClosingHour) && !is_string($mondayAfternoonClosingHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mondayAfternoonClosingHour, true), gettype($mondayAfternoonClosingHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mondayAfternoonClosingHour, true), gettype($mondayAfternoonClosingHour)), __LINE__);
         }
         if (is_null($mondayAfternoonClosingHour) || (is_array($mondayAfternoonClosingHour) && empty($mondayAfternoonClosingHour))) {
             unset($this->MondayAfternoonClosingHour);
         } else {
             $this->MondayAfternoonClosingHour = $mondayAfternoonClosingHour;
         }
+        
         return $this;
     }
     /**
@@ -1105,7 +1126,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getMondayAfternoonOpeningHour()
+    public function getMondayAfternoonOpeningHour(): ?string
     {
         return isset($this->MondayAfternoonOpeningHour) ? $this->MondayAfternoonOpeningHour : null;
     }
@@ -1116,17 +1137,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $mondayAfternoonOpeningHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setMondayAfternoonOpeningHour($mondayAfternoonOpeningHour = null)
+    public function setMondayAfternoonOpeningHour(?string $mondayAfternoonOpeningHour = null): self
     {
         // validation for constraint: string
         if (!is_null($mondayAfternoonOpeningHour) && !is_string($mondayAfternoonOpeningHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mondayAfternoonOpeningHour, true), gettype($mondayAfternoonOpeningHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mondayAfternoonOpeningHour, true), gettype($mondayAfternoonOpeningHour)), __LINE__);
         }
         if (is_null($mondayAfternoonOpeningHour) || (is_array($mondayAfternoonOpeningHour) && empty($mondayAfternoonOpeningHour))) {
             unset($this->MondayAfternoonOpeningHour);
         } else {
             $this->MondayAfternoonOpeningHour = $mondayAfternoonOpeningHour;
         }
+        
         return $this;
     }
     /**
@@ -1136,7 +1158,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getMondayMorningClosingHour()
+    public function getMondayMorningClosingHour(): ?string
     {
         return isset($this->MondayMorningClosingHour) ? $this->MondayMorningClosingHour : null;
     }
@@ -1147,17 +1169,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $mondayMorningClosingHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setMondayMorningClosingHour($mondayMorningClosingHour = null)
+    public function setMondayMorningClosingHour(?string $mondayMorningClosingHour = null): self
     {
         // validation for constraint: string
         if (!is_null($mondayMorningClosingHour) && !is_string($mondayMorningClosingHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mondayMorningClosingHour, true), gettype($mondayMorningClosingHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mondayMorningClosingHour, true), gettype($mondayMorningClosingHour)), __LINE__);
         }
         if (is_null($mondayMorningClosingHour) || (is_array($mondayMorningClosingHour) && empty($mondayMorningClosingHour))) {
             unset($this->MondayMorningClosingHour);
         } else {
             $this->MondayMorningClosingHour = $mondayMorningClosingHour;
         }
+        
         return $this;
     }
     /**
@@ -1167,7 +1190,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getMondayMorningOpeningHour()
+    public function getMondayMorningOpeningHour(): ?string
     {
         return isset($this->MondayMorningOpeningHour) ? $this->MondayMorningOpeningHour : null;
     }
@@ -1178,17 +1201,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $mondayMorningOpeningHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setMondayMorningOpeningHour($mondayMorningOpeningHour = null)
+    public function setMondayMorningOpeningHour(?string $mondayMorningOpeningHour = null): self
     {
         // validation for constraint: string
         if (!is_null($mondayMorningOpeningHour) && !is_string($mondayMorningOpeningHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mondayMorningOpeningHour, true), gettype($mondayMorningOpeningHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mondayMorningOpeningHour, true), gettype($mondayMorningOpeningHour)), __LINE__);
         }
         if (is_null($mondayMorningOpeningHour) || (is_array($mondayMorningOpeningHour) && empty($mondayMorningOpeningHour))) {
             unset($this->MondayMorningOpeningHour);
         } else {
             $this->MondayMorningOpeningHour = $mondayMorningOpeningHour;
         }
+        
         return $this;
     }
     /**
@@ -1198,7 +1222,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return isset($this->Name) ? $this->Name : null;
     }
@@ -1209,17 +1233,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $name
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         if (is_null($name) || (is_array($name) && empty($name))) {
             unset($this->Name);
         } else {
             $this->Name = $name;
         }
+        
         return $this;
     }
     /**
@@ -1229,7 +1254,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getOpeningDate()
+    public function getOpeningDate(): ?string
     {
         return isset($this->OpeningDate) ? $this->OpeningDate : null;
     }
@@ -1240,17 +1265,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $openingDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setOpeningDate($openingDate = null)
+    public function setOpeningDate(?string $openingDate = null): self
     {
         // validation for constraint: string
         if (!is_null($openingDate) && !is_string($openingDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($openingDate, true), gettype($openingDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($openingDate, true), gettype($openingDate)), __LINE__);
         }
         if (is_null($openingDate) || (is_array($openingDate) && empty($openingDate))) {
             unset($this->OpeningDate);
         } else {
             $this->OpeningDate = $openingDate;
         }
+        
         return $this;
     }
     /**
@@ -1260,7 +1286,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getPhoneNumber()
+    public function getPhoneNumber(): ?string
     {
         return isset($this->PhoneNumber) ? $this->PhoneNumber : null;
     }
@@ -1271,17 +1297,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $phoneNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setPhoneNumber($phoneNumber = null)
+    public function setPhoneNumber(?string $phoneNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($phoneNumber) && !is_string($phoneNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phoneNumber, true), gettype($phoneNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phoneNumber, true), gettype($phoneNumber)), __LINE__);
         }
         if (is_null($phoneNumber) || (is_array($phoneNumber) && empty($phoneNumber))) {
             unset($this->PhoneNumber);
         } else {
             $this->PhoneNumber = $phoneNumber;
         }
+        
         return $this;
     }
     /**
@@ -1291,7 +1318,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getReference()
+    public function getReference(): ?string
     {
         return isset($this->Reference) ? $this->Reference : null;
     }
@@ -1302,17 +1329,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $reference
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setReference($reference = null)
+    public function setReference(?string $reference = null): self
     {
         // validation for constraint: string
         if (!is_null($reference) && !is_string($reference)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reference, true), gettype($reference)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reference, true), gettype($reference)), __LINE__);
         }
         if (is_null($reference) || (is_array($reference) && empty($reference))) {
             unset($this->Reference);
         } else {
             $this->Reference = $reference;
         }
+        
         return $this;
     }
     /**
@@ -1322,7 +1350,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSaturdayAfternoonClosingHour()
+    public function getSaturdayAfternoonClosingHour(): ?string
     {
         return isset($this->SaturdayAfternoonClosingHour) ? $this->SaturdayAfternoonClosingHour : null;
     }
@@ -1333,17 +1361,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $saturdayAfternoonClosingHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setSaturdayAfternoonClosingHour($saturdayAfternoonClosingHour = null)
+    public function setSaturdayAfternoonClosingHour(?string $saturdayAfternoonClosingHour = null): self
     {
         // validation for constraint: string
         if (!is_null($saturdayAfternoonClosingHour) && !is_string($saturdayAfternoonClosingHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($saturdayAfternoonClosingHour, true), gettype($saturdayAfternoonClosingHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($saturdayAfternoonClosingHour, true), gettype($saturdayAfternoonClosingHour)), __LINE__);
         }
         if (is_null($saturdayAfternoonClosingHour) || (is_array($saturdayAfternoonClosingHour) && empty($saturdayAfternoonClosingHour))) {
             unset($this->SaturdayAfternoonClosingHour);
         } else {
             $this->SaturdayAfternoonClosingHour = $saturdayAfternoonClosingHour;
         }
+        
         return $this;
     }
     /**
@@ -1353,7 +1382,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSaturdayAfternoonOpeningHour()
+    public function getSaturdayAfternoonOpeningHour(): ?string
     {
         return isset($this->SaturdayAfternoonOpeningHour) ? $this->SaturdayAfternoonOpeningHour : null;
     }
@@ -1364,17 +1393,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $saturdayAfternoonOpeningHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setSaturdayAfternoonOpeningHour($saturdayAfternoonOpeningHour = null)
+    public function setSaturdayAfternoonOpeningHour(?string $saturdayAfternoonOpeningHour = null): self
     {
         // validation for constraint: string
         if (!is_null($saturdayAfternoonOpeningHour) && !is_string($saturdayAfternoonOpeningHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($saturdayAfternoonOpeningHour, true), gettype($saturdayAfternoonOpeningHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($saturdayAfternoonOpeningHour, true), gettype($saturdayAfternoonOpeningHour)), __LINE__);
         }
         if (is_null($saturdayAfternoonOpeningHour) || (is_array($saturdayAfternoonOpeningHour) && empty($saturdayAfternoonOpeningHour))) {
             unset($this->SaturdayAfternoonOpeningHour);
         } else {
             $this->SaturdayAfternoonOpeningHour = $saturdayAfternoonOpeningHour;
         }
+        
         return $this;
     }
     /**
@@ -1384,7 +1414,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSaturdayMorningClosingHour()
+    public function getSaturdayMorningClosingHour(): ?string
     {
         return isset($this->SaturdayMorningClosingHour) ? $this->SaturdayMorningClosingHour : null;
     }
@@ -1395,17 +1425,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $saturdayMorningClosingHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setSaturdayMorningClosingHour($saturdayMorningClosingHour = null)
+    public function setSaturdayMorningClosingHour(?string $saturdayMorningClosingHour = null): self
     {
         // validation for constraint: string
         if (!is_null($saturdayMorningClosingHour) && !is_string($saturdayMorningClosingHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($saturdayMorningClosingHour, true), gettype($saturdayMorningClosingHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($saturdayMorningClosingHour, true), gettype($saturdayMorningClosingHour)), __LINE__);
         }
         if (is_null($saturdayMorningClosingHour) || (is_array($saturdayMorningClosingHour) && empty($saturdayMorningClosingHour))) {
             unset($this->SaturdayMorningClosingHour);
         } else {
             $this->SaturdayMorningClosingHour = $saturdayMorningClosingHour;
         }
+        
         return $this;
     }
     /**
@@ -1415,7 +1446,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSaturdayMorningOpeningHour()
+    public function getSaturdayMorningOpeningHour(): ?string
     {
         return isset($this->SaturdayMorningOpeningHour) ? $this->SaturdayMorningOpeningHour : null;
     }
@@ -1426,17 +1457,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $saturdayMorningOpeningHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setSaturdayMorningOpeningHour($saturdayMorningOpeningHour = null)
+    public function setSaturdayMorningOpeningHour(?string $saturdayMorningOpeningHour = null): self
     {
         // validation for constraint: string
         if (!is_null($saturdayMorningOpeningHour) && !is_string($saturdayMorningOpeningHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($saturdayMorningOpeningHour, true), gettype($saturdayMorningOpeningHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($saturdayMorningOpeningHour, true), gettype($saturdayMorningOpeningHour)), __LINE__);
         }
         if (is_null($saturdayMorningOpeningHour) || (is_array($saturdayMorningOpeningHour) && empty($saturdayMorningOpeningHour))) {
             unset($this->SaturdayMorningOpeningHour);
         } else {
             $this->SaturdayMorningOpeningHour = $saturdayMorningOpeningHour;
         }
+        
         return $this;
     }
     /**
@@ -1446,7 +1478,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getStreetAndStreetNumber()
+    public function getStreetAndStreetNumber(): ?string
     {
         return isset($this->StreetAndStreetNumber) ? $this->StreetAndStreetNumber : null;
     }
@@ -1457,17 +1489,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $streetAndStreetNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setStreetAndStreetNumber($streetAndStreetNumber = null)
+    public function setStreetAndStreetNumber(?string $streetAndStreetNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($streetAndStreetNumber) && !is_string($streetAndStreetNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($streetAndStreetNumber, true), gettype($streetAndStreetNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($streetAndStreetNumber, true), gettype($streetAndStreetNumber)), __LINE__);
         }
         if (is_null($streetAndStreetNumber) || (is_array($streetAndStreetNumber) && empty($streetAndStreetNumber))) {
             unset($this->StreetAndStreetNumber);
         } else {
             $this->StreetAndStreetNumber = $streetAndStreetNumber;
         }
+        
         return $this;
     }
     /**
@@ -1477,7 +1510,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSundayAfternoonClosingHour()
+    public function getSundayAfternoonClosingHour(): ?string
     {
         return isset($this->SundayAfternoonClosingHour) ? $this->SundayAfternoonClosingHour : null;
     }
@@ -1488,17 +1521,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $sundayAfternoonClosingHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setSundayAfternoonClosingHour($sundayAfternoonClosingHour = null)
+    public function setSundayAfternoonClosingHour(?string $sundayAfternoonClosingHour = null): self
     {
         // validation for constraint: string
         if (!is_null($sundayAfternoonClosingHour) && !is_string($sundayAfternoonClosingHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sundayAfternoonClosingHour, true), gettype($sundayAfternoonClosingHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sundayAfternoonClosingHour, true), gettype($sundayAfternoonClosingHour)), __LINE__);
         }
         if (is_null($sundayAfternoonClosingHour) || (is_array($sundayAfternoonClosingHour) && empty($sundayAfternoonClosingHour))) {
             unset($this->SundayAfternoonClosingHour);
         } else {
             $this->SundayAfternoonClosingHour = $sundayAfternoonClosingHour;
         }
+        
         return $this;
     }
     /**
@@ -1508,7 +1542,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSundayAfternoonOpeningHour()
+    public function getSundayAfternoonOpeningHour(): ?string
     {
         return isset($this->SundayAfternoonOpeningHour) ? $this->SundayAfternoonOpeningHour : null;
     }
@@ -1519,17 +1553,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $sundayAfternoonOpeningHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setSundayAfternoonOpeningHour($sundayAfternoonOpeningHour = null)
+    public function setSundayAfternoonOpeningHour(?string $sundayAfternoonOpeningHour = null): self
     {
         // validation for constraint: string
         if (!is_null($sundayAfternoonOpeningHour) && !is_string($sundayAfternoonOpeningHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sundayAfternoonOpeningHour, true), gettype($sundayAfternoonOpeningHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sundayAfternoonOpeningHour, true), gettype($sundayAfternoonOpeningHour)), __LINE__);
         }
         if (is_null($sundayAfternoonOpeningHour) || (is_array($sundayAfternoonOpeningHour) && empty($sundayAfternoonOpeningHour))) {
             unset($this->SundayAfternoonOpeningHour);
         } else {
             $this->SundayAfternoonOpeningHour = $sundayAfternoonOpeningHour;
         }
+        
         return $this;
     }
     /**
@@ -1539,7 +1574,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSundayMorningClosingHour()
+    public function getSundayMorningClosingHour(): ?string
     {
         return isset($this->SundayMorningClosingHour) ? $this->SundayMorningClosingHour : null;
     }
@@ -1550,17 +1585,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $sundayMorningClosingHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setSundayMorningClosingHour($sundayMorningClosingHour = null)
+    public function setSundayMorningClosingHour(?string $sundayMorningClosingHour = null): self
     {
         // validation for constraint: string
         if (!is_null($sundayMorningClosingHour) && !is_string($sundayMorningClosingHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sundayMorningClosingHour, true), gettype($sundayMorningClosingHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sundayMorningClosingHour, true), gettype($sundayMorningClosingHour)), __LINE__);
         }
         if (is_null($sundayMorningClosingHour) || (is_array($sundayMorningClosingHour) && empty($sundayMorningClosingHour))) {
             unset($this->SundayMorningClosingHour);
         } else {
             $this->SundayMorningClosingHour = $sundayMorningClosingHour;
         }
+        
         return $this;
     }
     /**
@@ -1570,7 +1606,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSundayMorningOpeningHour()
+    public function getSundayMorningOpeningHour(): ?string
     {
         return isset($this->SundayMorningOpeningHour) ? $this->SundayMorningOpeningHour : null;
     }
@@ -1581,17 +1617,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $sundayMorningOpeningHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setSundayMorningOpeningHour($sundayMorningOpeningHour = null)
+    public function setSundayMorningOpeningHour(?string $sundayMorningOpeningHour = null): self
     {
         // validation for constraint: string
         if (!is_null($sundayMorningOpeningHour) && !is_string($sundayMorningOpeningHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sundayMorningOpeningHour, true), gettype($sundayMorningOpeningHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sundayMorningOpeningHour, true), gettype($sundayMorningOpeningHour)), __LINE__);
         }
         if (is_null($sundayMorningOpeningHour) || (is_array($sundayMorningOpeningHour) && empty($sundayMorningOpeningHour))) {
             unset($this->SundayMorningOpeningHour);
         } else {
             $this->SundayMorningOpeningHour = $sundayMorningOpeningHour;
         }
+        
         return $this;
     }
     /**
@@ -1601,7 +1638,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getTemporaryClosingEndDate()
+    public function getTemporaryClosingEndDate(): ?string
     {
         return isset($this->TemporaryClosingEndDate) ? $this->TemporaryClosingEndDate : null;
     }
@@ -1612,17 +1649,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $temporaryClosingEndDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setTemporaryClosingEndDate($temporaryClosingEndDate = null)
+    public function setTemporaryClosingEndDate(?string $temporaryClosingEndDate = null): self
     {
         // validation for constraint: string
         if (!is_null($temporaryClosingEndDate) && !is_string($temporaryClosingEndDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($temporaryClosingEndDate, true), gettype($temporaryClosingEndDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($temporaryClosingEndDate, true), gettype($temporaryClosingEndDate)), __LINE__);
         }
         if (is_null($temporaryClosingEndDate) || (is_array($temporaryClosingEndDate) && empty($temporaryClosingEndDate))) {
             unset($this->TemporaryClosingEndDate);
         } else {
             $this->TemporaryClosingEndDate = $temporaryClosingEndDate;
         }
+        
         return $this;
     }
     /**
@@ -1632,7 +1670,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getTemporaryClosingStartDate()
+    public function getTemporaryClosingStartDate(): ?string
     {
         return isset($this->TemporaryClosingStartDate) ? $this->TemporaryClosingStartDate : null;
     }
@@ -1643,17 +1681,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $temporaryClosingStartDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setTemporaryClosingStartDate($temporaryClosingStartDate = null)
+    public function setTemporaryClosingStartDate(?string $temporaryClosingStartDate = null): self
     {
         // validation for constraint: string
         if (!is_null($temporaryClosingStartDate) && !is_string($temporaryClosingStartDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($temporaryClosingStartDate, true), gettype($temporaryClosingStartDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($temporaryClosingStartDate, true), gettype($temporaryClosingStartDate)), __LINE__);
         }
         if (is_null($temporaryClosingStartDate) || (is_array($temporaryClosingStartDate) && empty($temporaryClosingStartDate))) {
             unset($this->TemporaryClosingStartDate);
         } else {
             $this->TemporaryClosingStartDate = $temporaryClosingStartDate;
         }
+        
         return $this;
     }
     /**
@@ -1663,7 +1702,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getThursdayAfternoonClosingHour()
+    public function getThursdayAfternoonClosingHour(): ?string
     {
         return isset($this->ThursdayAfternoonClosingHour) ? $this->ThursdayAfternoonClosingHour : null;
     }
@@ -1674,17 +1713,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $thursdayAfternoonClosingHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setThursdayAfternoonClosingHour($thursdayAfternoonClosingHour = null)
+    public function setThursdayAfternoonClosingHour(?string $thursdayAfternoonClosingHour = null): self
     {
         // validation for constraint: string
         if (!is_null($thursdayAfternoonClosingHour) && !is_string($thursdayAfternoonClosingHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($thursdayAfternoonClosingHour, true), gettype($thursdayAfternoonClosingHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($thursdayAfternoonClosingHour, true), gettype($thursdayAfternoonClosingHour)), __LINE__);
         }
         if (is_null($thursdayAfternoonClosingHour) || (is_array($thursdayAfternoonClosingHour) && empty($thursdayAfternoonClosingHour))) {
             unset($this->ThursdayAfternoonClosingHour);
         } else {
             $this->ThursdayAfternoonClosingHour = $thursdayAfternoonClosingHour;
         }
+        
         return $this;
     }
     /**
@@ -1694,7 +1734,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getThursdayAfternoonOpeningHour()
+    public function getThursdayAfternoonOpeningHour(): ?string
     {
         return isset($this->ThursdayAfternoonOpeningHour) ? $this->ThursdayAfternoonOpeningHour : null;
     }
@@ -1705,17 +1745,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $thursdayAfternoonOpeningHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setThursdayAfternoonOpeningHour($thursdayAfternoonOpeningHour = null)
+    public function setThursdayAfternoonOpeningHour(?string $thursdayAfternoonOpeningHour = null): self
     {
         // validation for constraint: string
         if (!is_null($thursdayAfternoonOpeningHour) && !is_string($thursdayAfternoonOpeningHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($thursdayAfternoonOpeningHour, true), gettype($thursdayAfternoonOpeningHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($thursdayAfternoonOpeningHour, true), gettype($thursdayAfternoonOpeningHour)), __LINE__);
         }
         if (is_null($thursdayAfternoonOpeningHour) || (is_array($thursdayAfternoonOpeningHour) && empty($thursdayAfternoonOpeningHour))) {
             unset($this->ThursdayAfternoonOpeningHour);
         } else {
             $this->ThursdayAfternoonOpeningHour = $thursdayAfternoonOpeningHour;
         }
+        
         return $this;
     }
     /**
@@ -1725,7 +1766,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getThursdayMorningClosingHour()
+    public function getThursdayMorningClosingHour(): ?string
     {
         return isset($this->ThursdayMorningClosingHour) ? $this->ThursdayMorningClosingHour : null;
     }
@@ -1736,17 +1777,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $thursdayMorningClosingHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setThursdayMorningClosingHour($thursdayMorningClosingHour = null)
+    public function setThursdayMorningClosingHour(?string $thursdayMorningClosingHour = null): self
     {
         // validation for constraint: string
         if (!is_null($thursdayMorningClosingHour) && !is_string($thursdayMorningClosingHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($thursdayMorningClosingHour, true), gettype($thursdayMorningClosingHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($thursdayMorningClosingHour, true), gettype($thursdayMorningClosingHour)), __LINE__);
         }
         if (is_null($thursdayMorningClosingHour) || (is_array($thursdayMorningClosingHour) && empty($thursdayMorningClosingHour))) {
             unset($this->ThursdayMorningClosingHour);
         } else {
             $this->ThursdayMorningClosingHour = $thursdayMorningClosingHour;
         }
+        
         return $this;
     }
     /**
@@ -1756,7 +1798,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getThursdayMorningOpeningHour()
+    public function getThursdayMorningOpeningHour(): ?string
     {
         return isset($this->ThursdayMorningOpeningHour) ? $this->ThursdayMorningOpeningHour : null;
     }
@@ -1767,17 +1809,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $thursdayMorningOpeningHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setThursdayMorningOpeningHour($thursdayMorningOpeningHour = null)
+    public function setThursdayMorningOpeningHour(?string $thursdayMorningOpeningHour = null): self
     {
         // validation for constraint: string
         if (!is_null($thursdayMorningOpeningHour) && !is_string($thursdayMorningOpeningHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($thursdayMorningOpeningHour, true), gettype($thursdayMorningOpeningHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($thursdayMorningOpeningHour, true), gettype($thursdayMorningOpeningHour)), __LINE__);
         }
         if (is_null($thursdayMorningOpeningHour) || (is_array($thursdayMorningOpeningHour) && empty($thursdayMorningOpeningHour))) {
             unset($this->ThursdayMorningOpeningHour);
         } else {
             $this->ThursdayMorningOpeningHour = $thursdayMorningOpeningHour;
         }
+        
         return $this;
     }
     /**
@@ -1787,7 +1830,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getTuesdayAfternoonClosingHour()
+    public function getTuesdayAfternoonClosingHour(): ?string
     {
         return isset($this->TuesdayAfternoonClosingHour) ? $this->TuesdayAfternoonClosingHour : null;
     }
@@ -1798,17 +1841,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $tuesdayAfternoonClosingHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setTuesdayAfternoonClosingHour($tuesdayAfternoonClosingHour = null)
+    public function setTuesdayAfternoonClosingHour(?string $tuesdayAfternoonClosingHour = null): self
     {
         // validation for constraint: string
         if (!is_null($tuesdayAfternoonClosingHour) && !is_string($tuesdayAfternoonClosingHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tuesdayAfternoonClosingHour, true), gettype($tuesdayAfternoonClosingHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tuesdayAfternoonClosingHour, true), gettype($tuesdayAfternoonClosingHour)), __LINE__);
         }
         if (is_null($tuesdayAfternoonClosingHour) || (is_array($tuesdayAfternoonClosingHour) && empty($tuesdayAfternoonClosingHour))) {
             unset($this->TuesdayAfternoonClosingHour);
         } else {
             $this->TuesdayAfternoonClosingHour = $tuesdayAfternoonClosingHour;
         }
+        
         return $this;
     }
     /**
@@ -1818,7 +1862,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getTuesdayAfternoonOpeningHour()
+    public function getTuesdayAfternoonOpeningHour(): ?string
     {
         return isset($this->TuesdayAfternoonOpeningHour) ? $this->TuesdayAfternoonOpeningHour : null;
     }
@@ -1829,17 +1873,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $tuesdayAfternoonOpeningHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setTuesdayAfternoonOpeningHour($tuesdayAfternoonOpeningHour = null)
+    public function setTuesdayAfternoonOpeningHour(?string $tuesdayAfternoonOpeningHour = null): self
     {
         // validation for constraint: string
         if (!is_null($tuesdayAfternoonOpeningHour) && !is_string($tuesdayAfternoonOpeningHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tuesdayAfternoonOpeningHour, true), gettype($tuesdayAfternoonOpeningHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tuesdayAfternoonOpeningHour, true), gettype($tuesdayAfternoonOpeningHour)), __LINE__);
         }
         if (is_null($tuesdayAfternoonOpeningHour) || (is_array($tuesdayAfternoonOpeningHour) && empty($tuesdayAfternoonOpeningHour))) {
             unset($this->TuesdayAfternoonOpeningHour);
         } else {
             $this->TuesdayAfternoonOpeningHour = $tuesdayAfternoonOpeningHour;
         }
+        
         return $this;
     }
     /**
@@ -1849,7 +1894,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getTuesdayMorningClosingHour()
+    public function getTuesdayMorningClosingHour(): ?string
     {
         return isset($this->TuesdayMorningClosingHour) ? $this->TuesdayMorningClosingHour : null;
     }
@@ -1860,17 +1905,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $tuesdayMorningClosingHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setTuesdayMorningClosingHour($tuesdayMorningClosingHour = null)
+    public function setTuesdayMorningClosingHour(?string $tuesdayMorningClosingHour = null): self
     {
         // validation for constraint: string
         if (!is_null($tuesdayMorningClosingHour) && !is_string($tuesdayMorningClosingHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tuesdayMorningClosingHour, true), gettype($tuesdayMorningClosingHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tuesdayMorningClosingHour, true), gettype($tuesdayMorningClosingHour)), __LINE__);
         }
         if (is_null($tuesdayMorningClosingHour) || (is_array($tuesdayMorningClosingHour) && empty($tuesdayMorningClosingHour))) {
             unset($this->TuesdayMorningClosingHour);
         } else {
             $this->TuesdayMorningClosingHour = $tuesdayMorningClosingHour;
         }
+        
         return $this;
     }
     /**
@@ -1880,7 +1926,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getTuesdayMorningOpeningHour()
+    public function getTuesdayMorningOpeningHour(): ?string
     {
         return isset($this->TuesdayMorningOpeningHour) ? $this->TuesdayMorningOpeningHour : null;
     }
@@ -1891,17 +1937,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $tuesdayMorningOpeningHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setTuesdayMorningOpeningHour($tuesdayMorningOpeningHour = null)
+    public function setTuesdayMorningOpeningHour(?string $tuesdayMorningOpeningHour = null): self
     {
         // validation for constraint: string
         if (!is_null($tuesdayMorningOpeningHour) && !is_string($tuesdayMorningOpeningHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tuesdayMorningOpeningHour, true), gettype($tuesdayMorningOpeningHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tuesdayMorningOpeningHour, true), gettype($tuesdayMorningOpeningHour)), __LINE__);
         }
         if (is_null($tuesdayMorningOpeningHour) || (is_array($tuesdayMorningOpeningHour) && empty($tuesdayMorningOpeningHour))) {
             unset($this->TuesdayMorningOpeningHour);
         } else {
             $this->TuesdayMorningOpeningHour = $tuesdayMorningOpeningHour;
         }
+        
         return $this;
     }
     /**
@@ -1911,7 +1958,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getWednesdayAfternoonClosingHour()
+    public function getWednesdayAfternoonClosingHour(): ?string
     {
         return isset($this->WednesdayAfternoonClosingHour) ? $this->WednesdayAfternoonClosingHour : null;
     }
@@ -1922,17 +1969,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $wednesdayAfternoonClosingHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setWednesdayAfternoonClosingHour($wednesdayAfternoonClosingHour = null)
+    public function setWednesdayAfternoonClosingHour(?string $wednesdayAfternoonClosingHour = null): self
     {
         // validation for constraint: string
         if (!is_null($wednesdayAfternoonClosingHour) && !is_string($wednesdayAfternoonClosingHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($wednesdayAfternoonClosingHour, true), gettype($wednesdayAfternoonClosingHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($wednesdayAfternoonClosingHour, true), gettype($wednesdayAfternoonClosingHour)), __LINE__);
         }
         if (is_null($wednesdayAfternoonClosingHour) || (is_array($wednesdayAfternoonClosingHour) && empty($wednesdayAfternoonClosingHour))) {
             unset($this->WednesdayAfternoonClosingHour);
         } else {
             $this->WednesdayAfternoonClosingHour = $wednesdayAfternoonClosingHour;
         }
+        
         return $this;
     }
     /**
@@ -1942,7 +1990,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getWednesdayAfternoonOpeningHour()
+    public function getWednesdayAfternoonOpeningHour(): ?string
     {
         return isset($this->WednesdayAfternoonOpeningHour) ? $this->WednesdayAfternoonOpeningHour : null;
     }
@@ -1953,17 +2001,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $wednesdayAfternoonOpeningHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setWednesdayAfternoonOpeningHour($wednesdayAfternoonOpeningHour = null)
+    public function setWednesdayAfternoonOpeningHour(?string $wednesdayAfternoonOpeningHour = null): self
     {
         // validation for constraint: string
         if (!is_null($wednesdayAfternoonOpeningHour) && !is_string($wednesdayAfternoonOpeningHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($wednesdayAfternoonOpeningHour, true), gettype($wednesdayAfternoonOpeningHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($wednesdayAfternoonOpeningHour, true), gettype($wednesdayAfternoonOpeningHour)), __LINE__);
         }
         if (is_null($wednesdayAfternoonOpeningHour) || (is_array($wednesdayAfternoonOpeningHour) && empty($wednesdayAfternoonOpeningHour))) {
             unset($this->WednesdayAfternoonOpeningHour);
         } else {
             $this->WednesdayAfternoonOpeningHour = $wednesdayAfternoonOpeningHour;
         }
+        
         return $this;
     }
     /**
@@ -1973,7 +2022,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getWednesdayMorningClosingHour()
+    public function getWednesdayMorningClosingHour(): ?string
     {
         return isset($this->WednesdayMorningClosingHour) ? $this->WednesdayMorningClosingHour : null;
     }
@@ -1984,17 +2033,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $wednesdayMorningClosingHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setWednesdayMorningClosingHour($wednesdayMorningClosingHour = null)
+    public function setWednesdayMorningClosingHour(?string $wednesdayMorningClosingHour = null): self
     {
         // validation for constraint: string
         if (!is_null($wednesdayMorningClosingHour) && !is_string($wednesdayMorningClosingHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($wednesdayMorningClosingHour, true), gettype($wednesdayMorningClosingHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($wednesdayMorningClosingHour, true), gettype($wednesdayMorningClosingHour)), __LINE__);
         }
         if (is_null($wednesdayMorningClosingHour) || (is_array($wednesdayMorningClosingHour) && empty($wednesdayMorningClosingHour))) {
             unset($this->WednesdayMorningClosingHour);
         } else {
             $this->WednesdayMorningClosingHour = $wednesdayMorningClosingHour;
         }
+        
         return $this;
     }
     /**
@@ -2004,7 +2054,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getWednesdayMorningOpeningHour()
+    public function getWednesdayMorningOpeningHour(): ?string
     {
         return isset($this->WednesdayMorningOpeningHour) ? $this->WednesdayMorningOpeningHour : null;
     }
@@ -2015,17 +2065,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $wednesdayMorningOpeningHour
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setWednesdayMorningOpeningHour($wednesdayMorningOpeningHour = null)
+    public function setWednesdayMorningOpeningHour(?string $wednesdayMorningOpeningHour = null): self
     {
         // validation for constraint: string
         if (!is_null($wednesdayMorningOpeningHour) && !is_string($wednesdayMorningOpeningHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($wednesdayMorningOpeningHour, true), gettype($wednesdayMorningOpeningHour)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($wednesdayMorningOpeningHour, true), gettype($wednesdayMorningOpeningHour)), __LINE__);
         }
         if (is_null($wednesdayMorningOpeningHour) || (is_array($wednesdayMorningOpeningHour) && empty($wednesdayMorningOpeningHour))) {
             unset($this->WednesdayMorningOpeningHour);
         } else {
             $this->WednesdayMorningOpeningHour = $wednesdayMorningOpeningHour;
         }
+        
         return $this;
     }
     /**
@@ -2035,7 +2086,7 @@ class CdiscountParcelShop extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getZipCode()
+    public function getZipCode(): ?string
     {
         return isset($this->ZipCode) ? $this->ZipCode : null;
     }
@@ -2046,17 +2097,18 @@ class CdiscountParcelShop extends AbstractStructBase
      * @param string $zipCode
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountParcelShop
      */
-    public function setZipCode($zipCode = null)
+    public function setZipCode(?string $zipCode = null): self
     {
         // validation for constraint: string
         if (!is_null($zipCode) && !is_string($zipCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($zipCode, true), gettype($zipCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($zipCode, true), gettype($zipCode)), __LINE__);
         }
         if (is_null($zipCode) || (is_array($zipCode) && empty($zipCode))) {
             unset($this->ZipCode);
         } else {
             $this->ZipCode = $zipCode;
         }
+        
         return $this;
     }
 }

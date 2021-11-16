@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfValidateOrderLineResult Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfValidateOrderLineResult extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult[]
      */
-    public $ValidateOrderLineResult;
+    protected ?array $ValidateOrderLineResult = null;
     /**
      * Constructor method for ArrayOfValidateOrderLineResult
      * @uses CdiscountArrayOfValidateOrderLineResult::setValidateOrderLineResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult[] $validateOrderLineResult
      */
-    public function __construct(array $validateOrderLineResult = array())
+    public function __construct(?array $validateOrderLineResult = null)
     {
         $this
             ->setValidateOrderLineResult($validateOrderLineResult);
@@ -38,9 +41,9 @@ class CdiscountArrayOfValidateOrderLineResult extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult[]
      */
-    public function getValidateOrderLineResult()
+    public function getValidateOrderLineResult(): ?array
     {
         return isset($this->ValidateOrderLineResult) ? $this->ValidateOrderLineResult : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfValidateOrderLineResult extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateValidateOrderLineResultForArrayConstraintsFromSetValidateOrderLineResult(array $values = array())
+    public static function validateValidateOrderLineResultForArrayConstraintsFromSetValidateOrderLineResult(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfValidateOrderLineResultValidateOrderLineResultItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfValidateOrderLineResult extends AbstractStructArrayBase
             $message = sprintf('The ValidateOrderLineResult property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ValidateOrderLineResult value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult[] $validateOrderLineResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLineResult
      */
-    public function setValidateOrderLineResult(array $validateOrderLineResult = array())
+    public function setValidateOrderLineResult(?array $validateOrderLineResult = null): self
     {
         // validation for constraint: array
         if ('' !== ($validateOrderLineResultArrayErrorMessage = self::validateValidateOrderLineResultForArrayConstraintsFromSetValidateOrderLineResult($validateOrderLineResult))) {
-            throw new \InvalidArgumentException($validateOrderLineResultArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($validateOrderLineResultArrayErrorMessage, __LINE__);
         }
         if (is_null($validateOrderLineResult) || (is_array($validateOrderLineResult) && empty($validateOrderLineResult))) {
             unset($this->ValidateOrderLineResult);
         } else {
             $this->ValidateOrderLineResult = $validateOrderLineResult;
         }
-        return $this;
-    }
-    /**
-     * Add item to ValidateOrderLineResult value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLineResult
-     */
-    public function addToValidateOrderLineResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult) {
-            throw new \InvalidArgumentException(sprintf('The ValidateOrderLineResult property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ValidateOrderLineResult[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfValidateOrderLineResult extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfValidateOrderLineResult extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfValidateOrderLineResult extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfValidateOrderLineResult extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult
     {
         return parent::last();
     }
@@ -145,9 +138,24 @@ class CdiscountArrayOfValidateOrderLineResult extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfValidateOrderLineResult
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult) {
+            throw new InvalidArgumentException(sprintf('The ValidateOrderLineResult property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountValidateOrderLineResult, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name

@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for CompetingOfferErrorMessage Enums
@@ -44,11 +46,11 @@ class CdiscountCompetingOfferErrorMessage extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_UNAUTORIZED_PRODUCT,
             self::VALUE_UNKNOWN_PRODUCT,
             self::VALUE_TECHNICAL_ERROR,
             self::VALUE_PARENT_VARIANT_PRODUCT,
-        );
+        ];
     }
 }

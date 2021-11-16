@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfCarrier Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfCarrier extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier[]
      */
-    public $Carrier;
+    protected ?array $Carrier = null;
     /**
      * Constructor method for ArrayOfCarrier
      * @uses CdiscountArrayOfCarrier::setCarrier()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier[] $carrier
      */
-    public function __construct(array $carrier = array())
+    public function __construct(?array $carrier = null)
     {
         $this
             ->setCarrier($carrier);
@@ -38,9 +41,9 @@ class CdiscountArrayOfCarrier extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier[]
      */
-    public function getCarrier()
+    public function getCarrier(): ?array
     {
         return isset($this->Carrier) ? $this->Carrier : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfCarrier extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateCarrierForArrayConstraintsFromSetCarrier(array $values = array())
+    public static function validateCarrierForArrayConstraintsFromSetCarrier(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfCarrierCarrierItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfCarrier extends AbstractStructArrayBase
             $message = sprintf('The Carrier property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Carrier value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier[] $carrier
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCarrier
      */
-    public function setCarrier(array $carrier = array())
+    public function setCarrier(?array $carrier = null): self
     {
         // validation for constraint: array
         if ('' !== ($carrierArrayErrorMessage = self::validateCarrierForArrayConstraintsFromSetCarrier($carrier))) {
-            throw new \InvalidArgumentException($carrierArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($carrierArrayErrorMessage, __LINE__);
         }
         if (is_null($carrier) || (is_array($carrier) && empty($carrier))) {
             unset($this->Carrier);
         } else {
             $this->Carrier = $carrier;
         }
-        return $this;
-    }
-    /**
-     * Add item to Carrier value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCarrier
-     */
-    public function addToCarrier(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier) {
-            throw new \InvalidArgumentException(sprintf('The Carrier property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Carrier[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfCarrier extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfCarrier extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfCarrier extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfCarrier extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier
     {
         return parent::last();
     }
@@ -145,9 +138,24 @@ class CdiscountArrayOfCarrier extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfCarrier
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier) {
+            throw new InvalidArgumentException(sprintf('The Carrier property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCarrier, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name

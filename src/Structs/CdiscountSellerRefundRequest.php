@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SellerRefundRequest Structs
@@ -18,23 +21,23 @@ class CdiscountSellerRefundRequest extends AbstractStructBase
      * The Mode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Mode;
+    protected ?string $Mode = null;
     /**
      * The Motive
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Motive;
+    protected ?string $Motive = null;
     /**
      * The RefundOrderLine
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundOrderLine
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundOrderLine|null
      */
-    public $RefundOrderLine;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundOrderLine $RefundOrderLine = null;
     /**
      * Constructor method for SellerRefundRequest
      * @uses CdiscountSellerRefundRequest::setMode()
@@ -44,7 +47,7 @@ class CdiscountSellerRefundRequest extends AbstractStructBase
      * @param string $motive
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundOrderLine $refundOrderLine
      */
-    public function __construct($mode = null, $motive = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundOrderLine $refundOrderLine = null)
+    public function __construct(?string $mode = null, ?string $motive = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundOrderLine $refundOrderLine = null)
     {
         $this
             ->setMode($mode)
@@ -55,7 +58,7 @@ class CdiscountSellerRefundRequest extends AbstractStructBase
      * Get Mode value
      * @return string|null
      */
-    public function getMode()
+    public function getMode(): ?string
     {
         return $this->Mode;
     }
@@ -63,24 +66,25 @@ class CdiscountSellerRefundRequest extends AbstractStructBase
      * Set Mode value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountSellerRefundRequestMode::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountSellerRefundRequestMode::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $mode
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundRequest
      */
-    public function setMode($mode = null)
+    public function setMode(?string $mode = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountSellerRefundRequestMode::valueIsValid($mode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountSellerRefundRequestMode', is_array($mode) ? implode(', ', $mode) : var_export($mode, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountSellerRefundRequestMode::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountSellerRefundRequestMode', is_array($mode) ? implode(', ', $mode) : var_export($mode, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountSellerRefundRequestMode::getValidValues())), __LINE__);
         }
         $this->Mode = $mode;
+        
         return $this;
     }
     /**
      * Get Motive value
      * @return string|null
      */
-    public function getMotive()
+    public function getMotive(): ?string
     {
         return $this->Motive;
     }
@@ -88,24 +92,25 @@ class CdiscountSellerRefundRequest extends AbstractStructBase
      * Set Motive value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountRefundMotive::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountRefundMotive::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $motive
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundRequest
      */
-    public function setMotive($motive = null)
+    public function setMotive(?string $motive = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountRefundMotive::valueIsValid($motive)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountRefundMotive', is_array($motive) ? implode(', ', $motive) : var_export($motive, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountRefundMotive::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountRefundMotive', is_array($motive) ? implode(', ', $motive) : var_export($motive, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountRefundMotive::getValidValues())), __LINE__);
         }
         $this->Motive = $motive;
+        
         return $this;
     }
     /**
      * Get RefundOrderLine value
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundOrderLine|null
      */
-    public function getRefundOrderLine()
+    public function getRefundOrderLine(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundOrderLine
     {
         return $this->RefundOrderLine;
     }
@@ -114,9 +119,10 @@ class CdiscountSellerRefundRequest extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundOrderLine $refundOrderLine
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundRequest
      */
-    public function setRefundOrderLine(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundOrderLine $refundOrderLine = null)
+    public function setRefundOrderLine(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundOrderLine $refundOrderLine = null): self
     {
         $this->RefundOrderLine = $refundOrderLine;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FulfilmentActivationReportRequest Structs
@@ -19,25 +22,25 @@ class CdiscountFulfilmentActivationReportRequest extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $BeginDate;
+    protected ?string $BeginDate = null;
     /**
      * The DepositIdList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint|null
      */
-    public $DepositIdList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint $DepositIdList = null;
     /**
      * The EndDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $EndDate;
+    protected ?string $EndDate = null;
     /**
      * Constructor method for FulfilmentActivationReportRequest
      * @uses CdiscountFulfilmentActivationReportRequest::setBeginDate()
@@ -47,7 +50,7 @@ class CdiscountFulfilmentActivationReportRequest extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint $depositIdList
      * @param string $endDate
      */
-    public function __construct($beginDate = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint $depositIdList = null, $endDate = null)
+    public function __construct(?string $beginDate = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint $depositIdList = null, ?string $endDate = null)
     {
         $this
             ->setBeginDate($beginDate)
@@ -61,7 +64,7 @@ class CdiscountFulfilmentActivationReportRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getBeginDate()
+    public function getBeginDate(): ?string
     {
         return isset($this->BeginDate) ? $this->BeginDate : null;
     }
@@ -72,17 +75,18 @@ class CdiscountFulfilmentActivationReportRequest extends AbstractStructBase
      * @param string $beginDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReportRequest
      */
-    public function setBeginDate($beginDate = null)
+    public function setBeginDate(?string $beginDate = null): self
     {
         // validation for constraint: string
         if (!is_null($beginDate) && !is_string($beginDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginDate, true), gettype($beginDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginDate, true), gettype($beginDate)), __LINE__);
         }
         if (is_null($beginDate) || (is_array($beginDate) && empty($beginDate))) {
             unset($this->BeginDate);
         } else {
             $this->BeginDate = $beginDate;
         }
+        
         return $this;
     }
     /**
@@ -92,7 +96,7 @@ class CdiscountFulfilmentActivationReportRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint|null
      */
-    public function getDepositIdList()
+    public function getDepositIdList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint
     {
         return isset($this->DepositIdList) ? $this->DepositIdList : null;
     }
@@ -103,13 +107,14 @@ class CdiscountFulfilmentActivationReportRequest extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint $depositIdList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReportRequest
      */
-    public function setDepositIdList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint $depositIdList = null)
+    public function setDepositIdList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfint $depositIdList = null): self
     {
         if (is_null($depositIdList) || (is_array($depositIdList) && empty($depositIdList))) {
             unset($this->DepositIdList);
         } else {
             $this->DepositIdList = $depositIdList;
         }
+        
         return $this;
     }
     /**
@@ -119,7 +124,7 @@ class CdiscountFulfilmentActivationReportRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getEndDate()
+    public function getEndDate(): ?string
     {
         return isset($this->EndDate) ? $this->EndDate : null;
     }
@@ -130,17 +135,18 @@ class CdiscountFulfilmentActivationReportRequest extends AbstractStructBase
      * @param string $endDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentActivationReportRequest
      */
-    public function setEndDate($endDate = null)
+    public function setEndDate(?string $endDate = null): self
     {
         // validation for constraint: string
         if (!is_null($endDate) && !is_string($endDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endDate, true), gettype($endDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endDate, true), gettype($endDate)), __LINE__);
         }
         if (is_null($endDate) || (is_array($endDate) && empty($endDate))) {
             unset($this->EndDate);
         } else {
             $this->EndDate = $endDate;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetProductListResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetProductListResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductListMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductListMessage|null
      */
-    public $GetProductListResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductListMessage $GetProductListResult = null;
     /**
      * Constructor method for GetProductListResponse
      * @uses CdiscountGetProductListResponse::setGetProductListResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductListMessage $getProductListResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductListMessage $getProductListResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductListMessage $getProductListResult = null)
     {
         $this
             ->setGetProductListResult($getProductListResult);
@@ -36,7 +39,7 @@ class CdiscountGetProductListResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductListMessage|null
      */
-    public function getGetProductListResult()
+    public function getGetProductListResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductListMessage
     {
         return isset($this->GetProductListResult) ? $this->GetProductListResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetProductListResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductListMessage $getProductListResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetProductListResponse
      */
-    public function setGetProductListResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductListMessage $getProductListResult = null)
+    public function setGetProductListResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductListMessage $getProductListResult = null): self
     {
         if (is_null($getProductListResult) || (is_array($getProductListResult) && empty($getProductListResult))) {
             unset($this->GetProductListResult);
         } else {
             $this->GetProductListResult = $getProductListResult;
         }
+        
         return $this;
     }
 }

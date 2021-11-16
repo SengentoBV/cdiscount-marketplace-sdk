@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetDiscussionList Structs
@@ -16,17 +19,17 @@ class CdiscountGetDiscussionList extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public $headerMessage;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null;
     /**
      * The discussionFilter
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter|null
      */
-    public $discussionFilter;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter $discussionFilter = null;
     /**
      * Constructor method for GetDiscussionList
      * @uses CdiscountGetDiscussionList::setHeaderMessage()
@@ -34,7 +37,7 @@ class CdiscountGetDiscussionList extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter $discussionFilter
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter $discussionFilter = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null, ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter $discussionFilter = null)
     {
         $this
             ->setHeaderMessage($headerMessage)
@@ -47,7 +50,7 @@ class CdiscountGetDiscussionList extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage|null
      */
-    public function getHeaderMessage()
+    public function getHeaderMessage(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage
     {
         return isset($this->headerMessage) ? $this->headerMessage : null;
     }
@@ -58,13 +61,14 @@ class CdiscountGetDiscussionList extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetDiscussionList
      */
-    public function setHeaderMessage(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null)
+    public function setHeaderMessage(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountHeaderMessage $headerMessage = null): self
     {
         if (is_null($headerMessage) || (is_array($headerMessage) && empty($headerMessage))) {
             unset($this->headerMessage);
         } else {
             $this->headerMessage = $headerMessage;
         }
+        
         return $this;
     }
     /**
@@ -74,7 +78,7 @@ class CdiscountGetDiscussionList extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter|null
      */
-    public function getDiscussionFilter()
+    public function getDiscussionFilter(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter
     {
         return isset($this->discussionFilter) ? $this->discussionFilter : null;
     }
@@ -85,13 +89,14 @@ class CdiscountGetDiscussionList extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter $discussionFilter
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetDiscussionList
      */
-    public function setDiscussionFilter(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter $discussionFilter = null)
+    public function setDiscussionFilter(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountDiscussionFilter $discussionFilter = null): self
     {
         if (is_null($discussionFilter) || (is_array($discussionFilter) && empty($discussionFilter))) {
             unset($this->discussionFilter);
         } else {
             $this->discussionFilter = $discussionFilter;
         }
+        
         return $this;
     }
 }

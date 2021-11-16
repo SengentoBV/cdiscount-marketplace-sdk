@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Arrays;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfRefundInformationMessage Arrays
@@ -22,13 +25,13 @@ class CdiscountArrayOfRefundInformationMessage extends AbstractStructArrayBase
      * - nillable: true
      * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage[]
      */
-    public $RefundInformationMessage;
+    protected ?array $RefundInformationMessage = null;
     /**
      * Constructor method for ArrayOfRefundInformationMessage
      * @uses CdiscountArrayOfRefundInformationMessage::setRefundInformationMessage()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage[] $refundInformationMessage
      */
-    public function __construct(array $refundInformationMessage = array())
+    public function __construct(?array $refundInformationMessage = null)
     {
         $this
             ->setRefundInformationMessage($refundInformationMessage);
@@ -38,9 +41,9 @@ class CdiscountArrayOfRefundInformationMessage extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage[]|null
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage[]
      */
-    public function getRefundInformationMessage()
+    public function getRefundInformationMessage(): ?array
     {
         return isset($this->RefundInformationMessage) ? $this->RefundInformationMessage : null;
     }
@@ -50,8 +53,11 @@ class CdiscountArrayOfRefundInformationMessage extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateRefundInformationMessageForArrayConstraintsFromSetRefundInformationMessage(array $values = array())
+    public static function validateRefundInformationMessageForArrayConstraintsFromSetRefundInformationMessage(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfRefundInformationMessageRefundInformationMessageItem) {
@@ -64,42 +70,29 @@ class CdiscountArrayOfRefundInformationMessage extends AbstractStructArrayBase
             $message = sprintf('The RefundInformationMessage property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set RefundInformationMessage value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage[] $refundInformationMessage
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRefundInformationMessage
      */
-    public function setRefundInformationMessage(array $refundInformationMessage = array())
+    public function setRefundInformationMessage(?array $refundInformationMessage = null): self
     {
         // validation for constraint: array
         if ('' !== ($refundInformationMessageArrayErrorMessage = self::validateRefundInformationMessageForArrayConstraintsFromSetRefundInformationMessage($refundInformationMessage))) {
-            throw new \InvalidArgumentException($refundInformationMessageArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($refundInformationMessageArrayErrorMessage, __LINE__);
         }
         if (is_null($refundInformationMessage) || (is_array($refundInformationMessage) && empty($refundInformationMessage))) {
             unset($this->RefundInformationMessage);
         } else {
             $this->RefundInformationMessage = $refundInformationMessage;
         }
-        return $this;
-    }
-    /**
-     * Add item to RefundInformationMessage value
-     * @throws \InvalidArgumentException
-     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage $item
-     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRefundInformationMessage
-     */
-    public function addToRefundInformationMessage(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage) {
-            throw new \InvalidArgumentException(sprintf('The RefundInformationMessage property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->RefundInformationMessage[] = $item;
+        
         return $this;
     }
     /**
@@ -107,7 +100,7 @@ class CdiscountArrayOfRefundInformationMessage extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage|null
      */
-    public function current()
+    public function current(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage
     {
         return parent::current();
     }
@@ -117,7 +110,7 @@ class CdiscountArrayOfRefundInformationMessage extends AbstractStructArrayBase
      * @param int $index
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage|null
      */
-    public function item($index)
+    public function item($index): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage
     {
         return parent::item($index);
     }
@@ -126,7 +119,7 @@ class CdiscountArrayOfRefundInformationMessage extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage|null
      */
-    public function first()
+    public function first(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage
     {
         return parent::first();
     }
@@ -135,7 +128,7 @@ class CdiscountArrayOfRefundInformationMessage extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage|null
      */
-    public function last()
+    public function last(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage
     {
         return parent::last();
     }
@@ -145,9 +138,24 @@ class CdiscountArrayOfRefundInformationMessage extends AbstractStructArrayBase
      * @param int $offset
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage $item
+     * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRefundInformationMessage
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage) {
+            throw new InvalidArgumentException(sprintf('The RefundInformationMessage property can only contain items of type \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountRefundInformationMessage, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name

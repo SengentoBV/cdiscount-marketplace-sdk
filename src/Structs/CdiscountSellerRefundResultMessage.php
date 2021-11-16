@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SellerRefundResultMessage Structs
@@ -18,16 +21,16 @@ class CdiscountSellerRefundResultMessage extends CdiscountServiceMessage
      * The OrderNumber
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $OrderNumber;
+    protected ?string $OrderNumber = null;
     /**
      * The SellerRefundResultList
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundResult
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundResult|null
      */
-    public $SellerRefundResultList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundResult $SellerRefundResultList = null;
     /**
      * Constructor method for SellerRefundResultMessage
      * @uses CdiscountSellerRefundResultMessage::setOrderNumber()
@@ -35,7 +38,7 @@ class CdiscountSellerRefundResultMessage extends CdiscountServiceMessage
      * @param string $orderNumber
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundResult $sellerRefundResultList
      */
-    public function __construct($orderNumber = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundResult $sellerRefundResultList = null)
+    public function __construct(?string $orderNumber = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundResult $sellerRefundResultList = null)
     {
         $this
             ->setOrderNumber($orderNumber)
@@ -45,7 +48,7 @@ class CdiscountSellerRefundResultMessage extends CdiscountServiceMessage
      * Get OrderNumber value
      * @return string|null
      */
-    public function getOrderNumber()
+    public function getOrderNumber(): ?string
     {
         return $this->OrderNumber;
     }
@@ -54,20 +57,21 @@ class CdiscountSellerRefundResultMessage extends CdiscountServiceMessage
      * @param string $orderNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResultMessage
      */
-    public function setOrderNumber($orderNumber = null)
+    public function setOrderNumber(?string $orderNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($orderNumber) && !is_string($orderNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
         }
         $this->OrderNumber = $orderNumber;
+        
         return $this;
     }
     /**
      * Get SellerRefundResultList value
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundResult|null
      */
-    public function getSellerRefundResultList()
+    public function getSellerRefundResultList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundResult
     {
         return $this->SellerRefundResultList;
     }
@@ -76,9 +80,10 @@ class CdiscountSellerRefundResultMessage extends CdiscountServiceMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundResult $sellerRefundResultList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerRefundResultMessage
      */
-    public function setSellerRefundResultList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundResult $sellerRefundResultList = null)
+    public function setSellerRefundResultList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundResult $sellerRefundResultList = null): self
     {
         $this->SellerRefundResultList = $sellerRefundResultList;
+        
         return $this;
     }
 }

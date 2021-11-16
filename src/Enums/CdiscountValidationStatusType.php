@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ValidationStatusType Enums
@@ -38,10 +40,10 @@ class CdiscountValidationStatusType extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_VALIDATING_FIANET,
             self::VALUE_PRE_ACCEPTED,
             self::VALUE_NONE,
-        );
+        ];
     }
 }

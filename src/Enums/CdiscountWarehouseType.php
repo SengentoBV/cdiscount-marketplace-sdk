@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for WarehouseType Enums
@@ -56,13 +58,13 @@ class CdiscountWarehouseType extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_CEM,
             self::VALUE_ANZ,
             self::VALUE_SMD,
             self::VALUE_PP,
             self::VALUE_GPS,
             self::VALUE_GPN,
-        );
+        ];
     }
 }

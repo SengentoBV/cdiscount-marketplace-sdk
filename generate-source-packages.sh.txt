@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+printf "Generating service files"
+wsdltophp generate:package \
+--urlorpath="https://wsvc.cdiscount.com/MarketplaceAPIService.svc?singleWsdl" \
+--destination="./build" \
+--composer-name="sengentobv/cdiscount-marketplace-sdk" \
+--namespace="SengentoBV\CdiscountMarketplaceSdk" \
+--prefix="Cdiscount" \
+--structs-folder="Structs" \
+--arrays-folder="Arrays" \
+--enums-folder="Enums" \
+--services-folder="Services" \
+--force

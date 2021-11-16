@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetGlobalConfigurationResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetGlobalConfigurationResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGlobalConfigurationMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGlobalConfigurationMessage|null
      */
-    public $GetGlobalConfigurationResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGlobalConfigurationMessage $GetGlobalConfigurationResult = null;
     /**
      * Constructor method for GetGlobalConfigurationResponse
      * @uses CdiscountGetGlobalConfigurationResponse::setGetGlobalConfigurationResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGlobalConfigurationMessage $getGlobalConfigurationResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGlobalConfigurationMessage $getGlobalConfigurationResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGlobalConfigurationMessage $getGlobalConfigurationResult = null)
     {
         $this
             ->setGetGlobalConfigurationResult($getGlobalConfigurationResult);
@@ -36,7 +39,7 @@ class CdiscountGetGlobalConfigurationResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGlobalConfigurationMessage|null
      */
-    public function getGetGlobalConfigurationResult()
+    public function getGetGlobalConfigurationResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGlobalConfigurationMessage
     {
         return isset($this->GetGlobalConfigurationResult) ? $this->GetGlobalConfigurationResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetGlobalConfigurationResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGlobalConfigurationMessage $getGlobalConfigurationResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetGlobalConfigurationResponse
      */
-    public function setGetGlobalConfigurationResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGlobalConfigurationMessage $getGlobalConfigurationResult = null)
+    public function setGetGlobalConfigurationResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGlobalConfigurationMessage $getGlobalConfigurationResult = null): self
     {
         if (is_null($getGlobalConfigurationResult) || (is_array($getGlobalConfigurationResult) && empty($getGlobalConfigurationResult))) {
             unset($this->GetGlobalConfigurationResult);
         } else {
             $this->GetGlobalConfigurationResult = $getGlobalConfigurationResult;
         }
+        
         return $this;
     }
 }

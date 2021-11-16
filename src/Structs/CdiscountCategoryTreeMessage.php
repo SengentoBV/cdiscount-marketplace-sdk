@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CategoryTreeMessage Structs
@@ -19,15 +22,15 @@ class CdiscountCategoryTreeMessage extends CdiscountServiceBaseAPIMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree|null
      */
-    public $CategoryTree;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree $CategoryTree = null;
     /**
      * Constructor method for CategoryTreeMessage
      * @uses CdiscountCategoryTreeMessage::setCategoryTree()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree $categoryTree
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree $categoryTree = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree $categoryTree = null)
     {
         $this
             ->setCategoryTree($categoryTree);
@@ -39,7 +42,7 @@ class CdiscountCategoryTreeMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree|null
      */
-    public function getCategoryTree()
+    public function getCategoryTree(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree
     {
         return isset($this->CategoryTree) ? $this->CategoryTree : null;
     }
@@ -50,13 +53,14 @@ class CdiscountCategoryTreeMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree $categoryTree
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTreeMessage
      */
-    public function setCategoryTree(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree $categoryTree = null)
+    public function setCategoryTree(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCategoryTree $categoryTree = null): self
     {
         if (is_null($categoryTree) || (is_array($categoryTree) && empty($categoryTree))) {
             unset($this->CategoryTree);
         } else {
             $this->CategoryTree = $categoryTree;
         }
+        
         return $this;
     }
 }

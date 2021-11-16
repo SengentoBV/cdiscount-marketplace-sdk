@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetProductPackageProductMatchingFileDataResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetProductPackageProductMatchingFileDataResponse extends Abstract
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductMatchingFileMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductMatchingFileMessage|null
      */
-    public $GetProductPackageProductMatchingFileDataResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductMatchingFileMessage $GetProductPackageProductMatchingFileDataResult = null;
     /**
      * Constructor method for GetProductPackageProductMatchingFileDataResponse
      * @uses CdiscountGetProductPackageProductMatchingFileDataResponse::setGetProductPackageProductMatchingFileDataResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductMatchingFileMessage $getProductPackageProductMatchingFileDataResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductMatchingFileMessage $getProductPackageProductMatchingFileDataResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductMatchingFileMessage $getProductPackageProductMatchingFileDataResult = null)
     {
         $this
             ->setGetProductPackageProductMatchingFileDataResult($getProductPackageProductMatchingFileDataResult);
@@ -36,7 +39,7 @@ class CdiscountGetProductPackageProductMatchingFileDataResponse extends Abstract
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductMatchingFileMessage|null
      */
-    public function getGetProductPackageProductMatchingFileDataResult()
+    public function getGetProductPackageProductMatchingFileDataResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductMatchingFileMessage
     {
         return isset($this->GetProductPackageProductMatchingFileDataResult) ? $this->GetProductPackageProductMatchingFileDataResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetProductPackageProductMatchingFileDataResponse extends Abstract
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductMatchingFileMessage $getProductPackageProductMatchingFileDataResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetProductPackageProductMatchingFileDataResponse
      */
-    public function setGetProductPackageProductMatchingFileDataResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductMatchingFileMessage $getProductPackageProductMatchingFileDataResult = null)
+    public function setGetProductPackageProductMatchingFileDataResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductMatchingFileMessage $getProductPackageProductMatchingFileDataResult = null): self
     {
         if (is_null($getProductPackageProductMatchingFileDataResult) || (is_array($getProductPackageProductMatchingFileDataResult) && empty($getProductPackageProductMatchingFileDataResult))) {
             unset($this->GetProductPackageProductMatchingFileDataResult);
         } else {
             $this->GetProductPackageProductMatchingFileDataResult = $getProductPackageProductMatchingFileDataResult;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateRefundVoucherRequest Structs
@@ -19,24 +22,24 @@ class CdiscountCreateRefundVoucherRequest extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRefundInformation
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRefundInformation|null
      */
-    public $CommercialGestureList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRefundInformation $CommercialGestureList = null;
     /**
      * The OrderNumber
      * Meta information extracted from the WSDL
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $OrderNumber;
+    protected ?string $OrderNumber = null;
     /**
      * The SellerRefundList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest|null
      */
-    public $SellerRefundList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest $SellerRefundList = null;
     /**
      * Constructor method for CreateRefundVoucherRequest
      * @uses CdiscountCreateRefundVoucherRequest::setCommercialGestureList()
@@ -46,7 +49,7 @@ class CdiscountCreateRefundVoucherRequest extends AbstractStructBase
      * @param string $orderNumber
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest $sellerRefundList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRefundInformation $commercialGestureList = null, $orderNumber = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest $sellerRefundList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRefundInformation $commercialGestureList = null, ?string $orderNumber = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest $sellerRefundList = null)
     {
         $this
             ->setCommercialGestureList($commercialGestureList)
@@ -60,7 +63,7 @@ class CdiscountCreateRefundVoucherRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRefundInformation|null
      */
-    public function getCommercialGestureList()
+    public function getCommercialGestureList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRefundInformation
     {
         return isset($this->CommercialGestureList) ? $this->CommercialGestureList : null;
     }
@@ -71,20 +74,21 @@ class CdiscountCreateRefundVoucherRequest extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRefundInformation $commercialGestureList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCreateRefundVoucherRequest
      */
-    public function setCommercialGestureList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRefundInformation $commercialGestureList = null)
+    public function setCommercialGestureList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfRefundInformation $commercialGestureList = null): self
     {
         if (is_null($commercialGestureList) || (is_array($commercialGestureList) && empty($commercialGestureList))) {
             unset($this->CommercialGestureList);
         } else {
             $this->CommercialGestureList = $commercialGestureList;
         }
+        
         return $this;
     }
     /**
      * Get OrderNumber value
      * @return string|null
      */
-    public function getOrderNumber()
+    public function getOrderNumber(): ?string
     {
         return $this->OrderNumber;
     }
@@ -93,13 +97,14 @@ class CdiscountCreateRefundVoucherRequest extends AbstractStructBase
      * @param string $orderNumber
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCreateRefundVoucherRequest
      */
-    public function setOrderNumber($orderNumber = null)
+    public function setOrderNumber(?string $orderNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($orderNumber) && !is_string($orderNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
         }
         $this->OrderNumber = $orderNumber;
+        
         return $this;
     }
     /**
@@ -109,7 +114,7 @@ class CdiscountCreateRefundVoucherRequest extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest|null
      */
-    public function getSellerRefundList()
+    public function getSellerRefundList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest
     {
         return isset($this->SellerRefundList) ? $this->SellerRefundList : null;
     }
@@ -120,13 +125,14 @@ class CdiscountCreateRefundVoucherRequest extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest $sellerRefundList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountCreateRefundVoucherRequest
      */
-    public function setSellerRefundList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest $sellerRefundList = null)
+    public function setSellerRefundList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfSellerRefundRequest $sellerRefundList = null): self
     {
         if (is_null($sellerRefundList) || (is_array($sellerRefundList) && empty($sellerRefundList))) {
             unset($this->SellerRefundList);
         } else {
             $this->SellerRefundList = $sellerRefundList;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for SellerSubStateEnum Enums
@@ -38,10 +40,10 @@ class CdiscountSellerSubStateEnum extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_HOLIDAYS,
             self::VALUE_ACTIVE_SELLER,
             self::VALUE_BANNED_SELLER,
-        );
+        ];
     }
 }

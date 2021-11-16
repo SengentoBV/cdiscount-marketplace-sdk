@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetOfferListResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetOfferListResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListMessage|null
      */
-    public $GetOfferListResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListMessage $GetOfferListResult = null;
     /**
      * Constructor method for GetOfferListResponse
      * @uses CdiscountGetOfferListResponse::setGetOfferListResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListMessage $getOfferListResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListMessage $getOfferListResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListMessage $getOfferListResult = null)
     {
         $this
             ->setGetOfferListResult($getOfferListResult);
@@ -36,7 +39,7 @@ class CdiscountGetOfferListResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListMessage|null
      */
-    public function getGetOfferListResult()
+    public function getGetOfferListResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListMessage
     {
         return isset($this->GetOfferListResult) ? $this->GetOfferListResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetOfferListResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListMessage $getOfferListResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetOfferListResponse
      */
-    public function setGetOfferListResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListMessage $getOfferListResult = null)
+    public function setGetOfferListResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListMessage $getOfferListResult = null): self
     {
         if (is_null($getOfferListResult) || (is_array($getOfferListResult) && empty($getOfferListResult))) {
             unset($this->GetOfferListResult);
         } else {
             $this->GetOfferListResult = $getOfferListResult;
         }
+        
         return $this;
     }
 }

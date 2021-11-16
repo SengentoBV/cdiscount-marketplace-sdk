@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SubmitOfferPackageResponse Structs
@@ -16,15 +19,15 @@ class CdiscountSubmitOfferPackageResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferIntegrationReportMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferIntegrationReportMessage|null
      */
-    public $SubmitOfferPackageResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferIntegrationReportMessage $SubmitOfferPackageResult = null;
     /**
      * Constructor method for SubmitOfferPackageResponse
      * @uses CdiscountSubmitOfferPackageResponse::setSubmitOfferPackageResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferIntegrationReportMessage $submitOfferPackageResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferIntegrationReportMessage $submitOfferPackageResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferIntegrationReportMessage $submitOfferPackageResult = null)
     {
         $this
             ->setSubmitOfferPackageResult($submitOfferPackageResult);
@@ -36,7 +39,7 @@ class CdiscountSubmitOfferPackageResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferIntegrationReportMessage|null
      */
-    public function getSubmitOfferPackageResult()
+    public function getSubmitOfferPackageResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferIntegrationReportMessage
     {
         return isset($this->SubmitOfferPackageResult) ? $this->SubmitOfferPackageResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountSubmitOfferPackageResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferIntegrationReportMessage $submitOfferPackageResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSubmitOfferPackageResponse
      */
-    public function setSubmitOfferPackageResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferIntegrationReportMessage $submitOfferPackageResult = null)
+    public function setSubmitOfferPackageResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferIntegrationReportMessage $submitOfferPackageResult = null): self
     {
         if (is_null($submitOfferPackageResult) || (is_array($submitOfferPackageResult) && empty($submitOfferPackageResult))) {
             unset($this->SubmitOfferPackageResult);
         } else {
             $this->SubmitOfferPackageResult = $submitOfferPackageResult;
         }
+        
         return $this;
     }
 }

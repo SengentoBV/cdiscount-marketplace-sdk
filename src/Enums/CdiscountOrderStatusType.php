@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Enums;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for OrderStatusType Enums
@@ -56,13 +58,13 @@ class CdiscountOrderStatusType extends AbstractStructEnumBase
      */
     public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NON_VALIDATED,
             self::VALUE_NO_PAYMENT_ATTEMPT,
             self::VALUE_CANCELLED,
             self::VALUE_VALIDATED,
             self::VALUE_WAITING,
             self::VALUE_COMPLETED,
-        );
+        ];
     }
 }

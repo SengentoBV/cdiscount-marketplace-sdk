@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetFulfilmentDeliveryDocumentResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetFulfilmentDeliveryDocumentResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentDeliveryDocumentMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentDeliveryDocumentMessage|null
      */
-    public $GetFulfilmentDeliveryDocumentResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentDeliveryDocumentMessage $GetFulfilmentDeliveryDocumentResult = null;
     /**
      * Constructor method for GetFulfilmentDeliveryDocumentResponse
      * @uses CdiscountGetFulfilmentDeliveryDocumentResponse::setGetFulfilmentDeliveryDocumentResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentDeliveryDocumentMessage $getFulfilmentDeliveryDocumentResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentDeliveryDocumentMessage $getFulfilmentDeliveryDocumentResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentDeliveryDocumentMessage $getFulfilmentDeliveryDocumentResult = null)
     {
         $this
             ->setGetFulfilmentDeliveryDocumentResult($getFulfilmentDeliveryDocumentResult);
@@ -36,7 +39,7 @@ class CdiscountGetFulfilmentDeliveryDocumentResponse extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentDeliveryDocumentMessage|null
      */
-    public function getGetFulfilmentDeliveryDocumentResult()
+    public function getGetFulfilmentDeliveryDocumentResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentDeliveryDocumentMessage
     {
         return isset($this->GetFulfilmentDeliveryDocumentResult) ? $this->GetFulfilmentDeliveryDocumentResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetFulfilmentDeliveryDocumentResponse extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentDeliveryDocumentMessage $getFulfilmentDeliveryDocumentResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetFulfilmentDeliveryDocumentResponse
      */
-    public function setGetFulfilmentDeliveryDocumentResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentDeliveryDocumentMessage $getFulfilmentDeliveryDocumentResult = null)
+    public function setGetFulfilmentDeliveryDocumentResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountFulfilmentDeliveryDocumentMessage $getFulfilmentDeliveryDocumentResult = null): self
     {
         if (is_null($getFulfilmentDeliveryDocumentResult) || (is_array($getFulfilmentDeliveryDocumentResult) && empty($getFulfilmentDeliveryDocumentResult))) {
             unset($this->GetFulfilmentDeliveryDocumentResult);
         } else {
             $this->GetFulfilmentDeliveryDocumentResult = $getFulfilmentDeliveryDocumentResult;
         }
+        
         return $this;
     }
 }

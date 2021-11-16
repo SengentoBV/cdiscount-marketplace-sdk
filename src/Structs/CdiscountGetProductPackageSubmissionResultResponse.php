@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetProductPackageSubmissionResultResponse Structs
@@ -16,15 +19,15 @@ class CdiscountGetProductPackageSubmissionResultResponse extends AbstractStructB
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage|null
      */
-    public $GetProductPackageSubmissionResultResult;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage $GetProductPackageSubmissionResultResult = null;
     /**
      * Constructor method for GetProductPackageSubmissionResultResponse
      * @uses CdiscountGetProductPackageSubmissionResultResponse::setGetProductPackageSubmissionResultResult()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage $getProductPackageSubmissionResultResult
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage $getProductPackageSubmissionResultResult = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage $getProductPackageSubmissionResultResult = null)
     {
         $this
             ->setGetProductPackageSubmissionResultResult($getProductPackageSubmissionResultResult);
@@ -36,7 +39,7 @@ class CdiscountGetProductPackageSubmissionResultResponse extends AbstractStructB
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage|null
      */
-    public function getGetProductPackageSubmissionResultResult()
+    public function getGetProductPackageSubmissionResultResult(): ?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage
     {
         return isset($this->GetProductPackageSubmissionResultResult) ? $this->GetProductPackageSubmissionResultResult : null;
     }
@@ -47,13 +50,14 @@ class CdiscountGetProductPackageSubmissionResultResponse extends AbstractStructB
      * @param \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage $getProductPackageSubmissionResultResult
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountGetProductPackageSubmissionResultResponse
      */
-    public function setGetProductPackageSubmissionResultResult(\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage $getProductPackageSubmissionResultResult = null)
+    public function setGetProductPackageSubmissionResultResult(?\SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductIntegrationReportMessage $getProductPackageSubmissionResultResult = null): self
     {
         if (is_null($getProductPackageSubmissionResultResult) || (is_array($getProductPackageSubmissionResultResult) && empty($getProductPackageSubmissionResultResult))) {
             unset($this->GetProductPackageSubmissionResultResult);
         } else {
             $this->GetProductPackageSubmissionResultResult = $getProductPackageSubmissionResultResult;
         }
+        
         return $this;
     }
 }

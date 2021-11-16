@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SellerIndicator Structs
@@ -19,48 +22,48 @@ class CdiscountSellerIndicator extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ComputationDate;
+    protected ?string $ComputationDate = null;
     /**
      * The Description
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Description;
+    protected ?string $Description = null;
     /**
      * The Threshold
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var float
+     * @var float|null
      */
-    public $Threshold;
+    protected ?float $Threshold = null;
     /**
      * The ThresholdType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ThresholdType;
+    protected ?string $ThresholdType = null;
     /**
      * The ValueD30
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var float
+     * @var float|null
      */
-    public $ValueD30;
+    protected ?float $ValueD30 = null;
     /**
      * The ValueD60
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var float
+     * @var float|null
      */
-    public $ValueD60;
+    protected ?float $ValueD60 = null;
     /**
      * Constructor method for SellerIndicator
      * @uses CdiscountSellerIndicator::setComputationDate()
@@ -76,7 +79,7 @@ class CdiscountSellerIndicator extends AbstractStructBase
      * @param float $valueD30
      * @param float $valueD60
      */
-    public function __construct($computationDate = null, $description = null, $threshold = null, $thresholdType = null, $valueD30 = null, $valueD60 = null)
+    public function __construct(?string $computationDate = null, ?string $description = null, ?float $threshold = null, ?string $thresholdType = null, ?float $valueD30 = null, ?float $valueD60 = null)
     {
         $this
             ->setComputationDate($computationDate)
@@ -93,7 +96,7 @@ class CdiscountSellerIndicator extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getComputationDate()
+    public function getComputationDate(): ?string
     {
         return isset($this->ComputationDate) ? $this->ComputationDate : null;
     }
@@ -104,17 +107,18 @@ class CdiscountSellerIndicator extends AbstractStructBase
      * @param string $computationDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerIndicator
      */
-    public function setComputationDate($computationDate = null)
+    public function setComputationDate(?string $computationDate = null): self
     {
         // validation for constraint: string
         if (!is_null($computationDate) && !is_string($computationDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($computationDate, true), gettype($computationDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($computationDate, true), gettype($computationDate)), __LINE__);
         }
         if (is_null($computationDate) || (is_array($computationDate) && empty($computationDate))) {
             unset($this->ComputationDate);
         } else {
             $this->ComputationDate = $computationDate;
         }
+        
         return $this;
     }
     /**
@@ -124,7 +128,7 @@ class CdiscountSellerIndicator extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return isset($this->Description) ? $this->Description : null;
     }
@@ -135,17 +139,18 @@ class CdiscountSellerIndicator extends AbstractStructBase
      * @param string $description
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerIndicator
      */
-    public function setDescription($description = null)
+    public function setDescription(?string $description = null): self
     {
         // validation for constraint: string
         if (!is_null($description) && !is_string($description)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
         }
         if (is_null($description) || (is_array($description) && empty($description))) {
             unset($this->Description);
         } else {
             $this->Description = $description;
         }
+        
         return $this;
     }
     /**
@@ -155,7 +160,7 @@ class CdiscountSellerIndicator extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return float|null
      */
-    public function getThreshold()
+    public function getThreshold(): ?float
     {
         return isset($this->Threshold) ? $this->Threshold : null;
     }
@@ -166,24 +171,25 @@ class CdiscountSellerIndicator extends AbstractStructBase
      * @param float $threshold
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerIndicator
      */
-    public function setThreshold($threshold = null)
+    public function setThreshold(?float $threshold = null): self
     {
         // validation for constraint: float
         if (!is_null($threshold) && !(is_float($threshold) || is_numeric($threshold))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($threshold, true), gettype($threshold)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($threshold, true), gettype($threshold)), __LINE__);
         }
         if (is_null($threshold) || (is_array($threshold) && empty($threshold))) {
             unset($this->Threshold);
         } else {
             $this->Threshold = $threshold;
         }
+        
         return $this;
     }
     /**
      * Get ThresholdType value
      * @return string|null
      */
-    public function getThresholdType()
+    public function getThresholdType(): ?string
     {
         return $this->ThresholdType;
     }
@@ -191,17 +197,18 @@ class CdiscountSellerIndicator extends AbstractStructBase
      * Set ThresholdType value
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountTresholdType::valueIsValid()
      * @uses \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountTresholdType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $thresholdType
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerIndicator
      */
-    public function setThresholdType($thresholdType = null)
+    public function setThresholdType(?string $thresholdType = null): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountTresholdType::valueIsValid($thresholdType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountTresholdType', is_array($thresholdType) ? implode(', ', $thresholdType) : var_export($thresholdType, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountTresholdType::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountTresholdType', is_array($thresholdType) ? implode(', ', $thresholdType) : var_export($thresholdType, true), implode(', ', \SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountTresholdType::getValidValues())), __LINE__);
         }
         $this->ThresholdType = $thresholdType;
+        
         return $this;
     }
     /**
@@ -211,7 +218,7 @@ class CdiscountSellerIndicator extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return float|null
      */
-    public function getValueD30()
+    public function getValueD30(): ?float
     {
         return isset($this->ValueD30) ? $this->ValueD30 : null;
     }
@@ -222,17 +229,18 @@ class CdiscountSellerIndicator extends AbstractStructBase
      * @param float $valueD30
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerIndicator
      */
-    public function setValueD30($valueD30 = null)
+    public function setValueD30(?float $valueD30 = null): self
     {
         // validation for constraint: float
         if (!is_null($valueD30) && !(is_float($valueD30) || is_numeric($valueD30))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($valueD30, true), gettype($valueD30)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($valueD30, true), gettype($valueD30)), __LINE__);
         }
         if (is_null($valueD30) || (is_array($valueD30) && empty($valueD30))) {
             unset($this->ValueD30);
         } else {
             $this->ValueD30 = $valueD30;
         }
+        
         return $this;
     }
     /**
@@ -242,7 +250,7 @@ class CdiscountSellerIndicator extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return float|null
      */
-    public function getValueD60()
+    public function getValueD60(): ?float
     {
         return isset($this->ValueD60) ? $this->ValueD60 : null;
     }
@@ -253,17 +261,18 @@ class CdiscountSellerIndicator extends AbstractStructBase
      * @param float $valueD60
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountSellerIndicator
      */
-    public function setValueD60($valueD60 = null)
+    public function setValueD60(?float $valueD60 = null): self
     {
         // validation for constraint: float
         if (!is_null($valueD60) && !(is_float($valueD60) || is_numeric($valueD60))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($valueD60, true), gettype($valueD60)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($valueD60, true), gettype($valueD60)), __LINE__);
         }
         if (is_null($valueD60) || (is_array($valueD60) && empty($valueD60))) {
             unset($this->ValueD60);
         } else {
             $this->ValueD60 = $valueD60;
         }
+        
         return $this;
     }
 }

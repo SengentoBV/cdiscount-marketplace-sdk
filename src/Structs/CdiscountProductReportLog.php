@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ProductReportLog Structs
@@ -18,40 +21,40 @@ class CdiscountProductReportLog extends AbstractStructBase
      * The LogDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LogDate;
+    protected ?string $LogDate = null;
     /**
      * The ProductIntegrationStatus
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ProductIntegrationStatus;
+    protected ?string $ProductIntegrationStatus = null;
     /**
      * The PropertyList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportPropertyLog
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportPropertyLog|null
      */
-    public $PropertyList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportPropertyLog $PropertyList = null;
     /**
      * The SKU
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SKU;
+    protected ?string $SKU = null;
     /**
      * The Validated
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $Validated;
+    protected ?bool $Validated = null;
     /**
      * Constructor method for ProductReportLog
      * @uses CdiscountProductReportLog::setLogDate()
@@ -65,7 +68,7 @@ class CdiscountProductReportLog extends AbstractStructBase
      * @param string $sKU
      * @param bool $validated
      */
-    public function __construct($logDate = null, $productIntegrationStatus = null, \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportPropertyLog $propertyList = null, $sKU = null, $validated = null)
+    public function __construct(?string $logDate = null, ?string $productIntegrationStatus = null, ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportPropertyLog $propertyList = null, ?string $sKU = null, ?bool $validated = null)
     {
         $this
             ->setLogDate($logDate)
@@ -78,7 +81,7 @@ class CdiscountProductReportLog extends AbstractStructBase
      * Get LogDate value
      * @return string|null
      */
-    public function getLogDate()
+    public function getLogDate(): ?string
     {
         return $this->LogDate;
     }
@@ -87,13 +90,14 @@ class CdiscountProductReportLog extends AbstractStructBase
      * @param string $logDate
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductReportLog
      */
-    public function setLogDate($logDate = null)
+    public function setLogDate(?string $logDate = null): self
     {
         // validation for constraint: string
         if (!is_null($logDate) && !is_string($logDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($logDate, true), gettype($logDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($logDate, true), gettype($logDate)), __LINE__);
         }
         $this->LogDate = $logDate;
+        
         return $this;
     }
     /**
@@ -103,7 +107,7 @@ class CdiscountProductReportLog extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getProductIntegrationStatus()
+    public function getProductIntegrationStatus(): ?string
     {
         return isset($this->ProductIntegrationStatus) ? $this->ProductIntegrationStatus : null;
     }
@@ -114,17 +118,18 @@ class CdiscountProductReportLog extends AbstractStructBase
      * @param string $productIntegrationStatus
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductReportLog
      */
-    public function setProductIntegrationStatus($productIntegrationStatus = null)
+    public function setProductIntegrationStatus(?string $productIntegrationStatus = null): self
     {
         // validation for constraint: string
         if (!is_null($productIntegrationStatus) && !is_string($productIntegrationStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productIntegrationStatus, true), gettype($productIntegrationStatus)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productIntegrationStatus, true), gettype($productIntegrationStatus)), __LINE__);
         }
         if (is_null($productIntegrationStatus) || (is_array($productIntegrationStatus) && empty($productIntegrationStatus))) {
             unset($this->ProductIntegrationStatus);
         } else {
             $this->ProductIntegrationStatus = $productIntegrationStatus;
         }
+        
         return $this;
     }
     /**
@@ -134,7 +139,7 @@ class CdiscountProductReportLog extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportPropertyLog|null
      */
-    public function getPropertyList()
+    public function getPropertyList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportPropertyLog
     {
         return isset($this->PropertyList) ? $this->PropertyList : null;
     }
@@ -145,13 +150,14 @@ class CdiscountProductReportLog extends AbstractStructBase
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportPropertyLog $propertyList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductReportLog
      */
-    public function setPropertyList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportPropertyLog $propertyList = null)
+    public function setPropertyList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfProductReportPropertyLog $propertyList = null): self
     {
         if (is_null($propertyList) || (is_array($propertyList) && empty($propertyList))) {
             unset($this->PropertyList);
         } else {
             $this->PropertyList = $propertyList;
         }
+        
         return $this;
     }
     /**
@@ -161,7 +167,7 @@ class CdiscountProductReportLog extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSKU()
+    public function getSKU(): ?string
     {
         return isset($this->SKU) ? $this->SKU : null;
     }
@@ -172,24 +178,25 @@ class CdiscountProductReportLog extends AbstractStructBase
      * @param string $sKU
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductReportLog
      */
-    public function setSKU($sKU = null)
+    public function setSKU(?string $sKU = null): self
     {
         // validation for constraint: string
         if (!is_null($sKU) && !is_string($sKU)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sKU, true), gettype($sKU)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sKU, true), gettype($sKU)), __LINE__);
         }
         if (is_null($sKU) || (is_array($sKU) && empty($sKU))) {
             unset($this->SKU);
         } else {
             $this->SKU = $sKU;
         }
+        
         return $this;
     }
     /**
      * Get Validated value
      * @return bool|null
      */
-    public function getValidated()
+    public function getValidated(): ?bool
     {
         return $this->Validated;
     }
@@ -198,13 +205,14 @@ class CdiscountProductReportLog extends AbstractStructBase
      * @param bool $validated
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountProductReportLog
      */
-    public function setValidated($validated = null)
+    public function setValidated(?bool $validated = null): self
     {
         // validation for constraint: boolean
         if (!is_null($validated) && !is_bool($validated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($validated, true), gettype($validated)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($validated, true), gettype($validated)), __LINE__);
         }
         $this->Validated = $validated;
+        
         return $this;
     }
 }

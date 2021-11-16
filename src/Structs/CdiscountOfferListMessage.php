@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SengentoBV\CdiscountMarketplaceSdk\Structs;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OfferListMessage Structs
@@ -19,15 +22,15 @@ class CdiscountOfferListMessage extends CdiscountServiceBaseAPIMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer
+     * @var \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer|null
      */
-    public $OfferList;
+    protected ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer $OfferList = null;
     /**
      * Constructor method for OfferListMessage
      * @uses CdiscountOfferListMessage::setOfferList()
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer $offerList
      */
-    public function __construct(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer $offerList = null)
+    public function __construct(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer $offerList = null)
     {
         $this
             ->setOfferList($offerList);
@@ -39,7 +42,7 @@ class CdiscountOfferListMessage extends CdiscountServiceBaseAPIMessage
      * removable from the request (nillable=true+minOccurs=0)
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer|null
      */
-    public function getOfferList()
+    public function getOfferList(): ?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer
     {
         return isset($this->OfferList) ? $this->OfferList : null;
     }
@@ -50,13 +53,14 @@ class CdiscountOfferListMessage extends CdiscountServiceBaseAPIMessage
      * @param \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer $offerList
      * @return \SengentoBV\CdiscountMarketplaceSdk\Structs\CdiscountOfferListMessage
      */
-    public function setOfferList(\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer $offerList = null)
+    public function setOfferList(?\SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOffer $offerList = null): self
     {
         if (is_null($offerList) || (is_array($offerList) && empty($offerList))) {
             unset($this->OfferList);
         } else {
             $this->OfferList = $offerList;
         }
+        
         return $this;
     }
 }
