@@ -154,7 +154,7 @@ class CdiscountArrayOfOrderClaim extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string OrderClaim
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'OrderClaim';
     }

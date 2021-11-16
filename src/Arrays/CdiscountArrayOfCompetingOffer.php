@@ -154,7 +154,7 @@ class CdiscountArrayOfCompetingOffer extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string CompetingOffer
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'CompetingOffer';
     }

@@ -48,7 +48,7 @@ class CdiscountOfferStateEnum extends AbstractStructEnumBase
      * @uses self::VALUE_FULFILLMENT
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_WAITING_FOR_PRODUCT_ACTIVATION,

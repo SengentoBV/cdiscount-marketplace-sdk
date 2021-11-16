@@ -154,7 +154,7 @@ class CdiscountArrayOfDiscussionMail extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string DiscussionMail
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'DiscussionMail';
     }

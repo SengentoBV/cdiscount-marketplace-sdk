@@ -154,7 +154,7 @@ class CdiscountArrayOfCarrier extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Carrier
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Carrier';
     }

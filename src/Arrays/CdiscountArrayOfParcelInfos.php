@@ -154,7 +154,7 @@ class CdiscountArrayOfParcelInfos extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ParcelInfos
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ParcelInfos';
     }

@@ -154,7 +154,7 @@ class CdiscountArrayOfParcelActionResult extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ParcelActionResult
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ParcelActionResult';
     }

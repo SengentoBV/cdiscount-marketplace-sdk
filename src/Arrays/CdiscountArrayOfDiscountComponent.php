@@ -154,7 +154,7 @@ class CdiscountArrayOfDiscountComponent extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string DiscountComponent
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'DiscountComponent';
     }

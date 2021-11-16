@@ -154,7 +154,7 @@ class CdiscountArrayOfFulfilmentActivationReport extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string FulfilmentActivationReport
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'FulfilmentActivationReport';
     }

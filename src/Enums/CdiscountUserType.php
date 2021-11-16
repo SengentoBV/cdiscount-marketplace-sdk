@@ -42,7 +42,7 @@ class CdiscountUserType extends AbstractStructEnumBase
      * @uses self::VALUE_GRC_OPERATOR
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_CUSTOMER,

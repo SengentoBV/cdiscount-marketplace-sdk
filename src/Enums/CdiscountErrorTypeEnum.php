@@ -252,7 +252,7 @@ class CdiscountErrorTypeEnum extends AbstractStructEnumBase
      * @uses self::VALUE_PRODUCT_NUMBER_LIMIT_EXCEEDED_EXCEPTION
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_UNEXPECTED_EXCEPTION,

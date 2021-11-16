@@ -96,7 +96,7 @@ class CdiscountAcceptationStateEnum extends AbstractStructEnumBase
      * @uses self::VALUE_PAYMENT_REFUSED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_NONE,

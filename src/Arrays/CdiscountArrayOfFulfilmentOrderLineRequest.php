@@ -154,7 +154,7 @@ class CdiscountArrayOfFulfilmentOrderLineRequest extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string FulfilmentOrderLineRequest
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'FulfilmentOrderLineRequest';
     }

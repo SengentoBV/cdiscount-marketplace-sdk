@@ -30,7 +30,7 @@ class CdiscountOfferFilterCriterion extends AbstractStructEnumBase
      * @uses self::VALUE_USED_OFFERS_ONLY
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_NEW_OFFERS_ONLY,

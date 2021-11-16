@@ -154,7 +154,7 @@ class CdiscountArrayOfProductModel extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ProductModel
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ProductModel';
     }

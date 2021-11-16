@@ -154,7 +154,7 @@ class CdiscountArrayOfProductStock extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ProductStock
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ProductStock';
     }

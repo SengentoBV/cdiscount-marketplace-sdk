@@ -154,7 +154,7 @@ class CdiscountArrayOfSellerRefundResult extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string SellerRefundResult
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'SellerRefundResult';
     }

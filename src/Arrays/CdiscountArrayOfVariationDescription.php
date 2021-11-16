@@ -154,7 +154,7 @@ class CdiscountArrayOfVariationDescription extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string VariationDescription
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'VariationDescription';
     }

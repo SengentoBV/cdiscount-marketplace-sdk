@@ -151,7 +151,7 @@ class CdiscountArrayOfOrderStateEnum extends AbstractStructArrayBase
      * @param string $item
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfOrderStateEnum
      */
-    public function add($item)
+    public function add($item): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountOrderStateEnum::valueIsValid($item)) {
@@ -164,7 +164,7 @@ class CdiscountArrayOfOrderStateEnum extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string OrderStateEnum
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'OrderStateEnum';
     }

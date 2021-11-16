@@ -154,7 +154,7 @@ class CdiscountArrayOfRelayIntegrationLog extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string RelayIntegrationLog
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'RelayIntegrationLog';
     }

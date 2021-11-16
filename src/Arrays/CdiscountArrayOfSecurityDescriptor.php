@@ -154,7 +154,7 @@ class CdiscountArrayOfSecurityDescriptor extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string SecurityDescriptor
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'SecurityDescriptor';
     }

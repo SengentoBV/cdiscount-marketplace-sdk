@@ -154,7 +154,7 @@ class CdiscountArrayOfOfferPool extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string OfferPool
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'OfferPool';
     }

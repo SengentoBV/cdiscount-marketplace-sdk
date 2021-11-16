@@ -154,7 +154,7 @@ class CdiscountArrayOfProductReportPropertyLog extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ProductReportPropertyLog
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ProductReportPropertyLog';
     }

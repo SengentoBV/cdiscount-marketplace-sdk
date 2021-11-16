@@ -222,7 +222,7 @@ class CdiscountOrderStateEnum extends AbstractStructEnumBase
      * @uses self::VALUE_BLOCKED_MARKETPLACE_SERVICE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_CANCELLED_BY_CUSTOMER,

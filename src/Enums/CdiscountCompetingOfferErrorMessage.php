@@ -42,7 +42,7 @@ class CdiscountCompetingOfferErrorMessage extends AbstractStructEnumBase
      * @uses self::VALUE_PARENT_VARIANT_PRODUCT
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_UNAUTORIZED_PRODUCT,

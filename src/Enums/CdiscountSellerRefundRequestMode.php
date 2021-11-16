@@ -30,7 +30,7 @@ class CdiscountSellerRefundRequestMode extends AbstractStructEnumBase
      * @uses self::VALUE_RETRACTION
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_CLAIM,

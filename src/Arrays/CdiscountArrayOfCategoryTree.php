@@ -154,7 +154,7 @@ class CdiscountArrayOfCategoryTree extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string CategoryTree
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'CategoryTree';
     }

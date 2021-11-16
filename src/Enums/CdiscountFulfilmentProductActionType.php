@@ -30,7 +30,7 @@ class CdiscountFulfilmentProductActionType extends AbstractStructEnumBase
      * @uses self::VALUE_DEACTIVATION
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_ACTIVATION,

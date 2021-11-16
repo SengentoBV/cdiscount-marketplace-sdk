@@ -1092,7 +1092,7 @@ class CdiscountCurrency extends AbstractStructEnumBase
      * @uses self::VALUE_ZWL
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_AED,

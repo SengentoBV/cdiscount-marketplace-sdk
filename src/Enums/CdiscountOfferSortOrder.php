@@ -42,7 +42,7 @@ class CdiscountOfferSortOrder extends AbstractStructEnumBase
      * @uses self::VALUE_BY_CREATION_DATE_DESCENDING
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_BY_SOLD_QUANTITY_DESCENDING,

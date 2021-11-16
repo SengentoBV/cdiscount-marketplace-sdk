@@ -54,7 +54,7 @@ class CdiscountProductCondition extends AbstractStructEnumBase
      * @uses self::VALUE_NEW_NEW
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_USED_LIKE_NEW,

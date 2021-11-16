@@ -30,7 +30,7 @@ class CdiscountParcelActionTypes extends AbstractStructEnumBase
      * @uses self::VALUE_ASKING_FOR_DELIVERY_CERTIFICATION
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_ASKING_FOR_INVESTIGATION,

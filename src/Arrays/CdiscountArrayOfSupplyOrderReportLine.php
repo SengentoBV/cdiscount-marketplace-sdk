@@ -154,7 +154,7 @@ class CdiscountArrayOfSupplyOrderReportLine extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string SupplyOrderReportLine
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'SupplyOrderReportLine';
     }

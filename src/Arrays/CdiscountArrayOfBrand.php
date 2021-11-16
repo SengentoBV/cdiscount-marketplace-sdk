@@ -154,7 +154,7 @@ class CdiscountArrayOfBrand extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Brand
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Brand';
     }

@@ -154,7 +154,7 @@ class CdiscountArrayOfVoucher extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Voucher
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Voucher';
     }

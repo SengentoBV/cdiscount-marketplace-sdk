@@ -154,7 +154,7 @@ class CdiscountArrayOfDeliveryModeInformation extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string DeliveryModeInformation
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'DeliveryModeInformation';
     }

@@ -48,7 +48,7 @@ class CdiscountCloseDiscussionStatus extends AbstractStructEnumBase
      * @uses self::VALUE_ALREADY_CLOSED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_DISCUSSION_CLOSED,

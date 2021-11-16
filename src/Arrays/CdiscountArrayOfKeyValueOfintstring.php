@@ -144,7 +144,7 @@ class CdiscountArrayOfKeyValueOfintstring extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string KeyValueOfintstring
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'KeyValueOfintstring';
     }

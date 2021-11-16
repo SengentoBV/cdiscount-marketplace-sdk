@@ -144,7 +144,7 @@ class CdiscountArrayOfKeyValueOfstringArrayOfstringty7Ep6D1 extends AbstractStru
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string KeyValueOfstringArrayOfstringty7Ep6D1
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'KeyValueOfstringArrayOfstringty7Ep6D1';
     }

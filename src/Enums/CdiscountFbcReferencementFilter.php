@@ -36,7 +36,7 @@ class CdiscountFbcReferencementFilter extends AbstractStructEnumBase
      * @uses self::VALUE_ONLY_NOT_REFERENCED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_ALL,

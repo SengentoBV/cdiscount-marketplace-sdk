@@ -36,7 +36,7 @@ class CdiscountDiscountType extends AbstractStructEnumBase
      * @uses self::VALUE_SALES
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_STRIKED_PRICE,

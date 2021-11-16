@@ -154,7 +154,7 @@ class CdiscountArrayOfValidateOrderLineResult extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ValidateOrderLineResult
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ValidateOrderLineResult';
     }

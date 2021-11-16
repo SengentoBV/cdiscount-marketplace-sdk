@@ -154,7 +154,7 @@ class CdiscountArrayOfProductActivationData extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ProductActivationData
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ProductActivationData';
     }

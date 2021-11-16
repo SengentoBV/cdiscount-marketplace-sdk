@@ -154,7 +154,7 @@ class CdiscountArrayOfAssociatedOrderInfo extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string AssociatedOrderInfo
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'AssociatedOrderInfo';
     }

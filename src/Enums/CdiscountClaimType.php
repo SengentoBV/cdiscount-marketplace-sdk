@@ -96,7 +96,7 @@ class CdiscountClaimType extends AbstractStructEnumBase
      * @uses self::VALUE_ORDER_NOT_SHIPPED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_PACKAGE_NOT_RECEIVED,

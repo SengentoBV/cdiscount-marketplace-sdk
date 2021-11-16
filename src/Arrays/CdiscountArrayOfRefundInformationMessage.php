@@ -154,7 +154,7 @@ class CdiscountArrayOfRefundInformationMessage extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string RefundInformationMessage
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'RefundInformationMessage';
     }

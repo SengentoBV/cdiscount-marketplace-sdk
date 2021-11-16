@@ -154,7 +154,7 @@ class CdiscountArrayOfValidateOrder extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ValidateOrder
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ValidateOrder';
     }

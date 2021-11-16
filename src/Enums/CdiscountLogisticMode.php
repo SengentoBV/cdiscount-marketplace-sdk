@@ -36,7 +36,7 @@ class CdiscountLogisticMode extends AbstractStructEnumBase
      * @uses self::VALUE_FULFILMENT_ON_DEMAND
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
         return array(
             self::VALUE_MARKETPLACE,

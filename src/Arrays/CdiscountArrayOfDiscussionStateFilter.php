@@ -151,7 +151,7 @@ class CdiscountArrayOfDiscussionStateFilter extends AbstractStructArrayBase
      * @param string $item
      * @return \SengentoBV\CdiscountMarketplaceSdk\Arrays\CdiscountArrayOfDiscussionStateFilter
      */
-    public function add($item)
+    public function add($item): self
     {
         // validation for constraint: enumeration
         if (!\SengentoBV\CdiscountMarketplaceSdk\Enums\CdiscountDiscussionStateFilter::valueIsValid($item)) {
@@ -164,7 +164,7 @@ class CdiscountArrayOfDiscussionStateFilter extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string DiscussionStateFilter
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'DiscussionStateFilter';
     }

@@ -154,7 +154,7 @@ class CdiscountArrayOfCloseDiscussionResult extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string CloseDiscussionResult
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'CloseDiscussionResult';
     }

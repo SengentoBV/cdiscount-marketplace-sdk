@@ -154,7 +154,7 @@ class CdiscountArrayOfOfferReportPropertyLog extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string OfferReportPropertyLog
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'OfferReportPropertyLog';
     }
